@@ -1,0 +1,48 @@
+{% extends 'front/base.html' %}
+{% load static %}
+{% load i18n %}
+{% load cropping %}
+{% block content %}
+<span class="thumb-info thumb-info-no-borders thumb-info-no-borders-rounded thumb-info-lighten thumb-info-bottom-info thumb-info-bottom-info-dark thumb-info-bottom-info-show-more thumb-info-no-zoom">
+	<span>
+		<img src="{% static 'img/slides/wld-banner.jpg' %}" class="img-fluid" alt="world-laughter-day-banner">
+	</span>
+</span>
+<div role="main" class="main">
+    <div class="container py-3 my-5">
+        <div class="row">
+            <div class="col-lg-9 order-lg-1">
+                <h3>About World Laughter Day</h3>
+                <div class="justify-content-center">
+                    <p class="float-left pr-3"><img src="{% static 'img/wld/english-logo.jpg' %}" alt="World Laughter Day Logo" width="300" height="300"/></p>
+                    <p><strong>Mission: Health, happiness and world peace through laughter</strong></p>
+                    <p>World Laughter Day was created in 1998 by Dr. Madan Kataria, founder of the worldwide Laughter Yoga
+                        movement. The celebration of World Laughter Day is a positive manifestation for world peace and is
+                        intended to build up a global consciousness of brotherhood and friendship through laughter. Today, we
+                        are surrounded with a sea of negativity – violence, terrorism, natural disasters, global warming, bad
+                        economy and other stressors. When people are happy and healthy they contribute to world peace.</p>
+                    <p><strong>How can we bring World Peace through Laughter?</strong></p>
+                    <p>Formula is very simple -When you laugh; you change and when you change the world changes around you.
+                        Inner change is the key to see the change in the outer world. The war in the external world the
+                        reflection of the inner war going on in the minds of people. Unconditional laughter has the power to
+                        change the inner chemistry and make us feel good inside. When you feel good inside, it changes the
+                        perception of outer world. <br>Laughter is the easiest and cost-effective solution for physical, mental,
+                        social and spiritual well-being.</p>
+                    <p><strong>Universal Language</strong></p>
+                    <p>Laughter is a universal language, we all speak and it helps to connect people from different cultures and
+                        countries. Through the network of free social Laughter Clubs, we are creating a worldwide community of
+                        caring and sharing people who believe in unconditional love, kindness and compassion.</p>
+                    <p><strong>When and What happens on WLD</strong></p>
+                    <p>First Sunday of every May is World Laughter Day. On this day the laughter club members and their friends
+                        and families get together in important squares public parks to laugh together to send out positive
+                        vibrations of unconditional love, laughter, kindness and compassion.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 order-lg-2">
+                {% include 'front/includes/sidebar/wld-sidebar.html' %}
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,211 @@
+{% extends 'be/base.html' %}
+{% load static %}
+{% block meta %}
+<title>Add Blog - {{webSettingsUniversal.title}}</title>
+<meta name="description" content="{{frontendSettingsUniversal.metaDescription}}"/>
+<meta name="keywords" content="{{frontendSettingsUniversal.metaKeyword}}"/>
+<meta property="og:title" content="Add Blog - {{frontendSettingsUniversal.title}}"/>
+<meta property="og:url" content="{{request.scheme}}://{{request.get_host}}{{request.get_full_path}}"/>
+<meta property="og:site_name" content="{{webSettingsUniversal.title}} - {{webSettingsUniversal.slogan}}"/>
+{% endblock %}
+{% block content %}
+<div class="d-flex flex-column flex-column-fluid">
+    <div class="app-content flex-column-fluid mt-10">
+        <div class="app-container container-xxl">
+            {% include 'be/includes/alert.html' %}
+            <div class="card">
+                <div class="card-header ribbon ribbon-end ribbon-clip">
+                    <div class="ribbon-label">
+                        Create
+                        <span class="ribbon-inner bg-primary"></span>
+                    </div>
+                    <div class="card-title fw-bold m-0">Add Blog</div>
+                </div>
+                <div class="card-body pt-0">
+                    <div class="card mb-5 mb-xl-10">
+                        <div class="collapse show">
+                            <form action="{% url 'blogAdd' %}" method="post" class="form" enctype="multipart/form-data" novalidate>
+                                {% csrf_token %}
+                                <div class="card-body border-top p-9">
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <div class="form-floating mb-7 {% if bForm.category.errors %}has-error{% endif %}">
+                                                {{ bForm.category }}
+                                                <label class="required">Category</label>
+                                                {% for error in bForm.category.errors %}
+                                                <div class="text-danger mt-2">
+                                                    {{ error|escape }}
+                                                </div>
+                                                {% endfor %}
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="form-floating mb-7 {% if bForm.title.errors %}has-error{% endif %}">
+                                                {{ bForm.title }}
+                                                <label class="required">Title</label>
+                                                {% for error in bForm.title.errors %}
+                                                <div class="text-danger mt-2">
+                                                    {{ error|escape }}
+                                                </div>
+                                                {% endfor %}
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="mb-7 {% if bForm.description.errors %}has-error{% endif %}">
+                                                <label class="required">Description</label>
+                                                {{ bForm.description }}
+                                                {{ bForm.media }}
+                                                {% for error in bForm.description.errors %}
+                                                <div class="text-danger mt-2">
+                                                    {{ error|escape }}
+                                                </div>
+                                                {% endfor %}
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="mb-7 {% if bForm.image.errors %}has-error{% endif %}">
+                                                <label class="required">Upload Image</label><br>
+                                                {{ bForm.image }}
+                                                {% for error in bForm.title.errors %}
+                                                <div class="text-danger mt-2">
+                                                    {{ error|escape }}
+                                                </div>
+                                                {% endfor %}
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="form-floating mb-7 {% if bForm.meta_title.errors %}has-error{% endif %}">
+                                                {{ bForm.meta_title }}
+                                                <label class="required">Meta Title</label>
+                                                {% for error in bForm.meta_title.errors %}
+                                                <div class="text-danger mt-2">
+                                                    {{ error|escape }}
+                                                </div>
+                                                {% endfor %}
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="form-floating mb-7 {% if bForm.meta_description.errors %}has-error{% endif %}">
+                                                {{ bForm.meta_description }}
+                                                <label class="required">Meta Description</label>
+                                                {% for error in bForm.meta_description.errors %}
+                                                <div class="text-danger mt-2">
+                                                    {{ error|escape }}
+                                                </div>
+                                                {% endfor %}
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="form-floating mb-7 {% if bForm.meta_keywords.errors %}has-error{% endif %}">
+                                                {{ bForm.meta_keywords }}
+                                                <label class="required">Meta Keywords</label>
+                                                {% for error in bForm.meta_keywords.errors %}
+                                                <div class="text-danger mt-2">
+                                                    {{ error|escape }}
+                                                </div>
+                                                {% endfor %}
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="form-floating mb-7 {% if bForm.status.errors %}has-error{% endif %}">
+                                                {{ bForm.status }}
+                                                <label class="required">Status</label>
+                                                {% for error in bForm.status.errors %}
+                                                <div class="text-danger mt-2">
+                                                    {{ error|escape }}
+                                                </div>
+                                                {% endfor %}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Non Field Errors -->
+                                    {% for error in bForm.non_field_errors %}
+                                    <div class="text-danger mt-2">
+                                        {{ error|escape }}
+                                    </div>
+                                    {% endfor %}
+                                </div>
+                                <div class="card-footer d-flex justify-content-end py-6 px-9">
+                                    <a href="{% url 'blogList' %}" class="btn btn-light-info me-3">Discard</a>
+                                    <button type="submit" class="btn btn-primary">Save Changes</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal for adding new service -->
+<div class="modal fade" tabindex="-1" id="addPhotoCategory">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Add New Category</h3>
+
+                <!--begin::Close-->
+                <div class="btn btn-icon btn-sm btn-active-light-primary ms-2" data-bs-dismiss="modal"
+                     aria-label="Close">
+                    <i class="ki-duotone ki-cross fs-1"><span class="path1"></span><span class="path2"></span></i>
+                </div>
+                <!--end::Close-->
+            </div>
+
+            <div class="modal-body">
+                <input type="text" id="newBlogCatName" placeholder="Category Name" class="form-control">
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" id="saveNewCategory">Save</button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block extraJS %}
+<!--begin::Custom Javascript(used for this page only)-->
+<script src="{% static 'be/js/jquery-3.3.1.min.js' %}"></script>
+<script>
+$(document).ready(function() {
+    $(document).on('change', '#id_category', function() {
+        if ($(this).val().includes('add_new')) {
+            $('#addPhotoCategory').modal('show');
+        }
+    });
+
+    $('#saveNewCategory').on('click', function() {
+        const categoryName = $('#newBlogCatName').val().trim();
+        if (!categoryName) {
+            alert('Please enter a Category name.');
+            return;
+        }
+
+        $.post('/addBlogCategory/', { name: categoryName }, function(data) {
+            if (data && data.success) {
+                $('#id_category').append(new Option(categoryName, data.category_id, true, true));
+                let selectedValues = $('#id_category').val().filter(val => val !== 'add_new');
+                $('#id_category').val(selectedValues).trigger('change');
+                $('#addPhotoCategory').modal('hide');
+                console.log("New category added successfully");
+                $('#newBlogCatName').val('');
+            } else {
+                alert('Error adding category.');
+            }
+        }).fail(function() {
+            alert('Network error: Please try again.');
+        });
+    });
+
+    $('#addPhotoCategory').on('hidden.bs.modal', function() {
+        $('#newBlogCatName').val('');
+        let selectedValues = $('#id_category').val();
+        if (selectedValues) {
+            selectedValues = selectedValues.filter(val => val !== 'add_new');
+            $('#id_category').val(selectedValues).trigger('change');
+        }
+    });
+});
+</script>
+{% endblock %}

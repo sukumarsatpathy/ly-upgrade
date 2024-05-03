@@ -1,0 +1,144 @@
+{% extends 'front/base.html' %}
+{% load static %}
+{% block content %}
+<style>
+    .btnCLYL {
+        background-color: #0E67FF;
+        padding: 12px 20px;
+        border-radius: 10px;
+        text-decoration: none;
+        color: #ffffff;
+        font-weight: bold;
+        font-size:22px;
+    }
+    .btnCLYL:hover {
+        background-color: #013EA6;
+        padding: 12px 20px;
+        border-radius: 10px;
+        text-decoration: none;
+        color: #ffffff;
+        font-weight: bold;
+    }
+    .btn-success{
+        background-color: #00520B;
+        color: #ffffff;
+    }
+    .btn-success:hover {
+        background-color: #013408;
+        color: #ffffff;
+    }
+</style>
+
+<div class="main shop py-4 border-top">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        {% include 'front/includes/messages.html' %}
+                        <div class="card">
+                            <div class="card-header text-center text-capitalize">
+                                <i class="fas fa-check text-color-success mr-1"></i> <span class="text-success">Thank You for joining free international laughter club on zoom</span>
+                            </div>
+                            <div class="card-body">
+                                <div class="row justify-content-center mb-4">
+                                    <div class="col-lg-8 border">
+                                        <p class="mt-3 h5 text-center">For Zoom login details, please check your registered email address.</p>
+                                        <p class="mb-3 text-center">If you can't find your login details in your registered email address, <br>please check your <mark>spam folder</mark>.</p>
+                                    </div>
+                                </div>
+                                <div class="row justify-content-center">
+                                    <div class="col-lg-10" style="background-color: #019CE2">
+                                        <h4 class="mt-3 text-light text-center">Please Join WhatsApp Group</h4>
+                                        <p class="text-center text-light">For important updates, health tips and
+                                            reminders, please join any
+                                            of the groups according to your time zone.</p>
+                                    </div>
+                                    <div class="col-lg-5">
+                                        <h5 class="mt-3 text-primary text-center">Free Laughter Club Online at 7:30 am India Time</h5>
+                                        <h5 class="text-primary text-center">Every Day</h5>
+                                        <div class="row">
+                                            <div class="col-lg-5">
+                                                <img src="{% static 'img/pages/about/zlc/ly-7-30-G2-scan-me-march-2024.png' %}" alt="7:30 AM Laughter Club" width="200" />
+                                            </div>
+                                            <div class="col-lg-2" style="font-size: 30px; margin: auto 0;">
+                                                <strong>OR</strong>
+                                            </div>
+                                            <div class="col-lg-5">
+                                                <a href="https://chat.whatsapp.com/EFkidSrVNFgEyVyCYruX8v" target="_blank">
+                                                    <img src="{% static 'img/pages/about/zlc/ly-7-30-G2-click-me-march-2024.png' %}" alt="7:30 AM Laughter Club" width="200" />
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <p class="pt-3"><strong>USA/Canada</strong> - EST: 10 pm. CT: 9 pm. MST:
+                                            8 pm. PST: 7 pm. </p>
+                                        <p>JAPAN: 11 am. UAE: 06 am. IRAN: 5:30 am. SINGAPORE / HK /
+                                            MALAYSIA / TAIWAN: 10 am. VIETNAM / THAILAND: 9 am. AUSTRALIA: 1 pm. NEW ZEALAND: 3 pm.</p>
+                                    </div>
+                                    <div class="col-lg-5">
+                                        <h5 class="mt-3 text-primary text-center">Free Laughter Club Online at 06:00 PM India Time</h5>
+                                        <h5 class="text-primary text-center">(Monday, Wednesday, Friday)</h5>
+                                        <div class="row">
+                                            <div class="col-lg-5">
+                                                <img src="{% static 'img/pages/about/zlc/6-PM-LC-scan-me-march-2024.png' %}" alt="6 PM Laughter Club" width="200" />
+                                            </div>
+                                            <div class="col-lg-2" style="font-size: 30px; margin: auto 0;">
+                                                <strong>OR</strong>
+                                            </div>
+                                            <div class="col-lg-5">
+                                                <a href="https://chat.whatsapp.com/JUDZdlmvBNK2UHaasA1haP" target="_blank">
+                                                    <img src="{% static 'img/pages/about/zlc/6-PM-LC-click-me-march-2024.png' %}" alt="6 PM Laughter Club" width="200" />
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <p class="pt-3">UK: 12:30 pm. EUROPE: 1:30 pm. JAPAN: 09:30 pm.
+                                            ISRAEL: 02:30 pm. RUSSIA: 03:30 pm. UAE: 04:30 pm. IRAN: 04:00 pm. INDO / VIET / THAI: 07:30 pm. SINGAPORE / HK: 08:30 pm.</p>
+                                        <p><strong>USA/Canada -</strong> EST: 08:30 am. CT: 07:30 am BRAZIL: 09:30 am.</p>
+                                    </div>
+                                </div>
+                                <div class="row justify-content-center">
+                                </div>
+                            </div>
+                        </div>
+                        <!--<div class="border-1 mt-4 p-3" style="background-color: #D8F8FA; border-radius:20px;">
+                            <div class="container py-3">
+                                <p class="h4 text-center text-capitalize font-weight-bold text-capitalize">Take Your
+                                    Laughter Yoga To
+                                    The Next Level</p>
+                                <p class="h5 text-center pb-3">Become A Certified LY Leader And Start Your Own
+                                    Laughter Clubs</p>
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <p>Becoming a Certified LY Leader means being part
+                                            of a global network
+                                            of laughter professionals
+                                            who are dedicated to spreading the joy of laughter to the world. </p>
+                                        <p class="font-weight-bold">With your certification,
+                                            you will be able to lead your own laughter sessions, create laughter
+                                            clubs, and teach others
+                                            the science and skill of laughter.</p>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="video-container">
+                                            <iframe width="100%" height="350"
+                                                    src="https://www.youtube.com/embed/FbmRA_QEH2A"
+                                                    title=" Join Free Online Live International Laughter Club on Zoom | Come & Laugh Daily With Us "
+                                                    frameborder="0"
+                                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                                    class="rounded" allowfullscreen></iframe>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="pt-2 text-center">
+                                    <a href="https://slynk.me/srcTY" target="_blank" class="btnCLYL">Become
+                                        Certified LY Leader</a>
+                                </p>
+                            </div>
+                        </div>-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

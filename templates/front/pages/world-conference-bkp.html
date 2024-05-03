@@ -1,0 +1,128 @@
+{% extends 'front/base.html' %}
+{% load static %}
+{% load i18n %}
+{% load cropping %}
+{% block meta %}
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>World Conference - Laughter Yoga International</title>
+    <meta name="keywords" content="dementia and Alzheimer’s disease, older, community building, social bonding"/>
+    <meta name="description" content="Laughter Yoga is a great tool for transformational aging and increased longevity. We have many research studies which measures the positive effects of LY for seniors">
+    <meta name="author" content="Dr Madan Kataria">
+{% endblock %}
+{% block content %}
+<div class="owl-carousel-wrapper" style="height: 600px;">
+    <div class="owl-carousel dots-inside dots-horizontal-center dots-light show-dots-hover show-dots-xs nav-inside nav-inside-plus nav-dark nav-md nav-font-size-md show-nav-hover mb-0"
+         data-plugin-options="{'responsive': {'0': {'items': 1}, '479': {'items': 1}, '768': {'items': 1}, '979': {'items': 1}, '1199': {'items': 1}}, 'loop': false, 'autoHeight': false, 'margin': 0, 'dots': true, 'dotsVerticalOffset': '-75px', 'nav': false, 'animateIn': 'fadeIn', 'animateOut': 'fadeOut', 'mouseDrag': false, 'touchDrag': false, 'pullDrag': false, 'autoplay': true, 'autoplayTimeout': 9000, 'autoplayHoverPause': true, 'rewind': true}">
+        <img src="{% static 'img/slides/world-laughter-conference-1.png' %}"/>
+    </div>
+</div>
+<div class="body">
+    <div role="main" class="main">
+        <div class="container my-5 pt-md-4 pt-xl-0">
+            <div class="row justify-content-center text-center pb-5">
+                <div class="col-lg-9">
+                    <marquee>
+                        <p class="h4 text-danger">This is preliminary information so that you can plan your trip and book the flight tickets for the world conference. Details coming soon.</p>
+                    </marquee>
+                </div>
+            </div>
+            <div class="row align-items-center justify-content-center pb-4 mb-5">
+                <div class="row pb-1">
+                    <div class="col-lg-6">
+                        <h1>Welcome to World Conference 2023</h1>
+                        <p class="h5 text-uppercase pb-3">Dates and Time</p>
+                        <p class="float-left">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-calendar" viewBox="0 0 16 16">
+                              <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"/>
+                            </svg>
+                        </p>
+                        <p class="pt-1">&nbsp; 16-20 October 2023</p>
+                        <p class="float-left"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-stopwatch" viewBox="0 0 16 16">
+                            <path d="M8.5 5.6a.5.5 0 1 0-1 0v2.9h-3a.5.5 0 0 0 0 1H8a.5.5 0 0 0 .5-.5V5.6z"/>
+                            <path d="M6.5 1A.5.5 0 0 1 7 .5h2a.5.5 0 0 1 0 1v.57c1.36.196 2.594.78 3.584 1.64a.715.715 0 0 1 .012-.013l.354-.354-.354-.353a.5.5 0 0 1 .707-.708l1.414 1.415a.5.5 0 1 1-.707.707l-.353-.354-.354.354a.512.512 0 0 1-.013.012A7 7 0 1 1 7 2.071V1.5a.5.5 0 0 1-.5-.5zM8 3a6 6 0 1 0 .001 12A6 6 0 0 0 8 3z"/>
+                        </svg></p>
+                        <p class="pt-1">&nbsp; <span class="text-uppercase">Start Time:</span> 04:00 PM - 16<sup>th</sup> October, 2023</span></p>
+                        <p class="float-left"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-stopwatch" viewBox="0 0 16 16">
+                            <path d="M8.5 5.6a.5.5 0 1 0-1 0v2.9h-3a.5.5 0 0 0 0 1H8a.5.5 0 0 0 .5-.5V5.6z"/>
+                            <path d="M6.5 1A.5.5 0 0 1 7 .5h2a.5.5 0 0 1 0 1v.57c1.36.196 2.594.78 3.584 1.64a.715.715 0 0 1 .012-.013l.354-.354-.354-.353a.5.5 0 0 1 .707-.708l1.414 1.415a.5.5 0 1 1-.707.707l-.353-.354-.354.354a.512.512 0 0 1-.013.012A7 7 0 1 1 7 2.071V1.5a.5.5 0 0 1-.5-.5zM8 3a6 6 0 1 0 .001 12A6 6 0 0 0 8 3z"/>
+                        </svg></p>
+                        <p class="pt-1">&nbsp; <span class="text-uppercase">End Time:</span> 04:00 PM - 20 <sup>th</sup>  October, 2023</span></p>
+                        <h1>Pre Conference Spiritual Retreat and Laughter Festival</h1>
+                        <p class="float-left">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-calendar" viewBox="0 0 16 16">
+                              <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"/>
+                            </svg>
+                        </p>
+                        <p class="pt-1">&nbsp; Start Date: 13<sup>th</sup> October 2023 at 09:30 AM</p>
+                        <p class="float-left">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-calendar" viewBox="0 0 16 16">
+                              <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"/>
+                            </svg>
+                        </p>
+                        <p class="pt-1">&nbsp; End Date: 15<sup>th</sup> October 2023 at 01:00 PM</p>
+                    </div>
+                    <div class="col-lg-6 mb-4 pb-2">
+                        <img src="{% static 'img/pages/ly-world-conference.webp' %}" alt="Grape County" width="500px">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <section class="shop section section-height-2 border-0 m-0">
+            <div class="container my-5 pt-md-4 pt-xl-0">
+                <h3 class="text-center">Venue of the Conference</h3>
+                <div class="row align-items-center justify-content-center pb-4 mb-5">
+                    <div class="row pb-1">
+                        <div class="col-lg-6 mb-2 pb-2">
+                            <p>Grape County Eco Resort, Nashik</p>
+                            <p>About Grape Count Eco Resort: This is a beautiful eco resort, about 20 kilo meters from city centre. Full of greenery, surrounded by mountains and lakes.</p>
+                            <p><a href="https://www.google.com/travel/hotels/entity/CgoIu7SVpO3d1osmEAE/lightbox/CAoSLEFGMVFpcFB6eVRVWVR4Y25yOVBUUUFkZmRDZVdtcWhpeVR6aDFsTWR2RlpP?g2lb=2502548%2C2503771%2C2503781%2C4258168%2C4270442%2C4284970%2C4291517%2C4306835%2C4597339%2C4757164%2C4814050%2C4850738%2C4864715%2C4874190%2C4886480%2C4893075%2C4920132%2C4924070%2C4936396%2C4965990%2C4968087%2C4972345%2C4977499%2C4989886%2C4992509%2C47067249&hl=en-IN&gl=in&ssta=1&grf=EmQKLAgOEigSJnIkKiIKBwjnDxAEGBUSBwjnDxAEGBYgADAeQMoCSgcI5w8QBBgKCjQIDBIwEi6yASsSKQonCiUweDNiZGRmMmRkOGYzY2ViNmQ6MHgyNjE3NWFlZWQ0ODU1YTNi&rp=ELu0laTt3daLJhC7tJWk7d3WiyY4AkAASAHAAQI&ictx=1&sa=X&ved=0CAAQ5JsGahcKEwiQg5z54p7-AhUAAAAAHQAAAAAQAw&utm_campaign=sharing&utm_medium=link&utm_source=htls" target="_blank">Click here</a> to view more images online.</p>
+                            <p><strong>IMPORTANT:</strong> Please don't book the venue directly from th website, as you will get a special price for food and accomodation for world conference participants.</p>
+                        </div>
+                        <div class="col-lg-6 mb-2 pb-2">
+                            <img src="{% static 'img/pages/grape-county.webp' %}" alt="Grape County" width="500px">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="container py-5">
+            <h3 class="text-center">Cost of the Events</h3>
+            <div class="row">
+                <div class="col-lg-6 mb-2 pb-2">
+                    <iframe width="540" height="315" src="https://www.youtube.com/embed/QeHbLfJeBME" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+                </div>
+                <div class="col-lg-6 mb-2 pb-2">
+                    <p class="h4">Registration Fee for 5 days conference: $350</p>
+                    <p class="h4">Approximate Cost of 2 Sharing Room including all meals: $100 /day</p>
+                    <p class="h4">Registration Fee for Pre Conference Retreat and Festival: $300</p>
+                    <p class="h4">Fee for conferece, retreat and festival combo: $500</p>
+                </div>
+            </div>
+        </div>
+        <section class="shop section section-height-2 border-0 m-0">
+            <div class="container my-5 pt-md-4 pt-xl-0">
+                <h3 class="text-center">Travel Information</h3>
+                <div class="row align-items-center justify-content-center pb-4 mb-5">
+                    <div class="row pb-1">
+                        <div class="col-lg-6 mb-2 pb-2">
+                            <p class="h4">Landing in New Delhi preferable connecting flight to Nashik City.</p>
+                            <p class="h4">Landing in Mumbai - 4 hours drive by car. No connecting flight.</p>
+                            <p>About Indian Visa Formality: You can apply for tourist visa by clicking on the link below. If you need any letter, or documents from Laughter Yoga International Headwaters, please contact <a href="mailto:vinayak@laughteryoga.org" target="_blank">vinayak@laughteryoga.org</a></p>
+                            <p>You can check the countries and airports eligible for Visa on Arrival: <a href="https://www.india.gov.in/spotlight/encouraging-inbound-tourism-tourist-visa-arrival-tvoa-scheme" target="_blank">https://www.india.gov.in/spotlight/encouraging-inbound-tourism-tourist-visa-arrival-tvoa-scheme</a></p>
+                            <p>Please use the following link to apply for Tourist Visa: <a href="https://indianvisaonline.gov.in/evisa/tvoa.html" target="_blank">https://indianvisaonline.gov.in/evisa/tvoa.html</a></p>
+
+                        </div>
+                        <div class="col-lg-6 mb-2 pb-2">
+                            <img src="{% static 'img/pages/grape-county.webp' %}" alt="Grape County" width="500px">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+{% endblock %}

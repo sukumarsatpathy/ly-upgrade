@@ -1,0 +1,222 @@
+{% extends 'front/base.html' %}
+{% load static %}
+{% load cropping %}
+{% load widget_tweaks %}
+{% load i18n %}
+{% block meta %}
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Find LY Events - Laughter Yoga International</title>
+    <meta name="keywords" content="Free Events, Paid Workshops, Conference, World Laughter Day Dr Madan Kataria, events, certifications"/>
+    <meta name="description" content="You will find all the Free Events, Paid Workshops, Conference, World Laughter Day events around the globe.">
+    <meta name="author" content="Dr Madan Kataria">
+{% endblock %}
+{% block content %}
+{% load members_url %}
+<div role="main" class="main">
+    <!-- Breadcrumb Starts Here -->
+    <section class="page-header page-header-classic">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <ul class="breadcrumb">
+                        <li><a href="{% url 'home' %}" target="_parent" class="text-decoration-none">Home</a></li>
+                        <li class="active">Find Events Worldwide</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container py-4">
+        <div class="row">
+            <div class="col-xl-12 col-l-12 col-md-12 col-s-12 col-xs-12">
+                <div class="card card-body">
+                   
+                    <form method="get" id="userForm" data-countries-url="{% url 'load_countries_category' %}" >
+                        {% csrf_token %}
+                        <div class="well">
+                            <h4 class="color-primary font-weight-semibold text-4 text-uppercase mb-3 row justify-content-center">
+                                {% trans 'Find Events Worldwide' %}</h4>
+                            <div class="row">
+                                <div class="form-group col-xl-3">
+                                    {{ form.category.label_tag }}
+                                    {% render_field form.category class="form-control" %}
+                                </div>
+                                <div class="form-group col-xl-3">
+                                    {{ form.country.label_tag }}
+                                    {% render_field form.country class="form-control" %}
+                                </div>
+                                <div class="form-group col-xl-3">
+                                    {{ form.state.label_tag }}
+                                    {% render_field form.state class="form-control" %}
+                                </div>
+                                <div class="form-group col-xl-3">
+                                    {{ form.city.label_tag }}
+                                    {% render_field form.city class="form-control" %}
+                                </div>
+                            </div>
+                            <div class="d-grid gap-5 col-5 mx-auto">
+                                <button type="submit" class="btn btn-primary btn-lg" onclick="window.location.href='#search';">Find</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <br/>
+        <br/>
+        <div class="row" id="search">
+            <div class="col-xl-12 col-l-10 col-md-8 col-s-6 col-xs-4">
+                <table class="table table-bordered">
+                    <thead>
+                    <tr>
+                        <th>Sl.</th>
+                        <th>Title</th>
+                        <th>Date</th>
+                        <th>Trainer</th>
+                        <th>State</th>
+                        <th>City</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for event in all_events %}
+                    <tr>
+                        <td>{{forloop.counter0|add:all_events.start_index}}</td>
+                        <td><a href="{% url 'event-detail' event.pk %}" target="_blank" class="text-decoration-none">{{event.category}}</a></td>
+                        <td>{{event.start_date}}</td>
+                        <td>{{event.organiser_name}}</td>
+                        <td>{{event.state}}</td>
+                        <td>{{event.city}}</td>
+                    </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        {% if all_events.has_other_pages %}
+        <ul class="pagination float-right">
+            <!-- Left Arrow -->
+            {% if all_events.has_previous %}
+            <li class="page-item"><a class="page-link" href="{% custom_url all_events.previous_page_number 'page' request.get.urlencode %}"><i class="fas fa-angle-left"></i></a></li>
+            {% else %}
+            <li class="page-item disabled"><a class="page-link"><i class="fas fa-angle-left"></i></a></li>
+            {% endif %}
+
+            {% for i in all_events.paginator.page_range %}
+                {% if all_events.number == i %}
+                    <li class="page-item"><a class="page-link" href="#">{{i}}</a></li>
+                {% elif i > all_events.number|add:'-13' and i < all_events.number|add:'13' %}
+                    <!--<li class="page-item"><a class="page-link" href="#">{{i}}</a></li>-->
+                    <li class="page-item"><a class="page-link" href="{% custom_url i 'page' request.GET.urlencode %}">{{i}}</a></li>
+
+                {% endif %}
+            {% endfor %}
+
+            <!-- Right Arrow -->
+            {% if all_events.has_next %}
+            <li class="page-item"><a class="page-link" href="{% custom_url all_events.next_page_number 'page' request.get.urlencode %}"><i class="fas fa-angle-right"></i></a></li>
+            {% else %}
+            <li class="page-item disabled"><a class="page-link"><i class="fas fa-angle-right"></i></a></li>
+            {% endif %}
+        </ul>
+        {% endif %}
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+
+  <script>
+    $("#id_category").change(function () {
+    
+
+    
+     
+      var url = "{% url 'load_countries_category' %}"  // get the url of the `load_cities` view
+      var id_category = $(this).val();   // get the selected country ID from the HTML input
+
+      console.log(id_category , url)
+ 
+      $.ajax({                       // initialize an AJAX request
+        url: url,                    // set the url of the request (= localhost:8000/hr/ajax/load-cities/)
+        data: {
+          'id_category': id_category       // add the country id to the GET parameters
+        },
+        success: function (data) {   // `data` is the return of the `load_cities` view function
+          $("#id_country").html(data);  // replace the contents of the city input with the data that came from the server
+        }
+      });
+
+    });
+
+
+
+    // Country Change
+
+    $("#id_country").change(function () {
+    
+        var url = "{% url 'load_state_category' %}"
+        var id_country = $(this).val();    
+        var id_category = $("#id_category").val()
+        console.log(url)
+ 
+        $.ajax({                       // initialize an AJAX request
+        url: url,                    // set the url of the request (= localhost:8000/hr/ajax/load-cities/)
+        data: {
+         'id_category': id_category, 
+          'id_country':id_country,   
+        },
+        success: function (data) {  
+            console.log(data)
+            // `data` is the return of the `load_cities` view function
+          $("#id_state").html(data);  // replace the contents of the city input with the data that came from the server
+        }
+       
+      });
+
+  
+
+  });
+
+
+
+  $("#id_state").change(function () {
+
+
+    
+    var id_category = $("#id_category").val()
+    var id_country = $("#id_country").val()
+    var id_state = $(this).val();   // get the selected country ID from the HTML input
+    var url = "{% url 'load_city_category' %}"
+
+    console.log(
+        id_category, 
+        id_country, 
+        id_state, 
+    )
+
+    $.ajax({                       // initialize an AJAX request
+        url: url,                    // set the url of the request (= localhost:8000/hr/ajax/load-cities/)
+        data: {
+         'id_category': id_category, 
+          'id_country':id_country,   
+          'id_state':  id_state,
+        },
+        success: function (data) {  
+            console.log(data)
+            // `data` is the return of the `load_cities` view function
+          $("#id_city").html(data);  // replace the contents of the city input with the data that came from the server
+        }
+       
+      });
+
+});
+
+
+ 
+</script>
+
+
+{% endblock %}

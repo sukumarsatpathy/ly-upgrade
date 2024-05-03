@@ -1,0 +1,28 @@
+<script>
+setTimeout(function(){
+  $('#frontMessage').fadeOut('slow');
+}, 4000)
+</script>
+
+{% if messages %}
+    {% for message in messages %}
+    <div id="frontMessage">
+        <div {% if message.tags %} class="alert alert-{{message.tags}} d-flex align-items-center p-5"{% endif %}>
+            <i class="ki-duotone ki-shield-tick fs-2hx text-success me-4"><span class="path1"></span><span class="path2"></span></i>
+            <div class="d-flex flex-column text-light pe-0 pe-sm-10">
+                {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+                <h4 class="mb-2 text-{{message.tags}}">Error:</h4>
+                {% elif message.level == DEFAULT_MESSAGE_LEVELS.INFO %}
+                <h4 class="mb-2 text-{{message.tags}}">Warning:</h4>
+                {% else %}
+                <h4 class="mb-1 text-{{message.tags}}">{{message.tags|title}}</h4>
+                {% endif %}
+                <span class="text-{{message.tags}}">{{message}}</span>
+            </div>
+            <button type="button" class="position-absolute position-sm-relative m-2 m-sm-0 top-0 end-0 btn btn-icon ms-sm-auto" data-bs-dismiss="alert">
+                <i class="ki-duotone ki-cross fs-1 text-primary"><span class="path1"></span><span class="path2"></span></i>
+            </button>
+        </div>
+    </div>
+    {% endfor %}
+{% endif %}

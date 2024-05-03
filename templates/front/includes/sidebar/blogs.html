@@ -1,0 +1,15 @@
+{% load static %}
+<div class="tabs tabs-vertical tabs-navigation" style="margin-top:115px !important;">
+    <ul class="nav nav-tabs col-sm-3">
+        {% for cat in blogcat %}
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'laughter-blogs-cat' cat.slug %}">{{cat.title}}</a>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+<div class="order-lg-2 mt-5">
+    <a href="{% url 'basic-learning-course' %}" target="_parent">
+        <img src="{% static 'img/extra/online-coaching-poster.webp' %}" class="img-fluid" alt="Basic Learning Course"/>
+    </a>
+</div>

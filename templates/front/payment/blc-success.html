@@ -1,0 +1,75 @@
+{% extends 'front/base.html' %}
+{% load static %}
+{% block CustomJS %}
+<!-- Event snippet for submit form conversion page -->
+<script>
+  gtag('event', 'conversion', {
+      'send_to': 'AW-10800949517/1fMrCMro_IsYEI3SpZ4o',
+      'transaction_id': ''
+  });
+</script>
+{% endblock %}
+{% block content %}
+<style>
+    .btn-success{
+        background-color: #0559A6;
+        color: #ffffff;
+    }
+    .btn-success:hover {
+        background-color: #01417B;
+        color: #ffffff;
+    }
+</style>
+<div class="main shop py-4 border-top">
+    <div class="container">
+        {% include 'front/includes/messages.html' %}
+        <div class="row justify-content-center">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-2"></div>
+                    <div class="col-lg-8">
+                        <div class="card">
+                            <div class="card-header text-center">
+                                <i class="fas fa-check text-color-success mr-1"></i> <span class="text-success">Payment Successful</span>
+                            </div>
+                            <div class="card-body" align="center">
+                                <p class="mt-3 h5">For all course details, please check your registered email address.</p>
+                                <p class="mb-3">If you can't find your course details in your registered email address, <br>please check your <mark>spam folder</mark>.</p>
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="px-5 py-2 mb-2" style="background-color: #d9d9d9; border-radius:20px;">
+                                            <h5 class="mt-3 text-primary text-center">Join the WhatsApp Group</h5>
+                                            <div class="text-center">During the course, we will use the WhatsApp group to share course-related reminders, course content, laughter exercises, and session recordings.</div>
+                                            <div class="row">
+                                                <div class="col-lg-5">
+<!--                                                    <div class="text-center font-weight-bold text-capitalize" style="margin-bottom:-20px;">Scan the QR Code below</div>-->
+                                                    <div class="text-center"><img src="{% static 'img/pages/blc/scan-me-april-2024.png' %}" class="img-fluid" width="300"/></div>
+                                                </div>
+                                                <div class="col-lg-2" style="font-size: 30px; margin: auto 0;">
+                                                    <strong>OR</strong>
+                                                </div>
+                                                <div class="col-lg-5">
+<!--                                                    <div class="text-center font-weight-bold text-capitalize">or Click the button below</div>-->
+                                                    <a href="https://chat.whatsapp.com/LF9c6I9pvcPCNyDzzx0oMM" target="_blank"><img src="{% static 'img/pages/blc/click-me-april-2024.png' %}" class="img-fluid" width="300"/></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <p class="text-center">Any issues, please feel free to contact us.<br>
+                                            <strong>Email:</strong> help@laughteryoga.org <br>
+                                            <strong>Phone/WhatsApp:</strong> +91 888 456 7891</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

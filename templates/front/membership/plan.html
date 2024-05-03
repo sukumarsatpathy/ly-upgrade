@@ -1,0 +1,80 @@
+{% extends 'front/dashboard-base.html' %}
+{% load static %}
+{% load cropping %}
+{% block content %}
+<div class="container-fluid">
+    <!-- Main-content-body -->
+    <div class="main-content-body">
+        <div class="row">
+            <div class="col-md-12 col-lg-12 col-xl-12 mx-auto d-block">
+                <div class="card card-body pd-20  mb-0 pd-md-40 border shadow-none">
+                    <p class="h2 text-center text-success pb-3">Congratulations!! </p>
+                    <table class="table text-center">
+                        <thead>
+                            <tr class="table-success">
+                                <th>#</th>
+                                <th>Name</th>
+                                <th>Type</th>
+                                <th>Start Date</th>
+                                <th>Expiry Date</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        {% for plan in all_user_plan %}
+                            <tr>
+                                <td>{{forloop.counter}}</td>
+                                <td>{{plan.membership}}</td>
+                                <td><span class="text-capitalize">{{plan.membership.membership_type}}</span></td>
+                                <td>{{plan.start_date}}</td>
+                                <td>{{plan.expiry_date}}</td>
+                                <td>
+                                    {% if plan.active %}
+                                    <span class="badge badge-success">Active</span>
+                                    {% else %}
+                                    <span class="badge badge-danger">Expired</span>
+                                    {% endif %}
+                                </td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-9">
+                {% include 'front/includes/messages.html' %}
+            </div>
+        </div>
+
+        <div class="row py-3">
+            {% for plans in plan_details %}
+            <div class="col-sm-12 col-xl-4 col-lg-6 col-md-6">
+                <div class="card mg-b-20 mg-lg-b-0">
+                    <div class="card-body text-center">
+                        <div class="price-header  p-2 text-uppercase font-weight-semibold fs-16 br-3">
+                            {{plans.membership_name}}
+                        </div>
+                        <div class="tx-40 font-weight-semibold my-4">$ {{plans.membership_price}}</div>
+                        <ul class="list-unstyled leading-loose">
+                            <li class="bd-b pd-b-15"><i class="fe fe-check text-success mr-2"></i>Membership Card</li>
+                            <li class="bd-b pd-b-15"><i class="fe fe-check text-success mr-2"></i>Business Card</li>
+                            <li class="bd-b pd-b-15"><i class="fe fe-check text-success mr-2"></i>Training Flyer</li>
+                            <li class="bd-b pd-b-15"><i class="fe fe-check text-success mr-2"></i>Basic Learning Course Flyer</li>
+                            <li class="bd-b pd-b-15"><i class="fe fe-check text-success mr-2"></i>Corporate Flyer</li>
+                            <li><i class="fe fe-check text-success mr-2"></i>e-Flyer | e-Brochure</li>
+                        </ul>
+                        <div class="text-center mt-6">
+                            <a href="{% url 'prozone-checkout' plans.membership_slug %}" class="btn btn-primary btn-block">Choose plan</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends 'front/base.html' %}
+{% load i18n %}
+{% block content %}
+<div role="main" class="main">
+    {% include 'front/includes/breadcrumb.html' %}
+    <div class="container py-2">
+        <div class="row">
+            <div class="col-lg-9">
+                <h4>{{diary_detail.title}}</h4>
+                <p><img src="{{diary_detail.image.url}}" alt="{{diary_detail.title}}" class="rounded" style="width:800px;"></p>
+                <p>{{diary_detail.description|safe}}</p>
+            </div>
+            <div class="col-lg-3 order-lg-2">
+                {% include 'front/includes/sidebar/pro-diary.html' %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

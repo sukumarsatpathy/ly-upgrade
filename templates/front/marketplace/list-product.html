@@ -1,0 +1,54 @@
+{% extends 'front/dashboard-base.html' %}
+{% load i18n %}
+{% load cropping %}
+{% block content %}
+{% include 'front/includes/messages.html' %}
+{% if user.is_authenticated %}
+<div class="col-xl-12">
+    <div class="card">
+        <div class="card-header pb-0">
+            <div class="d-flex justify-content-between">
+                <h4 class="card-title mb-2 mt-2">{% trans 'List Trainings' %}</h4>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive border">
+                <table class="table table-hover mb-0 text-md-nowrap">
+                    <thead>
+                    <tr>
+                        <th>{% trans 'Image' %}</th>
+                        <th>{% trans 'Title' %}</th>
+                        <th>{% trans 'Seller' %}</th>
+                        <th>{% trans 'Location' %}</th>
+                        <th>{% trans 'Price' %}</th>
+                        <th>{% trans 'Last Edit' %}</th>
+                        <th>{% trans 'Manage' %}</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for marketplace in object_list %}
+                        {% if user.id == marketplace.author.id %}
+                        <tr class="align-middle">
+                            <td><img src="{% cropped_thumbnail marketplace 'cropped_image' width=350 %}" alt="{{marketplace.title}}" class="brround avatar"/></td>
+                            <td class="align-middle">{{marketplace.title}}</td>
+                            <td class="align-middle">{{marketplace.seller}}</td>
+                            <td class="align-middle">{{marketplace.location}}</td>
+                            <td class="align-middle">{{marketplace.price}}</td>
+                            <td class="align-middle">{{marketplace.modified_date}}</td>
+                            <td class="align-middle">
+                                <div class="btn-icon-list">
+                                    <a href="{% url 'edit-mp-product' marketplace.slug %}" target="_self"><button class="btn btn-warning btn-icon"><i class="typcn typcn-edit"></i></button></a>
+                                    <a href="{% url 'delete-mp-product' marketplace.slug %}" target="_self"><button class="btn btn-danger btn-icon"><i class="typcn typcn-delete"></i></button></a>
+                                </div>
+                            </td>
+                        </tr>
+                        {% endif %}
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}
+{% endblock %}

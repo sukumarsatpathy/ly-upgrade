@@ -1,0 +1,63 @@
+{% extends 'front/base.html' %}
+{% load static %}
+{% block content %}
+<div class="main shop py-4 border-top" xmlns="http://www.w3.org/1999/html">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-2"></div>
+                    <div class="col-lg-8">
+                        {% include 'front/includes/messages.html' %}
+                        <div class="card border-success">
+                            <img src="{% static 'img/pages/wc-banner-email.png' %}" />
+                            <div class="px-4 mt-5">
+                                <p class="h3 text-center"><strong>Thank you {{userToken.name}}.</strong></p>
+                                <p class="h3 text-center mb-2"><strong>You're Awesome!</strong> <span class="font-italic">Seriously</span>.</p><br>
+                                <p class="text-left">Your registration is <span class="text-success font-weight-bold">CONFIRMED</span> for the Laughter Yoga World Conference to be held on October 16 - 20, 2023 in Nashik, India.</p>
+                                <p class="text-left">You should have received an acknowledgement email at your registered email id from help@laughteryoga.org for the payment of LY Conference Registration Fees $375. Please check your inbox for the email.</p>
+                                <p class="text-left">You'll also receive emails and updates announcing accommodation and food registrations in the future.</p>
+                                <p class="text-left">Below is the copy of your submission.</p>
+                            </div>
+                            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                <tr>
+                                    <td bgcolor="#ffffff" align="center" style="padding: 20px 30px 0px 30px;">
+										<h5 align="center"><strong>Attendee Details</strong></h5>
+                                        <table border="1" cellspacing="0" cellpadding="0" class="table table-bordered">
+											<tr>
+												<td width="200px">Full Name</td>
+												<td>{{userToken.name}}</td>
+											</tr>
+											<tr>
+												<td width="200px">Email</td>
+												<td style="color: #00A1FF;">{{userToken.email}}</td>
+											</tr>
+											<tr>
+												<td width="200px">Phone</td>
+												<td>{{userToken.phone}}</td>
+											</tr>
+                                            <tr>
+												<td width="200px">Country</td>
+												<td>{{userToken.country}}</td>
+											</tr>
+											<tr>
+												<td width="200px">Status</td>
+												<td class="text-success font-weight-bolder">{{userToken.status}}</td>
+											</tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                            <div class="px-4">
+                                <p class="text-left">We look forward to seeing you at the LY World Conference.</p>
+                                <p class="text-left">Sincerely, <br> Team Laughter Yoga</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

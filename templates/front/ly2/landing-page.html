@@ -1,0 +1,1183 @@
+{% extends 'front/base.html' %}
+{% load static %}
+{% load i18n %}
+{% block meta %}
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Laughter Yoga 2.0 - Laughter Yoga International</title>
+<meta name="keywords" content="laughter, laughter yoga, laughter lessons, laughter course"/>
+<meta name="description"
+      content="LY 2.0 is an advanced teaching and coaching program, and you will learn directly from the founder Dr Madan Kataria. It consists of 4 lessons of 90 minutes duration.">
+<meta name="author" content="Dr Madan Kataria">
+{% endblock %}
+{% block content %}
+<style type="text/css">
+    html{
+        scroll-behavior:smooth
+    }
+</style>
+<script>
+    var deadline = new Date("jun 10, 2023 19:00:00").getTime(); // Date to be changed in this line. Time: 24 Hrs Format
+
+    var x = setInterval(function() {
+
+    var now = new Date().getTime();
+    var t = deadline - now;
+    var days = Math.floor(t / (1000 * 60 * 60 * 24));
+    var hours = Math.floor((t%(1000 * 60 * 60 * 24))/(1000 * 60 * 60));
+    var minutes = Math.floor((t % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((t % (1000 * 60)) / 1000);
+    document.getElementById("day").innerHTML =days ;
+    document.getElementById("hour").innerHTML =hours;
+    document.getElementById("minute").innerHTML = minutes;
+    document.getElementById("second").innerHTML =seconds;
+    if (t < 0) {
+            clearInterval(x);
+            document.getElementById("demo").innerHTML = "Time Up";
+            document.getElementById("day").innerHTML ='0';
+            document.getElementById("hour").innerHTML ='0';
+            document.getElementById("minute").innerHTML ='0' ;
+            document.getElementById("second").innerHTML = '0'; }
+    }, 1000);
+</script>
+<div class="owl-carousel-wrapper" style="height: 600px;">
+    <div class="owl-carousel dots-inside dots-horizontal-center dots-light show-dots-hover show-dots-xs nav-inside nav-inside-plus nav-dark nav-md nav-font-size-md show-nav-hover mb-0"
+         data-plugin-options="{'responsive': {'0': {'items': 1}, '479': {'items': 1}, '768': {'items': 1}, '979': {'items': 1}, '1199': {'items': 1}}, 'loop': false, 'autoHeight': false, 'margin': 0, 'dots': true, 'dotsVerticalOffset': '-75px', 'nav': false, 'animateIn': 'fadeIn', 'animateOut': 'fadeOut', 'mouseDrag': false, 'touchDrag': false, 'pullDrag': false, 'autoplay': true, 'autoplayTimeout': 9000, 'autoplayHoverPause': true, 'rewind': true}">
+        <img src="{% static 'img/slides/ly-2.0-banner.png' %}"/>
+    </div>
+</div>
+<!--<div class="row align-items-center justify-content-center py-3 mb-5">
+    <div class="row">
+        <div class="col-12">
+            <h1 class="text-center">Course Starts in </h1>
+            <div id="clockdiv">
+                <div>
+                    <span class="days" id="day"></span>
+                    <div class="smalltext">Days</div>
+                </div>
+                <div>
+                    <span class="hours" id="hour"></span>
+                    <div class="smalltext">Hours</div>
+                </div>
+                <div>
+                    <span class="minutes" id="minute"></span>
+                    <div class="smalltext">Minutes</div>
+                </div>
+                <div>
+                    <span class="seconds" id="second"></span>
+                    <div class="smalltext">Seconds</div>
+                </div>
+            </div>
+            <p class="text-center h3 mx-2" id="demo"></p>
+        </div>
+    </div>
+</div>-->
+<div role="main" class="main">
+    <div class="container my-5 pt-md-4 pt-xl-0">
+        <div class="row align-items-center justify-content-center pb-4 mb-5">
+            <div class="row pb-1">
+                <div class="col-lg-6">
+                    <h1>Highlights of LY 2.0</h1>
+                    <p>After COVID, the demand for laughter yoga has increased exponentially. As laughter yoga
+                        professionals, we need to upgrade our knowledge and skills in different areas of
+                        applications of laughter yoga. It is an advanced teaching and coaching program, and you will
+                        learn directly from the founder Dr Madan Kataria. It consists of 4 lessons of 90 minutes
+                        duration.</p>
+                    <p><strong>Download video and PowerPoint Presentations:</strong> All the lessons will be
+                        recorded and we will
+                        also provide PowerPoint presentations of some lessons so that you can download and use them
+                        during your training.</p>
+                    <p><strong>Scientific Research on Laughter Yoga:</strong> There are many new research studies on
+                        Laughter Yoga.
+                        Most of them are in English. We'll translate them into Japanese and give you the PowerPoints
+                        along with graphics and images, which you can download.</p>
+                    <p>You will learn exercises with a scientific and logical explanation that will motivate people
+                        to do these exercises.</p>
+                </div>
+                <div class="col-lg-6">
+                    <img src="{% static 'img/pages/ly2/ly2s6.webp' %}" class="img-fluid" />
+                    <!--<div class="video-container mt-3">
+                        <iframe
+                                srcdoc="
+                            <style>
+                                body, .full {
+                                    width: 100%;
+                                    height: 100%;
+                                    margin: 0;
+                                    position: absolute;
+                                    display: flex;
+                                    justify-content: center;
+                                    object-fit: cover;
+                                }
+                            </style>
+                            <a href='https://www.youtube.com/embed/abQZCKOVnJ8?autoplay=1' class='full'>
+                                <img data-src='{% static 'img/pages/videos/ly2/ly2s4.webp' %}' loading='lazy' class='full'
+                                src='{% static 'img/pages/videos/ly2/ly2s4.webp' %}'
+                                width='100%' height='100%' alt='20 Years of Laughter Yoga Movement'>
+                                <svg version='1.1' viewBox='0 0 68 48' width='68px' style='position: relative;'>
+                                    <path d='M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z' fill='#f00'></path>
+                                    <path d='M 45,24 27,14 27,34' fill='#fff'></path>
+                                </svg>
+                            </a>"
+                                title="20 Years of Laughter Yoga Movement"
+                                style="max-width: 640px; width: 100%; aspect-ratio: 16/9;"
+                                frameborder="0"></iframe>
+                    </div>-->
+                </div>
+            </div>
+        </div>
+    </div>
+    <section class="shop section section-height-2 border-0 m-0">
+        <div class="container">
+            <h3 class="text-center pb-2">LY 2.0 - Season 6 Live (Dates will be announced shortly)</h3>
+            <div class="row py-2 mb-3 mx-1 rounded" style="background-color: #0165b3;">
+                <div class="col">
+                    <div class="text-center font-weight-bold text-white" style="font-size: 21px;">Don't Miss Out: Master the Essentials of LY 2.0 with previously completed Seasons available for Download Now!</div>
+                    <div class="text-center font-weight-bold text-white">(Includes All Videos & Course Materials)</div>
+                </div>
+            </div>
+            <div class="accordion" id="accordion1">
+                <!-- Season 5 -->
+                <!--<div class="card card-default">
+                    <div class="card-header" id="collapsely2s6">
+                        <h4 class="card-title m-0 text-4 my-2 text-center">
+                            <a class="accordion-toggle" data-toggle="collapse" data-target="#ly2s6"
+                               aria-expanded="true" aria-controls="collapse1One">
+                                Season 5 - November 2023: 3rd, 10th, 17th, 24th (A total of four sessions of 90 minutes
+                                each) -
+                                <br> 7:00 PM India Time (Fee: USD 125)
+                            </a>
+                        </h4>
+                    </div>
+
+                    <div id="ly2s6" class="collapse show" aria-labelledby="collapsely2s6">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col">
+                                    <p class="h4 pb-1">A coaching and mentoring program for laughter yoga
+                                        professionals</p>
+                                    <p>Laughter Yoga 2.0 is a program designed for laughter yoga professionals to
+                                        upgrade their knowledge and skills. </p>
+                                    <p>Unleash your laughter potential with Laughter Yoga 2.0 Season 5. This
+                                        comprehensive program will give you the tools to become an expert at laughter
+                                        yoga and help others find joy in life. Learn to lead powerful and memorable
+                                        laughter classes, be inspired by the connections it creates and become part of a
+                                        global community of passionate individuals!</p>
+                                </div>
+                            </div>
+                            <div class="products row row-gutter-sm mb-1 appear-animation"
+                                 data-appear-animation="fadeInUpShorter"
+                                 data-appear-animation-delay="750">
+                                <div class="col-lg-6">
+                                    <h1>Session 1</h1>
+                                    <ul>
+                                        <li>
+                                            <p><strong>Laughter Yoga Online-Opportunities and Challenges</strong></p>
+                                            <p>In this module you will learn:</p>
+                                            <ul>
+                                                <li>How to use online technology effectively for your trainings and
+                                                    Laughter clubs and how to support your students with online sessions
+                                                    after in- person trainings (Hybrid model)
+                                                </li>
+                                                <li>You will learn technical skills and how to stream videos flawlessly,
+                                                    using music during online sessions
+                                                </li>
+                                                <li>How to create PowerPoints, virtual backgrounds and how to mute &
+                                                    unmute functions and handling spams (Role of assistant Zoom master )
+                                                </li>
+                                                <li>Which laughter exercises are more effective for online sessions.
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                    <h1>Session 2</h1>
+                                    <ul>
+                                        <li>
+                                            <p><strong>What is EGO and how it hurts us and our relationship</strong></p>
+                                            <p>In this module you will learn:</p>
+                                            <ul>
+                                                <li>How to know if you have an EGO problem? How to keep it under check
+                                                </li>
+                                                <li>Difference between Ego and self-esteem and how Laughter Yoga helps
+                                                    to mellow down EGO
+                                                </li>
+                                                <li>Learn about Spiritual Growth through Laughter Yoga and Positive and
+                                                    Negative parts of EGO
+                                                </li>
+                                                <li>Learn New laughter exercises with the theme - Hiking</li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="col-lg-6 mb-1 pb-1">
+                                    <h1>Session 3</h1>
+                                    <ul>
+                                        <li>
+                                            <p><strong>Laughter Yoga with Mentally Challenged</strong></p>
+                                            <p>In this module you will learn:</p>
+                                            <ul>
+                                                <li>How to do Laughter yoga with children with mental retardation like
+                                                    Down’s Syndrome and childhood behavioural disorders like Autism ADHD
+                                                    ( Attention deficit hyperactivity disorder)
+                                                </li>
+                                                <li>How to do Laughter yoga exercises with mentally challenged ( Video
+                                                    Presentation)
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                    <h1>Session 4</h1>
+                                    <ul>
+                                        <li>
+                                            <p><strong>Guidelines of Laughter Yoga with Seniors (Alzheimer’s and
+                                                Dementia)</strong></p>
+                                            <p>In this module you will learn:</p>
+                                            <ul>
+                                                <li>Why we lose our laughter when we grow older and understanding
+                                                    Alzheimer’s and Dementia
+                                                </li>
+                                                <li>Which exercises works best with seniors and how to lead a Laughter
+                                                    yoga session effectively with seniors
+                                                </li>
+                                                <li>Pacing of the laughter exercises, using acupuncture points through
+                                                    trapping, using music and props, dancing with arms and doing brain
+                                                    gym exercises
+                                                </li>
+                                                <li>Scientific research papers on laughter Yoga with seniors</li>
+                                                <li>Learn New laughter exercises for seniors (Video Presentation)</li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <h3 class="text-center mt-5">Dates and Time</h3>
+                            <div class="row justify-content-center">
+                                <div class="col-lg-4">
+                                    <div class="card-body text-dark">
+                                        <div class="px-3">
+                                            <div class="py-2 px-3 mb-2" style="border: 1px solid #DCE7E8; border-radius:5px;">
+                                                <div class="text-center">
+                                                    <span class="font-weight-bold">November 2023</span><br> 3rd, 10th, 17th, 24th
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="card h-100 border-0">
+                                        <div class="card-header" style="background-color: #808080; min-height:30px;">
+                                            <div class="text-light font-weight-bold pt-3 pb-2 text-center"><span class="h4">7 pm Indian Time &nbsp;|&nbsp; Each Session Duration: 90
+                                                Minutes &nbsp;|&nbsp; Live on Zoom</span>
+                                                <br>
+                                                (Ensure you're in sync with daylight savings time for accurate scheduling. Please check your local timings.)
+                                            </div>
+                                            <div class="text-light font-weight-bold text-center"></div>
+                                        </div>
+                                        <div class="card-body text-dark"
+                                             style="border-left: 2px solid #808080; border-right: 2px solid #808080; border-bottom: 2px solid #808080;">
+                                            <div class="px-3">
+                                                <div class="row justify-content-center">
+                                                    <div class="col-lg-7">
+                                                        <div class="py-2 px-3 mb-2"
+                                                             style="border: 1px solid #DCE7E8; border-radius:5px;">
+                                                            <p class="text-dark font-weight-bold"
+                                                               style="font-size:16px;">
+                                                                Timezone for
+                                                                India, Australia, New Zealand and other Asian
+                                                                Countries</p>
+                                                            <table>
+                                                                <tr class="text-dark">
+                                                                    <td class="text-right" width="80px">1:30 pm</td>
+                                                                    <td class="pl-3">UK</td>
+                                                                </tr>
+                                                                <tr class="text-dark">
+                                                                    <td class="text-right" width="80px">5:30 pm</td>
+                                                                    <td class="pl-3">UAE</td>
+                                                                </tr>
+                                                                <tr class="text-dark">
+                                                                    <td class="text-right">8:30 pm</td>
+                                                                    <td class="pl-3">Thailand / Indonesia / Vietnam</td>
+                                                                </tr>
+                                                                <tr class="text-dark">
+                                                                    <td class="text-right">9:30 pm</td>
+                                                                    <td class="pl-3">Malaysia / HongKong / Singapore /
+                                                                        Philippines /
+                                                                        Taiwan
+                                                                    </td>
+                                                                </tr>
+                                                                <tr class="text-dark">
+                                                                    <td class="text-right">10:30 pm</td>
+                                                                    <td class="pl-3">Japan</td>
+                                                                </tr>
+                                                                <tr class="text-dark">
+                                                                    <td class="text-right">12:00 am</td>
+                                                                    <td class="pl-3">Australia</td>
+                                                                </tr>
+                                                                <tr class="text-dark">
+                                                                    <td class="text-right">2:30 am</td>
+                                                                    <td class="pl-3">New Zealand</td>
+                                                                </tr>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-5">
+                                                        <div class="py-2 px-3 mb-2"
+                                                             style="border: 1px solid #DCE7E8; border-radius:5px;">
+                                                            <p class="text-dark font-weight-bold"
+                                                               style="font-size:16px;">
+                                                                Timezone for
+                                                                USA,
+                                                                Canada and South America</p>
+                                                            <table>
+                                                                <tr class="text-dark">
+                                                                    <td class="text-right" width="80px">6:30 am</td>
+                                                                    <td class="pl-3">PST/PDT</td>
+                                                                </tr>
+                                                                <tr class="text-dark">
+                                                                    <td class="text-right">7:30 am</td>
+                                                                    <td class="pl-3">MST/MT</td>
+                                                                </tr>
+                                                                <tr class="text-dark">
+                                                                    <td class="text-right">8:30 am</td>
+                                                                    <td class="pl-3">CST/CT</td>
+                                                                </tr>
+                                                                <tr class="text-dark">
+                                                                    <td class="text-right">9:30 am</td>
+                                                                    <td class="pl-3">EST/ET</td>
+                                                                </tr>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row justify-content-center pt-2">
+                                                <div class="col-lg-8">
+                                                    <p class="text-center p-2"
+                                                       style="border: 1px solid #DCE7E8; border-radius:5px; font-size:20px; background-color: #ffff00;">
+                                                        <strong>Note: Even if you can't attend live sessions due to time
+                                                            differences,
+                                                            you can still earn
+                                                            a certificate by watching session recordings.</strong></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="row justify-content-center mt-4">
+                                    <div class="col-lg-4 col-offset-4">
+                                        <a href="#payment" class="btn btn-success btn-modern">Enroll Now</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>-->
+
+                <!-- Season 5 -->
+                <div class="card card-default">
+                    <div class="card-header" id="collapsely2s5">
+                        <h4 class="card-title m-0 text-4 my-2">
+                            <a class="accordion-toggle" data-toggle="collapse" data-target="#ly2s5"
+                               aria-expanded="false" aria-controls="collapse1Two">
+                                Season 5 - This season is already over. You can learn by downloading the videos.
+                                Click here for more details.
+                            </a>
+                        </h4>
+                    </div>
+
+                    <div id="ly2s5" class="collapse" aria-labelledby="collapsely2s5">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col">
+                                    <p class="h4 pb-1">A coaching and mentoring program for laughter yoga
+                                        professionals</p>
+                                    <p>Laughter Yoga 2.0 is a program designed for laughter yoga professionals to
+                                        upgrade their knowledge and skills. </p>
+                                    <p>Unleash your laughter potential with Laughter Yoga 2.0 Season 5. This
+                                        comprehensive program will give you the tools to become an expert at laughter
+                                        yoga and help others find joy in life. Learn to lead powerful and memorable
+                                        laughter classes, be inspired by the connections it creates and become part of a
+                                        global community of passionate individuals!</p>
+                                </div>
+                            </div>
+                            <div class="products row row-gutter-sm mb-1 appear-animation"
+                                 data-appear-animation="fadeInUpShorter"
+                                 data-appear-animation-delay="750">
+                                <div class="col-lg-6">
+                                    <h1>Session 1</h1>
+                                    <ul>
+                                        <li>
+                                            <p><strong>Laughter Yoga Online-Opportunities and Challenges</strong></p>
+                                            <p>In this module you will learn:</p>
+                                            <ul>
+                                                <li>How to use online technology effectively for your trainings and
+                                                    Laughter clubs and how to support your students with online sessions
+                                                    after in- person trainings (Hybrid model)
+                                                </li>
+                                                <li>You will learn technical skills and how to stream videos flawlessly,
+                                                    using music during online sessions
+                                                </li>
+                                                <li>How to create PowerPoints, virtual backgrounds and how to mute &
+                                                    unmute functions and handling spams (Role of assistant Zoom master )
+                                                </li>
+                                                <li>Which laughter exercises are more effective for online sessions.
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                    <h1>Session 2</h1>
+                                    <ul>
+                                        <li>
+                                            <p><strong>What is EGO and how it hurts us and our relationship</strong></p>
+                                            <p>In this module you will learn:</p>
+                                            <ul>
+                                                <li>How to know if you have an EGO problem? How to keep it under check
+                                                </li>
+                                                <li>Difference between Ego and self-esteem and how Laughter Yoga helps
+                                                    to mellow down EGO
+                                                </li>
+                                                <li>Learn about Spiritual Growth through Laughter Yoga and Positive and
+                                                    Negative parts of EGO
+                                                </li>
+                                                <li>Learn New laughter exercises with the theme - Hiking</li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="col-lg-6 mb-1 pb-1">
+                                    <h1>Session 3</h1>
+                                    <ul>
+                                        <li>
+                                            <p><strong>Laughter Yoga with Mentally Challenged</strong></p>
+                                            <p>In this module you will learn:</p>
+                                            <ul>
+                                                <li>How to do Laughter yoga with children with mental retardation like
+                                                    Down’s Syndrome and childhood behavioural disorders like Autism ADHD
+                                                    ( Attention deficit hyperactivity disorder)
+                                                </li>
+                                                <li>How to do Laughter yoga exercises with mentally challenged ( Video
+                                                    Presentation)
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                    <h1>Session 4</h1>
+                                    <ul>
+                                        <li>
+                                            <p><strong>Guidelines of Laughter Yoga with Seniors (Alzheimer’s and
+                                                Dementia)</strong></p>
+                                            <p>In this module you will learn:</p>
+                                            <ul>
+                                                <li>Why we lose our laughter when we grow older and understanding
+                                                    Alzheimer’s and Dementia
+                                                </li>
+                                                <li>Which exercises works best with seniors and how to lead a Laughter
+                                                    yoga session effectively with seniors
+                                                </li>
+                                                <li>Pacing of the laughter exercises, using acupuncture points through
+                                                    trapping, using music and props, dancing with arms and doing brain
+                                                    gym exercises
+                                                </li>
+                                                <li>Scientific research papers on laughter Yoga with seniors</li>
+                                                <li>Learn New laughter exercises for seniors (Video Presentation)</li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="row justify-content-center">
+                                    <div class="col-lg-4 col-offset-4">
+                                        <a href="#payment" class="btn btn-success btn-modern">Download Now</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Season 4 -->
+                <div class="card card-default">
+                    <div class="card-header" id="collapsely2s4">
+                        <h4 class="card-title m-0 text-4 my-2">
+                            <a class="accordion-toggle" data-toggle="collapse" data-target="#ly2s4"
+                               aria-expanded="false" aria-controls="collapse1Two">
+                                Season 4 - This season is already over. You can learn by downloading the videos.
+                                Click here for more details.
+                            </a>
+                        </h4>
+                    </div>
+
+                    <div id="ly2s4" class="collapse" aria-labelledby="collapsely2s4">
+                        <div class="card-body">
+                            <div class="products row row-gutter-sm mb-1 appear-animation"
+                                 data-appear-animation="fadeInUpShorter"
+                                 data-appear-animation-delay="750">
+                                <div class="col-lg-12">
+                                    <p class="text-center"><strong>For all the 4 sessions you will receive the Downloads
+                                        of Video Recordings + PowerPoint presentation + <br> Research PowerPoint +
+                                        Original Research Papers pdf + New Exercises Templates PDF just for USD
+                                        69.95</strong></p>
+                                </div>
+                                <div class="col-lg-6">
+                                    <h1>Session 1</h1>
+                                    <ul>
+                                        <li>
+                                            <p><strong>Laughter yoga with corporates</strong></p>
+                                            <p>Laughter yoga is the perfect way to help your staff reset and refocus
+                                                during busy work days. Laughter yoga sessions are fun, healthy, and
+                                                tailored to corporate needs. Experience stress-relieving moments while
+                                                learning practical skills that improve employees’ physical and mental
+                                                wellbeing. Laugh away workday stress with laughter yoga!</p>
+                                            <p>In this module you will learn:</p>
+                                            <ul>
+                                                <li>What is the best way to approach companies and corporations?</li>
+                                                <li>You can provide corporations with a wide range of programs</li>
+                                                <li>Developing professional skills, recording videos, having a profile
+                                                    video, and preparing your CV for business opportunities.
+                                                </li>
+                                                <li>A list of the top research papers on laughter yoga in the business
+                                                    world
+                                                </li>
+                                                <li>A list of the most popular laugh exercises for business people</li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                    <h1>Session 2</h1>
+                                    <ul>
+                                        <li>
+                                            <p><strong>How to deal with negative thoughts and negative people</strong>
+                                            </p>
+                                            <p>Laughter Yoga is the most effective solution to negative thoughts and
+                                                toxic people. It's an easy and effective way to lift your spirits and
+                                                focus on the positives. Through joyful laughter, deep breathing, and
+                                                positive affirmations, anyone can improve mental health and well-being.
+                                                Get rid of stress by laughing with Laughter Yoga!</p>
+                                            <p>In this module you will learn:</p>
+                                            <ul>
+                                                <li>An effective way to keep the mind positive through laughter yoga
+                                                </li>
+                                                <li>
+                                                    Why do we laugh? The three theories of laughter:
+                                                    <ul>
+                                                        <li>The Relief Theory</li>
+                                                        <li>The Superiority Theory and</li>
+                                                        <li>The Incongruity Theory</li>
+                                                    </ul>
+                                                </li>
+                                                <li>Laughter Exercises based on the theme of "Laughing for no reason"
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="col-lg-6 mb-1 pb-1">
+                                    <h1>Session 3</h1>
+                                    <ul>
+                                        <li>
+                                            <p><strong>Laughter Yoga in Hospitals</strong></p>
+                                            <p>Experience laughter's healing power. Laughter Yoga in hospitals provides
+                                                an innovative way to reduce stress and promote wellbeing. Patients are
+                                                guided through a series of fun activities that combine gentle yoga
+                                                movements and laughter exercises. This creates a powerful medical
+                                                intervention with immediate and long-term healing benefits.</p>
+                                            <p>In this module you will learn:</p>
+                                            <ul>
+                                                <li>Introducing laughter yoga in hospitals for doctors, nurses, hospital
+                                                    staff and patients, mental health clinics, dialysis centres,
+                                                    chemotherapy units, etc.
+                                                </li>
+                                                <li>Laughter yoga is a therapeutic tool to treat chronic illnesses</li>
+                                                <li>Laughter Yoga and Positive Psychology</li>
+                                            </ul>
+                                            <br>
+                                            <p>Similarities between laughter yoga and Positive Psychology developed by
+                                                Martin Seligman. This is a scientific approach aimed at promoting
+                                                well-being, happiness, and personal growth through positive emotions,
+                                                character strengths, and meaningful engagement.</p>
+                                            <ul>
+                                                <li>Laughter exercises relating to happiness</li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                    <h1>Session 4</h1>
+                                    <ul>
+                                        <li>
+                                            <p><strong>Laughter Yoga for people with physical disabilities</strong></p>
+                                            <p>Laughter yoga for people with physical disabilities is the most effective
+                                                way to stay healthy, happy, and physically active. This program utilizes
+                                                laughter exercises to improve mobility and coordination, reduce stress,
+                                                enhance mood, and boost energy levels. With the fun filled sessions, you
+                                                can laugh your way to improved health without pain or pressure.</p>
+                                            <p>In this module you will learn:</p>
+                                            <ul>
+                                                <li>Laughter yoga for paralysed people, Cerebral Palsy, Multiple
+                                                    Sclerosis, Muscular Dystrophies.
+                                                </li>
+                                                <li>What are the benefits and challenges?</li>
+                                                <li>How to conduct laughter yoga exercises, singing, laughing and
+                                                    dancing in wheel chairs [Video Presentations]
+                                                </li>
+                                                <li>Laughter exercises that promote cleansing and detox</li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="row justify-content-center">
+                                    <div class="col-lg-4 col-offset-4">
+                                        <a href="#payment" class="btn btn-success btn-modern">Download Now</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Season 3 -->
+                <div class="card card-default">
+                    <div class="card-header" id="collapsely2s3">
+                        <h4 class="card-title m-0 text-4 my-2">
+                            <a class="accordion-toggle" data-toggle="collapse" data-target="#ly2s3"
+                               aria-expanded="true" aria-controls="collapse1Two">
+                                Season 3 - This season is already over. You can learn by downloading the videos.
+                                Click here for more details.
+                            </a>
+                        </h4>
+                    </div>
+
+                    <div id="ly2s3" class="collapse" aria-labelledby="collapsely2s3">
+                        <div class="card-body">
+                            <div class="products row row-gutter-sm mb-1 appear-animation"
+                                 data-appear-animation="fadeInUpShorter"
+                                 data-appear-animation-delay="750">
+                                <div class="col-lg-12">
+                                    <p class="text-center"><strong>For all the 4 sessions you will receive the Downloads
+                                        of Video Recordings + PowerPoint presentation + <br> Research PowerPoint +
+                                        Original Research Papers pdf + New Exercises Templates PDF just for USD
+                                        69.95</strong></p>
+                                </div>
+                                <div class="col-lg-6">
+                                    <h1>Session 1</h1>
+                                    <ul>
+                                        <li>
+                                            <strong>Laughter Yoga and the Lymphatic System</strong>
+                                            <ul>
+                                                <li>Learn about the lymphatic system and how it works.</li>
+                                                <li>Learn about the different lymphatic system organs: vessels, lymph
+                                                    nodes, the spleen, the thymus, and lymphatic channels.
+                                                </li>
+                                                <li>What are the benefits of laughter yoga for our lymphatic system?
+                                                </li>
+                                                <li>The muscles of laughter yoga include muscles of the face, neck,
+                                                    chest, diaphragm, and abdomen.
+                                                </li>
+                                                <li><strong>Understanding the Mirror Neuron System:</strong> Why are
+                                                    laughter and other emotions contagious?
+                                                </li>
+                                                <li>Learn and practice some new laughter exercises.</li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                    <h1>Session 2</h1>
+                                    <ul>
+                                        <li>
+                                            <strong>Mindfulness for Laughter Yoga practitioners</strong>
+                                            <ul>
+                                                <li>Why is mindfulness so crucial to enjoying life to its fullest
+                                                    extent?
+                                                </li>
+                                                <li>What is the difference between meditation and mindfulness?</li>
+                                                <li>Enhance focus and concentration through mindfulness to achieve
+                                                    maximum results with minimal effort.
+                                                </li>
+                                                <li><strong>Learn mindfulness practices:</strong> Body scan, mindful
+                                                    breathing, mindful eating, mindful listening, and mindful
+                                                    observation are all examples of mindfulness activities.
+                                                </li>
+                                                <li><strong>German Scientific Research:</strong> Facial feedback
+                                                    modulates the emotional experience. Holding a chopstick between the
+                                                    teeth can alter the emotional state by releasing neurotransmitters
+                                                    in the brain centres.
+                                                </li>
+                                                <li>Learn and practice some new laughter exercises.</li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="col-lg-6 mb-1 pb-1">
+                                    <h1>Session 3</h1>
+                                    <ul>
+                                        <li>
+                                            <strong>Laughter Yoga with School Children</strong>
+                                            <ul>
+                                                <li>What are the opportunities and challenges of laughter yoga in
+                                                    schools, and why is it so effective for children under the age of
+                                                    seven years old?
+                                                </li>
+                                                <li>There is a need for children to laugh more today. Various laughter
+                                                    yoga techniques are available for children of different grades and
+                                                    ages.
+                                                </li>
+                                                <li>Incorporating the four elements of joy leads to value-based laughter
+                                                    exercises for children.
+                                                </li>
+                                                <li>Laughter exercises for different grades.</li>
+                                                <li><strong>Iranian Scientific Research</strong></li>
+                                                <li>Study of the effects of laughter yoga on the quality of sleep.</li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                    <h1>Session 4</h1>
+                                    <ul>
+                                        <li>
+                                            <strong>Laughter Yoga For Diabetes</strong>
+                                            <ul>
+                                                <li>Understanding diabetes: Causes, signs and symptoms, and
+                                                    complications?
+                                                </li>
+                                                <li>How does laughter yoga help control blood sugar?</li>
+                                                <li>Scientific studies on laughter yoga and diabetes</li>
+                                                <li>How to cultivate a Duchenne smile and Duchenne laughter?</li>
+                                                <li>Learn and practice some new laughter exercises.</li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="row justify-content-center">
+                                    <div class="col-lg-4 col-offset-4">
+                                        <a href="#payment" class="btn btn-success btn-modern">Download Now</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Season 2 -->
+                <div class="card card-default">
+                    <div class="card-header" id="collapsely2s2">
+                        <h4 class="card-title m-0 text-4 my-2">
+                            <a class="accordion-toggle" data-toggle="collapse" data-target="#ly2s2"
+                               aria-expanded="false" aria-controls="collapse1Two">
+                                Season 2 - This season is already over. You can learn by downloading the videos.
+                                Click here for more details.
+                            </a>
+                        </h4>
+                    </div>
+
+                    <div id="ly2s2" class="collapse" aria-labelledby="collapsely2s2">
+                        <div class="card-body">
+                            <div class="products row row-gutter-sm mb-1 appear-animation"
+                                 data-appear-animation="fadeInUpShorter"
+                                 data-appear-animation-delay="750">
+                                <div class="col-lg-12">
+                                    <p class="text-center"><strong>For all the 4 sessions you will receive the Downloads
+                                        of Video Recordings + PowerPoint presentation + <br> Research PowerPoint +
+                                        Original Research Papers pdf + New Exercises Templates PDF just for USD
+                                        69.95</strong></p>
+                                </div>
+                                <div class="col-lg-6">
+                                    <h1>Session 1</h1>
+                                    <ul>
+                                        <li>
+                                            <strong>Cardiovascular Effects Of Laughter Yoga</strong>
+                                            <ul>
+                                                <li>Learn the effect of laughter yoga as a cardiovascular exercise
+                                                    and how it controls blood pressure, dilates blood vessels and
+                                                    reduces inflammation in the arteries.
+                                                </li>
+                                                <li>Know what is heart rate variability and why it is so important
+                                                    for healthy heart.
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li>Scientific studies to measure the effect of laughter yoga on
+                                            cardiovascular diseases.
+                                        </li>
+                                        <li>Laughter exercises by quoting the scientific research.
+                                        </li>
+                                    </ul>
+                                    <h1>Session 2</h1>
+                                    <ul>
+                                        <li>
+                                            <strong>Laughter Yoga as Physical and Psychological Detox</strong>
+                                            <ul>
+                                                <li>700 billion cells are dying everyday plus we are exposed to tons
+                                                    of toxins from outside. How do you know your body is turning
+                                                    acidic? Learn how our body maintains the acid base balance by
+                                                    eliminating these toxins through breathing and laughter yoga.
+                                                </li>
+                                                <li>How laughter yoga helps to release mental and emotional baggage
+                                                    (catharsis).
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li>LY research from Hungary which shows you will get benefits even by
+                                            watching videos of Laughter Yoga session.
+                                        </li>
+                                        <li>Connecting laughter exercises with laughter quotes.</li>
+                                    </ul>
+                                </div>
+                                <div class="col-lg-6 mb-1 pb-1">
+                                    <h1>Session 3</h1>
+                                    <ul>
+                                        <li>
+                                            <strong>Laughter Yoga for Cancer Patients</strong>
+                                            <ul>
+                                                <li>What is cancer and how does it develop?</li>
+                                                <li>Learn the difference between normal cell and cancer cells and
+                                                    the role of genetic mutation in cancer.
+                                                </li>
+                                                <li>Learn about types of cancer, signs and symptoms and risk factor
+                                                    for cancer, treatment options and cancer prevention.
+                                                </li>
+                                                <li>Role of laughter yoga in cancer patients during chemotherapy and
+                                                    after the treatment and how it can improve survival and quality
+                                                    of life.
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li>Scientific research on cancer patients-an overview.</li>
+                                        <li>Laughter exercises about daily irritations of life, mistakes and
+                                            embarrassments.
+                                        </li>
+                                    </ul>
+                                    <h1>Session 4</h1>
+                                    <ul>
+                                        <li>
+                                            <strong>Laughter Yoga as Fitness Program</strong>
+                                            <ul>
+                                                <li>Learn how different exercises like breathing stretching
+                                                    acupressure and joint rotation can be combined with love to yoga
+                                                    to make the experience lot of fun.
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li>Research studies about laughter yoga as an exercise</li>
+                                        <li>Laughter exercises related to expression of gratitude.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="row justify-content-center">
+                                    <div class="col-lg-4 col-offset-4">
+                                        <a href="#payment" class="btn btn-success btn-modern">Download Now</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Season 1 -->
+                <div class="card card-default">
+                    <div class="card-header" id="collapse1HeadingTwo">
+                        <h4 class="card-title m-0 text-4 my-2">
+                            <a class="accordion-toggle" data-toggle="collapse" data-target="#collapse1Two"
+                               aria-expanded="false" aria-controls="collapse1Two">
+                                Season 1 - This season is already over. You can learn by downloading the videos.
+                                Click here for more details.
+                            </a>
+                        </h4>
+                    </div>
+
+                    <div id="collapse1Two" class="collapse" aria-labelledby="collapse1HeadingTwo">
+                        <div class="card-body">
+                            <div class="products row row-gutter-sm mb-1 appear-animation"
+                                 data-appear-animation="fadeInUpShorter"
+                                 data-appear-animation-delay="750">
+                                <div class="col-lg-12">
+                                    <p class="text-center"><strong>For all the 4 sessions you will receive the Downloads
+                                        of Video Recordings + PowerPoint presentation + <br> Research PowerPoint +
+                                        Original Research Papers pdf + New Exercises Templates PDF just for USD
+                                        69.95</strong></p>
+                                </div>
+                                <div class="col-lg-6">
+                                    <h1>Session 1</h1>
+                                    <ul>
+                                        <li>Learn about the sympathetic nervous system and neurobiology of stress and
+                                            how laughter yoga helps in stress reduction
+                                        </li>
+                                        <li>Scientific Research: New Zealand study laughter yoga versus laughter
+                                            from humour which
+                                            is better
+                                        </li>
+                                        <li>The psychology behind very good very good yeah. the childlike cheer</li>
+                                        <li>Laughter exercises with the benefits of laughter</li>
+                                        <li><strong>Health tip:</strong> Lemon and warm water after oily and greasy
+                                            food
+                                        </li>
+                                    </ul>
+                                    <h1>Session 2</h1>
+                                    <ul>
+                                        <li>Understanding parasympathetic nervous system and neurobiology of
+                                            laughter. How can
+                                            laughter help to activate the parasympathetic nervous system? Get to know
+                                            what are happy cocktails, endorphins and dopamine.
+                                            What are the effects of endorphins and dopamine on the physiology and how
+                                            laughter helps to release these happy hormones.
+                                        </li>
+                                        <li>Laughter exercises to connect with the universe</li>
+                                        <li>Scientific Research: Russian study in a retail chain group to measure
+                                            the efficiency and
+                                            performance of the employees' Japan study
+                                            connecting with the universe through laughter
+                                        </li>
+                                        <li><strong>Health tip:</strong> Learning EFT</li>
+                                    </ul>
+                                </div>
+                                <div class="col-lg-6 mb-1 pb-1">
+                                    <h1>Session 3</h1>
+                                    <ul>
+                                        <li>Understanding Depression: Learn about the different types of depression and
+                                            role of serotonin
+                                            to alleviate depression and how does laughter help to release serotonin
+                                        </li>
+                                        <li>Vital capacity laughter how can we build breathing capacity through
+                                            laughter
+                                            techniques.
+                                        </li>
+                                        <li>Laughter exercises related to Spirituality</li>
+                                        <li><strong>Health tip:</strong> Anulom Vilom yogic breathing techniques for
+                                            health and well
+                                            being to balance your energies
+                                        </li>
+                                        <li><strong>Scientific Research:</strong> JHow Laughter Yoga increases the
+                                            levels of Serotonin in patients suffering from depression- Korean study
+                                        </li>
+                                    </ul>
+                                    <h1>Session 4</h1>
+                                    <ul>
+                                        <li>Understanding Anxiety and how Laughter Yoga helps: What is Anxiety and
+                                            anxiety disorder –
+                                            symptoms and causes. Learn about the different types of anxiety disorders -
+                                            obsessive-compulsive disorder (OCD),
+                                            Post-Traumatic Stress Disorder (PTSD), Irritable Bowel Syndrome (IBS). What
+                                            are the natural remedies for anxiety and how
+                                            breathing and laughter yoga can help in alleviating these causes and
+                                            symptoms of anxiety?
+                                        </li>
+                                        <li>Laughter exercises with historic context.</li>
+                                        <li>How to do breathing exercises in between laughter exercises</li>
+                                        <li><strong>Health tip:</strong> oil pulling ancient Indian practice of
+                                            swishing your mouth
+                                            with oil to remove toxins and bacteria
+                                        </li>
+                                        <li><strong>Scientific Research:</strong> Comparison of laughter yoga and
+                                            anti-anxiety medication on anxiety and
+                                            gastrointestinal symptoms of patients with irritable bowel syndrome
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="row justify-content-center">
+                                    <div class="col-lg-4 col-offset-4">
+                                        <a href="#payment" class="btn btn-success btn-modern">Download Now</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container my-5 pt-md-4 pt-xl-0">
+        <div class="align-items-center justify-content-center pb-4 mb-5">
+            <h3 class="text-center pb-3">Facilitators</h3>
+            <div class="row">
+                <div class="col-lg-6 mb-4">
+                    <p><img src="{% static 'img/pages/dr-madan-kataria.jpg' %}" class="img-fluid"
+                            alt="dr-madan-kataria"
+                            style="float:left; width:220px; height:280px; padding: 0px 10px 0px;">Dr. Madan
+                        Kataria, a medical doctor from Mumbai, India, popularly known as the ‘Guru of Giggling’
+                        (London Times), is the founder of Laughter Yoga which grown into a worldwide movement
+                        with thousands of Laughter Yoga clubs in over 100 countries. <br/> <br/>Dr.Madan Kataria
+                        from his 25 years of experience can teach you special guided techniques how to laugh all
+                        by yourself, with your family and your colleagues. Dr. Kataria is a keynote,
+                        motivational and inspirational speaker for companies, corporations and organizations all
+                        over the world. He is also a corporate consultant for holistic health, stress
+                        management, teambuilding, leadership, peak performance and communication skills.</p>
+                </div>
+                <div class="col-lg-6">
+                    <p><img src="{% static 'img/pages/vinayak-shastri.jpg' %}" class="img-fluid"
+                            alt="vinayak-shastri"
+                            style="float:left; width:220px; height:280px; padding: 0px 10px 0px;">Vinayak
+                        Shastri is
+                        a Certified Laughter Yoga Teacher and Master Trainer, personally trained by Dr Kataria
+                        and
+                        has assisted him in International training for seven years. He has excellent
+                        facilitation
+                        skills to conduct corporate seminars. Also, he has conducted training and workshops in
+                        Japan, Hong Kong and China.<br/> <br/> He completed his master’s degree in traditional
+                        yoga
+                        from S-VYASA University, Bangalore India. He has conducted several online laughter yoga
+                        workshops. He has widely travelled all over India to set up free social laughter clubs
+                        and
+                        conducted seminars in prisons, schools, Indian army police and commando training
+                        centres.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="shop section section-height-2 border-0 m-0" id="payment">
+        <div class="container my-3 pt-md-4 pt-xl-0">
+            <!-- Message Section -->
+            <div class="row justify-content-center">
+                <div class="col-lg-7">
+                    {% include 'front/includes/messages.html' %}
+                </div>
+            </div>
+            <div class="products row row-gutter-sm mb-4 appear-animation" data-appear-animation="fadeInUpShorter"
+                 data-appear-animation-delay="750">
+                <div class="col-lg-5 mb-4 pb-2 justify-content-center">
+                    <div class="h4 text-center">Register and Pay</div>
+                    <p class="text-center">Season 6 Live (Dates will be announced shortly)</p>
+                    <form action="{% url 'ly2charge' %}" method="post" id="payment-form">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-lg-12 pb-1">
+                                    <select class="form-control" name="course" required>
+                                        <option disabled selected value="">--Select Your Course--</option>
+                                        <option value="LY 2.0 Season 6 Live" disabled>Season 6 Live (Dates will be announced shortly)</option>
+                                        <option value="LY 2.0 Bundle Download">Season 1,2,3,4,5 Download - USD 297 (15% Discount)</option>
+                                        <option value="LY 2.0 Season 5 Download">Season 5 Download - USD 69.95</option>
+                                        <option value="LY 2.0 Season 4 Download">Season 4 Download - USD 69.95</option>
+                                        <option value="LY 2.0 Season 3 Download">Season 3 Download - USD 69.95</option>
+                                        <option value="LY 2.0 Season 2 Download">Season 2 Download - USD 69.95</option>
+                                        <option value="LY 2.0 Season 1 Download">Season 1 Download - USD 69.95</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <input class="form-control" type="text" name="fullname" placeholder="Full Name"
+                                           required>
+                                </div>
+                                <div class="col-lg-6">
+                                    <input class="form-control" type="email" name="email" placeholder="Email" required>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <input class="form-control" type="text" name="address" placeholder="Address"
+                                           required>
+                                </div>
+                                <div class="col-lg-6">
+                                    <input class="form-control" type="text" name="postalcode" placeholder="Postal Code"
+                                           required>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-4">
+                                    <input class="form-control" type="text" name="city" placeholder="City" required>
+                                </div>
+                                <div class="col-lg-4">
+                                    <input class="form-control" type="text" name="state" placeholder="State" required>
+                                </div>
+                                <div class="col-lg-4">
+                                    <select class="form-control" name="country" style="margin-top: 5px;" required>
+                                        <option disabled selected value="">--Select Country--</option>
+                                        {% for country in all_countries %}
+                                        <option value="{{ country.name }}">{{ country.name }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <input class="form-control" type="text" name="contact"
+                                           placeholder="Phone/WhatsApp Number" minlength="10"
+                                           oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
+                                           required>
+                                </div>
+                                <div class="col-lg-6">
+                                    <input class="form-control" type="text" name="information"
+                                           placeholder="How did you come to know?" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pb-2" id="card-element">
+                            <!-- A Stripe Element will be inserted here. -->
+                        </div>
+                        <div class="py-2" id="card-errors" role="alert"></div>
+                        <div class="form-row justify-content-center">
+                            <div class="form-group">
+                                <div class="g-recaptcha" data-sitekey="{{site_key}}"></div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-6">
+                                    <button class="btn btn-success" id="submit-button">Enroll Now</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-lg-1"></div>
+                <div class="col-lg-5">
+                    <div class="h4 pb-1 text-center">Enquiry Form</div>
+                    <form action="{% url 'ly2' %}" method="post" class="needs-validation" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="form-group row justify-content-center">
+                            <div class="col-lg-9">
+                                <input class="form-control" type="text" name="name" placeholder="Full Name" required>
+                            </div>
+                            <div class="col-lg-9">
+                                <input class="form-control" type="email" name="email" placeholder="Email" required>
+                            </div>
+                            <div class="col-lg-9">
+                                <input class="form-control" type="tel" name="contact" placeholder="Contact No"
+                                       oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
+                                       required>
+                            </div>
+                            <div class="col-lg-9">
+                                <input class="form-control" type="text" name="country" placeholder="Country Name"
+                                       required>
+                            </div>
+                            <div class="col-lg-9 pt-2">
+                                <textarea class="form-control" name="message" placeholder="Message" rows="6" cols="50"
+                                          required></textarea>
+                            </div>
+                        </div>
+                        <div class="form-row justify-content-center">
+                            <div class="form-group">
+                                <div class="g-recaptcha" data-sitekey="{{site_key}}"></div>
+                            </div>
+                        </div>
+                        <div class="form-group row justify-content-center">
+                            <div class="col-lg-6">
+                                <button type="submit" class="btn btn-success btn-modern">Submit</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+<script src="{% static 'vendor/payment/stripe/stripe.js' %}"></script>
+<script>
+    // Smooth Scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+</script>
+{% endblock %}

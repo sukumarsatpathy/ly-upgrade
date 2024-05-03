@@ -1,0 +1,53 @@
+{% extends 'front/base.html' %}
+{% load static %}
+{% block meta %}
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>{{single_testimonial.tm_title}} - Laughter Yoga International</title>
+    <meta name="keywords" content="life changing experience, testimonials, life stories"/>
+    <meta name="description" content="{{single_testimonial.tm_title}}">
+    <meta name="author" content="{{single_testimonial.tm_author}}">
+
+    <!-- For Social Media -->
+    <meta property="og:url" content="https://laughteryoga.org/testimonial/{{single_testimonial.tm_slug}}" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="{{single_testimonial.tm_title}}" />
+    <meta property="og:description" content="Publisher: {{single_testimonial.tm_author.full_name}}, Location: {{single_testimonial.tm_location}}" />
+    <meta property="og:image" content="{{single_testimonial.tm_image.url}}" />
+{% endblock %}
+{% block content %}
+<div role="main" class="main">
+    <!-- Breadcrumb Starts Here -->
+    <section class="page-header page-header-classic">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <ul class="breadcrumb">
+                        <li><a href="{% url 'home' %}" target="_parent" class="text-decoration-none">Home</a></li>
+                        <li><a href="{% url 'testimonial' %}" target="_parent" class="text-decoration-none">Life Changing Experience</a></li>
+                        <li class="text-capitalize active">{{single_testimonial.tm_title}}</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="container py-2">
+        <div class="row">
+            <!-- Body Starts Here -->
+            <div class="col-lg-9">
+                <h2 class="font-weight-normal text-4 mb-2">
+                    {{single_testimonial.title}}
+                </h2>
+                <img class="float-left img-fluid" src="{{single_testimonial.image.url}}"
+                     alt="{{single_testimonial.author.full_name}}" style="padding:10px 20px 10px 0px; width:250px; height:300px;">
+                <p>{{single_testimonial.description|safe}}</p>
+            </div>
+            <!-- SideBar Starts Here -->
+            <div class="col-lg-3 order-lg-2">
+                {% include 'front/includes/sidebar/default.html' %}
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

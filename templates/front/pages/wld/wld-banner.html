@@ -1,0 +1,303 @@
+{% extends 'front/base.html' %}
+{% load static %}
+{% load i18n %}
+{% load cropping %}
+{% block content %}
+<div role="main" class="main">
+    <!-- Breadcrumb Starts Here -->
+    <section class="page-header page-header-classic">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <ul class="breadcrumb">
+                        <li><a href="{% url 'home' %}" target="_parent" class="text-decoration-none">Home</a></li>
+                        <li><a href="{% url 'world-laughter-day' %}" target="_parent" class="text-decoration-none">World Laughter Day</a></li>
+                        <li class="active">Download Round Logo</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container py-3 my-5">
+        <div class="row">
+            <div class="col-lg-9 order-lg-1">
+                <p class="h3 text-center pb-3">Download WLD Banner</p>
+                <!-- Row 1 -->
+                <div class="row pb-3">
+                    <div class="col-lg-6">
+                        <span class="thumb-info thumb-info-no-borders thumb-info-no-borders-rounded thumb-info-centered-icons">
+                            <span class="thumb-info-wrapper">
+                                <img src="{% static 'img/wld/banner/jpg/wld-banner-arabic.jpg' %}" class="img-fluid border">
+                                <span class="thumb-info-action">
+                                    <a href="{% static 'img/wld/banner/pdf/wld-banner-arabic.pdf' %}" target="_blank" download>
+                                        <span class="thumb-info-action-icon thumb-info-action-icon-light"><i class="fas fa-download"></i></span>
+                                    </a>
+                                </span>
+                            </span>
+                            <p class="text-center font-weight-bold">Arabic Banner</p>
+                        </span>
+                    </div>
+                    <div class="col-lg-6">
+                        <span class="thumb-info thumb-info-no-borders thumb-info-no-borders-rounded thumb-info-centered-icons">
+                            <span class="thumb-info-wrapper">
+                                <img src="{% static 'img/wld/banner/jpg/wld-banner-czech.jpg' %}" class="img-fluid border">
+                                <span class="thumb-info-action">
+                                    <a href="{% static 'img/wld/banner/pdf/wld-banner-czech.pdf' %}" target="_blank" download>
+                                        <span class="thumb-info-action-icon thumb-info-action-icon-light"><i class="fas fa-download"></i></span>
+                                    </a>
+                                </span>
+                            </span>
+                            <p class="text-center font-weight-bold">Czech Banner</p>
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Row 2 -->
+                <div class="row pb-3">
+                    <div class="col-lg-6">
+                        <span class="thumb-info thumb-info-no-borders thumb-info-no-borders-rounded thumb-info-centered-icons">
+                            <span class="thumb-info-wrapper">
+                                <img src="{% static 'img/wld/banner/jpg/wld-banner-chinese-taiwan.jpg' %}" class="img-fluid border">
+                                <span class="thumb-info-action">
+                                    <a href="{% static 'img/wld/banner/pdf/wld-banner-chinese-taiwan.pdf' %}" target="_blank" download>
+                                        <span class="thumb-info-action-icon thumb-info-action-icon-light"><i class="fas fa-download"></i></span>
+                                    </a>
+                                </span>
+                            </span>
+                            <p class="text-center font-weight-bold">Chinese Taiwan Banner</p>
+                        </span>
+                    </div>
+                    <div class="col-lg-6">
+                        <span class="thumb-info thumb-info-no-borders thumb-info-no-borders-rounded thumb-info-centered-icons">
+                            <span class="thumb-info-wrapper">
+                                <img src="{% static 'img/wld/banner/jpg/wld-banner-chinesse.jpg' %}" class="img-fluid border">
+                                <span class="thumb-info-action">
+                                    <a href="{% static 'img/wld/banner/pdf/wld-banner-chinesse.pdf' %}" target="_blank" download>
+                                        <span class="thumb-info-action-icon thumb-info-action-icon-light"><i class="fas fa-download"></i></span>
+                                    </a>
+                                </span>
+                            </span>
+                            <p class="text-center font-weight-bold">Chinese Banner</p>
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Row 3 -->
+                <div class="row pb-3">
+                    <div class="col-lg-6">
+                        <span class="thumb-info thumb-info-no-borders thumb-info-no-borders-rounded thumb-info-centered-icons">
+                            <span class="thumb-info-wrapper">
+                                <img src="{% static 'img/wld/banner/jpg/wld-banner-english.jpg' %}" class="img-fluid border">
+                                <span class="thumb-info-action">
+                                    <a href="{% static 'img/wld/banner/pdf/wld-banner-english.pdf' %}" target="_blank" download>
+                                        <span class="thumb-info-action-icon thumb-info-action-icon-light"><i class="fas fa-download"></i></span>
+                                    </a>
+                                </span>
+                            </span>
+                            <p class="text-center font-weight-bold">English Banner</p>
+                        </span>
+                    </div>
+                    <div class="col-lg-6">
+                        <span class="thumb-info thumb-info-no-borders thumb-info-no-borders-rounded thumb-info-centered-icons">
+                            <span class="thumb-info-wrapper">
+                                <img src="{% static 'img/wld/banner/jpg/wld-banner-farsi.jpg' %}" class="img-fluid border">
+                                <span class="thumb-info-action">
+                                    <a href="{% static 'img/wld/banner/pdf/wld-banner-farsi.pdf' %}" target="_blank" download>
+                                        <span class="thumb-info-action-icon thumb-info-action-icon-light"><i class="fas fa-download"></i></span>
+                                    </a>
+                                </span>
+                            </span>
+                            <p class="text-center font-weight-bold">Farsi Banner</p>
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Row 4 -->
+                <div class="row pb-3">
+                    <div class="col-lg-6">
+                        <span class="thumb-info thumb-info-no-borders thumb-info-no-borders-rounded thumb-info-centered-icons">
+                            <span class="thumb-info-wrapper">
+                                <img src="{% static 'img/wld/banner/jpg/wld-banner-french.jpg' %}" class="img-fluid border">
+                                <span class="thumb-info-action">
+                                    <a href="{% static 'img/wld/banner/pdf/wld-banner-french.pdf' %}" target="_blank" download>
+                                        <span class="thumb-info-action-icon thumb-info-action-icon-light"><i class="fas fa-download"></i></span>
+                                    </a>
+                                </span>
+                            </span>
+                            <p class="text-center font-weight-bold">French Banner</p>
+                        </span>
+                    </div>
+                    <div class="col-lg-6">
+                        <span class="thumb-info thumb-info-no-borders thumb-info-no-borders-rounded thumb-info-centered-icons">
+                            <span class="thumb-info-wrapper">
+                                <img src="{% static 'img/wld/banner/jpg/wld-banner-german.jpg' %}" class="img-fluid border">
+                                <span class="thumb-info-action">
+                                    <a href="{% static 'img/wld/banner/pdf/wld-banner-german.pdf' %}" target="_blank" download>
+                                        <span class="thumb-info-action-icon thumb-info-action-icon-light"><i class="fas fa-download"></i></span>
+                                    </a>
+                                </span>
+                            </span>
+                            <p class="text-center font-weight-bold">German Banner</p>
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Row 5 -->
+                <div class="row pb-3">
+                    <div class="col-lg-6">
+                        <span class="thumb-info thumb-info-no-borders thumb-info-no-borders-rounded thumb-info-centered-icons">
+                            <span class="thumb-info-wrapper">
+                                <img src="{% static 'img/wld/banner/jpg/wld-banner-greek.jpg' %}" class="img-fluid border">
+                                <span class="thumb-info-action">
+                                    <a href="{% static 'img/wld/banner/pdf/wld-banner-greek.pdf' %}" target="_blank" download>
+                                        <span class="thumb-info-action-icon thumb-info-action-icon-light"><i class="fas fa-download"></i></span>
+                                    </a>
+                                </span>
+                            </span>
+                            <p class="text-center font-weight-bold">Greek Banner</p>
+                        </span>
+                    </div>
+                    <div class="col-lg-6">
+                        <span class="thumb-info thumb-info-no-borders thumb-info-no-borders-rounded thumb-info-centered-icons">
+                            <span class="thumb-info-wrapper">
+                                <img src="{% static 'img/wld/banner/jpg/wld-banner-hebrew.jpg' %}" class="img-fluid border">
+                                <span class="thumb-info-action">
+                                    <a href="{% static 'img/wld/banner/pdf/wld-banner-hebrew.pdf' %}" target="_blank" download>
+                                        <span class="thumb-info-action-icon thumb-info-action-icon-light"><i class="fas fa-download"></i></span>
+                                    </a>
+                                </span>
+                            </span>
+                            <p class="text-center font-weight-bold">Hebrew Banner</p>
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Row 6 -->
+                <div class="row pb-3">
+                    <div class="col-lg-6">
+                        <span class="thumb-info thumb-info-no-borders thumb-info-no-borders-rounded thumb-info-centered-icons">
+                            <span class="thumb-info-wrapper">
+                                <img src="{% static 'img/wld/banner/jpg/wld-banner-hindi.jpg' %}" class="img-fluid border">
+                                <span class="thumb-info-action">
+                                    <a href="{% static 'img/wld/banner/pdf/wld-banner-hindi.pdf' %}" target="_blank" download>
+                                        <span class="thumb-info-action-icon thumb-info-action-icon-light"><i class="fas fa-download"></i></span>
+                                    </a>
+                                </span>
+                            </span>
+                            <p class="text-center font-weight-bold">Hindi Banner</p>
+                        </span>
+                    </div>
+                    <div class="col-lg-6">
+                        <span class="thumb-info thumb-info-no-borders thumb-info-no-borders-rounded thumb-info-centered-icons">
+                            <span class="thumb-info-wrapper">
+                                <img src="{% static 'img/wld/banner/jpg/wld-banner-italian.jpg' %}" class="img-fluid border">
+                                <span class="thumb-info-action">
+                                    <a href="{% static 'img/wld/banner/pdf/wld-banner-italian.pdf' %}" target="_blank" download>
+                                        <span class="thumb-info-action-icon thumb-info-action-icon-light"><i class="fas fa-download"></i></span>
+                                    </a>
+                                </span>
+                            </span>
+                            <p class="text-center font-weight-bold">Italian Banner</p>
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Row 7 -->
+                <div class="row pb-3">
+                    <div class="col-lg-6">
+                        <span class="thumb-info thumb-info-no-borders thumb-info-no-borders-rounded thumb-info-centered-icons">
+                            <span class="thumb-info-wrapper">
+                                <img src="{% static 'img/wld/banner/jpg/wld-banner-japanese.jpg' %}" class="img-fluid border">
+                                <span class="thumb-info-action">
+                                    <a href="{% static 'img/wld/banner/pdf/wld-banner-japanese.pdf' %}" target="_blank" download>
+                                        <span class="thumb-info-action-icon thumb-info-action-icon-light"><i class="fas fa-download"></i></span>
+                                    </a>
+                                </span>
+                            </span>
+                            <p class="text-center font-weight-bold">Japanese Banner</p>
+                        </span>
+                    </div>
+                    <div class="col-lg-6">
+                        <span class="thumb-info thumb-info-no-borders thumb-info-no-borders-rounded thumb-info-centered-icons">
+                            <span class="thumb-info-wrapper">
+                                <img src="{% static 'img/wld/banner/jpg/wld-banner-marathi.jpg' %}" class="img-fluid border">
+                                <span class="thumb-info-action">
+                                    <a href="{% static 'img/wld/banner/pdf/wld-banner-marathi.pdf' %}" target="_blank" download>
+                                        <span class="thumb-info-action-icon thumb-info-action-icon-light"><i class="fas fa-download"></i></span>
+                                    </a>
+                                </span>
+                            </span>
+                            <p class="text-center font-weight-bold">Marathi Banner</p>
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Row 8 -->
+                <div class="row pb-3">
+                    <div class="col-lg-6">
+                        <span class="thumb-info thumb-info-no-borders thumb-info-no-borders-rounded thumb-info-centered-icons">
+                            <span class="thumb-info-wrapper">
+                                <img src="{% static 'img/wld/banner/jpg/wld-banner-polish.jpg' %}" class="img-fluid border">
+                                <span class="thumb-info-action">
+                                    <a href="{% static 'img/wld/banner/pdf/wld-banner-polish.pdf' %}" target="_blank" download>
+                                        <span class="thumb-info-action-icon thumb-info-action-icon-light"><i class="fas fa-download"></i></span>
+                                    </a>
+                                </span>
+                            </span>
+                            <p class="text-center font-weight-bold">Polish Banner</p>
+                        </span>
+                    </div>
+                    <div class="col-lg-6">
+                        <span class="thumb-info thumb-info-no-borders thumb-info-no-borders-rounded thumb-info-centered-icons">
+                            <span class="thumb-info-wrapper">
+                                <img src="{% static 'img/wld/banner/jpg/wld-banner-portuguese.jpg' %}" class="img-fluid border">
+                                <span class="thumb-info-action">
+                                    <a href="{% static 'img/wld/banner/pdf/wld-banner-portuguese.pdf' %}" target="_blank" download>
+                                        <span class="thumb-info-action-icon thumb-info-action-icon-light"><i class="fas fa-download"></i></span>
+                                    </a>
+                                </span>
+                            </span>
+                            <p class="text-center font-weight-bold">Portuguese Banner</p>
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Row 9 -->
+                <div class="row pb-3">
+                    <div class="col-lg-6">
+                        <span class="thumb-info thumb-info-no-borders thumb-info-no-borders-rounded thumb-info-centered-icons">
+                            <span class="thumb-info-wrapper">
+                                <img src="{% static 'img/wld/banner/jpg/wld-banner-serbia.jpg' %}" class="img-fluid border">
+                                <span class="thumb-info-action">
+                                    <a href="{% static 'img/wld/banner/pdf/wld-banner-serbia.pdf' %}" target="_blank" download>
+                                        <span class="thumb-info-action-icon thumb-info-action-icon-light"><i class="fas fa-download"></i></span>
+                                    </a>
+                                </span>
+                            </span>
+                            <p class="text-center font-weight-bold">Serbia Banner</p>
+                        </span>
+                    </div>
+                    <div class="col-lg-6">
+                        <span class="thumb-info thumb-info-no-borders thumb-info-no-borders-rounded thumb-info-centered-icons">
+                            <span class="thumb-info-wrapper">
+                                <img src="{% static 'img/wld/banner/jpg/wld-banner-spanish.jpg' %}" class="img-fluid border">
+                                <span class="thumb-info-action">
+                                    <a href="{% static 'img/wld/banner/pdf/wld-banner-spanish.pdf' %}" target="_blank" download>
+                                        <span class="thumb-info-action-icon thumb-info-action-icon-light"><i class="fas fa-download"></i></span>
+                                    </a>
+                                </span>
+                            </span>
+                            <p class="text-center font-weight-bold">Spanish Banner</p>
+                        </span>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-lg-3 order-lg-2">
+                {% include 'front/includes/sidebar/wld-sidebar.html' %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,180 @@
+{% extends 'be/base.html' %}
+{% load static %}
+{% block meta %}
+        <title>Update {{singleCountry.name}} - {{webSettingsUniversal.title}}</title>
+        <meta name="description" content="{{webSettingsUniversal.metaDescription}}"/>
+        <meta name="keywords" content="{{webSettingsUniversal.metaKeyword}}"/>
+        <meta property="og:title" content="Update {{singleCountry.name}} -{{webSettingsUniversal.title}}"/>
+        <meta property="og:url" content="{{request.scheme}}://{{request.get_host}}{{request.get_full_path}}"/>
+        <meta property="og:site_name" content="{{webSettingsUniversal.title}} - {{webSettingsUniversal.slogan}}"/>
+{% endblock %}
+{% block content %}
+<div class="d-flex flex-column flex-column-fluid">
+    <div class="app-content flex-column-fluid mt-10">
+        <div class="app-container container-xxl">
+            {% include 'be/includes/alert.html' %}
+            <div class="card">
+                <div class="card-header ribbon ribbon-end ribbon-clip">
+                    <div class="ribbon-label">
+                        Update
+                        <span class="ribbon-inner bg-warning"></span>
+                    </div>
+                    <div class="card-title fw-bold m-0">
+                        <span class="px-2">Update Details of {{singleCountry.name}} &#128073;</span>
+                        <div class="symbol symbol-circle symbol-30px overflow-hidden me-3">
+                            <div class="symbol-label">
+                                <span class="w-100 text-center">{{singleCountry.emoji}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body pt-0">
+                    <div class="card mb-5 mb-xl-10">
+                        <div class="collapse show">
+                            <form action="{% url 'countryUpdate' singleCountry.pk %}" method="post" class="form"
+                                  enctype="multipart/form-data" novalidate>
+                                {% csrf_token %}
+                                <div class="card-body border-top p-9">
+                                    {% if country_form.errors %}
+                                        {% for field in country_form %}
+                                            {% for error in field.errors %}
+                                            <div class="alert alert-danger">
+                                                <strong>{{field.name|title}} - {{error|escape}}</strong>
+                                            </div>
+                                            {% endfor %}
+                                        {% endfor %}
+                                        {% for error in country_form.non_field_errors %}
+                                        <div class="alert alert-danger">
+                                            <strong>{{error|escape}}</strong>
+                                        </div>
+                                        {% endfor %}
+                                    {% endif %}
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <div class="form-floating mb-7">
+                                                {{country_form.name}}
+                                                <label class="required">Country Name</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="form-floating mb-7">
+                                                {{country_form.numeric_code}}
+                                                <label class="required">Numeric Code</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="form-floating mb-7">
+                                                {{country_form.iso3}}
+                                                <label class="required">ISO 3</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="form-floating mb-7">
+                                                {{country_form.iso2}}
+                                                <label class="required">ISO 2</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="form-floating mb-7">
+                                                {{country_form.phone_code}}
+                                                <label class="required">Phone Code</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="form-floating mb-7">
+                                                {{country_form.capital}}
+                                                <label class="required">Capital</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="form-floating mb-7">
+                                                {{country_form.currency}}
+                                                <label class="required">Currency</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="form-floating mb-7">
+                                                {{country_form.currency_symbol}}
+                                                <label class="required">Currency Symbol</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="form-floating mb-7">
+                                                {{country_form.tld}}
+                                                <label class="required">Top Level Domain (TLD)</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="form-floating mb-7">
+                                                {{country_form.native}}
+                                                <label class="required">Native Language</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="form-floating mb-7">
+                                                {{country_form.region}}
+                                                <label class="required">Region</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="form-floating mb-7">
+                                                {{country_form.sub_region}}
+                                                <label>Sub Region</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="form-floating mb-7">
+                                                {{country_form.latitude}}
+                                                <label class="required">Latitude</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="form-floating mb-7">
+                                                {{country_form.longitude}}
+                                                <label class="required">Longitude</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="form-floating mb-7">
+                                                {{country_form.emoji}}
+                                                <label class="required">Emoji</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="form-floating mb-7">
+                                                {{country_form.emojiU}}
+                                                <label class="required">EmojiU</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="form-floating mb-7">
+                                                {{country_form.timezones}}
+                                                <label class="required">Timezones</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="form-floating mb-7">
+                                                {{country_form.status}}
+                                                <label class="required">Status</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-footer d-flex justify-content-end py-6 px-9">
+                                    <a href="{% url 'countryList' %}" class="btn btn-light-info me-3">Discard</a>
+                                    <button type="submit" class="btn btn-primary">Save Changes</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block extraJS %}
+<!--begin::Custom Javascript(used for this page only)-->
+
+<!--end::Custom Javascript-->
+{% endblock %}

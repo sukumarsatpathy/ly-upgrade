@@ -1,0 +1,48 @@
+{% extends 'front/dashboard-base.html' %}
+{% load i18n %}
+{% load static %}
+{% block content %}
+{% include 'front/includes/messages.html' %}
+<div class="container-fluid py-3">
+    <div class="main-content-body">
+        <div class="row">
+            <div class="col-lg-12 col-md-12">
+                <div class="pd-xl-20">
+                    <div class="row">
+                        <div class="col-sm-12 col-md-12 col-lg-12 col-xl-8 mx-auto d-block">
+                            <div class="card card-body pd-20  mb-0 pd-md-40 border shadow">
+                                <h2 class="text-center">Payment was Successful</h2>
+                                <p class="text-center">Thank you for paying for {{user_token.quantity}} leaders.</p>
+                                <div class="card card-img-holder">
+                                    <div class="card-body list-icons">
+                                        <div class="clearfix pb-2">
+                                            <div class="float-right mt-2">
+												<span class="text-primary">
+													<i class="si si-credit-card tx-30"></i>
+												</span>
+                                            </div>
+                                            <div class="float-left">
+                                                <p class="card-text text-muted mb-1">Amount Paid</p>
+                                                <h3>$ {{user_token.amount}}</h3>
+                                            </div>
+                                        </div>
+                                        <div class="card-footer p-0">
+                                            <p class="text-center pt-3 text-danger">Please copy this link and send it to your leaders for self registration.</p>
+                                            <div class="mb-3">
+                                                <div class="input-group">
+                                                    <input type="text" id="copyTarget" class="form-control" value="https://{{request.META.HTTP_HOST}}/members/self-leader-creation/{{user_token.token}}" readonly>
+                                                    <button id="copyButton" class="btn btn-primary me-md-2" data-bs-toggle="tooltip" data-bs-placement="top" title="Copy to Clipboard"><i class="fas fa-clipboard"></i></button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

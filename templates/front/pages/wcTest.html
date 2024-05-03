@@ -1,0 +1,1234 @@
+{% extends 'front/base.html' %}
+{% load static %}
+{% load i18n %}
+{% load cropping %}
+{% block meta %}
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Laughter Yoga World Conference - October 2023 in India</title>
+<meta name="keywords"
+      content="world conference, conference, laughter festival, laughter yoga, health, happiness, world peace"/>
+<meta name="description"
+      content="RESERVE YOUR SPOT at the Laughter Yoga World Conference 2023 today for an unforgettable journey around the world of laughter!">
+<meta name="author" content="Dr Madan Kataria">
+<link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{% static 'vendor/flip/flip.min.css' %}">
+{% endblock %}
+{% block content %}
+<style type="text/css">
+    .cstmHeader{
+        font-family: 'Lato';
+        color: #ffffff;
+        font-size:70px;
+        font-weight:bolder;
+        line-height:55px;
+        padding:0px 10px;
+        text-align:center;
+        text-shadow: 2px 0px 8px rgba(0,0,0,0.6);
+    }
+    .headerTxt1{
+        font-family: 'Lato';
+        font-size: 55px;
+        font-weight: bolder;
+        line-height: 10px;
+        text-align: center;
+        text-transform: uppercase;
+        text-shadow: 0em 0.0375em 0.159375em rgba(0, 0, 0, 0.325000);
+        color: #ffffff;
+        letter-spacing: 5px;
+        position: absolute;
+        top:9%;
+        left:32%;
+    }
+    .headerTxt2{
+        font-family: 'Roboto';
+        font-size: 65px;
+        font-weight: bolder;
+        line-height: 10px;
+        text-align: center;
+        text-transform: uppercase;
+        text-shadow: 0em 0.0375em 0.28125em rgba(0, 0, 0, 0.600000);
+        color: #ffde59;
+        letter-spacing: 2px;
+        position: absolute;
+        top: 17%;
+        left: 25%;
+    }
+    .parent {
+        position: relative;
+        top: 0;
+        left: 0;
+        justify-content: center;
+      }
+      .image1 {
+        position: relative;
+        top: 0;
+        left: 0;
+        background-position: center center;
+        background-size: cover;
+        background-repeat: no-repeat;
+      }
+      .image2 {
+        position: absolute;
+        top: 7%;
+        left: 8%;
+        width: 200px;
+        height: 200px;
+      }
+      .drmmk {
+        position: absolute;
+        top:25%;
+        left:5%;
+      }
+      .confBlock{
+        position: absolute;
+        top:25%;
+        left:57%;
+      }
+
+      /*.yellowBtn {
+        position: absolute;
+        left:20%;
+        font-family:'Lato';
+        font-size:20px;
+        font-weight: bolder;
+        text-transform: uppercase;
+        text-decoration: none;
+        text-align: center;
+        padding:15px 35px;
+        background-color:#fcc73c;
+        border:3px solid #fff;
+        border-radius: 10px;
+        color: #000000;
+        margin: 20px auto;
+        box-shadow:3px 3px 8px #000000;
+      }
+      .yellowBtn a:hover {
+        text-decoration: none;
+        color: #000000;
+        box-shadow:none;
+      }
+      .yellowBtn a:active {
+        background-color:#fcc73c;
+        color: #0450B4;
+        box-shadow:none;
+      }*/
+
+      .yellowBtn {
+            font-family:'Lato';
+            font-size:20px;
+            font-weight: bolder;
+            text-transform: uppercase;
+            text-decoration: none;
+            text-align: center;
+            padding:15px 35px;
+            background-color:#fcc73c;
+            border:3px solid #fff;
+            border-radius: 10px;
+            color: #000000;
+            margin: 20px auto;
+            box-shadow:3px 3px 8px #000000;
+        }
+
+        .yellowBtn:hover {
+            color: #0450B4;
+            box-shadow: none;
+        }
+
+        .yellowBtn:active {
+            background-color: #fcc73c;
+            border:3px solid #000;
+            transform: translateY(4px);
+            box-shadow:none;
+        }
+
+      .payNowBtn{
+        font-family:'Lato';
+        font-size:30px;
+        font-weight: bolder;
+        text-transform: capitalize;
+        text-decoration: none;
+        text-align: center;
+        padding:30px 55px;
+        background-color:#67A80C;
+        border:3px solid #fff;
+        border-radius: 10px;
+        color: #ffffff;
+        box-shadow:3px 3px 8px #000000;
+        margin-bottom:10px;
+      }
+      .payNowBtn:hover {
+        text-decoration: none;
+        color: #ffffff;
+        box-shadow: none;
+        }
+      .payNowBtn:active {
+        background-color: #CDEF77;
+        border:3px solid #000;
+        color: #000;
+        transform: translateY(4px);
+        box-shadow:none;
+      }
+      .lywBtn{
+        font-family:'Lato';
+        font-size:35px;
+        font-weight: bolder;
+        text-transform: uppercase;
+        text-decoration: none;
+        text-align: center;
+        padding:30px 55px;
+        background-color:#fcc73c;
+        border:3px solid #fff;
+        border-radius: 10px;
+        color: #000000;
+        box-shadow:3px 3px 8px #000000;
+      }
+      .lywBtn:hover {
+        text-decoration: none;
+        color: #0450B4;
+        box-shadow: none;
+      }
+      .lywBtn:active {
+        background-color: #fcc73c;
+        border:3px solid #000;
+        transform: translateY(4px);
+        box-shadow:none;
+      }
+
+      .stickyBtn{
+        font-family:'Lato';
+        font-size:35px;
+        font-weight: bolder;
+        text-transform: uppercase;
+        text-decoration: none;
+        text-align: center;
+        padding:30px 55px;
+        background-color:#67A80C;
+        border:3px solid #fff;
+        border-radius: 10px;
+        box-shadow:3px 3px 8px #000000;
+      }
+      .stickyBtn a:link, a:hover {
+        text-decoration: none;
+      }
+
+      .confHglte{
+        background-image:url('{% static 'img/pages/conference/section2-bg-img.png' %}');
+        background-position: center center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        margin-top:-100px;
+      }
+      .lafterYogiesWorld{
+        background: rgb(30,126,255);
+        background: linear-gradient(0deg, rgba(30,126,255,1) 0%, rgba(60,246,255,1) 100%);
+      }
+      .lafterYogiesWorld p {
+        color: #00417d;
+      }
+      .spiritualMorning{
+        background-image: url('{% static 'img/pages/conference/9. Mornings.png' %}');
+        background-position: center center;
+        background-size: cover;
+        background-repeat: no-repeat;
+      }
+
+      .funtasticEvening{
+        background-image: url('{% static 'img/pages/conference/funtasticEvening.png' %}');
+        background-position: center center;
+        background-size: cover;
+        background-repeat: no-repeat;
+      }
+      .muchMore{
+        background-image: url('{% static 'img/pages/conference/drk-4.png' %}');
+        background-position: center center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        height: 800px;
+      }
+      .conferenceVenue{
+        background-image: url('{% static 'img/pages/conference/conference-venue.png' %}');
+        background-position: center center;
+        background-size: cover;
+        background-repeat: no-repeat;
+      }
+      .gcResortImg1{
+        background-image: url('{% static 'img/pages/conference/grapeCounty1.png' %}');
+        background-position: center center;
+        background-size: cover;
+        background-repeat: no-repeat;
+      }
+      .gcResortImg2{
+        background-image: url('');
+        background-position: center center;
+        background-size: cover;
+        background-repeat: no-repeat;
+      }
+      .gcResortImg3{
+        background-image: url('{% static 'img/pages/conference/grapeCounty3.png' %}');
+        background-position: center center;
+        background-size: cover;
+        background-repeat: no-repeat;
+      }
+      .travelRoute{
+        background-image: url('{% static 'img/pages/conference/travelRoute.png' %}');
+        background-position: center center;
+        background-size: cover;
+        background-repeat: no-repeat;
+      }
+      .cstmText{
+        font-family: 'Lato';
+        color: #ffffff;
+        font-size:50px;
+        font-weight:bolder;
+        padding:10px 10px;
+        text-align:center;
+        text-shadow: 2px 0px 8px rgba(0,0,0,0.6);
+      }
+      .cstmTextHeader{
+        font-family: 'Lato';
+        color: #ffffff;
+        font-size:50px;
+        font-weight:bolder;
+        padding:10px 10px;
+        text-align:center;
+        line-height: 40px;
+      }
+      .cstmTextNavyBlue{
+        font-family: 'Lato';
+        color: #00417d;
+        font-size:50px;
+        font-weight:bolder;
+        padding:10px 10px;
+        text-align:center;
+      }
+      .cstmTextDarkGrey{
+        font-family: 'Lato';
+        color: #32120e;
+        font-size:50px;
+        font-weight:bolder;
+        padding:10px 10px;
+        text-align:center;
+      }
+      .cstmTextDarkGreyHeader{
+        font-family: 'Lato';
+        color: #32120e;
+        font-size:50px;
+        font-weight:bolder;
+        padding:10px 10px;
+        text-align:center;
+      }
+      .seeYouAtConference{
+        background-image: url('{% static 'img/pages/conference/seeYouAtConference.png' %}');
+        background-position: center center;
+        background-size: cover;
+        background-repeat: no-repeat;
+      }
+
+      .cstmFont {
+        font-size: 23px;
+      }
+
+      .cstmSubText{
+        font-size:35px;
+      }
+
+      .arrows1{
+        width: 60px;
+        height: 72px;
+      }
+      .arrows1 path {
+        stroke: #fff;
+        fill: transparent;
+        stroke-width: 3px;
+        animation: arrow 2s infinite;
+        -webkit-animation: arrow 2s infinite;
+      }
+      @keyframes arrow
+      {
+        0% {opacity:0}
+        40% {opacity:1}
+        80% {opacity:0}
+        100% {opacity:0}
+      }
+
+      @-webkit-keyframes arrow /*Safari and Chrome*/
+      {
+        0% {opacity:0}
+        40% {opacity:1}
+        80% {opacity:0}
+        100% {opacity:0}
+      }
+
+      .arrows1 path.a1 {
+            animation-delay:-1s;
+            -webkit-animation-delay:-1s; /* Safari 和 Chrome */
+        }
+
+      .arrows1 path.a2 {
+            animation-delay:-0.5s;
+            -webkit-animation-delay:-0.5s; /* Safari 和 Chrome */
+        }
+
+      .arrows1 path.a3 {
+            animation-delay:0s;
+            -webkit-animation-delay:0s; /* Safari 和 Chrome */
+        }
+
+      .arrows {
+        width: 60px;
+        height: 72px;
+        position: absolute;
+        left: 47%;
+        bottom:17%;
+      }
+
+      .arrows path {
+        stroke: #fff;
+        fill: transparent;
+        stroke-width: 3px;
+        animation: arrow 2s infinite;
+        -webkit-animation: arrow 2s infinite;
+      }
+      @keyframes arrow
+      {
+        0% {opacity:0}
+        40% {opacity:1}
+        80% {opacity:0}
+        100% {opacity:0}
+      }
+
+      @-webkit-keyframes arrow /*Safari and Chrome*/
+      {
+        0% {opacity:0}
+        40% {opacity:1}
+        80% {opacity:0}
+        100% {opacity:0}
+      }
+
+        .arrows path.a1 {
+            animation-delay:-1s;
+            -webkit-animation-delay:-1s; /* Safari 和 Chrome */
+        }
+
+        .arrows path.a2 {
+            animation-delay:-0.5s;
+            -webkit-animation-delay:-0.5s; /* Safari 和 Chrome */
+        }
+
+        .arrows path.a3 {
+            animation-delay:0s;
+            -webkit-animation-delay:0s; /* Safari 和 Chrome */
+        }
+
+      .footer {
+          position: fixed;
+          bottom: 0;
+          width: 100%;
+          height: auto;
+          overflow: hidden;
+          z-index: 1;
+        }
+        <!-- Green Background Toggle -->
+    html .toggle label, html .toggle .toggle-title {
+      color: #00664F;
+      border-left-color: #00664F;
+      border-right-color: #00664F;
+    }
+    .toggle.toggle-lg .toggle > label, .toggle.toggle-lg .toggle > .toggle-title {
+      font-size: 1.1em;
+      padding: 16px 30px;
+      color: #ffffff;
+      background-color: #003260;
+      border-left-color: #003260;
+      border-right-color: #003260;
+    }
+     .toggle.toggle-lg .toggle.active > label, .toggle.toggle-lg .toggle.active > .toggle-title {
+      background-color: #003260;
+      border-color: #003260;
+      color: #FFF;
+    }
+    toggle.toggle-lg .toggle.active > label, .toggle.toggle-lg .toggle.active > .toggle-content {
+      background-color: #CFE7FF;
+      border-color: #003260;
+      color: #003260;
+      padding:5px 30px;
+    }
+    toggle.toggle-lg .toggle.active > label, .toggle.toggle-lg .toggle.active > .toggle-content p{
+      color: #003260;
+    }
+      /* Extra small devices (phones, 600px and down) */
+      @media only screen and (max-width: 600px)
+      {
+         .image1 {
+            width: auto;
+            height:auto;
+         }
+          .image2 {
+            width: 55px;
+            height: 55px;
+            top: 3%;
+            left: 5%;
+          }
+          .headerTxt1{
+            font-size: 23px;
+            font-weight: bolder;
+            top:4%;
+            left:23%;
+          }
+          .headerTxt2{
+            font-size: 24px;
+            font-weight: bolder;
+            top:7%;
+            left:20%;
+          }
+          .drmmk {
+            position: absolute;
+            width: 200px;
+            top:11%;
+            left:23%;
+          }
+          .confBlock{
+            position: absolute;
+            top:35%;
+            left:10%;
+          }
+          .cardCstm{
+            text-align: center;
+            padding: 10px 20px;
+            border-radius: 15px;
+          }
+          .confTitle{
+            font-family: 'Lato';
+            font-size: 25px;
+            font-weight: bolder;
+            text-transform: uppercase;
+            color: #00417D;
+            padding-bottom:10px;
+          }
+          .calBg{
+            width:90px;
+            height:90px;
+            margin:5px;
+          }
+          .faCstm{
+            position: relative;
+            top: 20px;
+            left: 0;
+            font-size: 50px !important;
+            color: #76b9f0;
+          }
+          .faLocation{
+            position: absolute;
+            top: 76%;
+            left: 10%;
+            font-size: 30px;
+            color: #00417D;
+            padding-right; 50px;
+          }
+          .confStartDate{
+            position: absolute;
+            font-size: 35px;
+            font-weight: bolder;
+            color: #fff;
+            top: 40%;
+            left:21%;
+          }
+          .confEndDate{
+            position: absolute;
+            font-size: 35px;
+            font-weight: bolder;
+            color: #fff;
+            top: 40%;
+            left:67%;
+          }
+          .confPlace{
+            font-size: 27px;
+            font-weight: bolder;
+            color: #00417D;
+            padding-top:45px;
+            text-align: center;
+          }
+          .confStartDay{
+            position: absolute;
+            font-size: 22px;
+            font-weight: bolder;
+            color: #00417D;
+            top: 60%;
+            left:16%;
+          }
+          .confEndDay{
+            position: absolute;
+            font-size: 22px;
+            font-weight: bolder;
+            color: #00417D;
+            top: 60%;
+            left:64%;
+          }
+          .yellowBtn {
+            font-size:20px;
+            left: 12%;
+          }
+          .lywBtn{
+            font-size:30px;
+          }
+          .stickyBtn{
+            font-size:25px;
+            padding:10px;
+            margin: 10px 0;
+          }
+          .cstmSubText{
+            font-size:20px;
+          }
+          .cstmText, .cstmTextNavyBlue, .cstmTextDarkGrey{
+            font-size:30px;
+            line-height:35px;
+            text-shadow: none;
+            padding-top:15px;
+          }
+          .cstmTextHeader, .cstmTextDarkGreyHeader{
+            font-size:40px;
+            box-shadow: none;
+          }
+          .spiritualMorning{
+            background-image: url('{% static 'img/pages/conference/9. Mornings.png' %}');
+            background-repeat: no-repeat;
+            background-size: auto 100%;
+          }
+          .funtasticEvening{
+            background-image: url('{% static 'img/pages/conference/funtasticEvening.png' %}');
+            background-repeat: no-repeat;
+            background-size: auto 100%;
+          }
+          .muchMore{
+            background-image: url('{% static 'img/pages/conference/drk-4.png' %}');
+            background-repeat: no-repeat;
+            background-size: auto 100%;
+          }
+          html {
+              position: relative;
+              min-height: 100%;
+            }
+            body {
+              margin-bottom: 60px; /* Margin bottom by footer height */
+            }
+          .arrows {
+            width: 60px;
+            height: 72px;
+            position: absolute;
+            left: 40%;
+            bottom:13%;
+          }
+        }
+      /* Small devices (portrait tablets and large phones, 600px and up) */
+      @media only screen and (min-width: 600px)
+      {
+        .image1 {
+            height:100%;
+         }
+        .image2 {
+            width: 100px;
+            height: 100px;
+          }
+          .headerTxt1{
+            font-size: 27px;
+            font-weight: bolder;
+            top:11%;
+            left:30%;
+          }
+          .headerTxt2{
+            font-size: 29px;
+            font-weight: bolder;
+            top:18%;
+            left:27%;
+          }
+          .drmmk {
+            position: absolute;
+            width: 160px;
+            top:25%;
+            left:20%;
+          }
+          .confBlock{
+            position: absolute;
+            top:25%;
+            left:50%;
+          }
+          .cardCstm{
+            text-align: center;
+            padding: 10px 20px;
+            border-radius: 15px;
+          }
+          .confTitle{
+            font-family: 'Lato';
+            font-size: 22px;
+            font-weight: bolder;
+            text-transform: uppercase;
+            color: #00417D;
+            padding-bottom:10px;
+          }
+          .calBg{
+            width:60px;
+            height:60px;
+            margin:5px;
+          }
+          .faCstm{
+            position: relative;
+            top: 12px;
+            left: 0;
+            font-size: 30px !important;
+            color: #76b9f0;
+          }
+          .faLocation{
+            position: absolute;
+            top: 74%;
+            left: 20%;
+            font-size: 20px;
+            color: #00417D;
+          }
+          .confStartDate{
+            position: absolute;
+            font-size: 24px;
+            font-weight: bolder;
+            color: #fff;
+            top: 43%;
+            left: 24%;
+          }
+          .confEndDate{
+            position: absolute;
+            font-size: 24px;
+            font-weight: bolder;
+            color: #fff;
+            top: 43%;
+            left: 65%;
+          }
+          .confPlace{
+            font-size: 15px;
+            font-weight: bolder;
+            color: #00417D;
+            padding-top:25px;
+            text-align: center;
+          }
+          .confStartDay{
+            position: absolute;
+            font-size: 15px;
+            font-weight: bolder;
+            color: #00417D;
+            top: 57%;
+            left: 18%;
+          }
+          .confEndDay{
+            position: absolute;
+            font-size: 15px;
+            font-weight: bolder;
+            color: #00417D;
+            top: 57%;
+            left: 61%;
+          }
+          .yellowBtn {
+            font-size:15px;
+            left: 0;
+            margin: 10px auto;
+          }
+          .cstmText, .cstmTextNavyBlue, .cstmTextDarkGrey{
+            font-size:35px;
+            line-height:40px;
+          }
+          .cstmTextHeader, .cstmTextDarkGreyHeader{
+            font-size:45px;
+          }
+      }
+      /* Medium devices (landscape tablets, 768px and up) */
+      @media only screen and (min-width: 768px) {
+         .image1 {
+            height:100%;
+         }
+         .image2 {
+            width: 100px;
+            height: 100px;
+          }
+          .headerTxt1{
+            font-size: 32px;
+            font-weight: bolder;
+            top:11%;
+            left:35%;
+          }
+          .headerTxt2{
+            font-size: 34px;
+            font-weight: bolder;
+            top:17%;
+            left:32%;
+          }
+          .drmmk {
+            position: absolute;
+            width: 230px;
+            top:25%;
+            left:20%;
+          }
+          .confBlock{
+            position: absolute;
+            top:25%;
+            left:50%;
+          }
+          .cardCstm{
+            text-align: center;
+            padding: 10px 20px;
+            border-radius: 15px;
+          }
+          .confTitle{
+            font-family: 'Lato';
+            font-size: 25px;
+            font-weight: bolder;
+            text-transform: uppercase;
+            color: #00417D;
+            padding-bottom:20px;
+          }
+          .calBg{
+            width:100px;
+            height:100px;
+            margin:5px;
+          }
+          .faCstm{
+            position: relative;
+            top: 20px;
+            left: 0;
+            font-size: 50px !important;
+            color: #76b9f0;
+          }
+          .faLocation{
+            position: absolute;
+            top: 79%;
+            left: 12%;
+            font-size: 30px;
+            color: #00417D;
+            padding-right; 50px;
+          }
+          .confStartDate{
+            position: absolute;
+            font-size: 35px;
+            font-weight: bolder;
+            color: #fff;
+            top: 42%;
+            left:21%;
+          }
+          .confEndDate{
+            position: absolute;
+            font-size: 35px;
+            font-weight: bolder;
+            color: #fff;
+            top: 42%;
+            left:67%;
+          }
+          .confPlace{
+            font-size: 27px;
+            font-weight: bolder;
+            color: #00417D;
+            padding-top:60px;
+            text-align: center;
+          }
+          .confStartDay{
+            position: absolute;
+            font-size: 22px;
+            font-weight: bolder;
+            color: #00417D;
+            top: 63%;
+            left:16%;
+          }
+          .confEndDay{
+            position: absolute;
+            font-size: 22px;
+            font-weight: bolder;
+            color: #00417D;
+            top: 63%;
+            left:64%;
+          }
+          .yellowBtn {
+            left: 17%;
+          }
+          .cstmText, .cstmTextNavyBlue, .cstmTextDarkGrey{
+            font-size:35px;
+            line-height:40px;
+          }
+          .cstmTextHeader, .cstmTextDarkGreyHeader{
+            font-size:45px;
+          }
+          .footer{
+            left:50%;
+            transform: translate(-50%, 0%);
+          }
+      }
+      /* Large devices (laptops/desktops, 992px and up) */
+      @media only screen and (min-width: 992px)
+      {
+         .image1 {
+            height:100%;
+         }
+         .image2 {
+            width: 100px;
+            height: 100px;
+          }
+          .headerTxt1{
+            font-size: 39px;
+            font-weight: bolder;
+            top:8%;
+            left:33%;
+          }
+          .headerTxt2{
+            font-size: 43px;
+            font-weight: bolder;
+            top:14%;
+            left:27%;
+          }
+          .drmmk {
+            position: absolute;
+            width: 280px;
+            top:24%;
+            left:19%;
+          }
+          .confBlock{
+            position: absolute;
+            top:25%;
+            left:55%;
+          }
+          .cardCstm{
+            text-align: center;
+            padding: 10px 20px;
+            border-radius: 15px;
+          }
+          .confTitle{
+            font-family: 'Lato';
+            font-size: 26px;
+            font-weight: bolder;
+            text-transform: uppercase;
+            color: #00417D;
+            padding-bottom:20px;
+          }
+          .calBg{
+            width:130px;
+            height:130px;
+            margin:5px;
+          }
+          .faCstm{
+            position: relative;
+            top: 20px;
+            left: 0;
+            font-size: 50px !important;
+            color: #76b9f0;
+          }
+          .faLocation{
+            position: absolute;
+            top: 78%;
+            left: 14%;
+            font-size: 40px !important;
+            color: #00417D;
+            padding-right; 50px;
+          }
+          .confStartDate{
+            position: absolute;
+            font-size: 40px;
+            font-weight: bolder;
+            color: #fff;
+            top: 44%;
+            left:20%;
+          }
+          .confEndDate{
+            position: absolute;
+            font-size: 40px;
+            font-weight: bolder;
+            color: #fff;
+            top: 44%;
+            left: 67%;
+          }
+          .confPlace{
+            font-size: 28px;
+            font-weight: bolder;
+            color: #00417D;
+            padding-top:60px;
+            text-align: center;
+          }
+          .confStartDay{
+            position: absolute;
+            font-size: 22px;
+            font-weight: bolder;
+            color: #00417D;
+            top: 63%;
+            left:16%;
+          }
+          .confEndDay{
+            position: absolute;
+            font-size: 22px;
+            font-weight: bolder;
+            color: #00417D;
+            top: 63%;
+            left:64%;
+          }
+          .yellowBtn {
+            font-size:22px;
+            left: 24%;
+          }
+          .cstmText, .cstmTextNavyBlue, .cstmTextDarkGrey{
+            font-size:37px;
+            line-height:50px;
+            text-align: left;
+          }
+          .cstmTextHeader, .cstmTextDarkGreyHeader{
+            font-size:53px;
+            line-height: 60px;
+          }
+          .spiritualMorning{
+            background-image: url('{% static 'img/pages/conference/9. Mornings.png' %}');
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+          }
+          .footer{
+            left:50%;
+            transform: translate(-50%, 0%);
+          }
+      }
+
+    /* Extra large devices (large laptops and desktops, 1200px and up) */
+    @media only screen and (min-width: 1200px)
+    {
+        .image1 {
+            font-family: 'Lato';
+            height:100%;
+         }
+        .image2 {
+            width: 150px;
+            height: 150px;
+            top: 5%;
+            left: 8%;
+            width: 170px;
+            height: 170px;
+          }
+          .headerTxt1{
+            font-size: 55px;
+            font-weight: bolder;
+            top:9%;
+            left:37%;
+          }
+          .headerTxt2{
+            font-family: 'Lato';
+            font-size: 65px;
+            font-weight: bolder;
+            top:16%;
+            left:30%;
+          }
+          .drmmk {
+            position: absolute;
+            width: 350px;
+            top:24%;
+            left:20%;
+          }
+          .confBlock{
+            position: absolute;
+            top:25%;
+            left:56%;
+          }
+          .cardCstm{
+            text-align: center;
+            padding: 10px 20px;
+            border-radius: 15px;
+          }
+          .confTitle{
+            font-family: 'Lato';
+            font-size: 28px;
+            font-weight: bolder;
+            text-transform: uppercase;
+            color: #00417D;
+            padding-bottom:20px;
+          }
+          .calBg{
+            width:130px;
+            height:130px;
+            margin:5px;
+          }
+          .faCstm{
+            position: relative;
+            top: 20px;
+            left: 0;
+            font-size: 50px !important;
+            color: #76b9f0;
+          }
+          .faLocation{
+            position: absolute;
+            top: 78%;
+            left: 11%;
+            font-size: 40px !important;
+            color: #00417D;
+            padding-right; 50px;
+          }
+          .confStartDate{
+            position: absolute;
+            font-size: 50px;
+            font-weight: bolder;
+            color: #fff;
+            top: 44%;
+            left:19%;
+          }
+          .confEndDate{
+            position: absolute;
+            font-size: 50px;
+            font-weight: bolder;
+            color: #fff;
+            top: 44%;
+            left:66%;
+          }
+          .confPlace{
+            font-size: 32px;
+            font-weight: bolder;
+            color: #00417D;
+            padding-top:60px;
+            text-align: center;
+          }
+          .confStartDay{
+            position: absolute;
+            font-size: 22px;
+            font-weight: bolder;
+            color: #00417D;
+            top: 63%;
+            left:16%;
+          }
+          .confEndDay{
+            position: absolute;
+            font-size: 22px;
+            font-weight: bolder;
+            color: #00417D;
+            top: 63%;
+            left:64%;
+          }
+          .yellowBtn{
+            left: 25%;
+          }
+          .cstmText, .cstmTextNavyBlue, .cstmTextDarkGrey{
+            font-size:43px;
+            line-height:55px;
+            text-align: left;
+          }
+          .cstmTextHeader, .cstmTextDarkGreyHeader{
+            font-size:58px;
+          }
+          .spiritualMorning{
+            background-image: url('{% static 'img/pages/conference/9. Mornings.png' %}');
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+          }
+          .footer{
+            left:50%;
+            transform: translate(-50%, 0%);
+          }
+    }
+    .cstm-gradient-leader{
+        font-size: 24px;
+        color: #fff;
+        background-image: linear-gradient(90deg, rgb(0, 190, 210) 0%, rgb(0, 114, 217) 100%);
+        box-shadow: 2px 3px #000000;
+        text-shadow: 2px 1px #000000;
+    }
+    .progressScroll {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      height: auto;
+      overflow: hidden;
+      z-index: 1;
+    }
+    .progress-container {
+      width: 100%;
+      height: 8px;
+      background: #ccc;
+    }
+
+    .progress-bar {
+      height: 8px;
+      background: #04AA6D;
+      width: 0%;
+    }
+</style>
+<div class="body">
+    <div role="main" class="main">
+        <section class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-6">
+                    {% include 'front/includes/messages.html' %}
+
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+<script>
+    // Create a Stripe client.
+    var stripe = Stripe('{{stripeKey}}'); // LYIPL
+
+    // Create an instance of Elements.
+    var elements = stripe.elements();
+
+    // Custom styling can be passed to options when creating an Element.
+    // (Note that this demo uses a wider set of styles than the guide below.)
+    var style = {
+      base: {
+        color: '#32325d',
+        fontFamily: '"Helvetica Neue", Helvetica, sans-serif',
+        fontSmoothing: 'antialiased',
+        fontSize: '16px',
+        '::placeholder': {
+          color: '#aab7c4'
+        }
+      },
+      invalid: {
+        color: '#fa755a',
+        iconColor: '#fa755a'
+      }
+    };
+
+    // Create an instance of the card Element.
+    var card = elements.create('card', {style: style});
+
+    // Add an instance of the card Element into the `card-element` <div>.
+    card.mount('#card-element');
+
+    // Handle real-time validation errors from the card Element.
+    card.addEventListener('change', function(event) {
+      var displayError = document.getElementById('card-errors');
+      if (event.error) {
+        displayError.textContent = event.error.message;
+      } else {
+        displayError.textContent = '';
+      }
+    });
+
+    // Handle form submission.
+    var form = document.getElementById('payment-form');
+    form.addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      stripe.createToken(card).then(function(result) {
+        if (result.error) {
+          // Inform the user if there was an error.
+          var errorElement = document.getElementById('card-errors');
+          errorElement.textContent = result.error.message;
+        } else {
+          // Send the token to your server.
+          stripeTokenHandler(result.token);
+        }
+      });
+    });
+
+    // Submit the form with the token ID.
+    function stripeTokenHandler(token) {
+      // Insert the token ID into the form so it gets submitted to the server
+      var form = document.getElementById('payment-form');
+      var hiddenInput = document.createElement('input');
+      hiddenInput.setAttribute('type', 'hidden');
+      hiddenInput.setAttribute('name', 'stripeToken');
+      hiddenInput.setAttribute('value', token.id);
+      form.appendChild(hiddenInput);
+
+      // Submit the form
+      form.submit();
+    }
+</script>
+{% endblock %}

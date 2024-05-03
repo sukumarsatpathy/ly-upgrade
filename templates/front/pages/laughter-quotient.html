@@ -1,0 +1,98 @@
+{% extends 'front/base.html' %}
+{% load static %}
+{% load i18n %}
+{% load cropping %}
+{% block meta %}
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Find Your Laughter Quotient - Laughter Yoga International</title>
+<meta name="keywords"
+      content="laughter, laughter yoga, laughing, health, happiness, stress, depression, real and contagious laughter, breathing, healthy exercise, blood pressure"/>
+<meta name="description"
+      content="The concept of Laughter Yoga is based on scientific studies which has proved that the body cannot differentiate between intentional/voluntary and real laughter.">
+<meta name="author" content="Dr Madan Kataria">
+{% endblock %}
+{% block content %}
+<div role="main" class="main">
+    <!-- Breadcrumb Starts Here -->
+    <section class="page-header page-header-classic">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <ul class="breadcrumb">
+                        <li><a href="{% url 'home' %}" target="_parent" class="text-decoration-none">Home</a></li>
+                        <li class="active">About Laughter Yoga</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="container py-3 my-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-9 mb-4 pb-2">
+                <p>How much do you laugh each day?</p>
+                <p>Do you laugh enough? Is laughter all about laughing? Not at all. Complete this questionnaire and find
+                    your Laughter Quotient (LQ).</p>
+                <p>Once you calculate your LQ, you can decide how to bring more laughter and joy into your life and into
+                    the lives of those around you.</p>
+                <div class="row">
+                    <div class="offset-lg-1 col-lg-10 col-sm-8 col-8 border rounded main-section">
+                        <form class="container my-3" id="needs-validation" novalidate>
+                            <div class="row">
+                                <div class="col-lg-6 col-sm-6 col-12">
+                                    <div class="form-group">
+                                        <label class="text-inverse" for="validationCustom01">First Name</label>
+                                        <input type="text" class="form-control" id="validationCustom01"
+                                               placeholder="First name" value="First Name" required>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-sm-6 col-12">
+                                    <div class="form-group">
+                                        <label class="text-inverse" for="validationCustom02">Last Name</label>
+                                        <input type="text" class="form-control" id="validationCustom02"
+                                               placeholder="Last name" value="Last Name" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <fieldset class="form-group">
+                                <div class="row">
+                                    <p class="col-form-label col-sm-2 pt-0">Radios</p>
+                                    <div class="col-sm-10">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="gridRadios"
+                                                   id="gridRadios1" value="option1" checked>
+                                            <label class="form-check-label" for="gridRadios1">
+                                                First radio
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="gridRadios"
+                                                   id="gridRadios2" value="option2">
+                                            <label class="form-check-label" for="gridRadios2">
+                                                Second radio
+                                            </label>
+                                        </div>
+                                        <div class="form-check disabled">
+                                            <input class="form-check-input" type="radio" name="gridRadios"
+                                                   id="gridRadios3" value="option3" disabled>
+                                            <label class="form-check-label" for="gridRadios3">
+                                                Third disabled radio
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </fieldset>
+                            <div class="row">
+                                <div class="col-lg-12 col-sm-12 col-12 text-center">
+                                    <button class="btn btn-info" type="submit">Submit form</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+{% endblock %}

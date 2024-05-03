@@ -1,0 +1,33 @@
+{% extends 'front/base.html' %}
+{% load static %}
+{% load i18n %}
+{% load cropping %}
+{% block content %}
+<div class="owl-carousel-wrapper" style="height: 600px;">
+    <div class="owl-carousel dots-inside dots-horizontal-center dots-light show-dots-hover show-dots-xs nav-inside nav-inside-plus nav-dark nav-md nav-font-size-md show-nav-hover mb-0"
+         data-plugin-options="{'responsive': {'0': {'items': 1}, '479': {'items': 1}, '768': {'items': 1}, '979': {'items': 1}, '1199': {'items': 1}}, 'loop': false, 'autoHeight': false, 'margin': 0, 'dots': true, 'dotsVerticalOffset': '-75px', 'nav': false, 'animateIn': 'fadeIn', 'animateOut': 'fadeOut', 'mouseDrag': false, 'touchDrag': false, 'pullDrag': false, 'autoplay': true, 'autoplayTimeout': 9000, 'autoplayHoverPause': true, 'rewind': true}">
+        <img src="{% static 'img/slides/prozone.jpg' %}"/>
+    </div>
+</div>
+<div class="container py-2">
+    <div class="row">
+        <div class="col">
+            <h1>Quote Download</h1>
+            <div class="row my-5">
+            {% for quotes in all_quote_downloads %}
+            <div class="col-lg-6 pb-3">
+                <span class="img-thumbnail d-block">
+                    <a href="#" target="_parent"><img class="img-fluid" src="{% cropped_thumbnail quotes 'cropped_image' %}" alt="{{quotes.title}}"></a>
+                </span>
+                <p class="text-center"><a href="#" target="_parent">{{quotes.title}}</a></p>
+                <p class="text-center">{{quotes.description|safe}}</p>
+                <span class="col-xl-6">
+                    <button class="btn btn-primary">Download Now</button>
+                </span>
+            </div>
+            {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

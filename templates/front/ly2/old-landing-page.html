@@ -1,0 +1,180 @@
+{% extends 'front/base.html' %}
+{% load static %}
+{% load i18n %}
+{% load cropping %}
+{% block content %}
+<div class="owl-carousel-wrapper" style="height: 600px;">
+    <div class="owl-carousel dots-inside dots-horizontal-center dots-light show-dots-hover show-dots-xs nav-inside nav-inside-plus nav-dark nav-md nav-font-size-md show-nav-hover mb-0"
+         data-plugin-options="{'responsive': {'0': {'items': 1}, '479': {'items': 1}, '768': {'items': 1}, '979': {'items': 1}, '1199': {'items': 1}}, 'loop': false, 'autoHeight': false, 'margin': 0, 'dots': true, 'dotsVerticalOffset': '-75px', 'nav': false, 'animateIn': 'fadeIn', 'animateOut': 'fadeOut', 'mouseDrag': false, 'touchDrag': false, 'pullDrag': false, 'autoplay': true, 'autoplayTimeout': 9000, 'autoplayHoverPause': true, 'rewind': true}">
+        <img src="{% static 'img/slides/ly2-banner.jpg' %}"/>
+    </div>
+</div>
+<div class="body">
+    <div role="main" class="main">
+        <div class="container my-5 pt-md-4 pt-xl-0">
+            <div class="row align-items-center justify-content-center pb-4 mb-5">
+                <div class="row pb-1">
+                    <div class="col-lg-6 mb-4 pb-2">
+                        <iframe width="540" height="315" src="https://www.youtube.com/embed/-NEu9LG5HBg"
+                                frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen></iframe>
+                    </div>
+                    <div class="col-lg-6">
+                        <h1>Why LY 2.0 Member?</h1>
+                        <p>ProZone is a premium membership program dedicated to continuing the education of Laughter
+                            Yoga Professionals. As the demand for Laughter Yoga is increasing worldwide, LY
+                            Professionals need to keep upgrading their knowledge and skills as LY is constantly
+                            evolving.</p>
+                        <p>This premium membership will help you to maximise your potential in Laughter Yoga’s different
+                            areas of application, such as Companies and Corporations, Seniors, Schools, Colleges,
+                            Universities, People with special needs and Social Laughter Clubs. It will keep you updated
+                            on the new programs developed by Dr Kataria. </p>
+                        <p>Dr. Kataria and his team at Laughter Yoga International HQ in India is dedicated to helping
+                            and supporting it’s ProZone members with monthly newsletters which includes: quarterly
+                            ProZoom calls with Dr.Kataria, new Laughter Exercises, breathing techniques,
+                            business/training tips and scientific research articles.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <section class="shop section section-height-2 border-0 m-0">
+            <div class="container">
+                <div class="products row row-gutter-sm mb-1 appear-animation" data-appear-animation="fadeInUpShorter"
+                     data-appear-animation-delay="750">
+                    <div class="col-lg-6">
+                        <h1>Building Your LY Business</h1>
+                        <p>We have several value-added services exclusive to ProZone members. With the help of our
+                            in-house designers, we offer our members the following services:</p>
+                        <ul>
+                            <li>Personalized business card</li>
+                            <li>Training/Course Flyers and brochures/e-brochures</li>
+                            <li>Banners, placards, standees/pull-up banners</li>
+                            <li>Readymade template designs</li>
+                            <li>Liability release forms, research documents</li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-6 mb-1 pb-1">
+                        <iframe width="540" height="315" src="https://www.youtube.com/embed/-NEu9LG5HBg"
+                                frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="container my-5 pt-md-4 pt-xl-0">
+            <div class="row align-items-center justify-content-center pb-4 mb-5">
+                <div class="row pb-1">
+                    <div class="col-lg-6 mb-4 pb-2">
+                        <img src="https://corporate.laughteryoga.org/wp-content/uploads/2020/10/CORTISOL-STRESS.jpg"
+                             width="500"/>
+                    </div>
+                    <div class="col-lg-6">
+                        <h1>Developing Your Marketing and PR Skills</h1>
+                        <p>We will provide:</p>
+                        <ul>
+                            <li>Media kits, press releases, copyright free photos and text, articles and video clips.
+                            </li>
+                            <li>Guidelines for developing your social media pages.</li>
+                            <li>Video tutorials on developing your PR and Marketing skills</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <section class="shop section section-height-2 border-0 m-0">
+            <div class="container">
+                <div class="products row row-gutter-sm mb-1 appear-animation" data-appear-animation="fadeInUpShorter"
+                     data-appear-animation-delay="750">
+                    <div class="col-lg-6">
+                        <h1>For your professional development:</h1>
+                        <p>Our new and improved LYI website is receiving 3 to 4,000 unique visitors every day and with
+                            traffic increasing rapidly, you will get more leads for your LY business.</p>
+                        <p>Build your personal profile page on our site describing your experience, services offering
+                            along with photos and videos. We have a search function where people can find you according
+                            to location.</p>
+                        <p><strong>Bonus:</strong> list your training and events (paid and free) where people can
+                            directly contact you and sign up for your LY programs..</p>
+                    </div>
+                    <div class="col-lg-6 mb-1 pb-1">
+                        <img src="https://corporate.laughteryoga.org/wp-content/uploads/2020/10/CORTISOL-STRESS.jpg"
+                             width="500"/>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="container my-5 pt-md-4 pt-xl-0">
+            <div class="row align-items-center justify-content-center pb-4 mb-5">
+                <div class="row pb-1">
+                    <div class="col-lg-6 mb-4 pb-2">
+                        <img src="https://corporate.laughteryoga.org/wp-content/uploads/2020/10/CORTISOL-STRESS.jpg"
+                             width="500"/>
+                    </div>
+                    <div class="col-lg-6">
+                        <h1>Exclusive Facebook ProZone Group</h1>
+                        <p>ProZone members have access to a private group on Facebook where people share their
+                            experience and learn from other LY Professionals on a daily basis. Dr Kataria shares
+                            exclusive content for members only.</p>
+                        <h1>Free ProZone Membership</h1>
+                        <p>If you have completed LY Leader or Teacher Training, you will receive:</p>
+                        <ul>
+                            <li>6 months LY Leaders</li>
+                            <li>1 year LY Teachers</li>
+                        </ul>
+                        <p><strong>Dedicated Support Team:</strong> If you need any help, you can reach us at
+                            help@laughteryoga.org.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <section class="shop section section-height-2 border-0 m-0">
+            <div class="container my-5 mx-auto">
+                <div class="row">
+                    <div class="col align-self-start mr-3">
+                        <div class="pricingTable">
+                            <div class="pricingTable-header">
+                                <i class="fa fa-smile-beam"></i>
+                                <div class="price-value"> $60.00 <span class="month">for 1 year</span></div>
+                            </div>
+                            <h3 class="heading">Happy Membership</h3>
+                            <div class="pricingTable-signup">
+                                <a href="{% url 'login' %}" target="_parent">sign up</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col align-self-center mr-3">
+                        <div class="pricingTable green">
+                            <div class="pricingTable-header">
+                                <i class="fa fa-grin-alt"></i>
+                                <div class="price-value"> $100.00 <span class="month">for 2 years</span></div>
+                            </div>
+                            <h3 class="heading">Happier Membership</h3>
+                            <div class="pricingTable-signup">
+                                <a href="{% url 'login' %}" target="_parent">sign up</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col align-self-end">
+                        <div class="pricingTable blue">
+                            <div class="pricingTable-header">
+                                <i class="fa fa-laugh-squint"></i>
+                                <div class="price-value"> $250.00 <span class="month">for 5 years</span></div>
+                            </div>
+                            <h3 class="heading">Happiest Membership</h3>
+                            <div class="pricingTable-signup">
+                                <a href="{% url 'login' %}" target="_parent">sign up</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+
+{% endblock %}

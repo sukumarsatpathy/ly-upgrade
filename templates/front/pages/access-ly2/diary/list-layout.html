@@ -1,0 +1,39 @@
+{% extends 'front/base.html' %}
+{% load i18n %}
+{% block content %}
+<div role="main" class="main">
+    {% include 'front/includes/breadcrumb.html' %}
+    <div class="container py-2">
+        <div class="row">
+            <div class="col-lg-9">
+                <h4>{% trans 'Dr K\'s Pro Diary' %}</h4>
+                <table class="table table-bordered">
+                    <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>{% trans 'Title' %}</th>
+                        <!--<th>{% trans 'Author' %}</th>
+                        <th>{% trans 'Published Date' %}</th>-->
+                        <th>{% trans 'Views' %}</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for diaries in all_diary_articles %}
+                    <tr>
+                        <td>{{forloop.counter}}</td>
+                        <td><a href="{{diaries.slug}}">{{diaries.title}}</a></td>
+                        <!--<td>{% trans 'Dr. Madan Kataria' %}</td>
+                        <td>{{diaries.created_date.date}}</td>-->
+                        <td>{{diaries.views}}</td>
+                    </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-lg-3 order-lg-2">
+                {% include 'front/includes/sidebar/pro-diary.html' %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

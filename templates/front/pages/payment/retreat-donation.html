@@ -1,0 +1,96 @@
+{% extends 'front/base.html' %}
+{% load static %}
+{% block content %}
+<style>
+    .btnCLYL {
+        background-color: #0E67FF;
+        padding: 12px 20px;
+        border-radius: 10px;
+        text-decoration: none;
+        color: #ffffff;
+        font-weight: bold;
+        font-size:22px;
+    }
+    .btnCLYL:hover {
+        background-color: #013EA6;
+        padding: 12px 20px;
+        border-radius: 10px;
+        text-decoration: none;
+        color: #ffffff;
+        font-weight: bold;
+    }
+    .btn-success{
+        background-color: #00520B;
+        color: #ffffff;
+    }
+    .btn-success:hover {
+        background-color: #013408;
+        color: #ffffff;
+    }
+    @media (max-width: 768px) {
+        .cstm-fs {
+            font-size: 15px !important;
+            line-height: 15px !important;
+        }
+        .hide {
+            display: none;
+        }
+    }
+    .header-top, .header-body, #footer{
+        display: none !important;
+    }
+</style>
+
+<div class="main shop py-4 border-top">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="container">
+                <div class="row justify-content-center mb-2">
+                    <div class="col-lg-3 px-0">
+                        <a href="{% url 'home' %}">
+                            <img alt="Laughter Yoga International" src="{% static 'img/logo.png' %}" width="400">
+                        </a>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        {% include 'front/includes/messages.html' %}
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row justify-content-center">
+                                    <div class="col-lg-10" style="background-color: #00703a">
+                                        <p class="mt-3 text-light text-center cstm-fs" style="font-size: 23px;">To confirm your participation & reserve your seat, kindly make a donation of Rs. 1100/-</p>
+                                    </div>
+                                </div>
+                                <div class="row justify-content-center pt-1">
+                                    <div class="col-lg-4">
+                                        <img src="{% static 'img/pages/spiritual-retreat/donation-qr.png' %}" alt="Donate Now" class="img-fluid center ml-lg-5 pl-lg-5"  width="350" />
+                                    </div>
+                                    <div class="col-lg-8 pt-2">
+                                        <p>
+                                            Please SCAN THE QR CODE Now to Donate Rs. 1100 and Secure Your <br>Retreat Spot Today!<br>
+                                            <span style="color: #186F65;"><strong>UPI ID: laugh.madan1955@oksbi</strong></span>
+                                        </p>
+                                        <p>
+                                            You can also do <strong>ONLINE BANK TRANSFER</strong> (Bank details are given below).<br>
+                                            <strong>Bank Name:</strong> HDFC Bank<br>
+                                            <strong>Account Name:</strong> Laughter Yoga Worldwide Foundation<br>
+                                            <strong>Current A/C No.:</strong> 50200026780382<br>
+                                            <strong>IFSC CODE:</strong> HDFC0004663<br>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="row justify-content-center pt-4 mt-3" style="background-color: #FFFF00;">
+                                    <div class="col-lg-8">
+                                        <p class="text-center" style="font-size: 22px;">Once you've made the donation, please share a screenshot of the payment to our WhatsApp number at <strong>(+91) 8884567891</strong> or email it to <strong>help@laughteryoga.org</strong>. <br>This will ensure your seat is reserved.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

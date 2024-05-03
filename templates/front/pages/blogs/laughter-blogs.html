@@ -1,0 +1,64 @@
+{% extends 'front/base.html' %}
+{% load i18n %}
+{% block meta %}
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Laughter Blogs - Laughter Yoga International</title>
+    <meta name="keywords" content="dr madan kataria, laughter, pro diary, laughter yoga"/>
+    <meta name="description" content="You can able to view all the blogs written by Dr Madan Kataria.">
+    <meta name="author" content="Dr Madan Kataria">
+{% endblock %}
+{% block content %}
+<div role="main" class="main">
+    <!-- Breadcrumb Starts Here -->
+    <section class="page-header page-header-classic">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <ul class="breadcrumb">
+                        <li><a href="{% url 'home' %}" target="_parent" class="text-decoration-none">Home</a></li>
+                        <li><a href="#" target="_parent" class="text-decoration-none">Knowledge Center</a></li>
+                        <li class="active">Laughter Blogs</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="container py-2">
+        <div class="row">
+            <div class="col-lg-9">
+                <div class="row">
+                    <div class="col-lg-6">
+                          <h1>Laughter Yoga Blogs</h1>
+                    </div>
+                </div>
+                <table class="table table-bordered">
+                    <thead>
+                    <tr>
+                        <th width="60px">#</th>
+                        <th>{% trans 'Title' %}</th>
+                        <!--<th>{% trans 'Author' %}</th>
+                        <th>{% trans 'Published Date' %}</th>-->
+                        <th width="80px">{% trans 'Views' %}</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for blogs in all_blogs %}
+                    <tr>
+                        <td>{{forloop.counter}}</td>
+                        <td><a href="{% url 'laughter-blogs-detail' blogs.slug %}">{{blogs.title}}</a></td>
+                        <!--<td>{% trans 'Dr. Madan Kataria' %}</td>
+                        <td>{{diaries.created_date.date}}</td>-->
+                        <td>{{blogs.views}}</td>
+                    </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-lg-3 order-lg-2">
+                {% include 'front/includes/sidebar/blogs.html' %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

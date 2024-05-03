@@ -1,0 +1,441 @@
+{% extends 'front/dashboard-base.html' %}
+{% load i18n %}
+{% load widget_tweaks %}
+{% load static %}
+{% block content %}
+{% include 'front/includes/messages.html' %}
+{% if user.is_authenticated %}
+
+<style>
+    #submitBtn{
+    width: 50%;
+    margin-left: 20%;
+    }
+
+    .main_div{
+      background-color:#FFFFFF;
+    }
+   #inner_div,  #inner_div_main , #price , .min-contianer{
+      margin: auto; width: 60%; position: relative;
+      margin-bottom: 30px !important;
+
+    }
+
+    .add_leader{
+      background-color: rgb(83, 190, 233);
+    padding: 0px;
+      width: 40px;
+       height: 40px;
+
+      /* background-color: red; */
+
+        border-radius: 20px;
+        position: absolute; bottom: -20px; left:47% ;
+    }
+
+    .is-invalid
+    {
+      border: red 1px solid;
+    }
+    .cross-btn{
+      font: 40px;
+      border: none;
+      padding: none;
+cursor: pointer;
+position: absolute;
+top: 2px;
+right: 2px;
+    }
+
+
+</style>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+      crossorigin="anonymous" referrerpolicy="no-referrer"/>
+<div class="container">
+
+    <h2 class="text-center">{% trans 'Add New Leaders' %}</h2><br/>
+    <div class="forms">
+        <form action="{% url 'submit_trainer_checkout' %}" id="leader_form" method="POST" ></form>
+        <div id="dummy-form">
+            {% csrf_token %}
+            <div id="inner_div" class=" inner_div card-body mb-2 main_div rounded mb-3">
+                <div class="row mb-3">
+                    <div class="col-md-4">
+                        <input type="text" class="form-control" placeholder="First name" name="first_name"
+                               id="first_name" form="leader_form" required>
+                    </div>
+                    <div class="col-md-4">
+                        <input type="text" class="form-control" placeholder="Last name" name="last_name" id="last_name"
+                               form="leader_form" required>
+                    </div>
+                    <div class="col-md-4">
+                        <input type="email" class="form-control" placeholder="Email" name="email" id="email"
+                               form="leader_form" required>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-md-4">
+                        <select class="form-control" name="id_country" id="id_country" form="leader_form" required>
+                            <option disabled selected value="">--Select Country--</option>
+                            {% for country in countries %}
+                            <option value="{{ country.id }}">{{ country.name }}</option>
+                            {% endfor %}
+                        </select>
+                        <!-- <input type="text" class="form-control" placeholder="Country" name="id_country"  id="id_country"  required> -->
+                    </div>
+                    <div class="col-md-4">
+                        <select class="form-control" name="id_state" id="id_state" form="leader_form" required>
+                        </select>
+
+                        <!--  <input type="text" class="form-control" placeholder="state"   name="state" id="id_state"  required> -->
+                    </div>
+                    <div class="col-md-4">
+                        <select class="form-control" name="id_city" id="id_city" form="leader_form" required>
+                        </select>
+
+                        <!-- <input type="text" class="form-control" placeholder="City"   name="city"  id="id_city"    required> -->
+                    </div>
+                </div>
+                <!-- </form> -->
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <input type="text" name="name" class="form-control" placeholder="First name" id="author"
+                               form="leader_form" value="{{request.user.get_full_name}}" required readonly>
+                    </div>
+
+                    <div class="col-md-6 ">
+                        <select class="form-control" name="membership" id="membership" form="leader_form" required>
+                            <option disabled selected value="">--Select membership--</option>
+                            <option value="6"> Membership (6 Months)</option>
+                        </select>
+
+                    </div>
+                </div>
+
+                <button class="btn text-white btn add_leader"><i class="fas fa-plus"></i></button>
+            </div>
+        </div>
+        <div class="min-contianer">
+            <button id="review_data" type="submit" class="btn btn-success  w-100">
+                Review and Submit
+            </button>
+        </div>
+        </form>
+    </div>
+    <!-- <p class=" mt-4 text-danger font-weight-bold"   id="price"  >Each Row Price USD $10</p> -->
+</div>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script>
+
+
+  // Country Change
+
+    $("#id_country").change(function () {
+        var url = "{% url 'list_states' %}"
+        var id_country = $(this).val();
+        $.ajax({                       
+        url: url,                    
+        data: { 
+          'id_country':id_country,   
+        },
+        success: function (data) {   // `data` is the return of the `load_cities` view function
+         console.log(data)
+          $("#id_state").html(data);  // replace the contents of the city input with the data that came from the server
+        }
+      });
+  });
+
+
+ $("#id_state").change(function () {
+    var id_country = $("#id_country").val()
+    var id_state = $(this).val();   // get the selected country ID from the HTML input
+    console.log(
+        id_country,
+        id_state,
+    )
+    var url = "{% url 'list_cities' %}"
+    $.ajax({
+        url: url,
+        data: {
+
+          'id_country':id_country,
+          'id_state':id_state,
+        },
+        success: function (data) {   // `data` is the return of the `load_cities` view function
+         console.log(data)
+          $("#id_city").html(data);  // replace the contents of the city input with the data that came from the server
+        }
+      });
+});
+
+
+</script>
+
+<script>
+
+
+localStorage.removeItem('users')
+        localStorage.removeItem('user')
+
+    email = document.getElementById('email').addEventListener('change' , (e)=>{
+
+
+      $.ajax({                       // initialize an AJAX request
+        url: "{% url 'validate_user' %}",
+        type: "GET",               // set the url of the request (= localhost:8000/hr/ajax/load-cities/)
+        data: {
+          'email':e.target.value,
+
+        },
+        success: function (data) {   // `data` is the return of the `load_cities` view function
+
+          console.log(data)
+          if (data === "True")
+          {
+
+            e.target.classList.add('is-invalid')
+          }
+          else{
+            e.target.classList.remove('is-invalid')
+
+          }
+        },
+      error: function (request, status, error) {
+
+        console.log("error")
+
+      }
+});
+    })
+
+
+  function create_input (type , place_holder , col, name_attr) {
+
+    var form_group = document.createElement('div')
+    form_group.classList.add(`col-md-${col}`)
+    var input = document.createElement('input')
+    input.setAttribute('type' , type)
+    input.setAttribute('placeholder' , place_holder)
+    input.setAttribute('id' , name_attr)
+    input.setAttribute('name' , name_attr)
+    input.setAttribute('required' , 'required')
+    input.classList.add('form-control')
+    form_group.append(input)
+    return form_group
+
+
+  }
+
+  let btns = document.getElementsByClassName('add_leader')
+  console.log(btns)
+
+  for (const add_leader_btn of btns ) {
+
+    var last = ""
+
+    add_leader_btn.addEventListener('click', (e)=>{
+
+
+
+
+
+  var form = $('#dummy-form')
+  var inner_div = document.createElement('div')
+
+    inner_div.setAttribute('id' , 'inner_div')
+    inner_div.classList.add('inner_div')
+    inner_div.classList.add('card-body')
+    inner_div.classList.add('mb-2')
+    inner_div.classList.add('rounded')
+    inner_div.classList.add('mb-3')
+    inner_div.classList.add('bg-dager')
+    inner_div.classList.add('main_div')
+
+
+  var row   = document.createElement('div')
+  row.classList.add('mb-3')
+    row.classList.add('row')
+    row.append(create_input('text' , 'First Name' , 4 , 'first_name'))
+    row.append(create_input('text' , 'Last Name' , 4, 'last_name'))
+    row.append(create_input('email' , 'Email' , 4, 'email'))
+    inner_div.append(row)
+
+  var row2   = document.createElement('div')
+
+    row2.classList.add('row')
+    row2.classList.add('mb-3')
+    row2.append(create_input('text' , 'Country' , 4 ,  'country'  ))
+    row2.append(create_input('text' , 'State' , 4,  'state'  ))
+    row2.append(create_input('text' , 'City' , 4,  'city'  ))
+    inner_div.append(row2)
+
+  var row3   = document.createElement('div')
+  row3.classList.add('row')
+  row3.classList.add('mb-3')
+
+  var form_group2 = document.createElement('div')
+    form_group2.classList.add(`col-md-6`)
+    var input = document.createElement('input')
+    input.setAttribute('type' , 'text')
+    input.setAttribute('value' , "{{request.user.get_full_name}}")
+    input.setAttribute('required' , 'required')
+    input.classList.add('form-control')
+    input.setAttribute('name' , 'name')
+    input.setAttribute('id' , 'author')
+    input.readOnly = true;
+    form_group2.append(input)
+  row3.append(form_group2)
+
+
+  var selectList = document.createElement("select");
+  selectList.name = "membership";
+  selectList.classList.add('form-control')
+  selectList.setAttribute('id' , 'membership')
+
+  var option = document.createElement("option");
+      option.value ="";
+      option.text ="--Select membership--";
+      selectList.appendChild(option);
+      var option2 = document.createElement("option");
+
+
+      option2.value ="6";
+      option2.name ="name";
+      option2.text ="Membership (6 Months)";
+      selectList.appendChild(option2);
+
+  var form_group = document.createElement('div')
+    form_group.classList.add(`col-md-6`)
+    form_group.append(selectList)
+
+  row3.append(form_group)
+  inner_div.append(row3)
+  inner_div.append(row3)
+  btn = document.createElement('a')
+  btn.classList.add('cross-btn')
+  btn.innerHTML = '<i class="fas fa-times-circle" style="font-size:20px;"></i>';
+  inner_div.append(btn)
+  form.append(inner_div);
+
+
+
+  var   cross_btns = document.getElementsByClassName('cross-btn')
+console.log(cross_btns)
+  for (const bt of cross_btns) {
+    console.log(bt)
+    bt.addEventListener('click' , (e)=>{
+console.log(e.target.parentElement.parentElement.remove())
+    })
+  }
+
+  var emails = document.querySelectorAll('#email')
+
+
+  for (const email of emails) {
+
+
+    email.addEventListener('input' , (e)=>{
+      $.ajax({                       // initialize an AJAX request
+        url: "{% url 'validate_user' %}",
+        type: "GET",               // set the url of the request (= localhost:8000/hr/ajax/load-cities/)
+        data: {
+          'email':e.target.value,
+
+        },
+        success: function (data) {   // `data` is the return of the `load_cities` view function
+
+          console.log(data)
+          if (data === "True")
+          {
+
+            e.target.classList.add('is-invalid')
+
+          }
+          else{
+            e.target.classList.remove('is-invalid')
+
+          }
+        },
+      error: function (request, status, error) {
+
+        console.log("error")
+
+      }
+
+
+
+});
+
+
+
+
+      })
+  }
+
+
+
+
+    });
+
+
+  }
+
+
+  form = document.getElementById('leader_form')
+  form.addEventListener('submit' , (e) =>{
+    form_data = []
+      e.preventDefault()
+      const inner_divs =   document.getElementsByClassName('inner_div')
+    if( form.name.length != undefined)
+   {
+    for (const iterator of inner_divs) {
+    temp={}
+    first_name       = iterator.querySelector('#first_name').value;
+    last_name       = iterator.querySelector('#last_name').value;
+    email       = iterator.querySelector('#email').value;
+    country       = iterator.querySelector('#country').value;
+    state       = iterator.querySelector('#state').value;
+    city       = iterator.querySelector('#city').value;
+    author       = iterator.querySelector('#author').value;
+    membership       = iterator.querySelector('#membership').value;
+   temp['first_name'] = first_name
+   temp['last_name'] = last_name
+   temp['email'] = email
+   temp['country'] = country
+   temp['state'] = state
+   temp['city'] = city
+   temp['author'] = author
+   temp['membership'] = membership
+
+    form_data.push(temp)
+    }
+    localStorage.removeItem('users')
+        localStorage.removeItem('user')
+    localStorage.setItem('users', JSON.stringify(form_data))
+    window.location.href =`http://127.0.0.1:8000/submit/trainers/checkout`;
+}
+
+   else{
+    localStorage.removeItem('users')
+    localStorage.removeItem('user')
+    localStorage.setItem('user', JSON.stringify({
+            'membership':form.membership.value,
+            'name':form.name.value,
+            'email':form.email.value,
+            'first_name':form.first_name.value,
+            'last_name':form.last_name.value,
+            'country':form.country.value,
+            'state':form.state.value,
+            'city':form.city.value,
+            'author':form.name.value,
+          }))
+          window.location.href =`http://127.0.0.1:8000/submit/trainers/checkout`;
+  }
+  })
+
+</script>
+
+{% endif %}
+{% endblock %}

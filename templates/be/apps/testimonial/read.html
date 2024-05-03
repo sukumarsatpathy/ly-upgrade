@@ -1,0 +1,291 @@
+{% extends 'be/base.html' %}
+{% load cstmTag %}<!-- From settings templatetags -->
+{% load static %}
+{% block meta %}
+<title>List Testimonials - {{webSettingsUniversal.title}}</title>
+<meta name="description" content="{{webSettingsUniversal.meta_description}}"/>
+<meta name="keywords" content="{{webSettingsUniversal.meta_keywords}}"/>
+<meta property="og:title" content="List Testimonials - {{webSettingsUniversal.title}}"/>
+<meta property="og:url" content="{{request.scheme}}://{{request.get_host}}{{request.get_full_path}}"/>
+<meta property="og:site_name" content="{{webSettingsUniversal.title}} - {{webSettingsUniversal.slogan}}"/>
+{% endblock %}
+{% block content %}
+<div class="d-flex flex-column flex-column-fluid">
+    <div class="app-content flex-column-fluid mt-10">
+        <div class="app-container container-xxl">
+            {% include 'be/includes/alert.html' %}
+            <div class="card">
+                {% if allTestimonials %}
+                <div class="card-header border-0 pt-6">
+                    <div class="card-title">
+                        <div class="d-flex align-items-center position-relative my-1">
+                            <span class="svg-icon svg-icon-1 position-absolute ms-6">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                     xmlns="http://www.w3.org/2000/svg">
+                                    <rect opacity="0.5" x="17.0365" y="15.1223" width="8.15546"
+                                          height="2" rx="1"
+                                          transform="rotate(45 17.0365 15.1223)"
+                                          fill="currentColor"/>
+                                    <path d="M11 19C6.55556 19 3 15.4444 3 11C3 6.55556 6.55556 3 11 3C15.4444 3 19 6.55556 19 11C19 15.4444 15.4444 19 11 19ZM11 5C7.53333 5 5 7.53333 5 11C5 14.4667 7.53333 17 11 17C14.4667 17 17 14.4667 17 11C17 7.53333 14.4667 5 11 5Z"
+                                          fill="currentColor"/>
+                                </svg>
+                            </span>
+                            <form action="{% url 'testimonialList' %}" method="post" class="form"
+                                  enctype="multipart/form-data" novalidate>
+                                {% csrf_token %}
+                                <input type="text" name="testimonialSearch"
+                                       placeholder="Search by Title, Location & Author"
+                                       class="form-control form-control-solid w-300px ps-14"/>
+                            </form>
+                            {% if request.POST.testimonialSearch %}
+                            <a href="{% url 'testimonialList' %}"
+                               data-bs-toggle="tooltip" data-bs-placement="right"
+                               data-bs-custom-class="custom-tooltip"
+                               data-bs-title="Clear Search">
+                                <span class="svg-icon svg-icon-1 ms-6 text-danger">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                         class="bi bi-x-circle-fill" viewBox="0 0 16 16">
+                                        <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293z"/>
+                                    </svg>
+                                </span>
+                            </a>
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div class="card-toolbar">
+                        <div class="d-flex justify-content-end" data-kt-user-table-toolbar="base">
+                            <a href="{% url 'testimonialAdd' %}" class="btn btn-primary">
+                                <span class="svg-icon svg-icon-2">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                         xmlns="http://www.w3.org/2000/svg">
+                                        <rect opacity="0.5" x="11.364" y="20.364" width="16"
+                                              height="2" rx="1"
+                                              transform="rotate(-90 11.364 20.364)"
+                                              fill="currentColor"/>
+                                        <rect x="4.36396" y="11.364" width="16" height="2" rx="1"
+                                              fill="currentColor"/>
+                                    </svg>
+                                </span>
+                                Add Testimonial
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body py-4">
+                    <div class="table-responsive">
+                        <table class="table align-middle table-row-dashed fs-6 gy-5 dataTable no-footer">
+                            <thead>
+                            <tr class="text-start text-muted fw-bold fs-7 text-uppercase gs-0">
+                                <th class="text-center w-20px pe-2">#</th>
+                                <th class="text-center min-w-75px">Title</th>
+                                <th class="text-center min-w-75px">Location</th>
+                                <th class="text-center min-w-75px">Author</th>
+                                <th class="text-center min-w-75px">Views</th>
+                                <th class="text-center min-w-75px">Status</th>
+                                <th class="text-center min-w-105px">Created</th>
+                                <th class="text-center text-end min-w-100px">Actions</th>
+                            </tr>
+                            </thead>
+                            <tbody class="text-gray-600 fw-semibold">
+                            {% for testimonial in allTestimonials %}
+                            <tr {% if testimonial.status == 'Review' and user.is_superuser %}class="bg-light-danger btn-outline-dashed"{% endif %}>
+                                <td class="text-center">{{forloop.counter}}</td>
+                                <td class="d-flex align-items-center">
+                                    <div class="symbol symbol-50px overflow-hidden me-3">
+                                        <div class="symbol-label">
+                                            {% if testimonial.image %}
+                                            <img src="{{testimonial.image.url}}"
+                                                 alt="{{testimonial.publisher}}"
+                                                 class="w-100 rounded border-2"/>
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                    <div class="d-flex flex-column">
+                                        <a class="text-gray-800 text-hover-primary mb-1">{{testimonial.title|truncatechars:50}}</a>
+<!--                                        {% if user.is_superuser and user.full_name != '' %}-->
+<!--                                        <span class="text-danger">Linked: {{testimonial.author.full_name}}</span>-->
+<!--                                        {% endif %}-->
+                                    </div>
+                                </td>
+                                <td class="text-center">
+                                    <div class="fw-bold">
+                                        {{testimonial.location}}
+                                    </div>
+                                </td>
+                                <td class="text-center">
+                                    <div class="fw-bold">
+                                        {{testimonial.publisher}}
+                                    </div>
+                                </td>
+                                <td class="text-center">
+                                    <div class="fw-bold">
+                                        {{testimonial.views}}
+                                    </div>
+                                </td>
+                                <td class="text-center">
+                                    <div class="fw-bold">
+                                        {% if testimonial.status == 'Published' %}
+                                        <span class="svg-icon svg-icon-3" data-bs-toggle="tooltip"
+                                              data-bs-placement="top"
+                                              title="Published">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                 fill="currentColor"
+                                                 class="bi bi-unlock-fill text-success fs-2x fw-bold"
+                                                 viewBox="0 0 16 16">
+                                                <path d="M11 1a2 2 0 0 0-2 2v4a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h5V3a3 3 0 0 1 6 0v4a.5.5 0 0 1-1 0V3a2 2 0 0 0-2-2z"/>
+                                            </svg>
+                                        </span>
+                                        {% elif testimonial.status == 'Draft' %}
+                                        <span class="svg-icon svg-icon-3" data-bs-toggle="tooltip"
+                                              data-bs-placement="top" title="Draft">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                 fill="currentColor"
+                                                 class="bi bi-lock-fill text-secondary fs-2x fw-bold"
+                                                 viewBox="0 0 16 16">
+                                                <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/>
+                                            </svg>
+                                        </span>
+                                        {% elif testimonial.status == 'Review' %}
+                                        <span class="svg-icon svg-icon-3" data-bs-toggle="tooltip"
+                                              data-bs-placement="top" title="Review">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                 fill="currentColor"
+                                                 class="bi bi-lock-fill text-warning fs-2x fw-bold" viewBox="0 0 16 16">
+                                                <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/>
+                                            </svg>
+                                        </span>
+                                        {% else %}
+                                        <span class="svg-icon svg-icon-3" data-bs-toggle="tooltip"
+                                              data-bs-placement="top"
+                                              title="Rejected">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                 fill="currentColor"
+                                                 class="bi bi-lock-fill text-danger fs-2x fw-bold" viewBox="0 0 16 16">
+                                                <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/>
+                                            </svg>
+                                        </span>
+                                        {% endif %}
+                                    </div>
+                                </td>
+                                <td class="text-center">
+                                    <div class="badge badge-primary fw-bold">{{testimonial.created_date}}</div>
+                                </td>
+                                <td class="text-center">
+                                    <a href="{% url 'testimonialEdit' testimonial.pk %}"
+                                       class="btn btn-icon btn-active-light-warning w-30px h-30px me-3"
+                                       data-kt-menu-trigger="click" data-kt-menu-placement="bottom-start"
+                                       data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-dismiss-="click"
+                                       title="Edit">
+                                        <span class="svg-icon svg-icon-3">
+                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                                 xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M17.5 11H6.5C4 11 2 9 2 6.5C2 4 4 2 6.5 2H17.5C20 2 22 4 22 6.5C22 9 20 11 17.5 11ZM15 6.5C15 7.9 16.1 9 17.5 9C18.9 9 20 7.9 20 6.5C20 5.1 18.9 4 17.5 4C16.1 4 15 5.1 15 6.5Z"
+                                                      fill="currentColor"></path>
+                                                <path opacity="0.3"
+                                                      d="M17.5 22H6.5C4 22 2 20 2 17.5C2 15 4 13 6.5 13H17.5C20 13 22 15 22 17.5C22 20 20 22 17.5 22ZM4 17.5C4 18.9 5.1 20 6.5 20C7.9 20 9 18.9 9 17.5C9 16.1 7.9 15 6.5 15C5.1 15 4 16.1 4 17.5Z"
+                                                      fill="currentColor"></path>
+                                            </svg>
+                                        </span>
+                                    </a>
+                                    <a href="{% url 'testimonialDelete' testimonial.pk %}"
+                                       class="btn btn-icon btn-active-light-danger w-30px h-30px me-3"
+                                       data-kt-menu-trigger="click" data-kt-menu-placement="bottom-start"
+                                       data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-dismiss-="click"
+                                       title="Delete">
+                                        <span class="svg-icon svg-icon-3">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                 fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+                                                <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6Z"/>
+                                                <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1ZM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118ZM2.5 3h11V2h-11v1Z"/>
+                                            </svg>
+                                        </span>
+                                    </a>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                    {% if allTestimonials.has_other_pages %}
+                    <ul class="pagination my-5 float-right">
+                        {% if allTestimonials.has_previous %}
+                        <li class="page-item">
+                            <a class="page-link" href="?page={{ allTestimonials.previous_page_number }}">&laquo;</a>
+                        </li>
+                        {% else %}
+                        <li class="page-item disabled"><a class="page-link">&laquo;</a></li>
+                        {% endif %}
+
+                        {% for i in allTestimonials.paginator.page_range %}
+                        {% if allTestimonials.number == i %}
+                        <li class="page-item active"><a class="page-link" href="#">{{ i }}</a></li>
+                        {% else %}
+                        <li class="page-item"><a class="page-link" href="?page={{ i }}">{{ i }}</a></li>
+                        {% endif %}
+                        {% endfor %}
+                        {% if allTestimonials.has_next %}
+                        <li class="page-item"><a class="page-link"
+                                                 href="?page={{ allTestimonials.next_page_number }}">&raquo;</a></li>
+                        {% else %}
+                        <li class="page-item disabled"><a class="page-link">&raquo;</a></li>
+                        {% endif %}
+                    </ul>
+                    {% endif %}
+                </div>
+                {% else %}
+                <div class="alert alert-dismissible bg-light-danger d-flex flex-center flex-column py-10 px-10 px-lg-20">
+                    <!--begin::Close-->
+                    <button type="button" class="position-absolute top-0 end-0 m-2 btn btn-icon btn-icon-danger"
+                            data-bs-dismiss="alert">
+                        <i class="ki-duotone ki-cross fs-1"><span class="path1"></span><span
+                                class="path2"></span></i>
+                    </button>
+                    <!--begin::Icon-->
+                    <i class="ki-duotone ki-information-5 fs-5tx text-danger mb-5"><span class="path1"></span><span
+                            class="path2"></span><span class="path3"></span></i>
+                    <!--begin::Wrapper-->
+                    <div class="text-center">
+                        <!--begin::Title-->
+                        <h1 class="fw-bold mb-5 text-danger">No testimonials to show</h1>
+                        <!--begin::Separator-->
+                        <div class="separator separator-dashed border-danger opacity-25 mb-5"></div>
+                        <!--begin::Buttons-->
+                        <div class="d-flex flex-center flex-wrap">
+                            <a href="{% url 'testimonialAdd' %}" class="btn btn-primary">
+                                <span class="svg-icon svg-icon-2">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                         xmlns="http://www.w3.org/2000/svg">
+                                        <rect opacity="0.5" x="11.364" y="20.364" width="16"
+                                              height="2" rx="1"
+                                              transform="rotate(-90 11.364 20.364)"
+                                              fill="currentColor"/>
+                                        <rect x="4.36396" y="11.364" width="16" height="2" rx="1"
+                                              fill="currentColor"/>
+                                    </svg>
+                                </span>
+                                Add Testimonial
+                            </a>
+                        </div>
+                        <!--begin::Content-->
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block extraJS %}
+<!--begin::Vendors Javascript(used for this page only)-->
+<script src="{% static 'be/plugins/custom/datatables/datatables.bundle.js' %}"></script>
+<script src="{% static 'be/js/custom/apps/user-management/users/list/table.js' %}"></script>
+<script src="{% static 'be/js/widgets.bundle.js' %}"></script>
+<script src="{% static 'be/js/custom/utilities/modals/users-search.js' %}"></script>
+<script>
+    // Submit the form when dropdown value changes
+    document.getElementById('filterSelect').addEventListener('change', function() {
+        document.getElementById('filterForm').submit();
+    });
+</script>
+<!--end::Javascript-->
+{% endblock %}

@@ -1,0 +1,71 @@
+{% extends 'front/base.html' %}
+{% load static %}
+{% block meta %}
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Member Login - Laughter Yoga International</title>
+    <meta name="keywords" content="login, membership, prozone, laughter professional"/>
+    <meta name="description" content="You can login with your credentials to access your prozone features.">
+    <meta name="author" content="Dr Madan Kataria">
+{% endblock %}
+{% block content %}
+<div role="main" class="main">
+    <!-- Breadcrumb Starts Here -->
+    <section class="page-header page-header-classic">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <ul class="breadcrumb">
+                        <li><a href="{% url 'home' %}" target="_parent" class="text-decoration-none">Home</a></li>
+                        <li class="active">Login</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container py-4">
+        <div class="row justify-content-center">
+            <div class="col-lg-7 order-1 order-lg-2">
+                <div class="row justify-content-md-center">
+                    <div class="col-md-8">
+                        <div class="featured-box featured-box-primary mt-0">
+                            <div class="box-content">
+                                <h4 class="color-primary font-weight-semibold text-4 text-uppercase mb-3 row justify-content-center">Member Login</h4>
+                                {% include 'front/includes/messages.html' %}
+                                <form action="{% url 'login' %}" id="frmSignIn" method="POST" class="needs-validation">
+                                    {% csrf_token %}
+                                    <div class="form-row">
+                                        <div class="form-group col">
+                                            <label class="font-weight-bold text-dark text-2 float-left">E-mail</label>
+                                            <input type="text" name="email" value="" class="form-control form-control-lg" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group col">
+                                            <label class="font-weight-bold text-dark text-2 float-left">Password</label>
+                                            <input type="password" name="password" value="" class="form-control form-control-lg" minlength="6" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group col">
+                                            <button type='submit' class='btn btn-primary btn-modern btn-block text-uppercase rounded-0 font-weight-bold text-3 py-3'>
+                                                {% if submit_btn %} {{ submit_btn }} {% else %}Login{% endif %}
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="row" >
+                                        <div class="col-lg-12">
+                                            <a href="{% url 'forgotPassword' %}">Forgot Password?</a>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

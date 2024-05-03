@@ -1,0 +1,34 @@
+{% extends 'front/dashboard-base.html' %}
+{% load i18n %}
+{% load static %}
+{% block content %}
+{% include 'front/includes/messages.html' %}
+<div class="container-fluid">
+    <!-- Main-content-body -->
+    <div class="main-content-body">
+        <div class="row">
+            <div class="col-md-12 col-lg-12 col-xl-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h2 class="text-center">{% trans 'Delete Product' %}</h2><br/>
+                        <form class="form-group" method="POST" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <!--{{form.as_p}}-->
+                            <div class="form-group ">
+                                <div class="row">
+                                    <div class="col-md-12"><label class="form-label">{% trans 'Once you click the delete button, you can\'t revert the process. So just double check before doing anything.' %}</label></div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-danger">{% trans 'Delete' %}</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /row -->
+    </div>
+    <!-- Main-content-body closed -->
+</div>
+{% endblock %}

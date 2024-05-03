@@ -1,0 +1,602 @@
+{% extends 'front/base.html' %}
+{% load static %}
+{% load i18n %}
+{% load cropping %}
+{% block meta %}
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Zoom Laughter Club - Laughter Yoga International</title>
+<meta name="keywords"
+      content="laughter club on zoom, laughter yoga online, laughter club calendar, online basic learning course"/>
+<meta name="description"
+      content="Can’t find a Laughter Club in your area? No Problem!! Join Laughter Club on Zoom & laugh 365 days from your home">
+<meta name="author" content="Dr Madan Kataria">
+{% endblock %}
+{% block content %}
+<style type="text/css">
+    #header, #footer > .container
+    {
+        display: none !important;
+    }
+    .card {
+        border-radius: 20px;
+    }
+    .topSectionBg {
+        background-image:url({% static 'img/pages/about/zlc/top-section-bg.jpg' %});
+        background-repeat: no-repeat;
+        background-size: auto 100%;
+    }
+    .zlcFormMainBg {
+        background-image: url({% static 'img/pages/about/zlc/zlc-form-bg.jpg' %});
+        background-repeat: no-repeat;
+        background-size: auto 100%;
+    }
+    .zlcFormBg {
+        width: 100%;
+        background-color: #2E7889;
+        border-radius: 0 20px 20px 0;
+        background-size: 100% 100%;
+    }
+
+    .zlcFormImg {
+        width: 100%;
+        border-radius: 20px 0 0 20px;
+        background-size: auto 100%;
+        margin-right:-30px;
+    }
+
+    .zlcBgGreen {
+        background-color: #D8F8FA;
+    }
+
+    .btnSubmit {
+        background-color: #FF0000;
+        padding: 12px 20px;
+        border-radius: 10px;
+        text-decoration: none;
+        color: #ffffff;
+        font-weight: bold;
+        font-size:22px;
+    }
+    .btnSubmit:hover {
+        background-color: #D80000;
+        padding: 12px 20px;
+        border-radius: 10px;
+        text-decoration: none;
+        color: #ffffff;
+        font-weight: bold;
+    }
+
+    .btnSubmit:link, .btnSubmit:visited, .btnSubmit:hover{
+        color: #ffffff;
+    }
+
+    .btnCLYL {
+        background-color: #0E67FF;
+        padding: 12px 20px;
+        border-radius: 10px;
+        text-decoration: none;
+        color: #ffffff;
+        font-weight: bold;
+        font-size:22px;
+    }
+    .btnCLYL:hover {
+        background-color: #013EA6;
+        padding: 12px 20px;
+        border-radius: 10px;
+        text-decoration: none;
+        color: #ffffff;
+        font-weight: bold;
+    }
+
+    .btnCLYL:link, .btnCLYL:visited, .btnCLYL:hover {
+        color: #ffffff;
+    }
+    <!-- Green Background Toggle -->
+    html .toggle label, html .toggle .toggle-title {
+      color: #266870;
+      border-left-color: #4E858B;
+      border-right-color: #4E858B;
+    }
+    .toggle.toggle-lg .toggle > label, .toggle.toggle-lg .toggle > .toggle-title {
+      font-size: 1.1em;
+      padding: 16px 20px 16px 20px;
+      color: #266870;
+      border-left-color: #4E858B;
+      border-right-color: #4E858B;
+    }
+     .toggle.toggle-lg .toggle.active > label, .toggle.toggle-lg .toggle.active > .toggle-title {
+      background-color: #266870;
+      border-color: #266870;
+      color: #FFF;
+    }
+    .toggle > .toggle-content > p {
+      padding: 13px 20px;
+    }
+    blockquote {
+      border-left: 5px solid #FFC107;
+    }
+    #footerSticky {
+        position: fixed;
+        bottom:0;
+        width: 100%;
+        height: auto;
+        overflow: hidden;
+        z-index: 1;
+    }
+
+    @media (max-width: 760px) {
+        .zlcFormBg {
+            background-color: #529296;
+            border-radius: 20px;
+            margin:0 15px 20px;
+        }
+        .zlcFormImg {
+            width: 100%;
+            border-radius: 20px;
+            background-size: auto 100%;
+            margin: 0 0 20px 0;
+        }
+        .btnCLYL, .btnSubmit {
+            font-size:16px;
+        }
+    }
+    @media (min-width: 1200px) {
+        .topSectionBg {
+            background-image:url({% static 'img/pages/about/zlc/top-section-bg.jpg' %});
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        .zlcFormMainBg {
+            background-image: url({% static 'img/pages/about/zlc/zlc-form-bg.jpg' %});
+            background-repeat: no-repeat;
+            background-size: auto 100%;
+        }
+    }
+</style>
+<div class="body">
+    <div role="main" class="main" style="margin-bottom: -100px;">
+        <section class="shop border-0 m-0 topSectionBg" id="signupForm">
+            <div class="container">
+                <div class="pt-4">
+                    <div class="text-center pb-5">
+                        <p class="h2 text-center text-capitalize font-weight-bold text-capitalize">Is Your Life Stressed
+                            Out? Would You Like More</p>
+                        <p class="h2 text-center text-capitalize font-weight-bold text-capitalize">Joy, Laughter, And
+                            Happiness?</p>
+                        <p class="h3 text-center py-4">Laugh with Laughter Buddies Worldwide! <br>Join Now International
+                            Laughter Club Online on
+                            Zoom!</p>
+                        <div class="row justify-content-center">
+                            <div class="col-lg-9">
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <img src="{% static 'img/pages/about/zlc/zlc-img.jpg' %}" class="zlcFormImg img-fluid" />
+                                    </div>
+                                    <div class="col-lg-6 py-5 zlcFormBg" id="signupFormMobile">
+                                        <div class="h2 text-center font-weight-bold" style="color: #FFFF00; font-size:35px;">It's LIVE. It's
+                                            FREE.
+                                        </div>
+                                        <div class="h5 pb-1 text-center text-white">Daily 7:30 AM India Time and<br>
+                                            Monday, Wednesday & Friday 6 PM India Time.
+                                        </div>
+                                        <div class="text-white" style="font-size:16px;">* Fill In The Form To Get The Zoom Details</div>
+                                        <form action="{% url 'zoom-laughter-club' %}" method="post"
+                                              class="needs-validation px-5"
+                                              enctype="multipart/form-data">
+                                            {% csrf_token %}
+                                            <div class="form-group row justify-content-center">
+                                                <div class="col-lg-12">
+                                                    <input class="form-control form-control-lg" type="text"
+                                                           name="name"
+                                                           placeholder="Full Name"
+                                                           required>
+                                                </div>
+                                                <div class="col-lg-12">
+                                                    <input class="form-control form-control-lg" type="email"
+                                                           name="email"
+                                                           placeholder="Email" required>
+                                                </div>
+                                                <div class="col-lg-12">
+                                                    <input class="form-control form-control-lg" type="tel"
+                                                           name="contact" minlength="10"
+                                                           placeholder="Contact No"
+                                                           oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
+                                                           required>
+                                                </div>
+                                                <div class="col-lg-12">
+                                                    <input class="form-control form-control-lg" type="text"
+                                                           name="country"
+                                                           placeholder="Country Name"
+                                                           required>
+                                                </div>
+                                            </div>
+                                            <div class="form-row justify-content-center">
+                                                <div class="form-group">
+                                                    <div class="g-recaptcha" data-sitekey="{{site_key}}"></div>
+                                                </div>
+                                            </div>
+                                            <button type="submit" class="btn btnSubmit">
+                                                Join Now
+                                            </button>
+                                            <small class="text-white">By Clicking Submit button, you
+                                                agree to our terms.</small>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="border-0 m-0 py-5 zlcBgGreen">
+            <div class="container">
+                <p class="h2 text-center text-capitalize font-weight-bold text-capitalize">Online Laughter Club: Why You
+                    Should Join Now </p>
+                <p class="h3 text-center pb-5">Experience Connections, Joy, and Fun - All from the Comfort of Home!</p>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <p style="font-size:22px;">Online Laughter Club is a great way to boost your mental and physical
+                            health. It has been found to
+                            reduce stress, increase feelings of happiness and wellbeing, and even reduce the risk of
+                            depression and anxiety. Plus, it's a great way to connect with others in a fun and
+                            supportive environment.</p>
+                        <p class="font-weight-bold" style="font-size:22px;">So if you're looking for a way to take care
+                            of yourself and connect
+                            with others, Laughter Club is the perfect solution.</p>
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <a href="#signupForm" class="btn btnSubmit">Join Now! It's Free</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="video-container">
+                            <iframe width="100%" height="350" src="https://www.youtube.com/embed/cIMGG4r_uP4"
+                                    title=" Join Free Online Live International Laughter Club on Zoom | Come & Laugh Daily With Us "
+                                    frameborder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    class="rounded" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section style="background-color: #FFDFC8;">
+            <div class="container">
+                <div class="row justify-content-center py-2">
+                    <div class="col-lg-8 col-md-6 col-sm-8">
+                        <div class="flex-grow-1">
+                            <blockquote class="blockquote mb-0">
+                                <div>
+                                    <i class="fas fa-quote-left fa-lg text-warning me-2"></i>
+                                    <span class="font-italic">A day without laughter is a day wasted.</span>
+                                </div>
+                                <div class="blockquote-footer">
+                                    Charlie Chaplin <cite title="Source Title">(16 April 1889 - 25 December 1977)
+                                    English Comic, Actor, Filmmaker and Composer</cite>
+                                </div>
+                            </blockquote>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="border-0 m-0">
+            <div class="container py-5 pt-md-4 pt-xl-0">
+                <div class="h2 text-center text-capitalize font-weight-bold text-capitalize py-5">
+                    Benefits of Online Laughter Club
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-lg-10">
+                        <div class="row d-flex justify-content-around">
+                            <div class="col-lg-3 text-center">
+                                <img src="{% static 'img/pages/blc/blc-1.png' %}" class='img-fluid'
+                                     style="box-shadow: .0625rem .3125rem 1.25rem rgba(78,78,128,.16);">
+                                <p class="pt-3" align="center" style="line-height:25px;"><span
+                                        class="font-weight-bold">Laughter and Good Mood</span><br><span
+                                        style="line-height:20px; font-size:16px; color:#808080;">LY releases
+                                endorphins from your brain cells, keeping you in a good mood all day long.</span></p>
+                            </div>
+                            <div class="col-lg-3 text-center">
+                                <img src="{% static 'img/pages/blc/blc-2.png' %}" class='img-fluid'
+                                     style="box-shadow: .0625rem .3125rem 1.25rem rgba(78,78,128,.16);">
+                                <p class="pt-3" align="center" style="line-height:25px;"><span
+                                        class="font-weight-bold">Exercise for Stress Relief</span><br><span
+                                        style="line-height:20px; font-size:16px; color:#808080;">LY increases heart
+                                rate, blood circulation and relaxes muscles like aerobic exercise.</span></p>
+                            </div>
+                            <div class="col-lg-3 text-center">
+                                <img src="{% static 'img/pages/blc/blc-3.png' %}" class='img-fluid'
+                                     style="box-shadow: .0625rem .3125rem 1.25rem rgba(78,78,128,.16);">
+                                <p class="pt-3" align="center" style="line-height:25px;"><span class="font-weight-bold">Health Benefits</span><br><span
+                                        style="line-height:20px; font-size:16px; color:#808080;">You will not get sick easily and if you have a chronic health condition, you will
+                                heal faster.</span></p>
+                            </div>
+                        </div>
+                        <div class="row justify-content-center pt-4">
+                            <div class="col-lg-3 text-center">
+                                <img src="{% static 'img/pages/blc/blc-4.png' %}" class='img-fluid'
+                                     style="box-shadow: .0625rem .3125rem 1.25rem rgba(78,78,128,.16);">
+                                <p class="pt-3" align="center" style="line-height:25px;"><span class="font-weight-bold">Social Networks</span><br><span
+                                        style="line-height:20px; font-size:16px; color:#808080;">Laughter
+                                brings people together and fosters quality caring and sharing among friends.</span></p>
+                            </div>
+                            <div class="col-lg-3 text-center">
+                                <img src="{% static 'img/pages/blc/blc-5.png' %}" class='img-fluid'
+                                     style="box-shadow: .0625rem .3125rem 1.25rem rgba(78,78,128,.16);">
+                                <p class="pt-3" align="center" style="line-height:25px;"><span class="font-weight-bold">Attitude for Challenges</span><br><span
+                                        style="line-height:20px; font-size:16px; color:#808080;">The
+                                power of laughter creates a positive attitude to cope with negative people and
+                                situations.</span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="h2 text-center text-capitalize font-weight-bold text-capitalize py-5">
+                    Timezones of Online Laughter Club
+                </div>
+                <div class="row mb-2">
+                    <div class="col-lg-6 justify-content-center">
+                        <p><img src="{% static 'img/pages/zlc-1.webp' %}" class="img-fluid" alt="zoom-laughter-club-1">
+                        </p>
+                    </div>
+                    <div class="col-lg-6 mb-2 pb-2 ">
+                        <p><img src="{% static 'img/pages/zlc-2.webp' %}" class="img-fluid" alt="zoom-laughter-club-2">
+                        </p>
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-lg-10">
+                        <p class="text-center">
+                            <span class="h3 text-center text-capitalize pb-5">Laugh from the comfort of your home</span> &nbsp;
+                            <a href="#signupForm" class="btnSubmit">Join Now! It's Free</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section style="background-color: #FFDFC8;">
+            <div class="container">
+                <div class="row justify-content-center py-2">
+                    <div class="col-lg-10 col-md-6 col-sm-8">
+                        <div class="flex-grow-1">
+                            <blockquote class="blockquote mb-0">
+                                <div>
+                                    <i class="fas fa-quote-left fa-lg text-warning me-2"></i>
+                                    <span class="font-italic">Laughter is a form of internal jogging. It moves your internal organs around. It enhances respiration. It is an igniter of great expectations.</span>
+                                </div>
+                                <div class="blockquote-footer">
+                                    Norman Cousins <cite title="Source Title">(24 June 1915 - 30 November 1990) American
+                                    Political Journalist, Author, Professor, and World Peace Advocate</cite>
+                                </div>
+                            </blockquote>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="border-0 m-0 py-5 zlcBgGreen">
+            <div class="container">
+                <p class="h2 text-center text-capitalize font-weight-bold text-capitalize">Take Your Laughter Yoga To
+                    The Next Level</p>
+                <p class="h3 text-center pb-5">Become A Certified LY Leader And Start Your Own Laughter Clubs</p>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <p style="font-size:22px;">Becoming a Certified LY Leader means being part of a global network
+                            of laughter professionals
+                            who are dedicated to spreading the joy of laughter to the world. </p>
+                        <p class="font-weight-bold" style="font-size:22px;">With your certification,
+                            you will be able to lead your own laughter sessions, create laughter clubs, and teach others
+                            the science and skill of laughter.</p>
+                        <p class="pt-2"><a href="https://slynk.me/srcNEWflc" target="_blank" class="btnCLYL">Become
+                                    Certified Laughter Yoga Leader</a></p>
+
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="video-container">
+                            <iframe width="100%" height="350" src="https://www.youtube.com/embed/FbmRA_QEH2A"
+                                    title=" Join Free Online Live International Laughter Club on Zoom | Come & Laugh Daily With Us "
+                                    frameborder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    class="rounded" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                </div>
+                <p class="h2 text-center text-capitalize font-weight-bold text-capitalize pt-5 pb-3">Who can do this
+                    course?</p>
+                <div class="row justify-content-center">
+                    <div class="col-lg-10">
+                        <div class="row">
+                            <div class="col-lg-3 text-center">
+                                <img src="{% static 'img/pages/blc/blc-9.png' %}" class='img-fluid'
+                                     style="width:150px; border-radius:50%; border: 2px solid #94B7BB; background-color: #ffffff;">
+                                <p class="pt-3 font-weight-bold" style="font-size:17px;" align="center">Yoga Teachers /
+                                    Practitioners</p>
+                            </div>
+                            <div class="col-lg-3 text-center">
+                                <img src="{% static 'img/pages/blc/blc-10.png' %}" class='img-fluid'
+                                     style="width:150px; border-radius:50%; border: 2px solid #94B7BB; background-color: #ffffff;">
+                                <p class="pt-3 font-weight-bold" style="font-size:17px;" align="center">Stress / Anxiety
+                                    Sufferers</p>
+                            </div>
+                            <div class="col-lg-3 text-center">
+                                <img src="{% static 'img/pages/blc/blc-11.png' %}" class='img-fluid'
+                                     style="width:150px; border-radius:50%; border: 2px solid #94B7BB; background-color: #ffffff;">
+                                <p class="pt-3 font-weight-bold" style="font-size:17px;" align="center">Pain / Health
+                                    Problems</p>
+                            </div>
+                            <div class="col-lg-3 text-center">
+                                <img src="{% static 'img/pages/blc/blc-12.png' %}" class='img-fluid'
+                                     style="width:150px; border-radius:50%; border: 2px solid #94B7BB; background-color: #ffffff;">
+                                <p class="pt-3 font-weight-bold" style="font-size:17px;" align="center">School / College
+                                    Students</p>
+                            </div>
+                            <div class="col-lg-3 text-center">
+                                <img src="{% static 'img/pages/blc/blc-13.png' %}" class='img-fluid'
+                                     style="width:150px; border-radius:50%; border: 2px solid #94B7BB; background-color: #ffffff;">
+                                <p class="pt-3 font-weight-bold" style="font-size:17px;" align="center">Professionals /
+                                    Businessmen</p>
+                            </div>
+                            <div class="col-lg-3 text-center">
+                                <img src="{% static 'img/pages/blc/blc-14.png' %}" class='img-fluid'
+                                     style="width:150px; border-radius:50%; border: 2px solid #94B7BB; background-color: #ffffff;">
+                                <p class="pt-3 font-weight-bold" style="font-size:17px;" align="center">Performers /
+                                    Speakers</p>
+                            </div>
+                            <div class="col-lg-3 text-center">
+                                <img src="{% static 'img/pages/blc/blc-15.png' %}" class='img-fluid'
+                                     style="width:150px; border-radius:50%; border: 2px solid #94B7BB; background-color: #ffffff;">
+                                <p class="pt-3 font-weight-bold" style="font-size:17px;" align="center">Doctors /
+                                    Psychologists</p>
+                            </div>
+                            <div class="col-lg-3 text-center">
+                                <img src="{% static 'img/pages/blc/blc-16.png' %}" class='img-fluid'
+                                     style="width:150px; border-radius:50%; border: 2px solid #94B7BB; background-color: #ffffff;">
+                                <p class="pt-3 font-weight-bold" style="font-size:17px;" align="center">Social /
+                                    Healthcare Workers</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <p class="text-center pt-3 font-weight-bold" style="font-size:22px;">Everyone who is inspired to spread
+                    joy, happiness, and laughter <br> in their lives and in the communities they live in.</p>
+            </div>
+        </section>
+
+        <section class="pt-5">
+            <div class="container pt-md-4 pt-xl-0">
+                <div class="row justify-content-center">
+                    <div class="col-lg-10">
+                        <div class="h2 text-center font-weight-bold text-capitalize pb-5">Frequently Asked Questions
+                        </div>
+                        <div class="toggle toggle-primary toggle-lg" data-plugin-toggle="">
+                            <section class="toggle mb-4 active">
+                                <a class="toggle-title text-decoration-none">Why do I need to Join Online International Laughter Club?</a>
+                                <div class="toggle-content" style="display: none;">
+                                    <p>Do you feel stressed out regularly, out of breath? Or are you having chronic pain
+                                        or
+                                        illness? For centuries we have known that laughter is the best medicine. And
+                                        laughter
+                                        yoga is the only platform where you can get all the scientifically proven health
+                                        benefits of laughter.</p>
+                                    <p>Laughter yoga exercises relieve pain, boost immunity, improve mood besides many
+                                        other
+                                        social, emotional and physiological benefits.</p>
+                                    <p>Laughter yoga is the gateway to your health, happiness and peace of mind.</p>
+                                </div>
+                            </section>
+                            <section class="toggle mb-4">
+                                <a class="toggle-title text-decoration-none">Does Dr. Madan Kataria himself conducts these Laughter Club Sessions?</a>
+                                <div class="toggle-content">
+                                    <p>Yes. Dr. Madan Kataria founder of Laughter Yoga conducts sessions at 7:30 AM India Time along with other International LY Leaders and Facilitators.</p>
+                                </div>
+                            </section>
+                            <section class="toggle mb-4">
+                                <a class="toggle-title text-decoration-none">Is there any prerequisite knowledge required before joining the Laughter Club Online?</a>
+                                <div class="toggle-content">
+                                    <p>No prerequisites are needed! You just need to join, laugh and enjoy the simple laughter exercises.</p>
+                                </div>
+                            </section>
+                            <section class="toggle mb-4">
+                                <a class="toggle-title text-decoration-none">Am I able to bring my family or friends to the live sessions?</a>
+                                <div class="toggle-content">
+                                    <p>Ofcourse yes. Anyone can join the online laughter club - more the merrier. So invite all your family and friends.</p>
+                                </div>
+                            </section>
+                            <section class="toggle mb-4">
+                                <a class="toggle-title text-decoration-none">I would like to join the WhatsApp group. What should I do?</a>
+                                <div class="toggle-content">
+                                    <p>As soon as you fill in and submit the form on this page, you will receive an automatic email from Laughter Yoga International. This email contains the link to join the WhatsApp group.</p>
+                                    <p>If you still face any issues, please write to us at help@laughteryoga.org or
+                                        connect
+                                        with
+                                        us on (+91) 888 456 7891.</p>
+                                </div>
+                            </section>
+                            <section class="toggle mb-4">
+                                <a class="toggle-title text-decoration-none">Are there any further learning opportunities in laughter yoga?</a>
+                                <div class="toggle-content">
+                                    <p>Laughter yoga is in high demand worldwide. It is spread in more than 110 countries. You can become a Certified Laughter Yoga Leader by attending courses conducted by Dr. Madan Kataria himself.</p>
+                                </div>
+                            </section>
+                            <section class="toggle mb-4">
+                                <a class="toggle-title text-decoration-none">Who is eligible to receive a Leader
+                                    Training
+                                    Certification?</a>
+                                <div class="toggle-content">
+                                    <p>Once you have completed the six sessions of the Basic Learning Course, you are
+                                        eligible
+                                        for the Leader Course. This is an additional six sessions.</p>
+                                    <p>The Basic Learning Course teaches you how to bring more joy and laughter into
+                                        your
+                                        life
+                                        and loved ones. And when you complete the Leader Course, you can start your own
+                                        Online
+                                        or Physical Free Laughter Clubs as well as become eligible to train others.</p>
+                                </div>
+                            </section>
+                            <section class="toggle mb-4">
+                                <a class="toggle-title text-decoration-none">Following the completion of this course,
+                                    what
+                                    further learning opportunities are there in laughter yoga?</a>
+                                <div class="toggle-content">
+                                    <p>Laughter yoga is in high demand worldwide. It is spread in more than 110
+                                        countries.
+                                        After
+                                        you become a certified leader, you can participate in the five-day in-person
+                                        Teacher
+                                        Training program conducted by the founder Dr. Madan Kataria, himself in
+                                        Nashik.</p>
+                                    <p>Dr. Madan Kataria also conducts online mentorship program for Laughter Yoga
+                                        Professionals
+                                        worldwide - Laughter Yoga 2.0.</p>
+                                </div>
+                            </section>
+                            <section class="toggle mb-5 pb-5">
+                                <a class="toggle-title text-decoration-none">In what way can my knowledge and skills
+                                    from
+                                    this
+                                    course be applied in my daily life?</a>
+                                <div class="toggle-content">
+                                    <p>Laughter yoga leaders and facilitators are in demand for conducting online and
+                                        in-person
+                                        sessions for corporates, senior citizen centers, schools, hospitals, and at many
+                                        other
+                                        applications. You will learn all the techniques during the courses.</p>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer Sticky -->
+        <section id="footerSticky">
+            <div class="row justify-content-center">
+                <div class="col-lg-4">
+                    <a href="#signupFormMobile" target="_self" class="btn btn-primary font-weight-bold">Join Online Laughter Club - It's Free!</a>
+                </div>
+            </div>
+        </section>
+
+    </div>
+</div>
+<script>
+    // Smooth Scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+
+</script>
+{% endblock %}

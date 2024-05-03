@@ -1,0 +1,57 @@
+{% extends 'front/dashboard-base.html' %}
+{% load i18n %}
+{% load static %}
+{% load cropping %}
+{% block content %}
+{% include 'front/includes/messages.html' %}
+{% if user.is_authenticated %}
+<div class="row row-sm">
+    <div class="col-xl-12 col-lg-6 col-md-12">
+        <div class="card card-body bg-gray-600 bd-0">
+            <p class="text-white mb-0">{% trans 'Welcome to Laughter Yoga Market Place. Happy Selling / Promoting !!!' %}</p>
+        </div>
+    </div>
+</div>
+<!--<div class="row row-sm">
+    {% for product in mp_product %}
+    <div class="col-xl-2 col-lg-4 col-md-12">
+        <div class="card">
+            <img class="card-img-top w-100" src="{% cropped_thumbnail product 'cropped_image' width=350 %}" alt="">
+            <div class="card-body">
+                <h4 class="card-title mb-3"><a href="{{product.mp_link}}" target="_blank">{{product.title}}</a></h4>
+            </div>
+            <div class="card-footer">
+                <div class="form-group ">
+                    <div class="row">
+                        <div class="col-md-6">{{product.location}}</div>
+                        <div class="col-md-6">$ {{product.price}}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>-->
+<div class="row row-sm">
+    {% for product in mp_product %}
+    {% if user.id == product.author.id %}
+    <div class="col-xl-2 col-lg-4 col-md-12">
+        <div class="card">
+            <div class="view zoom overlay">
+                <img class="card-img-top w-100" src="{% cropped_thumbnail product 'cropped_image' width=350 %}" alt="">
+            </div>
+            <div class="card-body text-center">
+                <h5>{{product.title}}</h5>
+                <p class="mb-2 text-muted text-uppercase small">{{product.location}}</p>
+                <hr>
+                <h6 class="mb-3"><span>$ {{product.price}}</span></h6>
+                <a href="{{product.mp_link}}" target="_blank" class="btn btn-secondary btn-sm">Contact</a>
+            </div>
+
+        </div>
+    </div>
+    {% endif %}
+    {% endfor %}
+</div>
+{% endif %}
+{% endblock %}

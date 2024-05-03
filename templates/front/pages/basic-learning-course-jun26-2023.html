@@ -1,0 +1,1124 @@
+{% extends 'front/base.html' %}
+{% load static %}
+{% load i18n %}
+{% load cropping %}
+{% block meta %}
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Online Basic Learning Course - Laughter Yoga International</title>
+<meta name="keywords"
+      content="laughter yoga trainings, laughter coaching, laughter therapy training, laughter course, laughter certifications"/>
+<meta name="description"
+      content="Laughter Yoga is a powerful tool for POSITIVE MENTAL HEALTH. It is an instant STRESS BUSTER and can reduce physical mental and emotional stress.">
+<meta name="author" content="Dr Madan Kataria">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/fontawesome.min.css"
+      integrity="sha384-QYIZto+st3yW+o8+5OHfT6S482Zsvz2WfOzpFSXMF9zqeLcFV0/wlZpMtyFcZALm" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+{% endblock %}
+{% block CustomJS %}
+<script>
+    <!-- Event snippet for submit form conversion page -->
+    gtag('event', 'conversion', {
+        'send_to': 'AW-10800949517/1fMrCMro_IsYEI3SpZ4o',
+        'transaction_id': ''
+    });
+
+</script>
+{% endblock %}
+{% block content %}
+<style type="text/css">
+    #header, #footer > .container
+    {
+        display: none !important;
+    }
+    *, *::before, *::after {
+        box-sizing: border-box;
+    }
+     @keyframes rotate {
+         100% {
+             transform: rotate(1turn);
+        }
+    }
+     .rainbow {
+         position: relative;
+         z-index: 0;
+         border-radius: 5px;
+         overflow: hidden;
+    }
+     .rainbow::before {
+         content: '';
+         position: absolute;
+         z-index: -2;
+         left: -50%;
+         top: -50%;
+         width: 200%;
+         height: 200%;
+         background-color: #399953;
+         background-repeat: no-repeat;
+         background-size: 50% 50%, 50% 50%;
+         background-position: 0 0, 100% 0, 100% 100%, 0 100%;
+         background-image: linear-gradient(#399953, #399953), linear-gradient(#fbb300, #fbb300), linear-gradient(#d53e33, #d53e33), linear-gradient(#377af5, #377af5);
+         animation: rotate 4s linear infinite;
+    }
+     .rainbow::after {
+         content: '';
+         position: absolute;
+         z-index: -1;
+         left: 6px;
+         top: 6px;
+         width: calc(100% - 12px);
+         height: calc(100% - 12px);
+         background: #254e99;
+         border-radius: 5px;
+         animation: opacityChange 3s infinite alternate;
+    }
+     @keyframes opacityChange {
+         50% {
+             opacity: 1;
+        }
+         100% {
+             opacity: 1.0;
+        }
+    }
+
+    .cstmli:before {
+      content: '\2705';
+      display: inline-block;
+      color: green;
+      padding: 0 6px 0 0;
+    }
+
+    .cstm-gradient{
+        font-size: 24px;
+        color: #fff;
+        background-image: linear-gradient(90deg, rgb(255, 131, 80) 0%, rgb(255, 0, 186) 100%);
+        box-shadow: 2px 3px;
+        text-shadow: 2px 1px #000000;
+    }
+
+    .cstm-gradient:hover, .cstm-gradient:active {
+        color: #ffff00 !important;
+        text-shadow: 0 1px 0 rgba(0, 0, 0, 0.4);
+        box-shadow: none !important;
+        border: 2px solid #ffffff !important;
+        transition: 0.2s;
+    }
+
+    .cstm-gradient-light{
+        font-size: 24px;
+        color: #fff;
+        background-image: linear-gradient(90deg, rgb(255, 131, 80) 0%, rgb(255, 0, 186) 100%);
+        box-shadow: 2px 3px #000000;
+        text-shadow: 2px 1px #000000;
+    }
+
+    .cstm-gradient-light:hover, .cstm-gradient-light:active {
+        color: #ffff00 !important;
+        text-shadow: 0 1px 0 rgba(0, 0, 0, 0.4);
+        box-shadow: none !important;
+        border: 2px solid #000000 !important;
+        transition: 0.2s;
+    }
+
+    .cstm-gradient-leader{
+        font-size: 24px;
+        color: #fff;
+        background-image: linear-gradient(90deg, rgb(0, 190, 210) 0%, rgb(0, 114, 217) 100%);
+        box-shadow: 2px 3px #000000;
+        text-shadow: 2px 1px #000000;
+    }
+
+    .cstm-gradient-leader:hover, .cstm-gradient-leader:active {
+        color: #000d50 !important;
+        text-shadow: 0 1px 0 rgba(255, 255, 255, 0.4);
+        box-shadow: none !important;
+        border: 2px solid #000000 !important;
+        transition: 0.2s;
+    }
+
+    .cstm-gradient-leader-dark{
+        font-size: 24px;
+        color: #fff;
+        background-image: linear-gradient(90deg, rgb(0, 190, 210) 0%, rgb(0, 114, 217) 100%);
+        box-shadow: 2px 3px #ffffff;
+        text-shadow: 2px 1px #000000;
+    }
+
+    .cstm-gradient-leader-dark:hover, .cstm-gradient-leade-dark:active {
+        color: #ffff00 !important;
+        text-shadow: 0 1px 0 rgba(0, 0, 0, 0.4);
+        box-shadow: none !important;
+        border: 2px solid #ffffff !important;
+        transition: 0.2s;
+    }
+</style>
+<script>
+    var deadline = new Date("jul 19, 2023 08:00:00").getTime(); // Date to be changed in this line. Time: 24 Hrs Format
+
+    var x = setInterval(function() {
+
+    var now = new Date().getTime();
+    var t = deadline - now;
+    var days = Math.floor(t / (1000 * 60 * 60 * 24));
+    var hours = Math.floor((t%(1000 * 60 * 60 * 24))/(1000 * 60 * 60));
+    var minutes = Math.floor((t % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((t % (1000 * 60)) / 1000);
+    document.getElementById("day").innerHTML =days ;
+    document.getElementById("hour").innerHTML =hours;
+    document.getElementById("minute").innerHTML = minutes;
+    document.getElementById("second").innerHTML =seconds;
+    if (t < 0) {
+            clearInterval(x);
+            document.getElementById("demo").innerHTML = "Time Up";
+            document.getElementById("day").innerHTML ='0';
+            document.getElementById("hour").innerHTML ='0';
+            document.getElementById("minute").innerHTML ='0' ;
+            document.getElementById("second").innerHTML = '0'; }
+    }, 1000);
+</script>
+<div role="main" class="main">
+    <section class="shop section border-0 m-0" style="background-color:#002466;">
+        <div class="container mt-5">
+            {% include 'front/includes/messages.html' %}
+            <div class="text-center pb-5">
+                <p class="h1 text-light font-weight-bold text-capitalize">Is Your Life Stressed Out? Would You Like More<br>
+                    Joy,
+                    Laughter, And Happiness?</p>
+                <p class="h2 py-4 text-capitalize" style="color: #4AFFD9;">If Yes, Laughter Yoga Is The Right Choice For
+                    You.</p>
+                <div class="row justify-content-center text-center">
+                    <div class="col-lg-8 mb-2 pb-2">
+                        <div class="rainbow">
+                            <p class="pt-4 text-white"><span style="font-size:20px; font-weight:600;">Online Certification Course By Dr. Madan Kataria Has Just Begun. <br>GREAT! You made it just in time. <a href="#payment" target="_self" style="color:#ffff00; text-decoration: underline;">Enroll now</a>!</span><br>We've only completed three sessions, and we'll send you all the recordings.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row justify-content-center pb-1">
+                    <div class="col-lg-6 pb-3">
+                        <div class="card" style="background-color: #254E99;">
+                            <div class="card-body">
+                                <div class="alert alert-default text-left text-light"
+                                     style="background-color: #002464;">
+                                    <i class="fas fa-play-circle"></i> <strong>Six Lessons &nbsp;|&nbsp; 1-hour Duration
+                                    Each</strong>
+                                </div>
+                                <div class="alert alert-default text-left text-light"
+                                     style="background-color: #002464;">
+                                    <i class="fas fa-clock"></i> <strong>Live at 8:00 am India Time &nbsp;|&nbsp; Video
+                                    Recordings
+                                    Available</strong>
+                                </div>
+                                <div class="alert alert-default text-left text-light"
+                                     style="background-color: #002464;">
+                                    <i class="far fa-calendar-alt"></i> <strong>Get Program Certification &nbsp;|&nbsp;
+                                    E-Books &nbsp;|&nbsp;
+                                    Audio & Video</strong>
+                                </div>
+                                <div class="row pt-3">
+                                    <div class="col-lg-4 justify-content-right">
+                                        <img src="{% static 'img/pages/drk-new.webp' %}" class="img-fluid"
+                                             alt="dr-madan-kataria" style="float:left; border: 2px solid #ffffff;">
+                                    </div>
+                                    <div class="col-lg-8 pr-4 pt-3">
+                                        <p class="text-left mb-2" style="margin-bottom:-2px;"><span
+                                                class="px-2 py-1 rounded"
+                                                style="background-color: #4AFFD9; color:#002466;">Online Coaching by the Founder</span>
+                                        </p>
+                                        <p class="text-left text-light">Dr. Madan Kataria, is a medical doctor and
+                                            founder of the Laughter Yoga Movement, which has spread to over 120
+                                            countries. He has been featured in numerous international publications and
+                                            television shows.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="video-container">
+                            <iframe src="https://www.youtube.com/embed/FbmRA_QEH2A?autoplay=1"
+                                    title="20 Years of Laughter Yoga Movement"
+                                    frameborder="0"
+                                    style="border: 2px solid #fff; border-radius:10px; max-width: 640px; aspect-ratio: 16/9;"></iframe>
+                        </div>
+                        <div class="row justify-content-center pt-4">
+                            <div class="col-xl-9">
+                                <a href="#payment" class="btn p-3 cstm-gradient font-weight-bold">Basic Learning Course $99</a>
+                            </div>
+                            <div class="col-xl-11">
+                                <p class="text-center text-light py-2">Reserve your seat now! The next
+                                    course begins on <span class="font-weight-bold">June 19, 2023</span><br><span
+                                            class="font-weight-bold">(For USA/CANADA: June 18, 2023)</span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="container my-5 pt-md-4 pt-xl-0">
+        <!--<div class="row align-items-center justify-content-center pb-4 mb-5">
+            <div class="clock"></div>
+            <div class="row">
+                <div class="col-12">
+                    <h1 class="text-center">Course Starts in </h1>
+                    <div id="clockdiv">
+                        <div>
+                            <span class="days" id="day"></span>
+                            <div class="smalltext">Days</div>
+                        </div>
+                        <div>
+                            <span class="hours" id="hour"></span>
+                            <div class="smalltext">Hours</div>
+                        </div>
+                        <div>
+                            <span class="minutes" id="minute"></span>
+                            <div class="smalltext">Minutes</div>
+                        </div>
+                        <div>
+                            <span class="seconds" id="second"></span>
+                            <div class="smalltext">Seconds</div>
+                        </div>
+                    </div>
+                    <p class="text-center h3 mx-2" id="demo"></p>
+                </div>
+            </div>
+        </div>-->
+        <div class="h2 text-center font-weight-bold py-3 text-capitalize">Benefits of Laughter Yoga</div>
+        <div class="row align-items-center justify-content-center py-3">
+            <div class="col-lg-6 mb-2 pb-2">
+                <p>Your brain cannot differentiate real laughter from intentional laughter, and
+                    you still get all the benefits! <br><br>Laughing for 10-15 minutes will release
+                    endorphins and serotonin into your bloodstream, which will
+                    naturally make you feel relaxed and happier!</p>
+                <ul>
+                    <li>Improving your mood and overall well-being</li>
+                    <li>Boosting your immune system</li>
+                    <li>Reducing stress and tension</li>
+                    <li>Burning calories and improving cardiovascular health</li>
+                </ul>
+            </div>
+            <div class="col-lg-6">
+                <img src="{% static 'img/pages/blc/blc-img.jpg' %}" class='img-fluid' style="border: 2px solid #ccc; border-radius:10px; box-shadow: 2px 3px #ccc;">
+            </div>
+        </div>
+        <div class="my-3" style="border: 2px solid #868686; border-radius:10px; padding: 30px 20px;">
+            <p class="h3 text-center pb-1 text-capitalize">How Do You Get These Benefits?</p>
+            <p class="text-center font-weight-bold">These courses are designed to cultivate more laughter and joy in
+                your life by<br> practising fun, simple and easy-to-learn laughter exercises.</p>
+            <div class="row justify-content-center">
+                <div class="col-xl-6">
+                    <ul>
+                        <li>WHY do you need to laugh more?</li>
+                        <li>HOW can you stay motivated and energetic throughout the day?</li>
+                        <li>WHAT are all the essential health benefits of laughter?</li>
+                    </ul>
+                </div>
+                <div class="col-xl-6">
+                    <ul>
+                        <li>WHEN is the right time to laugh during the day?</li>
+                        <li>Take part in our unique 40-day laughter challenge</li>
+                        <li>Join the Free International Daily Laughter Club on Zoom</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center pt-3">
+            <div class="col-xl-5">
+                <a href="#payment" class="btn p-3 cstm-gradient-light font-weight-bold">Basic Learning Course $99</a>
+            </div>
+        </div>
+        <p class="text-center py-2">
+            Reserve your seat now! The next course begins on <span class="font-weight-bold">June 19, 2023</span><br>
+            <span class="font-weight-bold">(For USA/CANADA: June 18, 2023)</span>
+        </p>
+    </section>
+
+    <section class="border-0 m-0" style="background-color: #d5e4ff;">
+        <div class="container py-5">
+            <p class="h2 text-center pb-5 text-capitalize font-weight-bold text-capitalize">What will you learn in the
+                course</p>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="row">
+                        <div class="col-lg-6 mb-4">
+                            <div class="card p-2 h-100">
+                                <!-- Lesson Plan 1 -->
+                                <div class="card-body text-dark">
+                                    <p class="h4 text-dark font-weight-bold rounded">Session 1:</p>
+                                    <ul>
+                                        <li>Objectives of the Basic Learning Course</li>
+                                        <li>Difference Between Basic Course and Certified Leader Training</li>
+                                        <li>History of laughter yoga</li>
+                                        <li>What is laughter yoga?</li>
+                                    </ul>
+                                    <p class="h5 text-dark font-weight-bold">Practice</p>
+                                    <p class="text-dark">Laugh your way to health and happiness with these latest and
+                                        trending laughter exercises
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 mb-4">
+                            <!-- Lesson Plan 2 -->
+                            <div class="card p-2 h-100">
+                                <div class="card-body text-dark">
+                                    <p class="h4 text-dark font-weight-bold">Session 2:</p>
+                                    <p>What makes laughter yoga better than humour, jokes, and comedy? This will
+                                        change your attitude towards laughter once you understand these five key
+                                        reasons!</p>
+                                    <p class="h5 text-dark font-weight-bold">Practice</p>
+                                    <p class="text-dark">Take your laughter to the next level with these popular and
+                                        latest laughter exercises.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6 mb-4">
+                            <!-- Lesson Plan 3 -->
+                            <div class="card p-2 h-100">
+                                <div class="card-body text-dark">
+                                    <p class="h4 text-dark font-weight-bold">Session 3:</p>
+                                    <p class="text-dark">The vital link between yoga and laughter. Why laughter and yoga
+                                        are inseparable
+                                        components of a healthy lifestyle.</p>
+                                    <p class="h5 text-dark font-weight-bold">Practice</p>
+                                    <ul>
+                                        <li>Yoga Nidra - a powerful relaxation technique</li>
+                                        <li>Check out these latest laughter exercises to get you laughing like never
+                                            before.
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 mb-4">
+                            <!-- Lesson Plan 4 -->
+                            <div class="card p-2 h-100">
+                                <div class="card-body text-dark">
+                                    <p class="h4 text-dark font-weight-bold">Session 4:</p>
+                                    <p class="text-dark">Voluntary v/s Real Laughter - Discover why your brain cannot
+                                        differentiate real laughter from fake laughter, and how you can still benefit
+                                        from it!</p>
+                                    <p class="h5 text-dark font-weight-bold">Practice</p>
+                                    <ul>
+                                        <li>Cultivating four elements of joy - Singing, Dancing, Playing and Laughing
+                                        </li>
+                                        <li>Practising the steps of the all-time popular Bollywood Laughter Yoga Dance
+                                            Music.
+                                        </li>
+                                        <li>Make your laughter muscles tickle with a variety of new laughter
+                                            exercises.
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6 mb-4">
+                            <!-- Lesson Plan 5 -->
+                            <div class="card mb-3 p-2 h-100">
+                                <div class="card-body text-dark">
+                                    <p class="h4 text-dark font-weight-bold"><strong>Session 5:</strong></p>
+                                    <p class="text-dark">Find out why laughter yoga is becoming increasingly popular
+                                        across the globe as well as its health benefits</p>
+                                    <p class="h5 text-dark font-weight-bold">Practice</p>
+                                    <ul>
+                                        <li>Boost your creativity 10x with these new laughter exercises.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 mb-4">
+                            <!-- Lesson Plan 6 -->
+                            <div class="card p-2 h-100">
+                                <div class="card-body text-dark">
+                                    <p class="h4 text-dark font-weight-bold"><strong>Session 6:</strong></p>
+                                    <ul>
+                                        <li>Learn how to practice laughter yoga alone - guided techniques</li>
+                                        <li>Make your daily chores a lot more enjoyable by incorporating laughter into
+                                            your daily routine
+                                        </li>
+                                        <li>A few strategies that will help you bring more laughter into your life</li>
+                                        <li>Assess the laughter quotient again and compare it to the previous
+                                            assessment
+                                        </li>
+                                        <li>Practising the steps of the all-time popular Bollywood Laughter Yoga Dance
+                                            Music
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center pb-3">
+                <div class="col-xl-9" style="border: 1px solid #868686; padding: 10px 10px 10px 10px;">
+                    <strong>IMPORTANT:</strong> Please note that this Laughter Yoga Basic Learning Course is for
+                    personal use only. If you wish to teach or start a Laughter Yoga Club as part of your professional
+                    career, you are also welcome to join the Certified Laughter Yoga Leader Training Program, which
+                    continues with 6 more lessons.
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-md-7 col-lg-5">
+                    <a href="#payment" class="btn p-3 font-weight-bold" style="border: 2px solid #666565; color:#666565; font-size:24px;">
+                        <div class="row pb-2 justify-content-center">Basic Learning Course $99</div>
+                        <div class="row justify-content-center">(6 Lessons)</div>
+                    </a>
+                    <p class="text-center">Reserve your seat now! The next course begins on <span
+                            class="font-weight-bold">June 19, 2023</span> <span class="font-weight-bold">(For USA/CANADA:
+                        June 18, 2023)</span>.</p>
+                </div>
+                <div class="col-md-7 col-lg-5">
+                    <a href="#certifiedLeader" class="btn p-3 cstm-gradient-leader font-weight-bold">
+                        <div class="row pb-2 justify-content-center">Certified LY Leader $274</div>
+                        <div class="row justify-content-center">(12 Lessons)</div>
+                    </a>
+                    <p class="text-center">Basic Learning Course + Certified Leader Training COMBO.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="container my-5 pt-md-4 pt-xl-0">
+        <p class="h2 pb-1 text-center font-weight-bold text-capitalize">Get Certified</p>
+        <p class="h3 text-center pb-5">YES! You will receive participation certificate <br> on completion of this
+            course</p>
+        <div class="row align-items-center justify-content-center pb-4 mb-3">
+            <div class="col-lg-6 mb-2 pb-2">
+                <p class="h3 pb-3">On completion of this course you will receive download of:</p>
+                <ol>
+                    <li class="pb-3 h4">E-book (PDF): Basic Learning Course</li>
+                    <li class="pb-3 h4">Video (MP4): Laughter Yoga Exercises</li>
+                    <Li class="pb-3 h4">Audio (MP3): Yoga Nidra Instructions</Li>
+                </ol>
+            </div>
+            <div class="col-lg-6">
+                <img src="{% static 'img/pages/blc/blc-certificate.jpg' %}" class="img-fluid"
+                     alt="basic-learning-course-certificate-sample" width="500px"/>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-xl-5">
+                <a href="#payment" class="btn p-3 cstm-gradient-light font-weight-bold">Basic
+                    Learning Course $99</a>
+            </div>
+        </div>
+        <p class="text-center py-2">
+            Reserve your seat now! The next course begins on <span class="font-weight-bold">June 19, 2023</span><br>
+            <span class="font-weight-bold">(For USA/CANADA: June 18, 2023)</span>
+        </p>
+    </section>
+
+    <section class="border-0 m-0" style="background-color: #d5e4ff;">
+        <div class="container py-5">
+            <p class="h2 pb-5 text-center font-weight-bold text-capitalize">Date and Time</p>
+
+            <!-- Basic Learning Course Dae Section -->
+            <div class="row justify-content-center mb-3">
+                <div class="col-lg-5 bg-light py-3 px-4 rounded" style="border-right: 15px solid #d5e4ff;">
+                    <p class="h5 font-weight-bold">Basic Learning Course (6 Lessons)</p>
+                    <div class="py-2 px-3 mb-2" style="border: 1px solid #868686; border-radius:5px;">
+                        <div>
+                            <span class="font-weight-bold">June 2023:</span> 19th, 21st, 23rd, 26th, 28th, 30th
+                        </div>
+                    </div>
+                    <div class="py-2 px-3" style="border: 1px solid #868686; border-radius:5px;">
+                        <div>
+                            <span class="h6 font-weight-bold">USA/CANADA:</span>
+                            <br>
+                            <span class="font-weight-bold">June 2023:</span> 18th, 20th, 22nd, 25th, 27th, 29th
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-5 bg-light py-3 px-4 rounded">
+                    <p class="h5 font-weight-bold">Certified Leader Training (12 Lessons)</p>
+                    <p>Additionally to the 6 lessons of the Basic Learning Course, this course continues with 6 more
+                        lessons on the following dates:</p>
+                    <div class="py-2 px-3 mb-2" style="border: 1px solid #868686; border-radius:5px;">
+                        <div>
+                            <span class="font-weight-bold">July 2023:</span> 3rd, 5th, 7th, 10th, 12th, 14th
+                        </div>
+                    </div>
+                    <div class="py-2 px-3" style="border: 1px solid #868686; border-radius:5px;">
+                        <div>
+                            <span class="h6 font-weight-bold">USA/CANADA:</span>
+                            <br>
+                            <span class="font-weight-bold">July 2023:</span> 2nd, 4th, 6th, 9th, 11th, 13th
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Timezone Section -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="row justify-content-center mb-3" style="border-right:3px solid #d5e4ff;">
+                        <div class="col-sm-12 col-md-10 col-lg-10 bg-light py-3 px-4 rounded">
+                            <p class="h5 font-weight-bold text-center py-2">8 am Indian Time | Duration: 60 Minutes</p>
+                            <div class="row justify-content-center">
+                                <div class="col-lg-7">
+                                    <div class="py-2 px-3 mb-2" style="border: 1px solid #868686; border-radius:5px;">
+                                        <p class="text-dark font-weight-bold" style="font-size:16px;">Timezone for
+                                            India, Australia, New Zealand and other Asian
+                                            Countries</p>
+                                        <table>
+                                            <tr class="text-dark">
+                                                <td class="text-right" width="80px">6:30 am</td>
+                                                <td class="pl-3">UAE</td>
+                                            </tr>
+                                            <tr class="text-dark">
+                                                <td class="text-right">9:30 am</td>
+                                                <td class="pl-3">Thailand / Indonesia / Vietnam</td>
+                                            </tr>
+                                            <tr class="text-dark">
+                                                <td class="text-right">10:30 am</td>
+                                                <td class="pl-3">Malaysia / HongKong / Singapore / Philippines /
+                                                    Taiwan
+                                                </td>
+                                            </tr>
+                                            <tr class="text-dark">
+                                                <td class="text-right">11:30 am</td>
+                                                <td class="pl-3">Japan</td>
+                                            </tr>
+                                            <tr class="text-dark">
+                                                <td class="text-right">12:30 pm</td>
+                                                <td class="pl-3">Australia</td>
+                                            </tr>
+                                            <tr class="text-dark">
+                                                <td class="text-right">2:30 pm</td>
+                                                <td class="pl-3">New Zealand</td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div class="col-lg-5">
+                                    <div class="py-2 px-3 mb-2" style="border: 1px solid #868686; border-radius:5px;">
+                                        <p class="text-dark font-weight-bold" style="font-size:16px;">Timezone for USA,
+                                            Canada and South America</p>
+                                        <table>
+                                            <tr class="text-dark">
+                                                <td class="text-right" width="80px">7:30 pm</td>
+                                                <td class="pl-3">PST/PDT</td>
+                                            </tr>
+                                            <tr class="text-dark">
+                                                <td class="text-right">8:30 pm</td>
+                                                <td class="pl-3">MST/MT</td>
+                                            </tr>
+                                            <tr class="text-dark">
+                                                <td class="text-right">9:30 pm</td>
+                                                <td class="pl-3">CST/CT</td>
+                                            </tr>
+                                            <tr class="text-dark">
+                                                <td class="text-right">10:30 pm</td>
+                                                <td class="pl-3">EST/ET</td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center pt-5">
+                <div class="col-lg-8">
+                    <p class="text-center p-2 " style="border: 1px solid #868686; border-radius:5px; font-size:20px;"><strong>Note: Even if you can't attend live sessions due to time differences, you can still earn a certificate by watching session recordings.</strong></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="border-0 m-0">
+        <div class="container my-5 pt-md-4 pt-xl-0">
+            <p class="h2 text-center font-weight-bold pb-5 text-capitalize">Who can do this course?</p>
+            <div class="row">
+                <div class="col-lg-6 mb-4 pb-2">
+                    <img src="{% static 'img/pages/blc/blc-group.jpg' %}" class="img-fluid" alt="">
+                </div>
+                <div class="col-lg-6">
+                    <ul>
+                        <li>Anyone who wants to bring more laughter and joy in their life</li>
+                        <li>Stress, anxiety and depression</li>
+                        <li>Cancer patients.</li>
+                        <li>Introvert and shy people</li>
+                        <li>Long term chronic diseases</li>
+                        <li>Psychologists</li>
+                        <li>Fitness trainer</li>
+                        <li>Alternative therapists</li>
+                        <li>Social workers/Healthcare workers</li>
+                        <li>Yoga practitioners and teachers</li>
+                        <li>Recreation activity facilitators</li>
+                        <li>Occupational therapist</li>
+                        <li>Professional speakers</li>
+                        <li>Actors/singers/clowns</li>
+                        <li>Those dealing with addictions</li>
+                        <li>Business and HR Professional</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="shop section border-0 m-0" style="background-color:#002466;">
+        <div class="container my-5 pt-md-4 pt-xl-0">
+            <p class="h2 text-center text-light text-capitalize font-weight-bold pb-5">Your trainers</p>
+            <div class="row pb-1">
+                <div class="col-lg-6 mb-4 pb-2">
+                    <p class="text-white">
+                        <img src="{% static 'img/pages/dr-madan-kataria.jpg' %}" class="img-fluid mr-3"
+                             alt="dr-madan-kataria"
+                             style="float:left; width:220px; height:280px; border:2px solid #fff;">
+                        Dr. Madan Kataria founded Laughter Yoga in Mumbai, India, in 1995 and is known as the “Guru of
+                        Giggling” (London Times). Over 120 countries have laughter yoga clubs, which has grown into a
+                        worldwide movement. Dr. Madan Kataria has 25 years of experience teaching you how to laugh on
+                        your own, with others, and with your family and colleagues. <br><br>Dr. Kataria provides keynote
+                        speeches, motivational and inspirational talks for companies, corporations and organizations
+                        worldwide. He also provides corporate coaching in holistic health, stress management, team
+                            building, leadership, peak performance, communication and leadership skills.
+                    </p>
+                </div>
+                <div class="col-lg-6">
+                    <p class="text-light">
+                        <img src="{% static 'img/pages/vinayak-shastri.jpg' %}" class="img-fluid mr-3" alt="vinayak-shastri"
+                             style="float:left; width:220px; height:280px; border:2px solid #fff;">
+                        As a Master Trainer and Certified Laughter Yoga Teacher, Vinayak Shastri has assisted Dr Kataria
+                        with international training for seven years and has been personally trained by Dr Kataria. He
+                        has excellent facilitation skills to lead corporate seminars. Additionally, he has conducted
+                        workshops and trainings in Japan, Hong Kong, and China. He has earned a master’s degree in
+                        traditional yoga from S-VYASA University, Bangalore, India.<br/> <br/> Aside from creating free
+                        social laughter clubs all over
+                        India, he has presented seminars in prisons, schools, Indian army, police and commando training
+                        centers.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container my-5 pt-md-4 pt-xl-0">
+            <p class="h2 pb-1 text-center font-weight-bold text-capitalize">Still Wondering if the Program is for
+                YOU?</p>
+            <p class="h3 pb-5 text-center">Please View The Testimonial Videos Below</p>
+            <div class="row pb-1">
+                <div class="col-lg-6">
+                    <div class="video-container mb-3">
+                        <iframe
+                                srcdoc="
+                                <style>
+                                    body, .full {
+                                        width: 100%;
+                                        height: 100%;
+                                        margin: 0;
+                                        position: absolute;
+                                        display: flex;
+                                        justify-content: center;
+                                        object-fit: cover;
+                                    }
+                                </style>
+                                <a href='https://www.youtube.com/embed/AjZ4MZft3zU?autoplay=1' class='full'>
+                                    <img data-src='{% static 'img/pages/videos/blc/blc-vdo-4.webp' %}' loading='lazy' class='full'
+                                    src='{% static 'img/pages/videos/blc/blc-vdo-4.webp' %}'
+                                    width='100%' height='100%' alt='What People Say about online laughter yoga coaching'>
+                                    <svg version='1.1' viewBox='0 0 68 48' width='68px' style='position: relative;'>
+                                        <path d='M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z' fill='#f00'></path>
+                                        <path d='M 45,24 27,14 27,34' fill='#fff'></path>
+                                    </svg>
+                                </a>"
+                                title="20 Years of Laughter Yoga Movement"
+                                style="max-width: 640px; width: 100%; aspect-ratio: 16/9;"
+                                frameborder="0"></iframe>
+                    </div>
+                    <div class="video-container mb-3">
+                        <iframe
+                                srcdoc="
+                                <style>
+                                    body, .full {
+                                        width: 100%;
+                                        height: 100%;
+                                        margin: 0;
+                                        position: absolute;
+                                        display: flex;
+                                        justify-content: center;
+                                        object-fit: cover;
+                                    }
+                                </style>
+                                <a href='https://www.youtube.com/embed/9hYNpCc2xwY?autoplay=1' class='full'>
+                                    <img data-src='{% static 'img/pages/videos/blc/blc-vdo-6.webp' %}' loading='lazy' class='full'
+                                    src='{% static 'img/pages/videos/blc/blc-vdo-6.webp' %}'
+                                    width='100%' height='100%' alt='What People Say about online laughter yoga coaching'>
+                                    <svg version='1.1' viewBox='0 0 68 48' width='68px' style='position: relative;'>
+                                        <path d='M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z' fill='#f00'></path>
+                                        <path d='M 45,24 27,14 27,34' fill='#fff'></path>
+                                    </svg>
+                                </a>"
+                                title="What People Say about online laughter yoga coaching"
+                                style="max-width: 640px; width: 100%; aspect-ratio: 16/9;"
+                                frameborder="0"></iframe>
+                    </div>
+                </div>
+                <div class="col-lg-6 mb-2 pb-2">
+                    <div class="video-container mb-3">
+                        <iframe
+                                srcdoc="
+                                <style>
+                                    body, .full {
+                                        width: 100%;
+                                        height: 100%;
+                                        margin: 0;
+                                        position: absolute;
+                                        display: flex;
+                                        justify-content: center;
+                                        object-fit: cover;
+                                    }
+                                </style>
+                                <a href='https://www.youtube.com/embed/Zima1DdronM?autoplay=1' class='full'>
+                                    <img data-src='{% static 'img/pages/videos/blc/blc-vdo-5.webp' %}' loading='lazy' class='full'
+                                    src='{% static 'img/pages/videos/blc/blc-vdo-5.webp' %}'
+                                    width='100%' height='100%' alt='What People Say about online laughter yoga coaching'>
+                                    <svg version='1.1' viewBox='0 0 68 48' width='68px' style='position: relative;'>
+                                        <path d='M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z' fill='#f00'></path>
+                                        <path d='M 45,24 27,14 27,34' fill='#fff'></path>
+                                    </svg>
+                                </a>"
+                                title="What People Say about online laughter yoga coaching"
+                                style="max-width: 640px; width: 100%; aspect-ratio: 16/9;"
+                                frameborder="0"></iframe>
+                    </div>
+                    <div class="video-container mb-3">
+                        <iframe
+                                srcdoc="
+                                <style>
+                                    body, .full {
+                                        width: 100%;
+                                        height: 100%;
+                                        margin: 0;
+                                        position: absolute;
+                                        display: flex;
+                                        justify-content: center;
+                                        object-fit: cover;
+                                    }
+                                </style>
+                                <a href='https://www.youtube.com/embed/qhLYYp-1OLw?autoplay=1' class='full'>
+                                    <img data-src='{% static 'img/pages/videos/blc/blc-vdo-7.webp' %}' loading='lazy' class='full'
+                                    src='{% static 'img/pages/videos/blc/blc-vdo-7.webp' %}'
+                                    width='100%' height='100%' alt='What People Say about online laughter yoga coaching'>
+                                    <svg version='1.1' viewBox='0 0 68 48' width='68px' style='position: relative;'>
+                                        <path d='M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z' fill='#f00'></path>
+                                        <path d='M 45,24 27,14 27,34' fill='#fff'></path>
+                                    </svg>
+                                </a>"
+                                title="What People Say about online laughter yoga coaching"
+                                style="max-width: 640px; width: 100%; aspect-ratio: 16/9;"
+                                frameborder="0"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="certifiedLeader" class="shop section border-0 m-0" style="background-color:#002466;">
+        <div class="container my-5 pt-md-4 pt-xl-0">
+            <p class="h2 text-light text-center text-capitalize pb-5">Become a Certified Laughter Yoga Leader (CLYL)</p>
+            <div class="row pb-1 justify-content-center">
+                <div class="col-lg-6 mb-2 pb-2">
+                    <p class="h4 text-light pb-4">Become a Certified Laughter Yoga leader and start a Laughter Club.
+                        Join the growing Laughter Yoga community and lead sessions in corporations and companies,
+                        schools, fitness centers, yoga and senior centers, and public events.</p>
+                    <p class="h4 text-light pb-3">It is the next step in your training after the basic learning course.
+                        In this course, you will learn how to lead a group through laughter yoga and meditation.</p>
+                    <div class="row">
+                        <div class="col-sm-12 col-md-10 col-lg-10">
+                            <a href="{% url 'leader-training' %}" target="_parent"
+                               class="btn p-3 cstm-gradient-leader-dark font-weight-bold">Certified LY Leader $274</a>
+                        </div>
+                    </div>
+                    <p class="text-light">Basic Learning Course + Certified Leader Training Combo (12 Lessons)</p>
+                </div>
+                <div class="col-lg-6">
+                    <img src="{% static 'img/pages/leader-certificate.jpg' %}" class="img-fluid"
+                         alt="leader-training-certification-sample" width="500px"/>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="border-0 m-0" id="payment">
+        <div class="container my-5 pt-md-4 pt-xl-0">
+            <div class="h2 text-center text-capitalize font-weight-bold mb-2 pb-5">Register and Pay</div>
+            <div class="row mb-4 justify-content-center">
+                <div class="col-lg-5 mb-4 pb-2">
+                    <p class="text-center" style="border: 1px solid #868686; padding:10px 0;">Basic Learning Course (6
+                        Lessons) USD 99 <br> Basic Learning Course +
+                        Certified Leader Training Combo <br> (12 Lessons) USD 274</p>
+                    <form action="{% url 'blccharge' %}" method="post" id="payment-form" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-lg-12 pb-1">
+                                    <select class="form-control" name="course" required>
+                                        <option disabled selected value="">--Select Your Course--</option>
+                                        <option value="Basic Learning Course">Basic Learning Course - Fees: USD 99
+                                        </option>
+                                        <option value="Basic Learning Course + Certified Leader Training">Basic
+                                            Learning Course + Certified Leader Training - Fees: USD 274
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <input class="form-control" type="text" name="fullname" placeholder="Full Name"
+                                           required>
+                                </div>
+                                <div class="col-lg-6">
+                                    <input class="form-control" type="email" name="email" placeholder="Email"
+                                           required>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <input class="form-control" type="text" name="address" placeholder="Address"
+                                           required>
+                                </div>
+                                <div class="col-lg-6">
+                                    <input class="form-control" type="text" name="postalcode"
+                                           placeholder="Postal Code" required>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-4">
+                                    <input class="form-control" type="text" name="city" placeholder="City" required>
+                                </div>
+                                <div class="col-lg-4">
+                                    <input class="form-control" type="text" name="state" placeholder="State"
+                                           required>
+                                </div>
+                                <div class="col-lg-4">
+                                    <select class="form-control" name="country" style="margin-top: 5px;" required>
+                                        <option disabled selected value="">--Select Country--</option>
+                                        {% for country in all_countries %}
+                                        <option value="{{ country.name }}">{{ country.name }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <input class="form-control" type="text" name="contact"
+                                           placeholder="Phone/WhatsApp Number"
+                                           oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
+                                           required>
+                                </div>
+                                <div class="col-lg-6">
+                                    <input class="form-control" type="text" name="information"
+                                           placeholder="How did you come to know?" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pb-2" id="card-element">
+                            <!-- A Stripe Element will be inserted here. -->
+                        </div>
+                        <div class="py-2" id="card-errors" role="alert"></div>
+                        <div class="form-row justify-content-center">
+                            <div class="form-group">
+                                <div class="g-recaptcha" data-sitekey="{{site_key}}"></div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-12">
+                                        <span>By clicking enroll button, you agree to our <a
+                                                href="{% url 'terms-and conditions' %}" target="_blank"
+                                                class="text-decoration">terms and conditions</a>.</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-6">
+                                    <button class="btn cstm-gradient-leader p-3">Enroll Now</button>
+                                </div>
+                            </div>
+                        </div>
+                        <small class="text-center" id="btnText" style="display:none;">Now we are processing your
+                            payment... Please wait..</small>
+                    </form>
+                </div>
+                <div class="col-lg-1"></div>
+                <div class="col-lg-5">
+                    <div class="h4 pb-1 text-center text-capitalize">Enquiry Form</div>
+                    {% include 'front/includes/messages.html' %}
+                    <form action="{% url 'basic-learning-course' %}" method="post" class="needs-validation"
+                          enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="form-group row justify-content-center">
+                            <div class="col-lg-9">
+                                <input class="form-control" type="text" name="name" placeholder="Full Name"
+                                       required>
+                            </div>
+                            <div class="col-lg-9">
+                                <input class="form-control" type="email" name="email" placeholder="Email" required>
+                            </div>
+                            <div class="col-lg-9">
+                                <input class="form-control" type="tel" name="contact" placeholder="Contact No"
+                                       oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
+                                       required>
+                            </div>
+                            <div class="col-lg-9">
+                                <input class="form-control" type="text" name="country" placeholder="Country Name"
+                                       required>
+                            </div>
+                            <div class="col-lg-9 pt-2">
+                                    <textarea class="form-control" type="text" name="message" placeholder="Message"
+                                              rows="6" cols="50" required></textarea>
+                            </div>
+                        </div>
+                        <div class="form-row justify-content-center">
+                            <div class="form-group">
+                                <div class="g-recaptcha" data-sitekey="{{site_key}}"></div>
+                            </div>
+                        </div>
+                        <div class="form-group row justify-content-center">
+                            <div class="col-lg-6">
+                                <button type="submit" class="btn p-3 cstm-gradient-leader">Submit</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="pt-5" style="background-color: #d5e4ff; margin-bottom:-50px;">
+        <div class="container pt-md-4 pt-xl-0">
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="h2 text-center font-weight-bold text-capitalize pb-5">Frequently Asked Questions</div>
+                    <div class="toggle toggle-primary toggle-lg" data-plugin-toggle="">
+                        <section class="toggle mb-4">
+                            <a class="toggle-title text-decoration-none">Why do I need Laughter Yoga Course?</a>
+                            <div class="toggle-content" style="display: none;">
+                                <p>Do you feel stressed out regularly, out of breath? Or are you having chronic pain or
+                                    illness? For centuries we have known that laughter is the best medicine. And
+                                    laughter
+                                    yoga is the only platform where you can get all the scientifically proven health
+                                    benefits of laughter.</p>
+                                <p>Laughter yoga exercises relieve pain, boost immunity, improve mood besides many other
+                                    social, emotional and physiological benefits.</p>
+                                <p>Laughter yoga is the gateway to your health, happiness and peace of mind.</p>
+                            </div>
+                        </section>
+                        <section class="toggle mb-4">
+                            <a class="toggle-title text-decoration-none">Does Dr. Madan Kataria himself conducts these
+                                trainings?</a>
+                            <div class="toggle-content">
+                                <p>Yes. Dr. Madan Kataria founded Laughter Yoga and he conducts these training programs
+                                    worldwide.</p>
+                            </div>
+                        </section>
+                        <section class="toggle mb-4">
+                            <a class="toggle-title text-decoration-none">Who is eligible to receive a Leader Training
+                                Certification?</a>
+                            <div class="toggle-content">
+                                <p>Once you have completed the six sessions of the Basic Learning Course, you are
+                                    eligible
+                                    for the Leader Course. This is an additional six sessions.</p>
+                                <p>The Basic Learning Course teaches you how to bring more joy and laughter into your
+                                    life
+                                    and loved ones. And when you complete the Leader Course, you can start your own
+                                    Online
+                                    or Physical Free Laughter Clubs as well as become eligible to train others.</p>
+                            </div>
+                        </section>
+                        <section class="toggle mb-4">
+                            <a class="toggle-title text-decoration-none">Is there any prerequisite knowledge required
+                                before
+                                enrolling in this Basic Learning Course?</a>
+                            <div class="toggle-content">
+                                <p>No prerequisites are needed! You just need to laugh and we will teach you all the
+                                    skills.</p>
+                            </div>
+                        </section>
+                        <section class="toggle mb-4">
+                            <a class="toggle-title text-decoration-none">Am I able to bring my family or friends to the
+                                live
+                                sessions?</a>
+                            <div class="toggle-content">
+                                <p>Ofcourse yes. Anyone can join these online training programs. However, only the
+                                    registered member is eligible for the certification.</p>
+                            </div>
+                        </section>
+                        <section class="toggle mb-4">
+                            <a class="toggle-title text-decoration-none">I would like to join the WhatsApp group. What
+                                should I do?</a>
+                            <div class="toggle-content">
+                                <p>As soon as you pay and register for the program, you will receive an automatic email
+                                    from
+                                    Laughter Yoga International. This email contains the link to join the WhatsApp
+                                    group. </p>
+                                <p>If you still face any issues, please write to us at help@laughteryoga.org or connect
+                                    with
+                                    us on (+91) 888 456 7891.</p>
+                            </div>
+                        </section>
+                        <section class="toggle mb-4">
+                            <a class="toggle-title text-decoration-none">Even if I cannot attend the Live sessions, will
+                                I
+                                receive the video recordings?</a>
+                            <div class="toggle-content">
+                                <p>Yes. All sessions are recorded and shared. You will also receive a YouTube playlist
+                                    of
+                                    all the sessions organised for your future reference.</p>
+                            </div>
+                        </section>
+                        <section class="toggle mb-4">
+                            <a class="toggle-title text-decoration-none">Do I have to complete homework assignments
+                                during
+                                the course?</a>
+                            <div class="toggle-content">
+                                <p>You will not find any other training program where the only homework is for you to
+                                    laugh
+                                    more! We have a 40-day laughter challenge which is fun to do and builds your
+                                    confidence
+                                    to laugh more!</p>
+                            </div>
+                        </section>
+                        <section class="toggle mb-4">
+                            <a class="toggle-title text-decoration-none">Following the completion of this course, what
+                                further learning opportunities are there in laughter yoga?</a>
+                            <div class="toggle-content">
+                                <p>Laughter yoga is in high demand worldwide. It is spread in more than 110 countries.
+                                    After
+                                    you become a certified leader, you can participate in the five-day in-person Teacher
+                                    Training program conducted by the founder Dr. Madan Kataria, himself in Nashik.</p>
+                                <p>Dr. Madan Kataria also conducts online mentorship program for Laughter Yoga
+                                    Professionals
+                                    worldwide - Laughter Yoga 2.0.</p>
+                            </div>
+                        </section>
+                        <section class="toggle mb-4">
+                            <a class="toggle-title text-decoration-none">In what way can my knowledge and skills from
+                                this
+                                course be applied in my daily life?</a>
+                            <div class="toggle-content">
+                                <p>Laughter yoga leaders and facilitators are in demand for conducting online and
+                                    in-person
+                                    sessions for corporates, senior citizen centers, schools, hospitals, and at many
+                                    other
+                                    applications. You will learn all the techniques during the courses.</p>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+<script src="{% static 'vendor/payment/stripe/stripe.js' %}"></script>
+{% endblock %}

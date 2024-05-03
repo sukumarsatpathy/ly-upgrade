@@ -1,0 +1,170 @@
+{% extends 'front/base.html' %}
+{% load static %}
+{% load i18n %}
+{% load cropping %}
+{% block meta %}
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Zoom Laughter Club - Laughter Yoga International</title>
+<meta name="keywords"
+      content="laughter club on zoom, laughter yoga online, laughter club calendar, online basic learning course"/>
+<meta name="description"
+      content="Can’t find a Laughter Club in your area? No Problem!! Join Laughter Club on Zoom & laugh 365 days from your home">
+<meta name="author" content="Dr Madan Kataria">
+{% endblock %}
+{% block content %}
+<div class="body">
+    <div role="main" class="main">
+        <section class="shop section coaching border-0 m-0">
+            <div class="container">
+                <div class="mt-3">
+                    <div class="text-center pb-5">
+                        <p class="h2">FREE Online International Laughter Club on Zoom </p>
+                        <p class="h4"> Every day: 7:30 AM India Time </p>
+                        <p class="h4 pb-4"> Monday - Wednesday - Friday: 6:00 PM India Time</p>
+                        <div class="row justify-content-center">
+                            <div class="col-lg-6">
+                                <div class="video-container">
+                                    <iframe width="100%" height="350" src="https://www.youtube.com/embed/zAebA3dOUBg"
+                                        title="YouTube video player" frameborder="0"
+                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                        class="rounded" allowfullscreen></iframe>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="container py-3 my-4">
+            <div class="row justify-content-center">
+                <div class="col-lg-6">
+                    <p class="font-weight-bold">Can’t find a Laughter Club in your area? No Problem!! Join Laughter Club on Zoom & laugh 365
+                        days from your home</p>
+                        <p>30 mins Laughter Yoga Online Session will help you to:</p>
+                        <ul>
+                            <li>Reduce stress, anxiety and depression</li>
+                            <li>Strengthen your immune system</li>
+                            <li>Bring more oxygen to body and brain</li>
+                            <li>Keep your mind positive during difficult times</li>
+                            <li>Heal you from chronic illnesses</li>
+                        </ul>
+                    <p>Laughter yoga online can help you to keep your stress levels down, boost immune system, and
+                        keep your mind positive during challenging times. Laughter and breathing exercises will keep
+                        your lungs fully oxygenated and can prevent viral and bacterial infections.</p>
+                    <p>Please sign up for zoom and click on the following link.
+                    <p><a href="https://us02web.zoom.us/j/9533064234" target="_blank">https://us02web.zoom.us/j/9533064234</a>
+                    </p>
+                    <p><strong>Password:</strong> 12345</p>
+                </div>
+                <div class="col-lg-6 text-center">
+                    <img src="{% static 'img/extra/zoom-laughter-yoga.jpg' %}" class="img-fluid"
+                         alt="Zoom Laughter Club"/>
+                </div>
+            </div>
+        </div>
+        <section class="shop section section-height-2 border-0 m-0">
+            <div class="container">
+                <div class="products row row-gutter-sm mb-2 appear-animation" data-appear-animation="fadeInUpShorter"
+                     data-appear-animation-delay="750">
+                    <div class="col-lg-6 justify-content-center">
+                        <p><img src="{% static 'img/pages/zlc-1.jpg' %}" class="img-fluid" alt="zoom-laughter-club-1">
+                        </p>
+                        <p class="text-center">To join 7:30AM laughter club WhatsApp Group</p>
+                        <div class="row justify-content-center">
+                            <div class="col-xl-4">
+                                <a href="https://chat.whatsapp.com/FWhYg1Wlk4RDhbqSEBdwXb" target="_blank" class="btn" style="background-color: #25d366; color:#ffffff;">Click Here</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 mb-2 pb-2 ">
+                        <p><img src="{% static 'img/pages/zlc-2.jpg' %}" class="img-fluid" alt="zoom-laughter-club-2">
+                        </p>
+                        <p class="text-center">To join 6:00PM laughter club WhatsApp Group</p>
+                        <div class="row justify-content-center">
+                            <div class="col-xl-4">
+                                <a href="https://chat.whatsapp.com/JUDZdlmvBNK2UHaasA1haP" target="_blank" class="btn" style="background-color: #25d366; color:#ffffff;">Click Here</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="container my-5 pt-md-4 pt-xl-0">
+            <div class="products row row-gutter-sm mb-4 appear-animation" data-appear-animation="fadeInUpShorter"
+                 data-appear-animation-delay="750">
+                <div class="col-lg-6 mb-4 pb-2">
+                    <h1>Join Zoom Laughter Clubs Worldwide</h1>
+                    <p>Did you know that there are hundreds of online laughter clubs on zoom, and you can laugh with
+                        people from different countries and cultures any time you wish to, according to the time
+                        convenient to you? Our laughter yoga ambassador and genius Marnix from The Netherlands has
+                        made this possible. He created a Google calendar of worldwide online laughter clubs on
+                        zoom.</p>
+                    <p>Here are the highlights of the Google calendar</p>
+                    <ul>
+                        <li>It will automatically show the timing according to your country. You don’t have to do any
+                            conversion.
+                        </li>
+                        <li>If you click on the link, it will show all the details like the time, the zoom link, and the
+                            password.
+                        </li>
+                        <li>You don’t need to save the zoom links and passwords. Just click on the link, and you’re
+                            in.
+                        </li>
+                        <li>You can laugh several times in a day with different groups worldwide.</li>
+                    </ul>
+                    <p>
+                        <a href="https://mailchi.mp/0103727b387d/olcd?fbclid=IwAR3TZiPcnCxhczVLOg60eIhIL0Q85RDqHA1QBbflerTJ1Tf_KrCzQeJ3hFU"
+                           target="_blank">Click here</a> to find the google calendar.</p>
+                </div>
+                <div class="col-lg-6">
+                    <div class="video-container">
+                        <iframe width="100%" height="315" src="https://www.youtube.com/embed/yi_l5yyt4nw"
+                                title="YouTube video player" frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                class="rounded" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <section class="shop section section-height-2 border-0 m-0">
+            <div class="container">
+                <div class="products row row-gutter-sm mb-1 appear-animation" data-appear-animation="fadeInUpShorter"
+                     data-appear-animation-delay="750">
+                    <div class="col-lg-6 mb-4 pb-2">
+                        <h1>Online Basic Learning Course for beginners</h1>
+                        <p>Learn from the founder Dr. Madan Kataria how to bring more laughter and joy into your
+                            life. You will learn how to practice laughter exercises everyday at home with your family
+                            and
+                            friends. </p>
+                        <p>These are personalized teachings from Dr Kataria over 6 lessons (60 minutes duration
+                            each) over Zoom. All sessions are recorded and you can watch videos at your convenience in
+                            case you miss any sessions or are not able to attend.</p>
+                            <h1>Become a Certified LY Leader Online</h1>
+                        <p>This is the next level of training after basic learning course where you will learn the facilitation skills to lead a group of people through laughter yoga session and meditation.</p>
+                        <p>It is a six lesson course after the basic learning course. You can start a laughter club, lead the sessions in companies, corporations, yoga studios and offer public seminars.</p>    
+                        <a href="{% url 'basic-learning-course' %}" target="_parent"
+                           class="btn btn-primary col-lg-4 text-decoration-none">Know More</a>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="video-container">
+                            <iframe width="100%" height="315" src="https://www.youtube.com/embed/AjZ4MZft3zU"
+                                    frameborder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowfullscreen></iframe>
+                        </div>
+                        <div class="video-container">
+                            <iframe width="100%" height="315" src="https://www.youtube.com/embed/Zima1DdronM"
+                                    frameborder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowfullscreen></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+{% endblock %}

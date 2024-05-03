@@ -1,0 +1,128 @@
+{% extends 'front/base.html' %}
+{% load static %}
+{% load i18n %}
+{% load widget_tweaks %}
+{% block meta %}
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Registered LY Professionals - Laughter Yoga International</title>
+    <meta name="keywords" content="Certified Laughter Yoga Leader, Certified Laughter Yoga Teacher, Certified Laughter Yoga Master, Dr Madan Kataria, trainer"/>
+    <meta name="description" content="You will find all the trained Certified Laughter Yoga Professional around the globe.">
+    <meta name="author" content="Dr Madan Kataria">
+{% endblock %}
+{% block content %}
+{% load members_url %}
+<div role="main" class="main">
+    {% include 'front/includes/breadcrumb.html' %}
+    <div class="container py-4">
+        <div class="row">
+            <div class="col">
+                <div class="card card-body">
+                    <form method="get">
+                        <div class="well">
+                            <h4 class="color-primary font-weight-semibold text-4 text-uppercase mb-3 row justify-content-center">
+                                {% trans 'Find Registered Laughter Yoga Professionals' %}</h4>
+                            <div class="row">
+                                <div class="form-group col-sm-6 col-md-4">
+                                    {{ myFilteredMembers.form.user_type.label_tag }}
+                                    {% render_field myFilteredMembers.form.user_type class="form-control" %}
+                                </div>
+                                <div class="form-group col-sm-6 col-md-4">
+                                    {{ myFilteredMembers.form.first_name.label_tag }}
+                                    {% render_field myFilteredMembers.form.first_name class="form-control" %}
+                                </div>
+                                <div class="form-group col-sm-6 col-md-4">
+                                    {{ myFilteredMembers.form.last_name.label_tag }}
+                                    {% render_field myFilteredMembers.form.last_name class="form-control" %}
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-sm-6 col-md-4">
+                                    {{ myFilteredMembers.form.country.label_tag }}
+                                    {% render_field myFilteredMembers.form.country class="form-control" %}
+                                </div>
+                                <div class="form-group col-sm-6 col-md-4">
+                                    {{ myFilteredMembers.form.state.label_tag }}
+                                    {% render_field myFilteredMembers.form.state class="form-control" %}
+                                </div>
+                                <div class="form-group col-sm-6 col-md-4">
+                                    {{ myFilteredMembers.form.city.label_tag }}
+                                    {% render_field myFilteredMembers.form.city class="form-control" %}
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-sm-6 col-md-4">
+                                    {{ myFilteredMembers.form.trained_by.label_tag }}
+                                    {% render_field myFilteredMembers.form.trained_by class="form-control" %}
+                                </div>
+                            </div>
+                            <div class="d-grid gap-2 col-sm-4 col-md-3 mx-auto">
+                                <button type="submit" class="btn btn-primary btn-lg">Apply Filter</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <br/>
+        {% if myFilteredMembers.qs != '' %}
+        <div class="row">
+            <div class="col-xl-12 col-l-10 col-md-8 col-s-6 col-xs-4">
+                <table class="table table-bordered">
+                    <thead>
+                    <tr>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>User Type</th>
+                        <th>Registration No</th>
+                        <th>Country</th>
+                        <th>State</th>
+                        <th>City</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for user in filtered_user %}
+                    <tr>
+                        <td>{{user.first_name}}</td>
+                        <td>{{user.last_name}}</td>
+                        <td>{{user.user_type}}</td>
+                        <td>{{user.registration_no}}</td>
+                        <td>{{user.country}}</td>
+                        <td>{{user.state}}</td>
+                        <td>{{user.city}}</td>
+                    </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        {% endif %}
+        <!-- Pagination Starts Here -->
+        {% if filtered_user.has_other_pages %}
+        <ul class="pagination float-right">
+            <!-- Left Arrow -->
+            {% if filtered_user.has_previous %}
+            <li class="page-item"><a class="page-link" href="{% custom_url filtered_user.previous_page_number 'page' request.get.urlencode %}"><i class="fas fa-angle-left"></i></a></li>
+            {% else %}
+            <li class="page-item disabled"><a class="page-link"><i class="fas fa-angle-left"></i></a></li>
+            {% endif %}
+
+            {% for i in filtered_user.paginator.page_range %}
+                {% if filtered_user.number == i %}
+                    <li class="page-item"><a class="page-link" href="#">{{i}}</a></li>
+                {% elif i > filtered_user.number|add:'-13' and i < filtered_user.number|add:'13' %}
+                    <li class="page-item"><a class="page-link" href="{% custom_url i 'page' request.GET.urlencode %}">{{i}}</a></li>
+                {% endif %}
+            {% endfor %}
+
+            <!-- Right Arrow -->
+            {% if filtered_user.has_next %}
+            <li class="page-item"><a class="page-link" href="{% custom_url filtered_user.next_page_number 'page' request.get.urlencode %}"><i class="fas fa-angle-right"></i></a></li>
+            {% else %}
+            <li class="page-item disabled"><a class="page-link"><i class="fas fa-angle-right"></i></a></li>
+            {% endif %}
+        </ul>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

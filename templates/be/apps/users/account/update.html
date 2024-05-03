@@ -1,0 +1,259 @@
+{% extends 'be/base.html' %}
+{% load static %}
+{% block meta %}
+        <title>Edit {{userAccount.full_name}} - {{webSettingsUniversal.title}}</title>
+        <meta name="description" content="{{webSettingsUniversal.metaDescription}}"/>
+        <meta name="keywords" content="{{webSettingsUniversal.metaKeyword}}"/>
+        <meta property="og:title" content="Edit {{obj.full_name}} -{{webSettingsUniversal.title}}"/>
+        <meta property="og:url" content="{{request.scheme}}://{{request.get_host}}{{request.get_full_path}}"/>
+        <meta property="og:site_name" content="{{webSettingsUniversal.title}} - {{webSettingsUniversal.slogan}}"/>
+{% endblock %}
+{% block content %}
+<div class="d-flex flex-column flex-column-fluid">
+    <div class="app-content flex-column-fluid mt-10">
+        <div class="app-container container-xxl">
+            <div class="card">
+                <div class="card-header ribbon ribbon-end ribbon-clip">
+                    <div class="ribbon-label">
+                        Update
+                        <span class="ribbon-inner bg-warning"></span>
+                    </div>
+                    <div class="card-title fw-bold m-0">
+                        <span class="px-2">Update Account Details of <span class="text-primary">{{userAccount.full_name}}</span></span>
+                    </div>
+                </div>
+                <div class="card-body pt-0">
+                    <div class="card mb-5 mb-xl-10">
+                        <div class="collapse show">
+                            <form action="{% url 'userEdit' userAccount.pk %}" method="post" class="form"
+                                  data-states-url="{% url 'ajax_load_states' %}"
+                                  data-cities-url="{% url 'ajax_load_cities' %}"
+                                  enctype="multipart/form-data" novalidate>
+                                {% csrf_token %}
+                                <div class="card-body border-top p-9">
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <div class="form-floating mb-7 {% if userForm.first_name.errors %}has-error{% endif %}">
+                                                {{userForm.first_name}}
+                                                <label class="required">First Name</label>
+                                                {% for error in userForm.first_name.errors %}
+                                                <div class="text-danger mt-2">
+                                                    {{ error|escape }}
+                                                </div>
+                                                {% endfor %}
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="form-floating mb-7 {% if userForm.last_name.errors %}has-error{% endif %}">
+                                                {{userForm.last_name}}
+                                                <label class="required">Last Name</label>
+                                                {% for error in userForm.last_name.errors %}
+                                                <div class="text-danger mt-2">
+                                                    {{ error|escape }}
+                                                </div>
+                                                {% endfor %}
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="form-floating mb-7 {% if userForm.email.errors %}has-error{% endif %}">
+                                                {{userForm.email}}
+                                                <label class="required">Email Address</label>
+                                                {% for error in userForm.email.errors %}
+                                                <div class="text-danger mt-2">
+                                                    {{ error|escape }}
+                                                </div>
+                                                {% endfor %}
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="form-floating mb-7 {% if userForm.contact_number.errors %}has-error{% endif %}">
+                                                {{userForm.contact_number}}
+                                                <label>Contact Number</label>
+                                                {% for error in userForm.contact_number.errors %}
+                                                <div class="text-danger mt-2">
+                                                    {{ error|escape }}
+                                                </div>
+                                                {% endfor %}
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="form-floating mb-7 {% if userForm.trained_by.errors %}has-error{% endif %}">
+                                                {{userForm.trained_by}}
+                                                <label class="required">Trained By</label>
+                                                {% for error in userForm.trained_by.errors %}
+                                                <div class="text-danger mt-2">
+                                                    {{ error|escape }}
+                                                </div>
+                                                {% endfor %}
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="form-floating mb-7 {% if userForm.services.errors %}has-error{% endif %}">
+                                                {{userForm.services}}
+                                                <label class="required">Services</label>
+                                                {% for error in userForm.services.errors %}
+                                                <div class="text-danger mt-2">
+                                                    {{ error|escape }}
+                                                </div>
+                                                {% endfor %}
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="form-floating mb-7 {% if userForm.user_type.errors %}has-error{% endif %}">
+                                                {{userForm.user_type}}
+                                                <label class="required">User Type</label>
+                                                {% for error in userForm.user_type.errors %}
+                                                <div class="text-danger mt-2">
+                                                    {{ error|escape }}
+                                                </div>
+                                                {% endfor %}
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="form-floating mb-7 {% if userForm.country.errors %}has-error{% endif %}">
+                                                {{userForm.country}}
+                                                <label class="required">Country</label>
+                                                {% for error in userForm.country.errors %}
+                                                <div class="text-danger mt-2">
+                                                    {{ error|escape }}
+                                                </div>
+                                                {% endfor %}
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="form-floating mb-7 {% if userForm.state.errors %}has-error{% endif %}">
+                                                {{userForm.state}}
+                                                <label class="required">State</label>
+                                                {% for error in userForm.state.errors %}
+                                                <div class="text-danger mt-2">
+                                                    {{ error|escape }}
+                                                </div>
+                                                {% endfor %}
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="form-floating mb-7 {% if userForm.city.errors %}has-error{% endif %}">
+                                                {{userForm.city}}
+                                                <label class="required">City</label>
+                                                {% for error in userForm.city.errors %}
+                                                <div class="text-danger mt-2">
+                                                    {{ error|escape }}
+                                                </div>
+                                                {% endfor %}
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="mb-7 {% if userForm.profile_pic.errors %}has-error{% endif %}">
+                                                <label class="required">Picture</label>
+                                                {{userForm.profile_pic}}
+                                                {% for error in userForm.profile_pic.errors %}
+                                                <div class="text-danger mt-2">
+                                                    {{ error|escape }}
+                                                </div>
+                                                {% endfor %}
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="form-floating mb-7">
+                                                {{userForm.website_url}}
+                                                <label>Website URL</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="form-floating mb-7">
+                                                {{userForm.facebook_url}}
+                                                <label>Facebook URL</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="form-floating mb-7">
+                                                {{userForm.youtube_url}}
+                                                <label>Youtube URL</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="form-floating mb-7">
+                                                {{userForm.linkedin_url}}
+                                                <label>Linkedin URL</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="form-floating mb-7">
+                                                {{userForm.video_url_1}}
+                                                <label>Video URL 1</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="form-floating mb-7">
+                                                {{userForm.video_url_2}}
+                                                <label>Video URL 2</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="form-floating mb-7">
+                                                {{userForm.video_url_3}}
+                                                <label>Video URL 3</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="form-floating mb-7">
+                                                {{userForm.video_url_4}}
+                                                <label>Video URL 4</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="form-floating mb-7">
+                                                {{userForm.basic_learning_course}}
+                                                <label>Basic Learning Course URL</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="form-floating mb-7">
+                                                {{userForm.certified_leader_training}}
+                                                <label>Certified Leader Training URL</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="form-floating mb-7">
+                                                {{userForm.certified_teacher_training}}
+                                                <label class="required">Certified Teacher Training URL</label>
+                                            </div>
+                                        </div>
+                                         <div class="col-lg-6">
+                                            <div class="form-floating mb-7">
+                                                {{userForm.description}}
+                                                {{userForm.media}}
+                                                <label>Description</label>
+                                            </div>
+                                        </div>
+                                        {% if 'status' in userForm.fields %}
+                                        <div class="col-lg-6">
+                                            <div class="form-floating mb-7">
+                                                {{userForm.status}}
+                                                <label class="required">Select Status</label>
+                                            </div>
+                                        </div>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                                <div class="card-footer d-flex justify-content-end py-6 px-9">
+                                    <a href="{% if user.is_superuser %}{% url 'userList' %}{% else %}{% url 'userView' user.id %}{% endif %}"
+                                       class="btn btn-light-info me-3">Discard</a>
+                                    <button type="submit" class="btn btn-primary">Save Changes</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block extraJS %}
+<!--begin::Custom Javascript(used for this page only)-->
+<script src="{% static 'be/js/jquery-3.3.1.min.js' %}"></script>
+<!-- Auto filter based on country state city filter -->
+<script src="{% static 'be/plugins/custom/filter/country-state-city-dropdown.js' %}"></script>
+<!--end::Custom Javascript-->
+{% endblock %}

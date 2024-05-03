@@ -1,0 +1,36 @@
+{% extends 'front/dashboard-base.html' %}
+{% load i18n %}
+{% load static %}
+{% load cropping %}
+{% block content %}
+<div class="row row-sm">
+    <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
+        <div class="card overflow-hidden">
+            <div class="card-header bg-transparent pd-b-0 pd-t-20 bd-b-0">
+                <div class="d-flex justify-content-between">
+                    <h2 class="card-title mg-b-10">Leader Certificate</h2>
+                </div>
+                {% include 'front/includes/messages.html' %}
+                <div class="row">
+                    <div class="col">
+                        <p><strong>Note:</strong> If you have changed your name in edit profile section and would like to print the same new name in certificate then you need to regenerate the certificate by clicking "Delete and Regenerate" button.</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <img src="{% get_media_prefix %}certificates/leader/leader-certificate-{{current_user.id}}.jpg" height="auto" width="1000px" />
+                    </div>
+                </div>
+                <div class="row my-3 text-center">
+                    <div class="col-6">
+                        <a href="{% get_media_prefix %}certificates/leader/leader-certificate-{{current_user.id}}.pdf" target="_blank" class="btn btn-success" download>Download Certificate</a>
+                    </div>
+                    <div class="col-6">
+                        <a href="{% url 'remove-clylc' user.id %}" class="btn btn-danger">Delete and Regenerate</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

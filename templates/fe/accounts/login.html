@@ -1,0 +1,92 @@
+{% extends 'fe/base.html' %}
+{% load static %}
+{% block meta %}
+<title>Login - {{webSettingsUniversal.title}}</title>
+<meta name="description" content="This login page is for Laughter Yoga Prozone Members"/>
+<meta name="keywords" content="{{webSettingsUniversal.meta_keywords}}"/>
+<meta property="og:title" content="Login - {{webSettingsUniversal.title}}"/>
+<meta property="og:description" content="This login page is for Laughter Yoga Prozone Members">
+<meta property="og:url" content="{{request.scheme}}://{{request.get_host}}{{request.get_full_path}}">
+<meta property="og:site_name" content="{{webSettingsUniversal.title}} - {{webSettingsUniversal.slogan}}">
+<meta property="og:image" content="{{webSettingsUniversal.favicon.url}}">
+<meta property="og:image:secure_url" content="{{webSettingsUniversal.favicon.url}}">
+<meta property="og:image:width" content="640">
+<meta property="og:image:height" content="480">
+<!-- Twitter -->
+<meta name="twitter:card" content="LYI_logo">
+<meta name="twitter:description" content="This login page is for Laughter Yoga Prozone Members">
+<meta name="twitter:title" content="Login - {{webSettingsUniversal.title}}">
+<meta name="twitter:image" content="{{webSettingsUniversal.favicon.url}}">
+{% endblock %}
+{% block content %}
+<section>
+    <div class="container py-4">
+        <div class="row justify-content-center">
+            <div class="col-md-6 col-lg-5 mb-5 mb-lg-0">
+                <h2 class="font-weight-bold text-5 mb-0 text-center">Login</h2>
+                <div class="row">
+                    <div class="col">
+                        {% include 'fe/includes/alert.html' %}
+                    </div>
+                </div>
+                <form action="{% url 'login' %}" method="post" class="needs-validation" novalidate="novalidate" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="row pt-4">
+                        <div class="col">
+                            <div class="form-floating mb-7 {% if form.email.errors %}has-error{% endif %}">
+                                {{ form.email }}
+                                <label class="required">Email Address</label>
+                                {% for error in form.email.errors %}
+                                <div class="text-danger mt-2">
+                                    {{ error|escape }}
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row py-4">
+                        <div class="col">
+                            <div class="form-floating mb-7 {% if form.password.errors %}has-error{% endif %}">
+                                {{ form.password }}
+                                <label class="required">Password</label>
+                                {% for error in form.password.errors %}
+                                <div class="text-danger mt-2">
+                                    {{ error|escape }}
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row justify-content-between">
+                        <div class="form-group col-md-auto">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="rememberme">
+                                <label class="form-label custom-control-label cur-pointer text-2" for="rememberme">Remember
+                                    Me</label>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-auto">
+                            <a class="text-decoration-none text-color-dark text-color-hover-primary font-weight-semibold text-2"
+                               href="#">Forgot Password?</a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col">
+                            <button type="submit"
+                                    class="btn btn-dark btn-modern w-100 text-uppercase rounded-0 font-weight-bold text-3 py-3"
+                                    data-loading-text="Loading...">Login
+                            </button>
+                        </div>
+                    </div>
+                    <!-- Optionally display non-field errors -->
+                    {% if form.non_field_errors %}
+                    <div class="alert alert-danger" role="alert">
+                        {{ form.non_field_errors.as_text }}
+                    </div>
+                    {% endif %}
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,66 @@
+{% extends 'front/dashboard-base.html' %}
+{% load i18n %}
+{% load static %}
+{% load cropping %}
+{% block content %}
+{% include 'front/includes/messages.html' %}
+{% if user.is_authenticated %}
+<div class="card">
+    <img src="{% static 'img/slides/prozone.jpg' %}"/>
+    <div class="card-body">
+        <div class="demo-gallery">
+            <ul id="lightgallery" class="list-unstyled mb-0 row row-sm">
+                {% if user.user_type != 'General User' %}
+                <li class="col-sm-6 col-lg-4" data-responsive="{% static 'img/downloads/paid/prozone/pro-diary.jpg' %}"
+                    data-src="{% static 'img/downloads/paid/prozone/pro-diary.jpg' %}">
+                    <a href="{% url 'drk-pro-diary' %}" target="_parent">
+                        <img class="img-responsive" src="{% static 'img/downloads/paid/prozone/pro-diary.jpg' %}" alt="Dr K's Pro Diary">
+                    </a>
+                </li>
+                {% endif %}
+                {% if user.user_type != 'General User' %}
+                <li class="col-sm-6 col-lg-4" data-responsive="{% static 'img/downloads/paid/prozone/pro-research-article.jpg' %}"
+                    data-src="{% static 'img/downloads/paid/prozone/pro-research-article.jpg' %}">
+                    <a href="{% url 'pro-research-articles' %}" target="_parent">
+                        <img class="img-responsive" src="{% static 'img/downloads/paid/prozone/pro-research-article.jpg' %}" alt="Change Password">
+                    </a>
+                </li>
+                {% endif %}
+                {% if user.user_type != 'General User' %}
+                <li class="col-sm-6 col-lg-4" data-responsive="{% static 'img/downloads/paid/prozone/pro-videos.jpg' %}"
+                    data-src="{% static 'img/downloads/paid/prozone/pro-videos.jpg' %}">
+                    <a href="{% url 'watch-pro-videos' %}">
+                        <img class="img-responsive" src="{% static 'img/downloads/paid/prozone/pro-videos.jpg' %}" alt="Access Prozone">
+                    </a>
+                </li>
+                {% endif %}
+                {% if user.user_type != 'General User' %}
+                <li class="col-sm-6 col-lg-4" data-responsive="{% static 'img/downloads/paid/prozone/pro-resources.jpg' %}"
+                    data-src="{% static 'img/downloads/paid/prozone/pro-resources.jpg' %}">
+                    <a href="{% url 'download-resources' %}" target="_blank">
+                        <img class="img-responsive" src="{% static 'img/downloads/paid/prozone/pro-resources.jpg' %}" alt="Access LY 2.0">
+                    </a>
+                </li>
+                {% endif %}
+                {% if user.user_type != 'General User' %}
+                <li class="col-sm-6 col-lg-4" data-responsive="{% static 'img/downloads/paid/prozone/pro-download-photos.jpg' %}"
+                    data-src="{% static 'img/downloads/paid/prozone/pro-download-photos.jpg' %}">
+                    <a href="{% url 'download-photos' %}" target="_blank">
+                        <img class="img-responsive" src="{% static 'img/downloads/paid/prozone/pro-download-photos.jpg' %}" alt="Submit Training">
+                    </a>
+                </li>
+                {% endif %}
+                {% if user.user_type != 'General User' %}
+                <li class="col-sm-6 col-lg-4" data-responsive="{% static 'img/downloads/free/laughter-quotes.jpg' %}"
+                    data-src="{% static 'img/downloads/free/laughter-quotes.jpg' %}">
+                    <a href="{% url 'download-quotes' %}" target="_blank">
+                        <img class="img-responsive" src="{% static 'img/downloads/free/laughter-quotes.jpg' %}" alt="Manage Training">
+                    </a>
+                </li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+</div>
+{% endif %}
+{% endblock %}

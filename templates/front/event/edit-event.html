@@ -1,0 +1,133 @@
+{% extends 'front/dashboard-base.html' %}
+{% load i18n %}
+{% load static %}
+{% load cropping %}
+{% block content %}
+{% include 'front/includes/messages.html' %}
+<div class="container-fluid">
+    <!-- Main-content-body -->
+    <div class="main-content-body">
+        <div class="row">
+            <div class="col-md-12 col-lg-12 col-xl-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h2 class="text-center">{% trans 'Edit Event' %}</h2><br/>
+                        <form class="form-group" method="POST" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <div class="form-group ">
+                                <div class="row">
+                                    <div class="col-md-3"><label class="form-label">{% trans 'Category' %}</label></div>
+                                    <div class="col-md-9">{{form.category}}</div>
+                                </div>
+                            </div>
+                            <div class="form-group ">
+                                <div class="row">
+                                    <div class="col-md-3"><label class="form-label">{% trans 'Description' %}</label></div>
+                                    <div class="col-md-9">{{form.description|safe}}</div>
+                                </div>
+                            </div>
+                            <div class="form-group ">
+                                <div class="row">
+                                    <div class="col-md-3"><label class="form-label">{% trans 'Start Date' %}</label></div>
+                                    <div class="col-md-9">{{form.start_date}}</div>
+                                </div>
+                            </div>
+                            <div class="form-group ">
+                                <div class="row">
+                                    <div class="col-md-3"><label class="form-label">{% trans 'End Date' %}</label></div>
+                                    <div class="col-md-9">{{form.end_date}}</div>
+                                </div>
+                            </div>
+                            <div class="mb-4 main-content-label">Contact Details</div>
+                            <div class="form-group ">
+                                <div class="row">
+                                    <div class="col-md-3"><label class="form-label">{% trans 'Organiser Name' %}</label></div>
+                                    <div class="col-md-9">{{form.organiser_name}}</div>
+                                </div>
+                            </div>
+                            <div class="form-group ">
+                                <div class="row">
+                                    <div class="col-md-3"><label class="form-label">{% trans 'Email' %}</label></div>
+                                    <div class="col-md-9">{{form.email}}</div>
+                                </div>
+                            </div>
+                            <div class="form-group ">
+                                <div class="row">
+                                    <div class="col-md-3"><label class="form-label">{% trans 'Contact No' %}</label></div>
+                                    <div class="col-md-9">{{form.contact_no}}</div>
+                                </div>
+                            </div>
+                            <div class="form-group ">
+                                <div class="row">
+                                    <div class="col-md-3"><label class="form-label">{% trans 'Website URL' %}</label></div>
+                                    <div class="col-md-9">{{form.website_url}}</div>
+                                </div>
+                            </div>
+                            <div class="mb-4 main-content-label">Location Details</div>
+                            <div class="form-group ">
+                                <div class="row">
+                                    <div class="col-md-3"><label class="form-label">{% trans 'Location' %}</label></div>
+                                    <div class="col-md-9">{{form.location}}</div>
+                                </div>
+                            </div>
+                            <div class="form-group ">
+                                <div class="row">
+                                    <div class="col-md-3"><label class="form-label">{% trans 'Country' %}</label></div>
+                                    <div class="col-md-9">{{form.country}}</div>
+                                </div>
+                            </div>
+                            <div class="form-group ">
+                                <div class="row">
+                                    <div class="col-md-3"><label class="form-label">{% trans 'State' %}</label></div>
+                                    <div class="col-md-9">{{form.state}}</div>
+                                </div>
+                            </div>
+                            <div class="form-group ">
+                                <div class="row">
+                                    <div class="col-md-3"><label class="form-label">{% trans 'City' %}</label></div>
+                                    <div class="col-md-9">{{form.city}}</div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="row pb-2 text-danger">
+                                    <div class="col-12 text-center">** Note - If your country, state or city is not showing in drop down menu, please contact <a href="mailto:help@laughteryoga.org" target="_blank">help@laughteryoga.org</a></div>
+                                </div>
+                            </div>
+                            <div class="mb-4 main-content-label">Images and Videos</div>
+                            <div class="form-group ">
+                                <div class="row">
+                                    <div class="col-md-3"><label class="form-label">{% trans 'Event Image1' %}</label></div>
+                                    <div class="col-md-9">{{form.img1}}</div>
+                                </div>
+                            </div>
+                            <div class="form-group ">
+                                <div class="row">
+                                    <div class="col-md-3"><label class="form-label">{% trans 'Event Image2' %}</label></div>
+                                    <div class="col-md-9">{{form.img2}}</div>
+                                </div>
+                            </div>
+                            <div class="form-group ">
+                                <div class="row">
+                                    <div class="col-md-3"><label class="form-label">{% trans 'Event Video1' %}</label></div>
+                                    <div class="col-md-9">{{form.video1}}</div>
+                                </div>
+                            </div>
+                            <div class="form-group ">
+                                <div class="row">
+                                    <div class="col-md-3"><label class="form-label">{% trans 'Event Video2' %}</label></div>
+                                    <div class="col-md-9">{{form.video2}}</div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary waves-effect waves-light">{% trans 'Update' %}</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /row -->
+    </div>
+    <!-- Main-content-body closed -->
+</div>
+{% endblock %}

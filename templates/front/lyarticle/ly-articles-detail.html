@@ -1,0 +1,39 @@
+{% extends 'front/base.html' %}
+{% load static %}
+{% load i18n %}
+{% load cropping %}
+{% block content %}
+
+<div role="main" class="main">
+    <!-- Breadcrumb Starts Here -->
+    {% include 'front/includes/breadcrumb.html' %}
+    <div class="container py-2">
+        <div class="row">
+            <!-- Body Starts Here -->
+            <div class="col-lg-9">
+                <h2 class="font-weight-normal text-7 mb-2"><strong class="font-weight-extra-bold">{{single_ly_article.title}}</strong>
+                </h2>
+                <article class="post post-medium" style="padding:0px 0px 0px 15px;">
+                    <div class="row mb-3">
+                        <div class="row">
+                            <div class="col">
+                                <div class="post-meta">
+                                    <span><i class="far fa-calendar-alt"></i> {{single_ly_article.created_date}}</span>
+                                    <span><i class="far fa-eye"></i> {{single_ly_article.views}}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+                <img class="float-left img-fluid" src="{{single_ly_article.image.url}}" alt="{{single_ly_article.title}}" style="padding:10px 10px 0px 0px; width:326px; height:217px;">
+                <p>{{single_ly_article.description|safe}}</p>
+            </div>
+            <!-- SideBar Starts Here -->
+            <div class="col-lg-3 order-lg-2">
+                {% include 'front/includes/sidebar.html' %}
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

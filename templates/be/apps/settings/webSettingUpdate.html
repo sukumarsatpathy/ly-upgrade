@@ -1,0 +1,257 @@
+{% extends 'be/base.html' %}
+{% load static %}
+{% block meta %}
+        <title>Edit Website - {{webSettingsUniversal.title}}</title>
+        <meta name="description" content="{{webSettingsUniversal.meta_description}}"/>
+        <meta name="keywords" content="{{webSettingsUniversal.meta_keywords}}"/>
+        <meta property="og:title" content="Edit Website - {{webSettingsUniversal.title}}"/>
+        <meta property="og:url" content="{{request.scheme}}://{{request.get_host}}{{request.get_full_path}}"/>
+        <meta property="og:site_name" content="{{webSettingsUniversal.title}} - {{webSettingsUniversal.slogan}}"/>
+{% endblock %}
+
+{% block content %}
+<div class="d-flex flex-column flex-column-fluid">
+    <div class="app-content flex-column-fluid mt-10">
+        <div class="app-container container-xxl">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    {% include 'be/includes/alert.html' %}
+                </div>
+            </div>
+            {% if website_settings %}
+            <div class="row mb-3 justify-content-center">
+                <div class="col-lg-6">
+                    <div class="alert alert-danger d-flex align-items-center p-5">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-exclamation-octagon-fill me-4" viewBox="0 0 16 16">
+                            <path d="M11.46.146A.5.5 0 0 0 11.107 0H4.893a.5.5 0 0 0-.353.146L.146 4.54A.5.5 0 0 0 0 4.893v6.214a.5.5 0 0 0 .146.353l4.394 4.394a.5.5 0 0 0 .353.146h6.214a.5.5 0 0 0 .353-.146l4.394-4.394a.5.5 0 0 0 .146-.353V4.893a.5.5 0 0 0-.146-.353L11.46.146zM8 4c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995A.905.905 0 0 1 8 4zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+                        </svg>
+                        <div class="d-flex flex-column">
+                            <h4 class="mb-1 text-danger">Caution</h4>
+                            <span>By updating wrong information may result in showing the wrong information on the frontend of the website.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+            <div class="card">
+                <div class="card-header ribbon ribbon-end ribbon-clip">
+                    <div class="ribbon-label">
+                        Update
+                        <span class="ribbon-inner bg-warning"></span>
+                    </div>
+                    <div class="card-title fw-bold m-0">
+                        <span class="px-2">Website Settings</span>
+                    </div>
+                </div>
+                <div class="card-body pt-0">
+                    <div class="card mb-2 mb-xl-5">
+                        <div class="collapse show">
+                            <form action="{% url 'webSettings' %}" method="post" class="form" enctype="multipart/form-data" novalidate>
+                                {% csrf_token %}
+                                {% if ws_form.errors %}
+                                    {% for field in ws_form %}
+                                        {% for error in field.errors %}
+                                        <div class="alert alert-danger">
+                                            <strong>{{field.name|title}} - {{error|escape}}</strong>
+                                        </div>
+                                        {% endfor %}
+                                    {% endfor %}
+                                    {% for error in ws_form.non_field_errors %}
+                                    <div class="alert alert-danger">
+                                        <strong>{{error|escape}}</strong>
+                                    </div>
+                                    {% endfor %}
+                                {% endif %}
+                                <div class="card-body">
+                                    <div class="h3 pb-3">Brand Details
+                                        <i class="fas fa-exclamation-circle ms-2 fs-7"
+                                           title="Please fill-up the following brand details for website usages."
+                                           data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-dismiss="click"
+                                           data-bs-placement="right">
+                                        </i>
+                                    </div>
+                                    <div class="row mb-5">
+                                        <div class="col-lg-6">
+                                            <div class="form-floating mb-7">
+                                                {{ws_form.title}}
+                                                <label class="required">Title</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="form-floating mb-7">
+                                                {{ws_form.slogan}}
+                                                <label class="required">Slogan</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="h3 pb-5">Logo Details
+                                        <i class="fas fa-exclamation-circle ms-2 fs-7"
+                                           title="Please upload respective images for website usages."
+                                           data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-dismiss="click"
+                                           data-bs-placement="right">
+                                        </i>
+                                    </div>
+                                    <div class="row mb-5">
+                                        <div class="col-lg-12">
+                                            <div class="mb-7">
+                                                <label class="required"><strong>Logo Dark: </strong></label>
+                                                <img src="{{website_settings.logo_dark.url}}" class="img-fluid text-bg-light p-3 rounded mx-3" width="200px" />
+                                                {{ws_form.logo_dark}}
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12">
+                                            <div class="mb-7">
+                                                <label class="required"><strong>Logo Light: </strong></label>
+                                                <img src="{{website_settings.logo_light.url}}" class="img-fluid text-bg-dark p-3 rounded mx-3" width="200px" />
+                                                {{ws_form.logo_light}}
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12">
+                                            <div class="mb-7">
+                                                <label class="required"><strong>Favicon: </strong></label>
+                                                <img src="{{website_settings.favicon.url}}" class="img-fluid" width="50px" />
+                                                {{ws_form.favicon}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="h3 pb-5">Contact Details
+                                        <i class="fas fa-exclamation-circle ms-2 fs-7"
+                                           title="Please fill-up the following details because this will be used for sending emails."
+                                           data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-dismiss="click"
+                                           data-bs-placement="right">
+                                        </i>
+                                    </div>
+                                    <div class="row mb-5">
+                                        <div class="col-lg-12">
+                                            <div class="form-floating mb-7">
+                                                {{ws_form.contact_email}}
+                                                <label class="required">Contact Email</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12">
+                                            <div class="form-floating mb-7">
+                                                {{ws_form.contact_number}}
+                                                <label class="required">Contact Number</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12">
+                                            <div class="form-floating mb-7">
+                                                {{ws_form.contact_address}}
+                                                <label class="required">Contact Address</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="h3 pb-5">Invoice Details
+                                        <i class="fas fa-exclamation-circle ms-2 fs-7"
+                                           title="Please fill-up the following details before generating invoice"
+                                           data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-dismiss="click"
+                                           data-bs-placement="right">
+                                        </i>
+                                    </div>
+                                    <div class="row mb-5">
+                                        <div class="col-lg-12">
+                                            <div class="form-floating mb-7">
+                                                {{ws_form.company_name}}
+                                                <label>Registered Company Name</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12">
+                                            <div class="form-floating mb-7">
+                                                {{ws_form.company_address}}
+                                                <label>Registered Company Address</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12">
+                                            <div class="form-floating mb-7">
+                                                {{ws_form.company_gst}}
+                                                <label>Goods and Service Tax</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="h3 pb-5">Miscellaneous Details
+                                        <i class="fas fa-exclamation-circle ms-2 fs-7"
+                                           title="Please upload an image for website usages."
+                                           data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-dismiss="click"
+                                           data-bs-placement="right">
+                                        </i>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <div class="mb-7">
+                                                <label class="required">Default User Image</label>
+                                                {{ws_form.default_user}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="h3 pb-5">SEO Details
+                                        <i class="fas fa-exclamation-circle ms-2 fs-7"
+                                           title="Please fill-up the following details for SEO"
+                                           data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-dismiss="click"
+                                           data-bs-placement="right">
+                                        </i>
+                                    </div>
+                                    <div class="row mb-5">
+                                        <div class="col-lg-12">
+                                            <div class="form-floating mb-7">
+                                                {{ws_form.meta_title}}
+                                                <label class="required">Meta Title</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12">
+                                            <div class="form-floating mb-7">
+                                                {{ws_form.meta_description}}
+                                                <label class="required">Meta Description</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12">
+                                            <div class="form-floating mb-7">
+                                                {{ws_form.meta_keywords}}
+                                                <label class="required">Meta Keywords</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="h3 pb-5">Google reCaptcha v3 Details
+                                        <i class="fas fa-exclamation-circle ms-2 fs-7"
+                                           title="Get google reCaptcha v3 keys from official website."
+                                           data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-dismiss="click"
+                                           data-bs-placement="right">
+                                        </i>
+                                    </div>
+                                    <div class="row mb-5">
+                                        <div class="col-lg-12">
+                                            <div class="form-floating mb-7">
+                                                {{ws_form.public_key}}
+                                                <label>Public Key</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12">
+                                            <div class="form-floating mb-7">
+                                                {{ws_form.private_key}}
+                                                <label>Private Key</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-footer d-flex justify-content-end py-6 px-9">
+                                    <button type="submit" class="btn btn-primary">Save Changes</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block extraJS %}
+<!--begin::Custom Javascript(used for this page only)-->
+
+<script>
+$('.kt_docs_maxlength_basic').maxlength({
+    warningClass: "badge badge-warning",
+    limitReachedClass: "badge badge-success"
+});
+</script>
+<!--end::Custom Javascript-->
+{% endblock %}

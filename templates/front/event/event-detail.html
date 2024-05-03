@@ -1,0 +1,179 @@
+{% extends 'front/base.html' %}
+{% load static %}
+{% load cropping %}
+{% load i18n %}
+{% load addthis %}
+{% load embed_video_tags %}
+{% block meta %}
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>{{event_detail.organiser_name}} - Laughter Yoga International</title>
+    <meta name="keywords" content="Certified Leader Training, Certified Teacher Training, Basic Learning Course, Dr Madan Kataria, trainings, certifications"/>
+    <meta name="description" content="{{event_detail.category}} by {{event_detail.organiser_name}} at {{event_detail.location}}, {{event_detail.city}}, {{event_detail.state}}, {{event_detail.country}}">
+    <meta name="author" content="Dr Madan Kataria">
+
+    <!-- For Social Media -->
+    <meta property="og:url" content="https://laughteryoga.org/events/{{event_detail.id}}" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="{{event_detail.category}} by {{event_detail.organiser_name}}" />
+    <meta property="og:description" content="Date: {{event_detail.start_date}} to {{event_detail.end_date}}, Venue: {{event_detail.location}}" />
+    <meta property="og:image" content="{{event_detail.author.profile_pic.url}}" />
+{% endblock %}
+{% block content %}
+<div role="main" class="main">
+    <!-- Breadcrumb Starts Here -->
+    <section class="page-header page-header-classic">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <ul class="breadcrumb">
+                        <li><a href="{% url 'home' %}" target="_parent" class="text-decoration-none">Home</a></li>
+                        <li><a href="{% url 'find-event' %}" target="_parent" class="text-decoration-none">Find Events Worldwide</a></li>
+                        <li class="text-capitalize active">{{event_detail.category}} by {{event_detail.organiser_name}}</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="container">
+        <div class="main-body">
+            <div class="row gutters-sm">
+                <div class="col-md-4 mb-3">
+                    <div class="card" style="background-color: #e0f4ff;">
+                        <div class="card-body">
+                            <div class="d-flex flex-column align-items-center text-center">
+                                <img src="{{event_detail.author.profile_pic.url}}" width="350px" alt="{{event_detail.author.first_name}} {{event_detail.author.last_name}}" class="rounded">
+                                <div class="mt-3">
+                                    <div class="h6"><strong>{{event_detail.organiser_name}}</strong></div>
+                                    <div class="h6 text-center">{{event_detail.category}}</div>
+                                </div>
+                            </div>
+                        </div>
+                        {% if event_detail.author.registration_no %}
+                        <div class="card-footer">
+                            <div class="h6 text-center align-middle">{% trans 'Regd. No.' %} - <strong>{{event_detail.author.registration_no}}</strong></div>
+                        </div>
+                        {% endif %}
+                    </div>
+                    <div class="my-3 text-center">
+                        <div class="addthis_inline_share_toolbox"></div>
+                        {% addthis_widget %}
+                    </div>
+                    <div class="card  bg-light mb-3 mt-3">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">
+                                <div class="mb-0">
+                                    <strong>{% trans 'Date' %}</strong> : {{event_detail.start_date}} to {{event_detail.end_date}}
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="card  bg-light mb-3 mt-3">
+                        <ul class="list-group list-group-flush">
+                            {% if event_detail.location %}
+                            <li class="list-group-item d-flex">
+                                <div class="mb-0">
+                                    <strong>{% trans 'Venue' %}</strong> : {{event_detail.location}}
+                                </div>
+                            </li>
+                            {% endif %}
+                            <li class="list-group-item d-flex">
+                                <div class="mb-0">
+                                    <strong>{% trans 'Address' %}</strong> : {{event_detail.city}}, {{event_detail.state}}, {{event_detail.country}}
+                                </div>
+                            </li>
+                            <li class="list-group-item d-flex">
+                                <div class="mb-0">
+                                    <strong>{% trans 'Email' %}</strong> : <a href="mailto:{{event_detail.email}}" target="_blank" class="text-decoration-none">{{event_detail.email}}</a>
+                                </div>
+                            </li>
+                            {% if event_detail.contact_no %}
+                            <li class="list-group-item d-flex">
+                                <div class="mb-0">
+                                    <strong>{% trans 'Contact' %}</strong> : <a href="callto:{{event_detail.contact_no}}" target="_blank" class="text-decoration-none">{{event_detail.contact_no}}</a>
+                                </div>
+                            </li>
+                            {% endif %}
+                            {% if event_detail.website_url %}
+                            <li class="list-group-item d-flex">
+                                <div class="mb-0">
+                                    <strong>{% trans 'Website' %}</strong> : <a href="{{event_detail.website_url}}" target="_blank" class="text-decoration-none">{{event_detail.website_url}}</a>
+                                </div>
+                            </li>
+                            {% endif %}
+                        </ul>
+                    </div>
+                    {% if event_detail.img1 or event_detail.img2 %}
+                    <div class="card  bg-light mb-3 mt-3">
+                        <h5 class="pl-2 pt-2 text-center">{% trans 'Event Images' %}</h5>
+                        <table>
+                            <tr>
+                                {% if event_detail.img1 %}
+                                <td>
+                                    <a href="{{event_detail.img1.url}}" data-toggle="modal" data-target="#imgModal1">
+                                        <img src="{{event_detail.img1.url}}" class="rounded" style="width:172px; height:141px;">
+                                    </a>
+                                    <div class="modal fade" id="imgModal1" tabindex="-1"
+                                         aria-labelledby="defaultModalLabel" style="display: none;" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h4 class="modal-title">{% trans 'Image 1' %}</h4>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <img src="{{event_detail.img1.url}}" width="470px"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                                {% endif %}
+                                {% if event_detail.img2 %}
+                                <td>
+                                    <a href="{{event_detail.img2.url}}" data-toggle="modal" data-target="#imgModal2">
+                                        <img src="{{event_detail.img2.url}}" class="rounded" style="width:172px; height:141px;">
+                                    </a>
+                                    <div class="modal fade" id="imgModal2" tabindex="-1"
+                                         aria-labelledby="defaultModalLabel" style="display: none;" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h4 class="modal-title">{% trans 'Image 2' %}</h4>
+                                                    <button type="button" class="close" data-dismiss="modal"
+                                                            aria-hidden="true">×
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <img src="{{event_detail.img2.url}}" width="470px"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                                {% endif %}
+                            </tr>
+                        </table>
+                    </div>
+                    {% endif %}
+                </div>
+                <div class="col-md-8">
+                    <div class="row gutters-sm">
+                        <div class="col-xl-12">
+                            <div class="card h-100">
+                                <div class="card-body">
+                                    <!--<h4 class="d-flex align-items-center mb-3"></h4>-->
+                                    <p>{% video event_detail.video1 '690x350' %}</p>
+                                    <p>{{event_detail.description|safe}}</p>
+                                    <p>{% video event_detail.video2 '690x350' %}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

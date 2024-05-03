@@ -1,0 +1,80 @@
+{% extends 'be/base.html' %}
+{% load static %}
+{% block meta %}
+<title>Delete {{proVideo.title}} - {{webSettingsUniversal.title}}</title>
+<meta name="description" content="{{frontendSettingsUniversal.metaDescription}}"/>
+<meta name="keywords" content="{{frontendSettingsUniversal.metaKeyword}}"/>
+<meta property="og:title" content="Delete {{proVideo.title}} - {{frontendSettingsUniversal.title}}"/>
+<meta property="og:url" content="{{request.scheme}}://{{request.get_host}}{{request.get_full_path}}"/>
+<meta property="og:site_name" content="{{userAccount.full_name}} - {{frontendSettingsUniversal.title}}"/>
+{% endblock %}
+{% block content %}
+<div class="d-flex flex-column flex-column-fluid">
+    <div class="app-content flex-column-fluid mt-10">
+        <div class="app-container container-xxl">
+            {% include 'be/includes/alert.html' %}
+            <div class="card">
+                <div class="card-header ribbon ribbon-end ribbon-clip">
+                    <div class="ribbon-label">
+                        Delete
+                        <span class="ribbon-inner bg-danger"></span>
+                    </div>
+                    <div class="card-title fw-bold m-0">
+                        <span class="px-2 text-danger">{{proVideo.title}}</span>
+                    </div>
+                </div>
+                <div class="card-body pt-0">
+                    <div class="card mb-5 mb-xl-10">
+                        <div class="collapse show">
+                            <form action="{% url 'raDelete' proVideo.slug %}" method="post" class="form"
+                                  enctype="multipart/form-data" novalidate>
+                                {% csrf_token %}
+                                <div class="card-body border-top p-9">
+                                    <div class="row">
+                                        <div class="col-md-6 col-lg-6">
+                                            <div class="border border-gray-300 border-dashed rounded min-w-125px py-3 px-4 me-7 mb-3">
+                                                <div class="fs-6 text-gray-800 fw-bold"><span class="text-success">{{proVideo.title}}</span></div>
+                                                <div class="fw-semibold text-gray-400">Title</div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-lg-6">
+                                            <div class="border border-gray-300 border-dashed rounded min-w-125px py-3 px-4 me-7 mb-3">
+                                                <div class="fs-6 text-gray-800 fw-bold"><span class="text-success">{{proVideo.description|safe|slice:":90"}}</span></div>
+                                                <div class="fw-semibold text-gray-400">Description</div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-lg-6">
+                                            <div class="border border-gray-300 border-dashed rounded min-w-125px py-3 px-4 me-7 mb-3">
+                                                <div class="fs-6 text-gray-800 fw-bold"><span class="text-success">{{proVideo.url}}</span></div>
+                                                <div class="fw-semibold text-gray-400">URL</div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-lg-6">
+                                            <div class="border border-gray-300 border-dashed rounded min-w-125px py-3 px-4 me-7 mb-3">
+                                                <div class="fs-6 text-gray-800 fw-bold"><span class="text-success text-capitalize">{{proVideo.status}}</span></div>
+                                                <div class="fw-semibold text-gray-400">Status</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="my-3">
+                                    <div class="fs-6 text-danger text-center">You can't retrieve this data, once you press the delete button.</div>
+                                </div>
+                                <div class="card-footer d-flex justify-content-end py-6 px-9">
+                                    <a href="{% url 'videosList' %}" class="btn btn-light-info me-3">Discard</a>
+                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block extraJS %}
+<!--begin::Custom Javascript(used for this page only)-->
+
+<!--end::Custom Javascript-->
+{% endblock %}

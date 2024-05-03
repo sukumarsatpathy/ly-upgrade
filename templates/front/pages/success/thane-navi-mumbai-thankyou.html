@@ -1,0 +1,37 @@
+{% extends 'front/base.html' %}
+{% block content %}
+<div class="main shop py-4 border-top">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 offset-lg-2">
+                        {% include 'front/includes/messages.html' %}
+                        <div class="card">
+                            <div class="card-header text-center">
+                                <i class="fas fa-check text-color-success mr-1"></i> <span class="text-success">Thank You !!!</span>
+                            </div>
+                            <div class="card-body table-responsive-lg">
+                                <div class="row">
+                                    <div class="col">
+                                        <table class="table table-bordered table-light">
+                                            <tr>
+                                                <td>
+                                                    <p class="mt-3 text-primary text-center">Thank you for enrolling in Dr Katatis's Workshop. <br> We will write to you soon.</p>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                        <div class="alert alert-warning" role="alert">
+                                            <p class="mt-3 text-center">Meanwhile you can join our Whatsapp Group <br><a href="https://slynk.me/thane-navi-mumbai-tour" target="_blank">https://chat.whatsapp.com/IvHGEfDQrD0IagE2fhHrPe</a></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

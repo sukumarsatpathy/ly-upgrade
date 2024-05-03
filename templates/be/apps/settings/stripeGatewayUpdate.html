@@ -1,0 +1,125 @@
+{% extends 'be/base.html' %}
+{% load static %}
+{% block meta %}
+<title>Edit Payment Gateway - {{webSettingsUniversal.title}}</title>
+<meta name="description" content="{{webSettingsUniversal.meta_description}}"/>
+<meta name="keywords" content="{{webSettingsUniversal.meta_keywords}}"/>
+<meta property="og:title" content="Edit Payment Gateway - {{webSettingsUniversal.title}}"/>
+<meta property="og:url" content="{{request.scheme}}://{{request.get_host}}{{request.get_full_path}}"/>
+<meta property="og:site_name" content="{{webSettingsUniversal.title}} - {{webSettingsUniversal.slogan}}"/>
+{% endblock %}
+
+{% block content %}
+<div class="d-flex flex-column flex-column-fluid">
+    <div class="app-content flex-column-fluid mt-10">
+        <div class="app-container container-xxl">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    {% include 'be/includes/alert.html' %}
+                </div>
+            </div>
+            {% if spg_settings %}
+            <div class="row mb-3 justify-content-center">
+                <div class="col-lg-6">
+                    <div class="alert alert-danger d-flex align-items-center p-5">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-exclamation-octagon-fill me-4" viewBox="0 0 16 16">
+                            <path d="M11.46.146A.5.5 0 0 0 11.107 0H4.893a.5.5 0 0 0-.353.146L.146 4.54A.5.5 0 0 0 0 4.893v6.214a.5.5 0 0 0 .146.353l4.394 4.394a.5.5 0 0 0 .353.146h6.214a.5.5 0 0 0 .353-.146l4.394-4.394a.5.5 0 0 0 .146-.353V4.893a.5.5 0 0 0-.146-.353L11.46.146zM8 4c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995A.905.905 0 0 1 8 4zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+                        </svg>
+                        <div class="d-flex flex-column">
+                            <h4 class="mb-1 text-danger">Caution</h4>
+                            <span>By updating wrong credentials may break whole website payment functionalities.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+            <div class="card">
+                <div class="card-header ribbon ribbon-end ribbon-clip">
+                    <div class="ribbon-label">
+                        {% if spg_settings %}
+                        Update<span class="ribbon-inner bg-warning"></span>
+                        {% else %}
+                        Create<span class="ribbon-inner bg-primary"></span>
+                        {% endif %}
+                    </div>
+                    <div class="card-title fw-bold m-0">
+                        <span class="px-2">Stripe Gateway Settings
+                            {% if spg_settings.status == 'Published' %}
+                            <span class="badge badge-success">Enabled</span>
+                            {% else %}
+                            <span class="badge badge-danger">Disabled</span>
+                            {% endif %}
+                        </span>
+                    </div>
+                </div>
+                <div class="card-body pt-0">
+                    <div class="card mb-2 mb-xl-5">
+                        <div class="collapse show">
+                            <form action="{% url 'stripeGatewayView' %}" method="post" class="form"
+                                  enctype="multipart/form-data" novalidate>
+                                {% csrf_token %}
+                                <div class="card-body">
+                                    <div class="row mb-5">
+                                        <div class="col-lg-12">
+                                            <div class="form-floating mb-7 {% if spg_form.key_type.errors %}has-error{% endif %}">
+                                                {{ spg_form.key_type }}
+                                                <label class="required">Key Type</label>
+                                                {% for error in spg_form.key_type.errors %}
+                                                <div class="text-danger">
+                                                    <strong>{{ error|escape }}</strong>
+                                                </div>
+                                                {% endfor %}
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12">
+                                            <div class="form-floating mb-7 {% if spg_form.public_key.errors %}has-error{% endif %}">
+                                                {{ spg_form.public_key }}
+                                                <label class="required">Public Key</label>
+                                                {% for error in spg_form.public_key.errors %}
+                                                <div class="text-danger">
+                                                    <strong>{{ error|escape }}</strong>
+                                                </div>
+                                                {% endfor %}
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12">
+                                            <div class="form-floating mb-7 {% if spg_form.secret_key.errors %}has-error{% endif %}">
+                                                {{ spg_form.secret_key }}
+                                                <label class="required">Secret Key</label>
+                                                {% for error in spg_form.secret_key.errors %}
+                                                <div class="text-danger">
+                                                    <strong>{{ error|escape }}</strong>
+                                                </div>
+                                                {% endfor %}
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12">
+                                            <div class="form-floating mb-7 {% if spg_form.status.errors %}has-error{% endif %}">
+                                                {{ spg_form.status }}
+                                                <label class="required">Status</label>
+                                                {% for error in spg_form.status.errors %}
+                                                <div class="text-danger">
+                                                    <strong>{{ error|escape }}</strong>
+                                                </div>
+                                                {% endfor %}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-footer d-flex justify-content-end py-6 px-9">
+                                    <button type="submit" class="btn btn-primary">Save Changes</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block extraJS %}
+<!--begin::Custom Javascript(used for this page only)-->
+
+<!--end::Custom Javascript-->
+{% endblock %}

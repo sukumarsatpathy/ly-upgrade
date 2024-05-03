@@ -1,0 +1,55 @@
+{% extends 'front/dashboard-base.html' %}
+{% load i18n %}
+{% block content %}
+{% include 'front/includes/messages.html' %}
+{% if user.is_authenticated %}
+<div class="col-xl-12">
+    <div class="card">
+        <div class="card-header pb-0">
+            <div class="d-flex justify-content-between">
+                <h4 class="card-title mb-2 mt-2">{% trans 'List Events' %}</h4>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive border">
+                <table class="table table-hover mb-0 text-md-nowrap">
+                    <thead>
+                    <tr>
+                        <th>{% trans 'Category' %}</th>
+                        <th>{% trans 'Country' %}</th>
+                        <th>{% trans 'State' %}</th>
+                        <th>{% trans 'City' %}</th>
+                        <th>{% trans 'Start Date' %}</th>
+                        <th>{% trans 'End Date' %}</th>
+                        <th>{% trans 'Last Edit' %}</th>
+                        <th>{% trans 'Manage' %}</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for event in object_list %}
+                        {% if user.id == event.author.id %}
+                        <tr class="align-middle">
+                            <td class="align-middle">{{event.category}}</td>
+                            <td class="align-middle">{{event.country}}</td>
+                            <td class="align-middle">{{event.state}}</td>
+                            <td class="align-middle">{{event.city}}</td>
+                            <td class="align-middle">{{event.start_date}}</td>
+                            <td class="align-middle">{{event.end_date}}</td>
+                            <td class="align-middle">{{event.modified_date}}</td>
+                            <td class="align-middle">
+                                <div class="btn-icon-list">
+                                    <a href="{% url 'edit-event' event.id %}" target="_self"><button class="btn btn-warning btn-icon"><i class="typcn typcn-edit"></i></button></a>
+                                    <a href="{% url 'delete-event' event.id %}" target="_self"><button class="btn btn-danger btn-icon"><i class="typcn typcn-delete"></i></button></a>
+                                </div>
+                            </td>
+                        </tr>
+                        {% endif %}
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}
+{% endblock %}

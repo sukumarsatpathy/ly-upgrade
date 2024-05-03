@@ -1,0 +1,626 @@
+{% load static %}
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Local Time - Laughter Yoga International</title>
+    <meta name="keywords"
+          content="laughter yoga international, laughter yoga, laughing yoga, laughter therapy, laughing therapy, humor therapy, hasya yoga, laughter is the best medicine, laughter yoga exercises, laughter yoga classes near me, laughter yoga for cancer, laughter yoga for hypertension, laughter yoga for diabetes, laughter yoga for addictions, laughter yoga for depression, laughter yoga for mental health, laughter yoga for anxiety, laughter yoga for weight loss, laughter yoga for insomnia, laughter yoga for stress, laughter yoga for stress release, laughter yoga for peak performance, laughter yoga for creativity, laughter yoga team building, laughter clubs, laugh clubs, laughter yoga trainings, laughter coaching, laughter therapy training, laughter course, laughter certifications, laughter meditation, laughter quotes, laughter yoga dvds, laughter training videos, laughing guru, Dr Madan Kataria"/>
+    <meta name="description"
+          content="Are you stressed out, depressed, and having health problems? Do you want to bring more laughter and joy into your life? Laughter Yoga is the right choice for you">
+    <meta name="author" content="Dr Madan Kataria">
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="{% static 'img/favicon.ico' %}" type="image/x-icon"/>
+    <link rel="apple-touch-icon" href="{% static 'img/logo-footer.png' %}">
+
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, shrink-to-fit=no">
+
+    <!-- Facebook Sharing Content -->
+    <meta property="og:site_name" content="Laughter Yoga International">
+    <meta property="og:title" content="Local Time - Laughter Yoga International">
+    <meta property="og:url" content="https://www.laughteryoga.org">
+    <meta property="og:image" content="{% static 'img/extra/home-social.webp' %}">
+    <meta property="og:description"
+          content="Stressed Out? Bring more laughter into your life Join Online Free Laughter Club">
+
+    <link rel="stylesheet" href="{% static 'vendor/fontawesome-free/css/all.min.css' %}">
+
+    <!-- Vendor CSS -->
+    <link rel="stylesheet" href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'vendor/animate/animate.compat.css' %}">
+    <link rel="stylesheet" href="{% static 'vendor/simple-line-icons/css/simple-line-icons.min.css' %}">
+    <link rel="stylesheet" href="{% static 'vendor/owl.carousel/assets/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'vendor/owl.carousel/assets/owl.theme.default.min.css' %}">
+    <link rel="stylesheet" href="{% static 'vendor/magnific-popup/magnific-popup.min.css' %}">
+
+    <!-- Theme CSS -->
+    <link rel="stylesheet" href="{% static 'css/theme.css' %}">
+    <link rel="stylesheet" href="{% static 'css/theme-elements.css' %}">
+
+    <!-- Skin CSS -->
+    <link rel="stylesheet" href="{% static 'css/skins/default.css' %}">
+
+    <!-- Theme Custom CSS -->
+    <link rel="stylesheet" href="{% static 'css/custom.css' %}">
+    <style>
+        .event1-heading, .event2-heading {
+            color: #004AAD;
+            text-transform: uppercase;
+            font-size: 25px;
+            font-weight: 600;
+            margin-bottom: 3px; /* Adjust the margin as needed */
+        }
+
+        .box {
+            padding: 10px;
+            border: 2px solid #898989;
+            border-radius:30px;
+        }
+
+        .box >.time-zone {
+            font-size: 20px;
+            color: #A6A6A6;
+        }
+
+        .box > #event-time-local {
+            color: #898989;
+        }
+        .time-span {
+            font-size: 20px; /* Large font size for the time */
+            font-weight: 500; /* Optional: if you want the time to be bold */
+            color: #004AAD; /* Adjust the color as needed */
+        }
+
+        .date-span {
+            font-size: 20px; /* Smaller font size for the date */
+            color: #004AAD; /* Adjust the color as needed */
+        }
+        .cstm-box {
+            background-color: #CEF0F1;
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+        .cstm-box-grey {
+            background-color: #EFEFEF;
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+        .cstm-box > .startsIn-heading {
+            color: #545454;
+            text-align: center;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .cstm-box-grey > .startsIn-heading {
+            color: #545454;
+            text-align: center;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .counter_digit_block {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin: 10px 0;
+        }
+
+        .counter_digit_block .block {
+            color: #000000;
+            text-align: center; /* This will center the text for both the counter_digit and the span */
+        }
+
+        .counter_digit_block .block .counter_digit {
+            padding: 20px 15px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            background-color: #FFFF00;
+            font-size: 45px; /* Large font size for the digits */
+            font-weight: bold;
+            /* Add margin-bottom if you want to control the space between the digit and the label */
+        }
+
+        .counter_digit_block .block span {
+            color: #666666;
+            font-size: 16px; /* Smaller font size for the labels */
+            display: block; /* Make it a block-level element to enable margin and text-align */
+            margin-top: 4px; /* Adjust space between the digit and the label */
+        }
+
+        .starts-in {
+          background-color: #00b2d4;
+          color: #fff;
+          text-align: center;
+          padding: 20px;
+          font-size: 18px; /* Adjust font size as needed */
+          border-radius: 0 8px 8px 0; /* Matching the other boxes' styles */
+        }
+
+        .starts-in span {
+          display: block; /* Make each span start on a new line */
+        }
+
+        #starts-in-label {
+          font-weight: bold; /* Optional: if you want 'STARTS IN' to be bold */
+          margin-bottom: 5px; /* Add a little space between the 'STARTS IN' and the timer */
+        }
+
+        #time-remaining {
+          font-weight: normal; /* Adjust font weight as needed */
+          font-size: 16px; /* Adjust font size as needed */
+        }
+
+        @media (min-width: 769px) {
+          .time-widget {
+            width: 650px; /* Total width for all three sections */
+            margin: auto; /* Center the widget horizontally */
+          }
+        }
+
+        @media (max-width: 768px) {
+          .time-widget {
+            flex-direction: column;
+            width: auto; /* Let the widget take the full width of the screen on mobile */
+          }
+
+          .time-widget > div {
+            width: auto; /* Allow each section to expand to full width of the widget on mobile */
+            border-right: none;
+            border-bottom: 1px solid #dfe3e8;
+            padding: 20px;
+          }
+
+          .time-widget > div:last-child {
+            border-bottom: none;
+          }
+          .starts-in {
+              background-color: #00b2d4;
+              color: #fff;
+              text-align: center;
+              padding: 20px;
+              font-size: 18px; /* Adjust font size as needed */
+              border-radius: 0 0 8px 8px !important;
+            }
+            .event1-heading, .event2-heading{
+                padding-top:10px;
+            }
+        }
+        .event-info {
+            background-color: #E0FFFF; /* Light Cyan for the background */
+            padding: 20px;
+            border-radius: 50px;
+            text-align: center;
+        }
+        .current-time {
+            padding: 20px;
+            border: 3px solid #dadada;
+            border-radius: 50px;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .highlight {
+            background-color: #FFFF00; /* Highlight color */
+            padding: 10px 10px;
+            border-radius: 100px;
+            margin-bottom: 10px;
+            font-size: 1.2 em;
+            font-weight: bold;
+        }
+        .SessionTime {
+            background-color: #FFFF00; /* Highlight color */
+            padding: 10px 10px;
+            border-radius: 100px;
+            font-size: 1.2 em;
+            font-weight: bold;
+        }
+
+        .current-time {
+            font-size: 1.2 em;
+            margin-top: 20px;
+        }
+
+        // Small devices (landscape phones, 576px and up)
+        @media (min-width: 576px) {
+            .highlight {
+                background-color: #FFFF00; /* Highlight color */
+                padding: 10px 10px;
+                border-radius: 100px;
+                margin-bottom: 10px;
+                font-size: 1 rem;
+                font-weight: bold;
+            }
+            .SessionTime {
+                background-color: #FFFF00; /* Highlight color */
+                padding: 10px 10px;
+                border-radius: 100px;
+                margin-bottom: 10px;
+                font-size: 1 rem;
+                font-weight: bold;
+            }
+            .current-time {
+                font-size: 1em;
+                margin-top: 20px;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .highlight {
+                background-color: #FFFF00; /* Highlight color */
+                padding: 10px 10px;
+                border-radius: 100px;
+                margin: 10px 150px;
+                font-size: 1 rem;
+                font-weight: bold;
+            }
+            .SessionTime {
+                background-color: #FFFF00; /* Highlight color */
+                padding: 10px 10px;
+                border-radius: 100px;
+                margin: 10px 150px;
+                font-size: 1 rem;
+                font-weight: bold;
+            }
+            .current-time {
+                font-size: 1em;
+                margin-top: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="body" data-home-url="{% url 'home' %}">
+    <div role="main" class="main">
+        <section class="border-0 m-0 pt-2 pb-3">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-3">
+                        <img width="300px" src="{% static 'img/logo-local-time.png' %}"/>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Laughter Club Timer -->
+        <section class="border-0 m-0" id="laughter-club" style="display: none;">
+            <div class="container">
+                <div class="text-center text-capitalize font-weight-bold pb-2">
+                    <span style="font-size:30px;  color: #003DCB;">The Timings Below are Set to Your Local Time Zone:</span>
+                </div>
+                <div class="h2 text-center text-capitalize font-weight-bold pb-2">
+                    <span style="font-size:25px;">Two Sessions of International Laughter Club</span>
+                </div>
+                <div class="row justify-content-center mb-2">
+                    <!-- 7:30 AM Laughter Club -->
+                    <div class="col-lg-6">
+                        <div class="row justify-content-center">
+                            <div class="col-12">
+                                <div class="text-center mb-1 event1-heading time-zone" id="event-timezone"></div>
+                            </div>
+                            <div class="col-12 mx-auto">
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="cstm-box">
+                                            <div class="startsIn-heading">Next Laughter Club Session STARTS IN</div>
+                                            <div class="counter_digit_block" id="countdown">
+                                                <div class="block">
+                                                    <div class="counter_digit days"></div>
+                                                    <span>Days</span>
+                                                </div>
+                                                <div class="block">
+                                                    <div class="counter_digit hours"></div>
+                                                    <span>Hours</span>
+                                                </div>
+                                                <div class="block">
+                                                    <div class="counter_digit minutes"></div>
+                                                    <span>Mins</span>
+                                                </div>
+                                                <div class="block">
+                                                    <div class="counter_digit seconds"></div>
+                                                    <span>Secs</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 6:00 PsM Laughter Club -->
+                    <div class="col-lg-6">
+                        <div class="row justify-content-center">
+                            <div class="col-12">
+                                <div class="text-center mb-1 event2-heading time-zone" id="cstm-event-timezone"></div>
+                            </div>
+                            <div class="col-12 mx-auto">
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="cstm-box">
+                                            <div class="startsIn-heading">Next Laughter Club Session STARTS IN</div>
+                                            <div class="counter_digit_block" id="cstm-countdown">
+                                                <div class="block">
+                                                    <div class="counter_digit days"></div>
+                                                    <span>Days</span>
+                                                </div>
+                                                <div class="block">
+                                                    <div class="counter_digit hours"></div>
+                                                    <span>Hours</span>
+                                                </div>
+                                                <div class="block">
+                                                    <div class="counter_digit minutes"></div>
+                                                    <span>Mins</span>
+                                                </div>
+                                                <div class="block">
+                                                    <div class="counter_digit seconds"></div>
+                                                    <span>Secs</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row justify-content-center mt-3">
+                    <div class="col-lg-10">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8 text-center">
+                                <div class="box">
+                                    <div class="time-info" id="event-time-local">
+                                        <span class="time-zone pr-0">Your Local Time Right Now: </span>
+                                        <span class="time-span pr-2"></span>
+                                        <span class="time-zone pr-0">Today's Date: </span>
+                                        <span class="date-span"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row justify-content-center mt-2">
+                    <div class="col-lg-8">
+                        <div class="row justify-content-center">
+                            <div class="col-12 mx-auto">
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="cstm-box-grey">
+                                            <div class="startsIn-heading pt-2 text-center font-weight-bold">Be the Reason Someone Laughs Today!</div>
+                                            <p class="text-center px-5">Get your friends and family on the laughter bandwagon! Join our International Laughter Club! Because life's better when we're laughing together.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Course Timer -->
+        <section class="border-0 m-0" id="course" style="display: none;">
+            <div class="container">
+                <!-- Timezone Section -->
+                <div class="row justify-content-center">
+                    <div class="col-lg-11">
+                        <div class="text-center text-capitalize font-weight-bold pb-2">
+                            <span style="font-size:30px;  color: #003DCB;">The Date & Time Below are Set to Your Local Time Zone:</span>
+                        </div>
+                        <div class="card h-100 border-0">
+                            <div class="card-body text-dark">
+                                <div class="row justify-content-center">
+                                    <div class="col-lg-9">
+                                        <div class="card h-100 border-0">
+                                            <div class="container">
+                                                <div class="event-info">
+                                                    <p style="color: #737373 !important;"
+                                                       class="h4 text-light font-weight-bold py-2 text-center">
+                                                        Online Course by Dr. Madan Kataria
+                                                    </p>
+                                                    <div class="highlight">
+                                                        <span style="color: #545454;">Upcoming Batch Starts on: </span><span
+                                                            id="batchStartDate" style="font-size:25px;"></span>
+                                                    </div>
+                                                    <div class="SessionTime">
+                                                        <span style="color: #545454;">Session Time: </span><span
+                                                            id="localSessionTime" style="font-size:25px;"></span>
+                                                    </div>
+                                                </div>
+                                                <div class="current-time d-flex justify-content-around flex-wrap">
+                                                    <div>
+                                                        <span style="color: #545454;">Your Local Time Right Now: </span><span
+                                                            style="font-size:20px;" class="pr-10"
+                                                            id="currentTime"></span>
+                                                    </div>
+                                                    <div>
+                                                        <span style="color: #545454;">Today's Date: </span><span
+                                                            style="font-size:20px;" id="currentDate"></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row justify-content-center mt-2">
+                                    <div class="col-lg-8">
+                                        <div class="row justify-content-center">
+                                            <div class="col-12 mx-auto">
+                                                <div class="row">
+                                                    <div class="col">
+                                                        <div class="cstm-box-grey">
+                                                            <div class="startsIn-heading pt-2 text-center font-weight-bold">Spread the Cheer Far and Near!</div>
+                                                            <p class="text-center px-5">Encourage your friends to sign up for our Laughter Yoga Online Courses.
+The more, the merrier!</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const sections = {
+            '#laughter-club': document.getElementById('laughter-club'),
+            '#course': document.getElementById('course')
+        };
+
+        function redirectToHomePage() {
+            // Use `replace` to ensure the user doesn't navigate back to the invalid state
+            window.location.replace(document.body.getAttribute('data-home-url') || '/');
+        }
+
+        function handleVisibility() {
+            const hash = window.location.hash;
+            let foundMatchingSection = false;
+
+            Object.entries(sections).forEach(([sectionHash, sectionElement]) => {
+                if (hash === sectionHash) {
+                    sectionElement.style.display = 'block'; // Show the matching section
+                    foundMatchingSection = true;
+                } else {
+                    sectionElement.style.display = 'none'; // Hide other sections
+                }
+            });
+
+            // If no sections match the hash, or the hash is not recognized, redirect to the homepage
+            if (!foundMatchingSection || (!hash && window.location.pathname !== '/')) {
+                redirectToHomePage();
+            }
+        }
+
+        // Listen for changes in the hash
+        window.addEventListener('hashchange', handleVisibility);
+        // Handle the page load state
+        handleVisibility();
+    });
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/luxon/2.3.0/luxon.min.js"></script>
+<!--<script src="{% static 'js/zlc-timezone-converter.js' %}"></script>-->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const DateTime = luxon.DateTime;
+    const Interval = luxon.Interval;
+
+    function getNextEventDayDelta(now, eventDateTime, daysOfWeek) {
+        let startDay = eventDateTime <= now && daysOfWeek.includes(now.weekday) ? now.plus({ days: 1 }) : now;
+
+        let nextEventDay = startDay;
+        while (!daysOfWeek.includes(nextEventDay.weekday)) {
+            nextEventDay = nextEventDay.plus({ days: 1 });
+        }
+        return nextEventDay.diff(now, 'days').days;
+    }
+
+    function formatCountdown(duration) {
+        const parts = [];
+        const days = Math.floor(duration.days);
+        const hours = Math.floor(duration.hours) % 24;
+        const minutes = Math.floor(duration.minutes) % 60;
+        const seconds = Math.floor(duration.seconds) % 60;
+
+        if (days > 0) parts.push(`${days} day${days === 1 ? '' : 's'}`);
+        if (hours > 0 || days > 0) parts.push(`${hours} hour${hours === 1 ? '' : 's'}`);
+        if (minutes > 0 || hours > 0 || days > 0) parts.push(`${minutes} minute${minutes === 1 ? '' : 's'}`);
+        parts.push(`${seconds} second${seconds === 1 ? '' : 's'}`);
+
+        return parts.join(', ');
+    }
+
+    function updateEventTimes() {
+        const now = DateTime.local();
+
+        const event1TimeIST = DateTime.fromObject({ hour: 7, minute: 30 }, { zone: 'Asia/Kolkata' });
+        const event2TimeIST = DateTime.fromObject({ hour: 18, minute: 0 }, { zone: 'Asia/Kolkata' });
+
+        let event1NextOccurrence = event1TimeIST > now ? event1TimeIST : event1TimeIST.plus({ days: 1 });
+
+        const event2DaysOfWeek = [1, 3, 5];
+        let event2NextOccurrence;
+        if (event2DaysOfWeek.includes(now.weekday) && now < event2TimeIST) {
+            event2NextOccurrence = event2TimeIST;
+        } else {
+            let daysUntilNextEvent = getNextEventDayDelta(now, event2TimeIST, event2DaysOfWeek);
+            event2NextOccurrence = event2TimeIST.plus({ days: daysUntilNextEvent });
+        }
+
+        const event1TimeLocal = event1NextOccurrence.toLocal();
+        const event2TimeLocal = event2NextOccurrence.toLocal();
+
+        // Update local time and date with seconds
+        document.querySelector(".time-span").textContent = now.toLocaleString(DateTime.TIME_WITH_SECONDS);
+        document.querySelector(".date-span").textContent = now.toLocaleString(DateTime.DATE_MED);
+
+        // Update countdowns
+        let event1Countdown = document.querySelector("#countdown");
+        let event2Countdown = document.querySelector("#cstm-countdown");
+
+        let event1CountdownDuration = Interval.fromDateTimes(now, event1TimeLocal).toDuration(['days', 'hours', 'minutes', 'seconds']);
+        let event2CountdownDuration = Interval.fromDateTimes(now, event2TimeLocal).toDuration(['days', 'hours', 'minutes', 'seconds']);
+
+        event1Countdown.querySelector('.days').textContent = Math.floor(event1CountdownDuration.days);
+        event1Countdown.querySelector('.hours').textContent = Math.floor(event1CountdownDuration.hours) % 24;
+        event1Countdown.querySelector('.minutes').textContent = Math.floor(event1CountdownDuration.minutes) % 60;
+        event1Countdown.querySelector('.seconds').textContent = Math.floor(event1CountdownDuration.seconds) % 60;
+
+        event2Countdown.querySelector('.days').textContent = Math.floor(event2CountdownDuration.days);
+        event2Countdown.querySelector('.hours').textContent = Math.floor(event2CountdownDuration.hours) % 24;
+        event2Countdown.querySelector('.minutes').textContent = Math.floor(event2CountdownDuration.minutes) % 60;
+        event2Countdown.querySelector('.seconds').textContent = Math.floor(event2CountdownDuration.seconds) % 60;
+    }
+
+    function updateHeadings() {
+        const now = DateTime.local();
+        const event1TimeIST = DateTime.fromObject({ hour: 7, minute: 30 }, { zone: 'Asia/Kolkata' }).setZone(now.zoneName);
+        const event2TimeIST = DateTime.fromObject({ hour: 18, minute: 0 }, { zone: 'Asia/Kolkata' }).setZone(now.zoneName);
+
+        // Format the times for the headings to 12-hour format with AM/PM
+        const event1TimeFormatted = event1TimeIST.toLocaleString({ hour: 'numeric', minute: '2-digit', hour12: true }).toUpperCase();
+        const event2TimeFormatted = event2TimeIST.toLocaleString({ hour: 'numeric', minute: '2-digit', hour12: true }).toUpperCase();
+
+        document.querySelector('.event1-heading').textContent = `AT ${event1TimeFormatted} (EVERYDAY)`;
+        document.querySelector('.event2-heading').textContent = `AT ${event2TimeFormatted} (MON, WED, FRI)`;
+    }
+
+    updateEventTimes();
+    updateHeadings();
+    setInterval(updateEventTimes, 1000); // Continuously update the local time with seconds
+});
+</script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const DateTime = luxon.DateTime;
+        const eventDateTimeIST = DateTime.fromISO('2024-04-08T08:00:00', { zone: 'Asia/Kolkata' });
+
+        // Update current local time and date dynamically
+        const updateCurrentLocalTimeAndDate = () => {
+            const nowLocal = DateTime.local();
+            document.getElementById('currentTime').textContent = nowLocal.toFormat('hh:mm:ss a');
+            document.getElementById('currentDate').textContent = nowLocal.toFormat('MMMM dd, yyyy');
+        };
+
+        // Update batch start date and session time as per local timezone
+        const localZone = DateTime.local().zoneName;
+        const eventDateTimeLocal = eventDateTimeIST.setZone(localZone);
+        document.getElementById('batchStartDate').textContent = eventDateTimeLocal.toFormat('MMMM dd, yyyy');
+        document.getElementById('localSessionTime').textContent = eventDateTimeLocal.toFormat('hh:mm a');
+
+        // Update the current local time and date every second
+        setInterval(updateCurrentLocalTimeAndDate, 1000);
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,177 @@
+{% extends 'front/dashboard-base.html' %}
+{% load i18n %}
+{% load static %}
+{% block content %}
+{% include 'front/includes/messages.html' %}
+{% if user.is_authenticated %}
+<div class="container-fluid">
+    <!-- Main-content-body -->
+    <div class="main-content-body">
+        <div class="row">
+            <div class="col-md-12 col-lg-12 col-xl-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h2 class="text-center mb-4">{% trans 'Submit Training' %}</h2>
+                        <p class="text-center text-danger">To view sample training page <a href="https://{{request.META.HTTP_HOST}}/trainings/17/" target="_blank">click here</a></p>
+                        <form class="form-group" method="POST" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <div class="mb-4 main-content-label">Training Details</div>
+                            <div class="form-group ">
+                                <div class="row">
+                                    <div class="col-md-3"><label class="form-label">{% trans 'Category' %}</label></div>
+                                    <div class="col-md-9">{{form.category_title}}</div>
+                                </div>
+                            </div>
+                            <div class="form-group ">
+                                <div class="row">
+                                    <div class="col-md-3"><label class="form-label">{% trans 'Description' %}</label></div>
+                                    <div class="col-md-9">{{form.description|safe}}</div>
+                                </div>
+                            </div>
+                            <div class="form-group ">
+                                <div class="row">
+                                    <div class="col-md-3"><label class="form-label">{% trans 'Start Date' %}</label></div>
+                                    <div class="col-md-9">{{form.start_date}}</div>
+                                </div>
+                            </div>
+                            <div class="form-group ">
+                                <div class="row">
+                                    <div class="col-md-3"><label class="form-label">{% trans 'End Date' %}</label></div>
+                                    <div class="col-md-9">{{form.end_date}}</div>
+                                </div>
+                            </div>
+                            <div class="mb-4 main-content-label">Contact Details</div>
+                            <div class="form-group ">
+                                <div class="row">
+                                    <div class="col-md-3"><label class="form-label">{% trans 'Trainer Name' %}</label></div>
+                                    <div class="col-md-9">{{form.trainer_name}}</div>
+                                </div>
+                            </div>
+                            <div class="form-group ">
+                                <div class="row">
+                                    <div class="col-md-3"><label class="form-label">{% trans 'Email' %}</label></div>
+                                    <div class="col-md-9">{{form.email}}</div>
+                                </div>
+                            </div>
+                            <div class="form-group ">
+                                <div class="row">
+                                    <div class="col-md-3"><label class="form-label">{% trans 'Contact No' %}</label></div>
+                                    <div class="col-md-9">{{form.contact_no}}</div>
+                                </div>
+                            </div>
+                            <div class="mb-4 main-content-label">Location Details</div>
+                            <div class="form-group ">
+                                <div class="row">
+                                    <div class="col-md-3"><label class="form-label">{% trans 'Venue Details' %}</label></div>
+                                    <div class="col-md-9">{{form.location}}</div>
+                                </div>
+                            </div>
+                            <div class="form-group ">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <label class="form-label">{% trans 'Country' %}</label>
+                                    </div>
+                                    <div class="col-md-9">{{form.country}}</div>
+                                </div>
+                            </div>
+                            <div class="form-group ">
+                                <div class="row">
+                                    <div class="col-md-3"><label class="form-label">{% trans 'State' %}</label></div>
+                                    <div class="col-md-9">{{form.state}}</div>
+                                </div>
+                            </div>
+                            <div class="form-group ">
+                                <div class="row">
+                                    <div class="col-md-3"><label class="form-label">{% trans 'City' %}</label></div>
+                                    <div class="col-md-9">{{form.city}}</div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="row pb-2 text-danger">
+                                    <div class="col-12 text-center">** Note - If your country, state or city is not showing in drop down menu, please contact <a href="mailto:help@laughteryoga.org" target="_blank">help@laughteryoga.org</a></div>
+                                </div>
+                            </div>
+                            <div class="mb-4 main-content-label">Training Images (<em>Optional</em>)</div>
+                            <div class="form-group ">
+                                <div class="row">
+                                    <div class="col-md-3"><label class="form-label">{% trans 'Training Image1' %}</label></div>
+                                    <div class="col-md-9">{{form.img1}}</div>
+                                </div>
+                            </div>
+                            <div class="form-group ">
+                                <div class="row">
+                                    <div class="col-md-3"><label class="form-label">{% trans 'Training Image2' %}</label></div>
+                                    <div class="col-md-9">{{form.img2}}</div>
+                                </div>
+                            </div>
+                            <div class="form-group ">
+                                <div class="row">
+                                    <div class="col-md-3"><label class="form-label">{% trans 'Training Image3' %}</label></div>
+                                    <div class="col-md-9">{{form.img3}}</div>
+                                </div>
+                            </div>
+                            <div class="form-group ">
+                                <div class="row">
+                                    <div class="col-md-3"><label class="form-label">{% trans 'Training Image4' %}</label></div>
+                                    <div class="col-md-9">{{form.img4}}</div>
+                                </div>
+                            </div>
+                            <div class="mb-4 main-content-label">Training Videos (<em>Optional</em>)</div>
+                            <div class="form-group ">
+                                <div class="row">
+                                    <div class="col-md-3"><label class="form-label">{% trans 'Title Video' %}</label></div>
+                                    <div class="col-md-9">{{form.video_url}}</div>
+                                </div>
+                            </div>
+                            <div class="form-group ">
+                                <div class="row">
+                                    <div class="col-md-3"><label class="form-label">{% trans 'Training Video 1' %}</label></div>
+                                    <div class="col-md-9">{{form.video_url_1}}</div>
+                                </div>
+                            </div>
+                            <div class="form-group ">
+                                <div class="row">
+                                    <div class="col-md-3"><label class="form-label">{% trans 'Training Video 2' %}</label></div>
+                                    <div class="col-md-9">{{form.video_url_2}}</div>
+                                </div>
+                            </div>
+                            <div class="form-group ">
+                                <div class="row">
+                                    <div class="col-md-3"><label class="form-label">{% trans 'Training Video 3' %}</label></div>
+                                    <div class="col-md-9">{{form.video_url_3}}</div>
+                                </div>
+                            </div>
+                            <div class="form-group ">
+                                <div class="row">
+                                    <div class="col-md-3"><label class="form-label">{% trans 'Training Video 4' %}</label></div>
+                                    <div class="col-md-9">{{form.video_url_4}}</div>
+                                </div>
+                            </div>
+
+                            <div class="form-group ">
+                                <div class="row">
+                                    <div class="col-md-12">{{form.author}}</div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary waves-effect waves-light">{% trans 'Submit' %}</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    var name = "{{user.first_name}} {{user.last_name}}"
+    var email = "{{user.email}}"
+    var contact = "{{user.contact_number}}"
+    var author = "{{user.id}}"
+    document.getElementById("trainer-name").value = name;
+    document.getElementById("user-email").value = email;
+    document.getElementById("user-contact").value = contact;
+    document.getElementById("author").value = author;
+</script>
+{% endif %}
+{% endblock %}

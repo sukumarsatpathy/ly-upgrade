@@ -1,0 +1,44 @@
+{% extends 'front/base.html' %}
+{% load i18n %}
+{% block meta %}
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>{{blog_detail.title}} - Laughter Yoga International</title>
+    <meta name="title" content="{{blog_detail.meta_title}}"/>
+    <meta name="keywords" content="{{blog_detail.meta_keywords}}"/>
+    <meta name="description" content="{{blog_detail.meta_description}}">
+    <meta name="author" content="Dr Madan Kataria">
+{% endblock %}
+{% block content %}
+<div role="main" class="main">
+    <!-- Breadcrumb Starts Here -->
+    <section class="page-header page-header-classic">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <ul class="breadcrumb">
+                        <li><a href="{% url 'home' %}" target="_parent" class="text-decoration-none">Home</a></li>
+                        <li><a href="#" target="_parent" class="text-decoration-none">Knowledge Center</a></li>
+                        <li><a href="{% url 'laughter-blogs' %}" target="_parent" class="text-decoration-none">Laughter Blogs</a></li>
+                        <li class="active">{{blog_detail.title|slice:":25"}}..</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="container py-2">
+        <div class="row">
+            <div class="col-lg-9">
+                <h4>{{blog_detail.title}}</h4>
+                {% if blog_detail.image %}
+                <p><img src="{{blog_detail.image.url}}" alt="{{blog_detail.title}}" class="rounded" style="width:800px;"></p>
+                {% endif %}
+                <p>{{blog_detail.description|safe}}</p>
+            </div>
+            <div class="col-lg-3 order-lg-2">
+                {% include 'front/includes/sidebar/blogs.html' %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

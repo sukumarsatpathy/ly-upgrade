@@ -1,0 +1,209 @@
+{% extends 'front/base.html' %}
+{% load static %}
+{% load i18n %}
+{% load widget_tweaks %}
+{% block meta %}
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Find LY Professionals - Laughter Yoga International</title>
+<meta name="keywords"
+      content="Certified Laughter Yoga Leader, Certified Laughter Yoga Teacher, Certified Laughter Yoga Master, Dr Madan Kataria, trainer"/>
+<meta name="description" content="You will find all the trained Certified Laughter Yoga Professional around the globe.">
+<meta name="author" content="Dr Madan Kataria">
+{% endblock %}
+{% block content %}
+{% load accounts_url %}
+<div role="main" class="main">
+    <!-- Breadcrumb Starts Here -->
+    <section class="page-header page-header-classic">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <ul class="breadcrumb">
+                        <li><a href="{% url 'home' %}" target="_parent" class="text-decoration-none">Home</a></li>
+                        <li class="active">Find LY Professionals</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="container py-4">
+        <div class="row">
+            <div class="col-xl-12 col-l-12 col-md-12 col-s-12 col-xs-12">
+                <div class="card card-body">
+                    <form method="get" id="userForm" data-countries-url="{% url 'ajax_load_countries' %}">
+                        <div class="well">
+                            <h4 class="color-primary font-weight-semibold text-4 text-uppercase row justify-content-center mb-5 pt-2">
+                                Find Trainers Worldwide</h4>
+                            <div class="container my-2 pt-md-4 pt-xl-0">
+                                <div class="row align-items-center justify-content-center">
+                                    <div class="row pb-1">
+                                        <div class="col-lg-6 mb-2 pb-2">
+                                            <h5>Certified Laughter Yoga Leader (CLYL)</h5>
+                                            <p>This is basic training for 2 days training in which leaders are trained
+                                                by certified LY
+                                                teachers. They can lead a laughter session for social clubs, corporate
+                                                organizations,
+                                                seniors, school children and people with special needs</p>
+                                            <h5>Certified Laughter Yoga Teacher (CLYT)</h5>
+                                            <p>This is the Senior Level of Training in which the LY teachers get 5 days
+                                                intensive
+                                                training either by Dr. Kataria or one of the Master trainers. As LY
+                                                Teachers they are
+                                                authorized to train and certify others as leaders.</p>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <h5>Certified Master Trainer (CMT)</h5>
+                                            <p>This is the Highest Level of Training in Laughter Yoga. Master Trainers
+                                                are qualified to
+                                                train and certify others as Certified Laughter Yoga Teachers (CLYT) &
+                                                Leaders (CLYL).
+                                                They are directly trained by Dr Madan Kataria, The Laughter Yoga
+                                                Founder. </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row d-flex justify-content-center">
+                                    <div class="form-group col-xl-3">
+                                        {{ form.user_type.label_tag }}
+                                        {% render_field form.user_type class="form-control" %}
+                                    </div>
+                                    <div class="form-group col-xl-3">
+                                        {{ form.country.label_tag }}
+                                        {% render_field form.country class="form-control" %}
+                                    </div>
+                                    <div class="form-group col-xl-3">
+                                        {{ form.state.label_tag }}
+                                        {% render_field form.state class="form-control" %}
+                                    </div>
+                                    <div class="form-group col-xl-3">
+                                        {{ form.city.label_tag }}
+                                        {% render_field form.city class="form-control" %}
+                                    </div>
+                                    <div class="form-group col-xl-2">
+                                        <button type="submit" class="btn btn-primary btn-lg">Find</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+        <br/>
+        <div class="row" id="search">
+            <div class="col-xl-12 col-l-10 col-md-8 col-s-6 col-xs-4">
+                <table class="table table-bordered">
+                    <thead>
+                    <tr>
+                        <th>Sl No.</th>
+                        <th>Full Name</th>
+                        <th>User Type</th>
+                        <th>Registration No</th>
+                        <th>Country</th>
+                        <th>State</th>
+                        <th>City</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for users in all_users %}
+                    <tr>
+                        <td>{{forloop.counter0|add:all_users.start_index}}</td>
+                        <td><a href="{% url 'members-detail' users.id %}" target="_blank" class="text-decoration-none">{{users.first_name}}
+                            {{users.last_name}}</a></td>
+                        <td>{{ users.UserProfile.user_type }}</td>
+                        <td>{{ users.UserAddress.get_registration_number|default:"Pending" }}</td>
+                        <td>{{ users.UserAddress.country|default:"Pending" }}</td>
+                        <td>{{ users.UserAddress.state|default:"Pending" }}</td>
+                        <td>{{ users.UserAddress.city|default:"Pending" }}</td>
+                    </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        {% if all_users.has_other_pages %}
+        <ul class="pagination float-right">
+            <!-- Left Arrow -->
+            {% if all_users.has_previous %}
+            <li class="page-item"><a class="page-link"
+                                     href="{% custom_url all_users.previous_page_number 'page' request.get.urlencode %}"><i
+                    class="fas fa-angle-left"></i></a></li>
+            {% else %}
+            <li class="page-item disabled"><a class="page-link"><i class="fas fa-angle-left"></i></a></li>
+            {% endif %}
+
+            {% for i in all_users.paginator.page_range %}
+            {% if all_users.number == i %}
+            <li class="page-item"><a class="page-link" href="#">{{i}}</a></li>
+            {% elif i > all_users.number|add:'-13' and i < all_users.number|add:'13' %}
+            <!--<li class="page-item"><a class="page-link" href="#">{{i}}</a></li>-->
+            <li class="page-item"><a class="page-link" href="{% custom_url i 'page' request.GET.urlencode %}">{{i}}</a>
+            </li>
+
+            {% endif %}
+            {% endfor %}
+
+            <!-- Right Arrow -->
+            {% if all_users.has_next %}
+            <li class="page-item"><a class="page-link"
+                                     href="{% custom_url all_users.next_page_number 'page' request.get.urlencode %}"><i
+                    class="fas fa-angle-right"></i></a></li>
+            {% else %}
+            <li class="page-item disabled"><a class="page-link"><i class="fas fa-angle-right"></i></a></li>
+            {% endif %}
+        </ul>
+        {% endif %}
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script>
+$(document).ready(function () {
+    $("#id_user_type").change(function () {
+        var url = $("#userForm").attr('data-countries-url');
+        var userType = $(this).val();
+        $.ajax({
+            url: url,
+            data: { 'id_user_type': userType },
+            success: function (data) {
+                $("#id_country").html(data.html);
+            }
+        });
+    });
+
+    $("#id_country").change(function () {
+        var url = "{% url 'ajax_load_states' %}";
+        var countryId = $(this).val();
+
+        console.log("Making AJAX call to load states for Country ID:", countryId);
+
+        $.ajax({
+            url: url,
+            data: { 'id_country': countryId },
+            success: function (data) {
+                console.log("States loaded successfully.");
+                $("#id_state").html(data.html);
+            },
+            error: function (xhr, status, error) {
+                console.error("Error loading states: ", error);
+            }
+        });
+    });
+
+    $("#id_state").change(function () {
+        var url = "{% url 'ajax_load_cities' %}";
+        var stateId = $(this).val();
+        $.ajax({
+            url: url,
+            data: { 'id_state': stateId },
+            success: function (data) {
+                $("#id_city").html(data.html);
+            }
+        });
+    });
+});
+</script>
+{% endblock %}

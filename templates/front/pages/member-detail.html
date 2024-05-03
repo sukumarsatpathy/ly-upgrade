@@ -1,0 +1,277 @@
+{% extends 'front/base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+{% load cropping %}
+{% load thumbnail %}
+{% load i18n %}
+{% load embed_video_tags %}
+{% load addthis %}
+{% block meta %}
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>{{user_detail.first_name}} {{user_detail.last_name}} - Laughter Yoga International</title>
+    <meta name="keywords" content="Certified Laughter Yoga Leader, Certified Laughter Yoga Teacher, Certified Laughter Yoga Master, Dr Madan Kataria, trainer"/>
+    <meta name="description" content="{{user_detail.description|safe|truncatechars:155}}">
+    <meta name="author" content="Dr Madan Kataria">
+
+    <meta property="og:url" content="https://laughteryoga.org/profile/{{user_detail.id}}" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="{{user_detail.first_name}} {{user_detail.last_name}} - {{user_detail.user_type}}" />
+    <meta property="og:description" content="{{user_detail.services}}" />
+    <meta property="og:image" content="{{user_detail.profile_pic.url}}" />
+{% endblock %}
+{% block content %}
+<div role="main" class="main">
+    <!-- Breadcrumb Starts Here -->
+    <section class="page-header page-header-classic">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <ul class="breadcrumb">
+                        <li><a href="{% url 'home' %}" target="_parent" class="text-decoration-none">Home</a></li>
+                        <li><a href="{% url 'find-ly-professionals' %}" target="_parent" class="text-decoration-none">Find LY Professionals</a></li>
+                        <li class="text-capitalize active">{{user_detail.first_name}} {{user_detail.last_name}}</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="container">
+        <div class="main-body">
+            <div class="row gutters-sm">
+                <div class="col-md-4 mb-3">
+                    <div class="card" style="background-color: #e0f4ff;">
+                        <div class="card-body">
+                            <div class="d-flex flex-column align-items-center text-center">
+                                <img src="{% cropped_thumbnail user_detail 'pp_cropped' width=350 %}" alt="{{user_detail.first_name}} {{user_detail.last_name}}" class="img-fluid">
+                                <div class="mt-3">
+                                    <div class="h5"><strong>{{user_detail.first_name}}
+                                        {{user_detail.last_name}}</strong></div>
+                                    <div class="h6 text-grey mb-1">{{user_detail.user_type}}</div>
+                                    {% if user_detail.is_ambassador %}
+                                    <p class="h6 text-primary" style="padding:5px 0px;">{% trans 'Laughter Ambassador' %}</p>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <div class="h6 text-center align-middle">{% trans 'Regd. No.' %} - <strong>{{user_detail.registration_no}}</strong></div>
+                            {% if file_exists %}
+                            <!--<a href="{% get_media_prefix %}/membership-cards/membership-card-{{user_detail.id}}.jpg" target="_blank" class="btn btn-success" download>Download ID Card</a>-->
+                            <a href="{% url 'prozone-services' %}" target="_blank" class="btn btn-success" download>Download ID Card</a>
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div class="my-3 text-center">
+                        <div class="addthis_inline_share_toolbox"></div>
+                        {% addthis_widget %}
+                    </div>
+                    <div class="featured-box featured-box-primary featured-box-effect-1">
+                        <div class="box-content">
+                            <p class="text-"><strong>{% trans 'Services Offered' %}</strong></p>
+                            <p class="mb-0 mt-3">
+                                {{user_detail.services}}{% if user_detail.other_services %}, {{user_detail.other_services}} {% endif %}
+                            </p>
+                        </div>
+                    </div>
+                    <div class="card mt-3">
+                        <ul class="list-group list-group-flush">
+                            {% if user_detail.trained_by %}
+                            <li class="list-group-item d-flex align-items-center flex-wrap">
+                                <div class="mb-0 mr-2"><strong>{% trans 'Trained By' %}</strong>: </div>
+                                {{user_detail.trained_by}}
+                            </li>
+                            {% endif %}
+
+                            <li class="list-group-item d-flex align-items-center flex-wrap">
+                                <div class="mb-0 mr-2"><strong>{% trans 'Address' %}</strong>: </div>
+                                {{user_detail.city}}, {{user_detail.state}}, {{user_detail.country}}
+                            </li>
+                            {% if user_detail.is_masked == False %}
+                            <li class="list-group-item d-flex align-items-center flex-wrap">
+                                <div class="mb-0 mr-2"><strong>{% trans 'Email' %}</strong>: </div>
+                                <a href="mailto:{{user_detail.email}}" target="_blank" class="text-decoration-none">{{user_detail.email}}</a>
+                            </li>
+                            {% else %}
+                            <li class="list-group-item d-flex align-items-center flex-wrap">
+                                <div class="mb-0 mr-2"><strong>{% trans 'Email' %}</strong>: </div>
+                                <span class="blurry-text no-select">Not Shared by User</span>
+                            </li>
+                            {% endif %}
+                            {% if user_detail.is_masked == False %}
+                            {% if user_detail.contact_number %}
+                            <li class="list-group-item d-flex align-items-center flex-wrap">
+                                <div class="mb-0 mr-2"><strong>{% trans 'Phone' %}</strong>: </div>
+                                <a href="callto:{{user_detail.contact_number}}" target="_blank" class="text-decoration-none">{{user_detail.contact_number}}</a>
+                            </li>
+                            {% endif %}
+                            {% else %}
+                            <li class="list-group-item d-flex align-items-center flex-wrap">
+                                <div class="mb-0 mr-2"><strong>{% trans 'Phone' %}</strong>: </div>
+                                <span class="blurry-text no-select">Not Shared by User</span>
+                            </li>
+                            {% endif %}
+                        </ul>
+                    </div>
+                    <div class="card mt-3">
+                        <ul class="list-group list-group-flush">
+                            {% if user_detail.website_url %}
+                            <li class="list-group-item d-flex align-items-center flex-wrap">
+                                <div class="mb-0 mr-2">
+                                    <i class="icon-globe icons"></i> {% trans 'Website' %}:
+                                </div>
+                                <a href="{{user_detail.website_url}}" target="_blank" class="text-decoration-none"> {{user_detail.website_url}}</a>
+                            </li>
+                            {% endif %}
+                            {% if user_detail.facebook_url %}
+                            <li class="list-group-item d-flex align-items-center flex-wrap">
+                                <div class="mb-0">
+                                    <i class="icon-social-facebook icons"></i> {% trans 'Facebook' %}:
+                                </div>
+                                <a href="{{user_detail.facebook_url}}" target="_blank"
+                                   class="text-decoration-none"> {{user_detail.facebook_url}}</a>
+                            </li>
+                            {% endif %}
+                            {% if user_detail.youtube_url %}
+                            <li class="list-group-item d-flex align-items-center flex-wrap">
+                                <div class="mb-0">
+                                    <i class="icon-social-youtube icons"></i> {% trans 'Youtube' %}:
+                                </div>
+                                <a href="{{user_detail.youtube_url}}" target="_blank"
+                                   class="text-decoration-none"> {{user_detail.youtube_url}}</a>
+                            </li>
+                            {% endif %}
+                            {% if user_detail.linkedin_url %}
+                            <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                                <div class="mb-0">
+                                    <i class="icon-social-linkedin icons"></i> {% trans 'Linkedin' %}:
+                                </div>
+                                <a href="{{user_detail.linkedin_url}}" target="_blank"
+                                   class="text-decoration-none"> {{user_detail.linkedin_url}}</a>
+                            </li>
+                            {% endif %}
+                        </ul>
+                    </div>
+                    {% if user_detail.basic_learning_course or user_detail.certified_leader_training or user_detail.certified_teacher_training %}
+                    <div class="featured-box featured-box-primary featured-box-effect-1">
+                        <div class="box-content">
+
+                            <p class="text-uppercase"><strong>{% trans 'Upcoming Trainings' %}</strong></p>
+
+                            {% if user_detail.basic_learning_course %}
+                            <p class="mb-0 mt-3"><a href="{{user_detail.basic_learning_course}}" target="_blank"><strong>{% trans 'Basic Learning Course' %}</strong></a></p>
+                            {% endif %}
+
+                            {% if user_detail.certified_leader_training %}
+                            <p class="mb-0 mt-3"><a href="{{user_detail.certified_leader_training}}" target="_blank"><strong>{% trans 'Certified Leader Training' %}</strong></a></p>
+                            {% endif %}
+
+                            {% if user_detail.certified_teacher_training %}
+                            <p class="mb-0 mt-3"><a href="{{user_detail.certified_teacher_training}}" target="_blank"><strong>{% trans 'Certified Teacher Training' %}</strong></a></p>
+                            {% endif %}
+                        </div>
+                    </div>
+                    {% endif %}
+                    {% if lc_user %}
+                    <div class="featured-box featured-box-primary featured-box-effect-1">
+                        <div class="box-content">
+                            <p class="text-"><strong>{% trans 'Laughter Clubs' %}</strong></p>
+                            {% for clubs in lc_user %}
+                            <p class="mb-0 mt-3">
+                                <a href="{% url 'club-detail' clubs.id %}" target="_blank">
+                                    {{clubs.title}}
+                                </a>
+                            </p>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    {% endif %}
+                    {% if user_detail.is_masked == True %}
+                    <div class="featured-box featured-box-primary featured-box-effect-1">
+                        <div class="box-content">
+                            <p class="text-"><strong>{% trans 'Enquire Now' %}</strong></p>
+                            {% include 'front/includes/messages.html' %}
+                            <form method="post" class="needs-validation" enctype="multipart/form-data">
+                                {% csrf_token %}
+                                <div class="form-group">
+                                    <input class="form-control" type="text" name="name" placeholder="Full Name" required>
+                                </div>
+                                <div class="form-group">
+                                    <input class="form-control" type="email" name="email" placeholder="Email" required>
+                                </div>
+                                <div class="form-group">
+                                    <input class="form-control" type="text" name="contact" placeholder="Contact No" min="10" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" required>
+                                </div>
+                                <div class="form-group">
+                                    <input class="form-control" type="text" name="country" placeholder="Country Name" required>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-12">
+                                        <textarea class="form-control" name="message"
+                                                  placeholder="Message" rows="5" required></textarea>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <div class="g-recaptcha" data-sitekey="{{site_key}}"></div>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <button type='submit'
+                                                class='btn btn-modern btn-primary rounded-0 mb-2'>Send
+                                            Message
+                                        </button>
+                                    </div>
+                                </div>
+                                {{form.non_field_errors}}
+                            </form>
+                        </div>
+                    </div>
+                    {% endif %}
+                </div>
+                <div class="col-md-8">
+                    <!--<div class="card mb-3">
+                        <div class="card-body">
+                            {% if user_detail.services %}
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <div class="align-middle"><strong>{% trans 'Services Offered' %}</strong></div>
+                                </div>
+                                <div class="col-sm-9">
+                                    {{user_detail.services}}
+                                </div>
+                            </div>
+                            {% endif %}
+                        </div>
+                    </div>-->
+                    <div class="row gutters-sm">
+                        <div class="col-xl-12">
+                            <div class="card h-100">
+                                <div class="card-body">
+                                    <h4 class="d-flex align-items-center mb-3"><strong>{% trans 'My Profile' %}</strong></h4>
+                                    {{user_detail.description|safe}}
+                                    <table>
+                                        <tr>
+                                            <td>{% video user_detail.video_url_1 %}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>{% video user_detail.video_url_2 '690x350' %}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>{% video user_detail.video_url_3 '690x350' %}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>{% video user_detail.video_url_4 '690x350' %}</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

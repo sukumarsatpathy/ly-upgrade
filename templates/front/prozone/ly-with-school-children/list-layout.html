@@ -1,0 +1,37 @@
+{% extends 'front/base.html' %}
+{% load i18n %}
+{% block content %}
+<div role="main" class="main">
+    {% include 'front/includes/breadcrumb.html' %}
+    <div class="container py-2">
+        <div class="row">
+            <div class="col-lg-9">
+                <h4>{% trans 'LY with School Children' %}</h4>
+                <table class="table table-bordered">
+                    <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>{% trans 'Title' %}</th>
+                        <th>{% trans 'Published Date' %}</th>
+                        <th>{% trans 'Views' %}</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for schoolChildren in all_lywithSchoolChildren_articles %}
+                    <tr>
+                        <td>{{forloop.counter}}</td>
+                        <td><a href="{{schoolChildren.slug}}">{{schoolChildren.title}}</a></td>
+                        <td>{{schoolChildren.created_date.date}}</td>
+                        <td>{{schoolChildren.views}}</td>
+                    </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-lg-3 order-lg-2">
+                {% include 'front/includes/sidebar/prozone.html' %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

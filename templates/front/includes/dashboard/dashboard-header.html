@@ -1,0 +1,170 @@
+{% load static %}
+{% load i18n %}
+{% load cropping %}
+{% if user.is_authenticated %}
+<div class="main-header main-header-fixed">
+    <div class="container-fluid">
+        <div class="main-header-left">
+            <a href="#" data-toggle="sidebar" class="nav-link icon toggle pl-0">
+                <i class="fas fa-bars pt-2"></i>
+            </a>
+
+        </div><!-- Sidebar toggle closed -->
+
+        <div class="main-header-center">
+            {% if user.first_name and user.last_name %}
+            <p class="h5 text-center">Welcome {{user.first_name}} {{user.last_name}} !</p>
+            {% else %}
+            <p class="h5 text-center">Missing Name - <a class="text-center" href="{% url 'edit-profile' %}">Edit Profile</a></p>
+            {% endif %}
+
+        </div>
+
+        <div class="main-header-right">
+            <!-- Home page Link-->
+
+            <div class="dropdown main-header-message right-toggle">
+                <div class="nav-item full-screen" >
+                    <a class="menu-icons" href="{% url 'home' %}" target="_blank">
+                        <i class="fas fa-home" data-placement="top" data-toggle="tooltip" title="{% trans 'Visit Website' %}"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Market Place Start -->
+            <!--<div class="dropdown main-header-message right-toggle">
+                <div class="nav-item full-screen" >
+                    <a class="menu-icons" href="{% url 'mp-dashboard-view' %}" target="_self">
+                        <i class="fas fa-store" data-placement="top" data-toggle="tooltip" title="{% trans 'Market Place' %}"></i>
+                    </a>
+                </div>
+            </div>-->
+            <!-- Market Place End -->
+
+            <!-- Full-screen Started -->
+            <div class="dropdown main-header-message right-toggle">
+                <div class="nav-item full-screen fullscreen-button">
+                    <a class="new nav-link full-screen-link menu-icons fullscreen" href="#">
+                        <svg class="svg-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                             viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                             stroke-linecap="round" stroke-linejoin="round" data-placement="top" data-toggle="tooltip" title="{% trans 'Switch to full Screen' %}">
+                            <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path>
+                        </svg>
+                    </a>
+                    <a class="new nav-link full-screen-link exit-fullscreen" href="#">
+                        <svg class="svg-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                             viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                             stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M8 3v3a2 2 0 0 1-2 2H3m18 0h-3a2 2 0 0 1-2-2V3m0 18v-3a2 2 0 0 1 2-2h3M3 16h3a2 2 0 0 1 2 2v3"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Notification Section  -->
+            {% include 'front/includes/dashboard/notification.html' %}
+            <!-- Notification closed -->
+
+            <!-- User Account Menu Start -->
+            <div class="dropdown main-profile-menu nav nav-item nav-link">
+                {% if user.profile_pic %}
+                <a class="profile-user"><img alt="{{user.first_name}} {{user.last_name}}" src="{% cropped_thumbnail user 'pp_cropped' width=35 %}"></a>
+                {% else %}
+                <a class="profile-user"><img src="{% static 'img/default.jpg' %}" alt="Default Image" class="avatar"></a>
+                {% endif %}
+                <div class="dropdown-menu animated fadeInUp">
+                    <div class="main-header-profile header-img">
+                        {% if user.first_name and user.last_name %}
+                        <h6>{{user.first_name}} {{user.last_name}}</h6><span>{{user.user_type}}</span>
+                        {% else %}
+                        <h6>Missing Name - <a class="text-center text-light" href="{% url 'edit-profile' %}">Edit Profile</a></h6><span>{{user.user_type}}</span>
+                        {% endif %}
+
+                    </div>
+                    <a class="dropdown-item" href="{% url 'change_password' %}" target="_parent"><i class="bx bx-key"></i> Change Password</a>
+                    <a class="dropdown-item" href="{% url 'members-detail' user.id %}" target="_blank"><i class="bx bx-user-circle"></i> My Profile</a>
+                    <a class="dropdown-item" href="{% url 'edit-profile' %}"><i class="bx bxs-edit"></i> Edit Profile</a>
+                    <a class="dropdown-item" href="{% url 'logout' %}"><i class="bx bx-log-out-circle"></i> Sign Out</a>
+                </div>
+            </div>
+            <!-- User Account Menu closed -->
+            <button class="navbar-toggler navresponsive-toggler" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent-4"
+                    aria-controls="navbarSupportedContent-4" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon bx bx-dots-vertical-rounded"></span>
+            </button><!-- Navresponsive closed -->
+        </div>
+    </div>
+</div>
+<!-- Main-header closed -->
+
+<!-- Mobile-header -->
+<div class="responsive main-header">
+    <div class="mb-1 navbar navbar-expand-lg  nav nav-item  navbar-nav-right responsive-navbar navbar-dark  ">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent-4">
+            <div class="d-flex order-lg-2 ml-auto">
+                <!-- Website Frontend -->
+                <div class="dropdown main-header-message right-toggle">
+                    <div class="nav-item full-screen">
+                        <a class="menu-icons" href="{% url 'home' %}" target="_blank">
+                            <i class="fas fa-globe" data-placement="top" data-toggle="tooltip"
+                               title="{% trans 'Visit Website' %}"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Market Place -->
+                <!--<div class="dropdown main-header-message right-toggle">
+                    <div class="nav-item full-screen">
+                        <a class="menu-icons" href="{% url 'mp-dashboard-view' %}" target="_self">
+                            <i class="fas fa-store" data-placement="top" data-toggle="tooltip"
+                               title="{% trans 'Market Place' %}"></i>
+                        </a>
+                    </div>
+                </div>-->
+
+                <div class="dropdown main-header-message right-toggle">
+                    <div class="nav-item full-screen fullscreen-button">
+                        <a class="new nav-link full-screen-link menu-icons fullscreen" href="#">
+                            <svg class="svg-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                 viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                 stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path>
+                            </svg>
+                        </a>
+                        <a class="new nav-link full-screen-link exit-fullscreen" href="#">
+                            <svg class="svg-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                 viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                 stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M8 3v3a2 2 0 0 1-2 2H3m18 0h-3a2 2 0 0 1-2-2V3m0 18v-3a2 2 0 0 1 2-2h3M3 16h3a2 2 0 0 1 2 2v3"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div><!-- Fullscreen closed -->
+
+                <!-- Notification Section  -->
+                {% include 'front/includes/dashboard/notification.html' %}
+                <!-- Notification closed -->
+
+                <div class="dropdown main-profile-menu nav nav-item nav-link">
+                    {% if user.profile_pic %}
+                    <a class="profile-user"><img alt="{{user.first_name}} {{user.last_name}}" src="{% cropped_thumbnail user 'pp_cropped' width=35 %}"></a></a>
+                    {% else %}
+                    <a class="profile-user"><img src="{% static 'img/default.jpg' %}" alt="Default Image" class="avatar"></a>
+                    {% endif %}
+
+                    <div class="dropdown-menu animated fadeInUp">
+                        <div class="main-header-profile header-img">
+                            <h6>{{user.first_name}} {{user.last_name}}</h6><span>{{user.user_type}}</span>
+                        </div>
+                        <a class="dropdown-item" href="{% url 'members-detail' user.id %}" target="_blank"><i class="bx bx-user-circle"></i> My Profile</a>
+                        <a class="dropdown-item" href="{% url 'edit-profile' %}"><i class="bx bxs-edit"></i> Edit Profile</a>
+                        <a class="dropdown-item" href="{% url 'logout' %}"><i class="bx bx-log-out-circle"></i> Sign Out</a>
+                    </div>
+                </div><!-- Main-profile-menu closed -->
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}
+<!-- Mobile-header closed -->

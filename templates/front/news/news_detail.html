@@ -1,0 +1,43 @@
+{% extends 'front/base.html' %}
+{% load static %}
+{% block meta %}
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>{{single_news.ln_title}} - Laughter Yoga International</title>
+    <meta name="keywords" content="News, Latest News, Dr Madan Katria, Laughter Guru"/>
+    <meta name="description" content="{{single_news.ln_title}}">
+    <meta name="author" content="Dr Madan Kataria">
+{% endblock %}
+{% block content %}
+<div role="main" class="main">
+    <!-- Breadcrumb Starts Here -->
+    <section class="page-header page-header-classic">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <ul class="breadcrumb">
+                        <li><a href="{% url 'home' %}" target="_parent" class="text-decoration-none">Home</a></li>
+                        <li><a href="{% url 'news' %}" target="_parent" class="text-decoration-none">Latest News</a></li>
+                        <li class="text-capitalize active">{{single_news.ln_title}}</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="container py-2">
+        <div class="row">
+            <!-- Body Starts Here -->
+            <div class="col-lg-9">
+                <h2 class="font-weight-normal text-4 mb-2">{{single_news.ln_title}}</h2>
+                <img class="float-left img-fluid" src="{{single_news.ln_image.url}}" alt="{{single_news.ln_slug}}" style="padding:10px 10px 0px 0px; width:326px; height:217px;">
+                <p>{{single_news.ln_description|safe}}</p>
+            </div>
+            <!-- SideBar Starts Here -->
+            <div class="col-lg-3 order-lg-2">
+                {% include 'front/includes/sidebar/default.html' %}
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

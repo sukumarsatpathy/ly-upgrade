@@ -1,0 +1,108 @@
+{% extends 'be/base.html' %}
+{% load static %}
+{% block meta %}
+<title>Edit Subscription - {{webSettingsUniversal.title}}</title>
+<meta name="description" content="{{frontendSettingsUniversal.metaDescription}}"/>
+<meta name="keywords" content="{{frontendSettingsUniversal.metaKeyword}}"/>
+<meta property="og:title" content="Edit Subscription - {{frontendSettingsUniversal.title}}"/>
+<meta property="og:url" content="{{request.scheme}}://{{request.get_host}}{{request.get_full_path}}"/>
+<meta property="og:site_name" content="{{userAccount.full_name}} - {{frontendSettingsUniversal.title}}"/>
+{% endblock %}
+{% block content %}
+<div class="d-flex flex-column flex-column-fluid">
+    <div class="app-content flex-column-fluid mt-10">
+        <div class="app-container container-xxl">
+            {% include 'be/includes/alert.html' %}
+            <div class="card">
+                <div class="card-header ribbon ribbon-end ribbon-clip">
+                    <div class="ribbon-label">
+                        Update
+                        <span class="ribbon-inner bg-warning"></span>
+                    </div>
+                    <div class="card-title fw-bold m-0">Updating &nbsp; <span class="text-primary">{{subscription.user.full_name}}'s</span>&nbsp; subscription</div>
+                </div>
+                <div class="card-body pt-0">
+                    <div class="card mb-5 mb-xl-10">
+                        <div class="collapse show">
+                            <form id="subscriptionForm" action="{% url 'subscriptionEdit' subscription.id %}"
+                                  method="post" class="form" enctype="multipart/form-data" >
+                                {% csrf_token %}
+                                <div class="card-body border-top p-9">
+                                    <div class="datepicker">
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                                <div class="form-floating mb-7 {% if sForm.startDate.errors %}has-error{% endif %} ">
+                                                    {{ sForm.startDate }}
+                                                    <label class="required fw-semibold fs-6 mb-2">Start Date and Time</label>
+                                                    {% for error in sForm.startDate.errors %}
+                                                    <div class="text-danger mt-2">
+                                                        {{ error|escape }}
+                                                    </div>
+                                                    {% endfor %}
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <div class="form-floating mb-7 {% if sForm.endDate.errors %}has-error{% endif %}">
+                                                    {{ sForm.endDate }}
+                                                    <label class="required fw-semibold fs-6 mb-2">End Date and Time</label>
+                                                    {% for error in sForm.endDate.errors %}
+                                                    <div class="text-danger mt-2">
+                                                        {{ error|escape }}
+                                                    </div>
+                                                    {% endfor %}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <div class="form-floating mb-7 {% if sForm.membership.errors %}has-error{% endif %}">
+                                                {{ sForm.membership }}
+                                                <label class="required">Membership</label>
+                                                {% for error in sForm.membership.errors %}
+                                                <div class="text-danger mt-2">
+                                                    {{ error|escape }}
+                                                </div>
+                                                {% endfor %}
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="form-floating mb-7 {% if sForm.status.errors %}has-error{% endif %}">
+                                                {{ sForm.status }}
+                                                <label class="required">Status</label>
+                                                {% for error in sForm.status.errors %}
+                                                <div class="text-danger mt-2">
+                                                    {{ error|escape }}
+                                                </div>
+                                                {% endfor %}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Non Field Errors -->
+                                    {% for error in sForm.non_field_errors %}
+                                    <div class="text-danger mt-2">
+                                        {{ error|escape }}
+                                    </div>
+                                    {% endfor %}
+                                </div>
+                                <div class="card-footer d-flex justify-content-end py-6 px-9">
+                                    <a href="{% url 'subscriptionList' %}" class="btn btn-light-info me-3">Discard</a>
+                                    <button type="submit" class="btn btn-primary">Save Changes</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block extraJS %}
+<!--begin::Custom Javascript(used for this page only)-->
+<script src="{% static 'be/js/jquery-3.3.1.min.js' %}"></script>
+<!-- Search User Based on input from database -->
+<script src="{% static 'be/plugins/custom/filter/load-user.js' %}"></script>
+<!-- Start/End Date time picker -->
+<script src="{% static 'be/plugins/custom/date/date-time-picker.js' %}"></script>
+{% endblock %}

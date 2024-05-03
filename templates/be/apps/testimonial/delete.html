@@ -1,0 +1,95 @@
+{% extends 'be/base.html' %}
+{% load static %}
+{% block meta %}
+<title>Delete Testimonial - {{webSettingsUniversal.title}}</title>
+<meta charset="utf-8"/>
+<meta name="description" content="{{frontendSettingsUniversal.metaDescription}}"/>
+<meta name="keywords" content="{{frontendSettingsUniversal.metaKeyword}}"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta property="og:locale" content="en_US"/>
+<meta property="og:type" content="article"/>
+<meta property="og:title" content="Delete Testimonial - {{frontendSettingsUniversal.title}}"/>
+<meta property="og:url" content="{{request.scheme}}://{{request.get_host}}{{request.get_full_path}}"/>
+<meta property="og:site_name" content="{{userAccount.full_name}} - {{frontendSettingsUniversal.title}}"/>
+{% endblock %}
+{% block content %}
+<div class="d-flex flex-column flex-column-fluid">
+    <div class="app-content flex-column-fluid mt-10">
+        <div class="app-container container-xxl">
+            {% include 'be/includes/alert.html' %}
+            <div class="card">
+                <div class="card-header ribbon ribbon-end ribbon-clip">
+                    <div class="ribbon-label">
+                        Delete
+                        <span class="ribbon-inner bg-danger"></span>
+                    </div>
+                    <div class="card-title fw-bold m-0">
+                        <span class="px-2">Testimonial Deletion of {{testimonial.publisher}} &#128073;</span>
+                        <div class="symbol symbol-rounded symbol-30px overflow-hidden me-3">
+                            <div class="symbol-label">
+                                <img src="{% if testimonial.image %}{{testimonial.image.url}}{% else %}{{webSettingsUniversal.default_user.url}}{% endif %}" alt="{{testimonial.publisher}}" class="w-100"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body pt-0">
+                    <div class="card mb-5 mb-xl-10">
+                        <div class="collapse show">
+                            <form action="{% url 'testimonialDelete' testimonial.pk %}" method="post" class="form"
+                                  enctype="multipart/form-data" novalidate>
+                                {% csrf_token %}
+                                <div class="card-body border-top p-9">
+                                    <div class="row">
+                                        <div class="col-md-6 col-lg-6">
+                                            <div class="border border-gray-300 border-dashed rounded min-w-125px py-3 px-4 me-7 mb-3">
+                                                <div class="fs-6 text-gray-800 fw-bold"><span class="text-success">{{testimonial.tm_title}}</span></div>
+                                                <div class="fw-semibold text-gray-400">Title</div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-lg-6">
+                                            <div class="border border-gray-300 border-dashed rounded min-w-125px py-3 px-4 me-7 mb-3">
+                                                <div class="fs-6 text-gray-800 fw-bold"><span class="text-success">{{testimonial.tm_description|safe|slice:":90"}}</span></div>
+                                                <div class="fw-semibold text-gray-400">Description</div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-lg-6">
+                                            <div class="border border-gray-300 border-dashed rounded min-w-125px py-3 px-4 me-7 mb-3">
+                                                <div class="fs-6 text-gray-800 fw-bold"><span class="text-success">{{testimonial.tm_location}}</span></div>
+                                                <div class="fw-semibold text-gray-400">Location</div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-lg-6">
+                                            <div class="border border-gray-300 border-dashed rounded min-w-125px py-3 px-4 me-7 mb-3">
+                                                <div class="fs-6 text-gray-800 fw-bold"><span class="text-success">{{testimonial.tm_author}}</span></div>
+                                                <div class="fw-semibold text-gray-400">Linked Account</div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-lg-6">
+                                            <div class="border border-gray-300 border-dashed rounded min-w-125px py-3 px-4 me-7 mb-3">
+                                                <div class="fs-6 text-gray-800 fw-bold"><span class="text-success text-capitalize">{{testimonial.tm_status}}</span></div>
+                                                <div class="fw-semibold text-gray-400">Status</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="my-3">
+                                    <div class="fs-6 text-danger text-center">You can't retrieve this data, once you press the delete button.</div>
+                                </div>
+                                <div class="card-footer d-flex justify-content-end py-6 px-9">
+                                    <a href="{% url 'testimonialList' %}" class="btn btn-light-info me-3">Discard</a>
+                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block extraJS %}
+<!--begin::Custom Javascript(used for this page only)-->
+
+<!--end::Custom Javascript-->
+{% endblock %}

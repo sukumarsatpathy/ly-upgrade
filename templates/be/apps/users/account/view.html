@@ -1,0 +1,128 @@
+{% extends 'be/base.html' %}
+{% load static %}
+{% block meta %}
+<title>View {{userAccount.full_name}} - {{webSettingsUniversal.title}}</title>
+<meta name="description" content="{{webSettingsUniversal.metaDescription}}"/>
+<meta name="keywords" content="{{webSettingsUniversal.metaKeyword}}"/>
+<meta property="og:title" content="View {{userAccount.full_name}} -{{webSettingsUniversal.title}}"/>
+<meta property="og:url" content="{{request.scheme}}://{{request.get_host}}{{request.get_full_path}}"/>
+<meta property="og:site_name" content="{{webSettingsUniversal.title}} - {{webSettingsUniversal.slogan}}"/>
+{% endblock %}
+{% block content %}
+<div class="d-flex flex-column flex-column-fluid">
+    <div class="app-content flex-column-fluid py-3 py-lg-14">
+        <div class="app-container container-xxl">
+            {% include 'be/includes/alert.html' %}
+            <div class="row g-5 g-xl-10 mb-5 mb-xl-10">
+                <!-- User Image Section Starts Here -->
+                <div class="col-xl-4">
+                    <!--begin::Chart Widget 35-->
+                    <div class="card mb-5 mb-xl-8">
+                        <!--begin::Body-->
+                        <div class="card-body pt-14">
+                            <div class="d-flex flex-center flex-column mb-5">
+                                <div class="symbol symbol-100px mb-7 border border-3
+                                    border-{% if has_active_membership %}success{% elif not has_active_membership %}primary{% else %}danger{% endif%}"
+                                     data-bs-toggle="tooltip" data-bs-placement="top"
+                                     title="{% if has_active_membership %}Membership Active{% elif not has_active_membership %}Super User{% else %}Membership Expired{% endif%}">
+                                    <img src="{% if userAccount.profile_pic.image %}{{userAccount.profile_pic.image.url}}{% else %}{{webSettingsUniversal.default_user.url}}{% endif %}"
+                                         alt="{{userAccount.full_name}}"/>
+                                </div>
+                                <a href="#" class="fs-3 text-gray-800 text-hover-primary fw-bold my-3">{{userAccount.full_name}}</a>
+                                <div class="fs-8 mb-2">
+                                    {% if userAccount.get_reg_num %}
+                                    <span class="badge badge-light-info">{{ userAccount.get_reg_num }}</span>
+                                    {% else %}
+                                    <span class="badge badge-light-danger">Generate Reg. No. Now &nbsp;
+                                        <span data-bs-toggle="tooltip" data-bs-dismiss="click" data-bs-placement="right"
+                                              title="Please update your address to generate registration number">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10"
+                                                 fill="currentColor" class="bi bi-info-circle text-gray-800"
+                                                 viewBox="0 0 16 16">
+                                                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                                <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+                                            </svg>
+                                        </span>
+                                    </span>
+                                    {% endif %}
+                                </div>
+                                <div class="fs-8 fw-semibold text-muted mb-3">{{userToken.self_token}}</div>
+                                <div class="fs-5 fw-semibold text-muted mb-6 text-center">
+                                    {% if userAccount.is_superuser %}
+                                    <div class="badge badge-light-primary">Super Admin</div><br>
+                                    {% endif %}
+                                    {% if has_active_membership %}
+                                        {% if membership_expires_soon %}
+                                            {% if days_until_expiry == 1 %}
+                                                <div class="badge badge-light-warning d-inline">Membership Expires Soon</div>
+                                            {% else %}
+                                                <div class="badge badge-light-danger d-inline">Membership expires in {{days_until_expiry}} day{{days_until_expiry|pluralize}}</div>
+<!--                                                {% if has_active_membership and membership_expires_soon %}-->
+<!--                                                <div class="alert alert-{% if days_until_expiry == 1 %}warning{% else %}danger{% endif %} mt-3">-->
+<!--                                                    Renew soon to avoid interruption.-->
+<!--                                                </div>-->
+<!--                                                {% endif %}-->
+                                            {% endif %}
+                                        {% else %}
+                                        <div class="badge badge-light-success d-inline">Active Membership</div>
+                                        {% endif %}
+                                    {% elif not has_active_membership %}
+                                    <div class="badge badge-light-primary d-inline">Membership Not Required</div>
+                                    {% else %}
+                                    <div class="badge badge-light-danger d-inline">Membership Expired</div>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                        <!--end::Body-->
+                    </div>
+                </div>
+                <div class="col-xl-4">
+                    <!--begin::Chart Widget 35-->
+                    <div class="card mb-5 mb-xl-8">
+                        <!--begin::Body-->
+                        <div class="card-body pt-5">
+                            <div class="d-flex flex-stack fs-4 py-5">
+                                <div class="fw-bold rotate collapsible">
+                                    Account Details
+                                </div>
+                                <span data-bs-toggle="tooltip" data-bs-trigger="hover"
+                                      data-bs-original-title="Edit customer details" data-kt-initialized="1">
+                                    <a href="{% url 'userEdit' user.pk %}" class="btn btn-sm btn-light-primary">
+                                        Edit
+                                    </a>
+                                </span>
+                            </div>
+                            <div class="separator separator-dashed my-1"></div>
+                            <div class="collapse show">
+                                <div class="py-3 fs-6">
+                                    <div class="fw-bold mt-5">Full Name</div>
+                                    <div class="text-gray-600">{{userAccount.get_full_name}}</div>
+                                    <div class="fw-bold mt-5">Username</div>
+                                    <div class="text-gray-600">{{userAccount.username}}</div>
+                                    <div class="fw-bold mt-5">Email</div>
+                                    <div class="text-gray-600">
+                                        <a class="text-gray-600 text-hover-primary">{{userAccount.email}}</a>
+                                    </div>
+                                    <div class="fw-bold mt-5">Phone Number</div>
+                                    <div class="text-gray-600">
+                                        {% if userAccount.contact_number %}
+                                        {{userAccount.contact_number}}
+                                        {% else %}
+                                        <span class="badge badge-light-warning">Not Provided</span>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block extraJS %}
+<!--begin::Custom Javascript(used for this page only)-->
+
+{% endblock %}

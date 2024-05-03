@@ -1,0 +1,24 @@
+{% extends 'front/dashboard-base.html' %}
+{% load i18n %}
+{% load static %}
+{% load cropping %}
+{% block content %}
+<div class="row row-sm">
+    <div class="col-xl-4 col-lg-6 col-md-12 col-sm-12">
+        <div class="card overflow-hidden">
+            <div class="card-header bg-transparent pd-b-0 pd-t-20 bd-b-0">
+                <div class="d-flex justify-content-between">
+                    <h4 class="card-title mg-b-10">Membership Card</h4>
+                </div>
+                <p class="tx-12 tx-gray-500 mb-0">The system will automatically generate a membership card after
+                    clicking generate now button.</p>
+            </div><!-- card-header -->
+            <div class="card-body pt-2">
+                <div class="mb-0">
+                    <a href="{% url 'membership-card' user.id %}" class="btn btn-warning">Generate Membership Card</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

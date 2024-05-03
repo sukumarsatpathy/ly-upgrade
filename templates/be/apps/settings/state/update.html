@@ -1,0 +1,97 @@
+{% extends 'be/base.html' %}
+{% load static %}
+{% block meta %}
+<title>Update {{singleCountry.name}} - {{webSettingsUniversal.title}}</title>
+<meta name="description" content="{{webSettingsUniversal.metaDescription}}"/>
+<meta name="keywords" content="{{webSettingsUniversal.metaKeyword}}"/>
+<meta property="og:title" content="Update {{singleCountry.name}} -{{webSettingsUniversal.title}}"/>
+<meta property="og:url" content="{{request.scheme}}://{{request.get_host}}{{request.get_full_path}}"/>
+<meta property="og:site_name" content="{{webSettingsUniversal.title}} - {{webSettingsUniversal.slogan}}"/>
+{% endblock %}
+{% block content %}
+<div class="d-flex flex-column flex-column-fluid">
+    <div class="app-content flex-column-fluid mt-10">
+        <div class="app-container container-xxl">
+            {% include 'be/includes/alert.html' %}
+            <div class="card">
+                <div class="card-header ribbon ribbon-end ribbon-clip">
+                    <div class="ribbon-label">
+                        Update
+                        <span class="ribbon-inner bg-warning"></span>
+                    </div>
+                    <div class="card-title fw-bold m-0">
+                        <span class="px-2">Update Details of</span> <span class="text-danger fw-bold">{{singleState.name}}</span>
+                    </div>
+                </div>
+                <div class="card-body pt-0">
+                    <div class="card mb-5 mb-xl-10">
+                        <div class="collapse show">
+                            <form action="{% url 'stateUpdate' singleState.pk %}" method="post" class="form"
+                                  enctype="multipart/form-data" novalidate>
+                                {% csrf_token %}
+                                <div class="card-body border-top p-9">
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <div class="form-floating mb-7 {% if state_form.country.errors %}has-error{% endif %}">
+                                                {{ state_form.country }}
+                                                <label class="required">Country Name</label>
+                                                {% for error in state_form.country.errors %}
+                                                <div class="text-danger">
+                                                    <strong>{{ error|escape }}</strong>
+                                                </div>
+                                                {% endfor %}
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="form-floating mb-7 {% if state_form.name.errors %}has-error{% endif %}">
+                                                {{ state_form.name }}
+                                                <label class="required">State Name</label>
+                                                {% for error in state_form.name.errors %}
+                                                <div class="text-danger">
+                                                    <strong>{{ error|escape }}</strong>
+                                                </div>
+                                                {% endfor %}
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="form-floating mb-7 {% if state_form.latitude.errors %}has-error{% endif %}">
+                                                {{ state_form.latitude }}
+                                                <label class="required">Latitude</label>
+                                                {% for error in state_form.latitude.errors %}
+                                                <div class="text-danger">
+                                                    <strong>{{ error|escape }}</strong>
+                                                </div>
+                                                {% endfor %}
+                                            </div>
+                                        </div>
+                                        <!-- ... and so on for all fields ... -->
+                                        <div class="col-lg-6">
+                                            <div class="form-floating mb-7 {% if state_form.status.errors %}has-error{% endif %}">
+                                                {{ state_form.status }}
+                                                <label class="required">Status</label>
+                                                {% for error in state_form.status.errors %}
+                                                <div class="text-danger">
+                                                    <strong>{{ error|escape }}</strong>
+                                                </div>
+                                                {% endfor %}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-footer d-flex justify-content-end py-6 px-9">
+                                    <a href="{% url 'stateList' %}" class="btn btn-light-info me-3">Discard</a>
+                                    <button type="submit" class="btn btn-primary">Save Changes</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block extraJS %}
+<!--begin::Custom Javascript(used for this page only)-->
+<!--end::Custom Javascript-->
+{% endblock %}

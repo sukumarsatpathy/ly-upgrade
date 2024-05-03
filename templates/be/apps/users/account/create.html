@@ -1,0 +1,153 @@
+{% extends 'be/base.html' %}
+{% load static %}
+{% block meta %}
+<title>Add Account - {{webSettingsUniversal.title}}</title>
+<meta charset="utf-8"/>
+<meta name="description" content="{{frontendSettingsUniversal.metaDescription}}"/>
+<meta name="keywords" content="{{frontendSettingsUniversal.metaKeyword}}"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta property="og:locale" content="en_US"/>
+<meta property="og:type" content="article"/>
+<meta property="og:title" content="Add Account - {{frontendSettingsUniversal.title}}"/>
+<meta property="og:url" content="{{request.scheme}}://{{request.get_host}}{{request.get_full_path}}"/>
+<meta property="og:site_name" content="{{userAccount.full_name}} - {{frontendSettingsUniversal.title}}"/>
+{% endblock %}
+{% block content %}
+<div class="d-flex flex-column flex-column-fluid">
+    <div class="app-content flex-column-fluid mt-10">
+        <div class="app-container container-xxl">
+            <div class="card">
+                <div class="card-header ribbon ribbon-end ribbon-clip">
+                    <div class="ribbon-label">
+                        Create
+                        <span class="ribbon-inner bg-primary"></span>
+                    </div>
+                    <div class="card-title fw-bold m-0">Add Account</div>
+                </div>
+                <div class="card-body pt-0">
+                    <div class="card mb-5 mb-xl-10">
+                        <div class="collapse show">
+                            <form action="{% url 'userAdd' %}" method="post" class="form" enctype="multipart/form-data"
+                                  novalidate>
+                                {% csrf_token %}
+                                <div class="card-body border-top p-9">
+                                    <div class="row">
+
+                                        <!-- First Name -->
+                                        <div class="col-lg-6">
+                                            <div class="form-floating mb-7 {% if userForm.first_name.errors %}has-error{% endif %}">
+                                                {{ userForm.first_name }}
+                                                <label class="required">First Name</label>
+                                                {% for error in userForm.first_name.errors %}
+                                                <div class="text-danger mt-2">
+                                                    {{ error|escape }}
+                                                </div>
+                                                {% endfor %}
+                                            </div>
+                                        </div>
+
+                                        <!-- Last Name -->
+                                        <div class="col-lg-6">
+                                            <div class="form-floating mb-7 {% if userForm.last_name.errors %}has-error{% endif %}">
+                                                {{ userForm.last_name }}
+                                                <label class="required">Last Name</label>
+                                                {% for error in userForm.last_name.errors %}
+                                                <div class="text-danger mt-2">
+                                                    {{ error|escape }}
+                                                </div>
+                                                {% endfor %}
+                                            </div>
+                                        </div>
+
+                                        <!-- Email Address -->
+                                        <div class="col-lg-6">
+                                            <div class="form-floating mb-7 {% if userForm.email.errors %}has-error{% endif %}">
+                                                {{ userForm.email }}
+                                                <label class="required">Email Address</label>
+                                                {% for error in userForm.email.errors %}
+                                                <div class="text-danger mt-2">
+                                                    {{ error|escape }}
+                                                </div>
+                                                {% endfor %}
+                                            </div>
+                                        </div>
+
+                                        <!-- Contact -->
+                                        <div class="col-lg-6">
+                                            <div class="form-floating mb-7 {% if userForm.phone_number.errors %}has-error{% endif %}">
+                                                {{ userForm.phone_number }}
+                                                <label class="required">Contact</label>
+                                                {% for error in userForm.phone_number.errors %}
+                                                <div class="text-danger mt-2">
+                                                    {{ error|escape }}
+                                                </div>
+                                                {% endfor %}
+                                            </div>
+                                        </div>
+
+                                        <!-- Password -->
+                                        <div class="col-lg-6">
+                                            <div class="form-floating mb-7 {% if userForm.password.errors %}has-error{% endif %}">
+                                                {{ userForm.password }}
+                                                <label class="required">Password</label>
+                                                {% for error in userForm.password.errors %}
+                                                <div class="text-danger mt-2">
+                                                    {{ error|escape }}
+                                                </div>
+                                                {% endfor %}
+                                            </div>
+                                        </div>
+
+                                        <!-- Confirm Password -->
+                                        <div class="col-lg-6">
+                                            <div class="form-floating mb-7 {% if userForm.confirm_password.errors %}has-error{% endif %}">
+                                                {{ userForm.confirm_password }}
+                                                <label class="required">Confirm Password</label>
+                                                {% for error in userForm.confirm_password.errors %}
+                                                <div class="text-danger mt-2">
+                                                    {{ error|escape }}
+                                                </div>
+                                                {% endfor %}
+                                            </div>
+                                        </div>
+
+                                        <!-- Status -->
+                                        <div class="col-lg-6">
+                                            <div class="form-floating mb-7 {% if userForm.status.errors %}has-error{% endif %}">
+                                                {{ userForm.status }}
+                                                <label class="required">Status</label>
+                                                {% for error in userForm.status.errors %}
+                                                <div class="text-danger mt-2">
+                                                    {{ error|escape }}
+                                                </div>
+                                                {% endfor %}
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Non Field Errors -->
+                                    {% for error in userForm.non_field_errors %}
+                                    <div class="text-danger mt-2">
+                                        {{ error|escape }}
+                                    </div>
+                                    {% endfor %}
+                                </div>
+
+                                <div class="card-footer d-flex justify-content-end py-6 px-9">
+                                    <a href="{% url 'userList' %}" class="btn btn-light-info me-3">Discard</a>
+                                    <button type="submit" class="btn btn-primary">Save Changes</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block extraJS %}
+<!--begin::Custom Javascript(used for this page only)-->
+
+<!--end::Custom Javascript-->
+{% endblock %}

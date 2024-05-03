@@ -1,0 +1,261 @@
+{% extends 'front/base.html' %}
+{% load static %}
+{% load i18n %}
+{% load cropping %}
+{% block meta %}
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>DrK's Upcoming Events - Laughter Yoga International</title>
+<meta name="keywords" content="laughter, laughter yoga, laughter lessons, laughter course"/>
+<meta name="description" content="The list of upcoming events from Dr Kataria">
+<meta name="author" content="Dr Madan Kataria">
+<style>
+    body{
+        font: normal 18px / 28px "Mulish",Helvetica,Arial,Verdana,sans-serif !important;
+    }
+    .card-body{
+        padding: 0 !important;
+    }
+    .icon-container {
+        position: relative;
+        display: inline-block;
+    }
+
+    .svg-icon {
+        position: relative;
+        z-index: 1;
+    }
+
+    .date-text {
+        position: absolute;
+        top: 60%;  /* Adjust these values as needed */
+        left: 50%; /* Adjust these values as needed */
+        transform: translate(-50%, -50%);
+        z-index: 2;
+        font-size: 17px;
+        /* Additional styling for the text */
+        margin:0;
+        padding:0;
+        letter-spacing:0;
+    }
+    .cstmBtnDisabled {
+        background-color: #A2A7B0;
+        color: #fff;
+        padding: 10px 15px;
+        border-radius: 7px;
+        text-decoration: none;
+    }
+
+   .cstmBtn {
+        color: #fff;
+        padding: 10px 15px;
+        border-radius: 7px;
+        text-decoration: none;
+    }
+
+    .cstmBtn:hover {
+        color: #fdfdfd;
+        padding: 10px 15px;
+        border-radius: 7px;
+        text-decoration: none;
+    }
+    .cstmTxt {
+         color: #006CFD;
+         font-size: 14px;
+         line-height: 10px !important;
+    }
+
+    .cstmSvg {
+        color: #909090;
+    }
+    .fixed-bottom {
+      position: fixed;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: 1;
+    }
+    .position-absolute {
+      position: absolute !important;
+    }
+    .month-section {
+        margin-top: 70px; /* Adjust the space as needed */
+    }
+</style>
+{% endblock %}
+{% block content %}
+<div class="owl-carousel-wrapper mb-3" style="height: 600px;">
+    <div class="owl-carousel dots-inside dots-horizontal-center dots-light show-dots-hover show-dots-xs nav-inside nav-inside-plus nav-dark nav-md nav-font-size-md show-nav-hover mb-0"
+         data-plugin-options="{'responsive': {'0': {'items': 1}, '479': {'items': 1}, '768': {'items': 1}, '979': {'items': 1}, '1199': {'items': 1}}, 'loop': false, 'autoHeight': false, 'margin': 0, 'dots': true, 'dotsVerticalOffset': '-75px', 'nav': false, 'animateIn': 'fadeIn', 'animateOut': 'fadeOut', 'mouseDrag': false, 'touchDrag': false, 'pullDrag': false, 'autoplay': true, 'autoplayTimeout': 9000, 'autoplayHoverPause': true, 'rewind': true}">
+        <img src="{% static 'img/slides/drk-upcoming-events.png' %}"/>
+    </div>
+</div>
+<section class="main">
+    <div class="container pt-md-4 pt-xl-0">
+        {% for month_year, all_events in grouped_events.items %}
+            <div class="row px-lg-2 mt-5" style="background-color: #e4e4e4; margin: 0px 1px 10px; border-radius:5px; padding-top: 10px;">
+                <div class="col-6">
+                    <span class="h4"><strong>{{ month_year }}</strong></span>
+                </div>
+                <div class="col-6 text-right">
+                    <span>{{ all_events|length }} Results</span>
+                </div>
+            </div>
+            {% for events in all_events %}
+            <div class="col-md-12 shadow-sm border rounded-lg mb-4 white-bg p-0 mr-0">
+                <div class="row">
+                    <div class="col-md-4 text-center">
+                        <img src="{{events.image.url}}" class="img-fluid">
+                    </div>
+                    <div class="d-block d-md-none w-details col-md-6 p-3 mr-3 d-flex">
+                        <div class="text-left ml-32 w-100">
+                            <div class="flex flex-row justify-content-start p-3">
+                                <h5 class="font-weight-bold">{{events.title}}</h5>
+                                {% if events.days_left %}
+                                    <span class="badge badge-info">{{ events.days_left }}</span>
+                                {% endif %}
+                                <div class="pt-1">
+                                    <span class="text-muted">
+                                        <img class="text-muted float-left mr-2" loading="lazy"
+                                             src="{% static 'img/icons/date.png' %}" width="30" height="30"
+                                             alt="Global"><b>Start Date:</b> {{events.startDate|date:'M d'}}
+                                    </span><br>
+                                </div>
+                                <div class="pt-1">
+                                    <span class="text-muted">
+                                        <img class="text-muted float-left mr-2" loading="lazy"
+                                             src="{% static 'img/icons/duration.png' %}" width="30" height="30"
+                                             alt="Global"><b>Duration:</b> {{events.duration}}
+                                    </span><br>
+                                </div>
+                                <div class="pt-1">
+                                    <span class="text-muted">
+                                        <img class="text-muted float-left mr-2" loading="lazy"
+                                             src="{% static 'img/icons/time.png' %}" width="30" height="30"
+                                             alt="Timing Icon">
+                                        <b>Time (IST):</b>  {{events.timing}}
+                                    </span><br>
+                                </div>
+                                <div class="pt-1">
+                                    <span class="text-muted">
+                                        <img class="text-muted float-left mr-2" loading="lazy"
+                                             src="{% static 'img/icons/language.png' %}" width="30" height="30"
+                                             alt="Language Icon">
+                                        <b>Language:</b>  {{events.language}}
+                                    </span><br>
+                                </div>
+                                <div class="relative cursor-pointer text-muted mt-3">
+                                    {{events.description}}
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-5 mx-3">
+                                    {% if events.is_active %}
+                                    <a target="_blank" href="{{events.btnURL}}" class="cstmBtn btn-block" style="background-color: {{events.btnBgColor}}; text-align: center;">
+                                        {{events.btnText}}
+                                    </a>
+                                    {% else %}
+                                    <span class="cstmBtnDisabled btn-block text-center">{{events.btnText}}</span>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-none d-md-block col-md-8 py-4">
+                        <div class="row">
+                            <div class="col-md-12">
+                                {% if events.days_left %}
+                                <span class="badge badge-info float-right" style="margin-right: 30px; margin-left:5px;">{{ events.days_left }}</span>
+                                {% endif %}
+                                <h5 class="font-weight-bold">{{events.title}}</h5>
+                                <div class="description relative cursor-pointer text-muted mt-3">
+                                    {{events.description}}
+                                </div>
+                                <br>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="row ml-2 mt-3">
+                                    <div class="col-md-9 pl-0">
+                                        <div class="row align-items-center">
+                                            <div class="col-md-3  pl-0 pb-0 pr-0 pt-0 m-0 border-right">
+                                                <div class="row align-items-center p-0 m-0">
+                                                    <div class="col-sm-4 p-0 m-0 align-items-center">
+                                                        <img class="text-muted float-right" loading="lazy"
+                                                             src="{% static 'img/icons/date.png' %}" width="50" height="50"
+                                                             alt="Global">
+                                                    </div>
+                                                    <div class="col-sm-8 pt-0 pl-2 m-0 pr-0">
+                                                        <span class="text-muted" style=""><b>Start Date</b></span><br>
+                                                        <span class="text-muted"
+                                                              style="">{{events.startDate|date:'M d'}}</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3  pl-1 pb-0 pr-0 pt-0 m-0 border-right">
+                                                <div class="row align-items-center p-0 m-0">
+                                                    <div class="col-sm-4 p-0 m-0 align-items-center">
+                                                        <img class="text-muted float-right" loading="lazy"
+                                                             src="{% static 'img/icons/duration.png' %}" width="50"
+                                                             height="50"
+                                                             alt="Global">
+                                                    </div>
+                                                    <div class="col-sm-8 pt-0 pl-2 m-0 pr-0">
+                                                        <span class="text-muted" style=" "><b>Duration</b></span><br>
+                                                        <span class="text-muted" style=" "> {{events.duration}}</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3  pl-1 pb-0 pr-0 pt-0 m-0 border-right">
+                                                <div class="row align-items-center  p-0 m-0">
+                                                    <div class="col-sm-4 p-0 m-0 align-items-center">
+                                                        <img class="text-muted float-right" loading="lazy"
+                                                             src="{% static 'img/icons/time.png' %}" width="50" height="50"
+                                                             alt="Global">
+                                                    </div>
+                                                    <div class="col-sm-8 pt-0 pl-2 m-0 pr-0">
+                                                        <span class="text-muted" style=" "><b>Time (IST)</b></span><br>
+                                                        <span class="text-muted" style=" "> {{events.timing}}</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3  pl-1 pb-0 pr-0 pt-0 m-0">
+                                                <div class="row align-items-center  p-0 m-0">
+                                                    <div class="col-sm-4 p-0 m-0 align-items-center">
+                                                        <img class="text-muted float-right" loading="lazy"
+                                                             src="{% static 'img/icons/language.png' %}" width="50"
+                                                             height="50"
+                                                             alt="Global">
+                                                    </div>
+                                                    <div class="col-sm-8 pt-0 pl-2 m-0 pr-0">
+                                                        <span class="text-muted" style=" "><b>Language</b></span><br>
+                                                        <span class="text-muted" style=" "> {{events.language}}</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 mt-1">
+                                        {% if events.is_active %}
+                                        <a target="_blank" href="{{events.btnURL}}" class="cstmBtn btn-block" style="background-color:{{events.btnBgColor}}; text-align: center;">
+                                            <span style="margin-top:10px;">{{events.btnText}}</span>
+                                        </a>
+                                        {% else %}
+                                        <span class="cstmBtnDisabled text-center">{{events.btnText}}</span>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        {% empty %}
+            <p>No upcoming events.</p>
+        {% endfor %}
+    </div>
+</section>
+
+{% endblock %}

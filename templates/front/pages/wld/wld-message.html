@@ -1,0 +1,236 @@
+{% extends 'front/base.html' %}
+{% load static %}
+{% load cropping %}
+{% block meta %}
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>World Laughter Day Messages - Laughter Yoga International</title>
+    <meta name="keywords" content="laughter yoga international, laughter yoga, laughing yoga, laughter therapy, laughing therapy, humor therapy, hasya yoga, laughter is the best medicine, laughter yoga exercises, laughter yoga classes near me, laughter yoga for cancer, laughter yoga for hypertension, laughter yoga for diabetes, laughter yoga for addictions, laughter yoga for depression, laughter yoga for mental health, laughter yoga for anxiety, laughter yoga for weight loss, laughter yoga for insomnia, laughter yoga for stress, laughter yoga for stress release, laughter yoga for peak performance, laughter yoga for creativity, laughter yoga team building, laughter clubs, laugh clubs, laughter yoga trainings, laughter coaching, laughter therapy training, laughter course, laughter certifications, laughter meditation, laughter quotes, laughter yoga dvds, laughter training videos, laughing guru, Dr Madan Kataria"/>
+    <meta name="description" content="Are you stressed out, depressed, and having health problems? Do you want to bring more laughter and joy into your life? Laughter Yoga is the right choice for you">
+    <meta name="author" content="Dr Madan Kataria">
+
+    <!-- Facebook Sharing Content -->
+    <meta property="og:site_name" content="Laughter Yoga International">
+    <meta property="og:title" content="World Laughter Day - Laughter Yoga International">
+    <meta property="og:url" content="https://www.laughteryoga.org">
+    <!--<meta property="og:image" content="{% static 'img/extra/home-social.webp' %}">-->
+    <meta property="og:description" content="Stressed Out? Bring more laughter into your life Join Online Free Laughter Club">
+{% endblock %}
+{% block content %}
+<div role="main" class="main">
+    <!-- Breadcrumb Starts Here -->
+    <section class="page-header page-header-classic">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <ul class="breadcrumb">
+                        <li><a href="{% url 'home' %}" target="_parent" class="text-decoration-none">Home</a></li>
+                        <li><a href="{% url 'world-laughter-day' %}" target="_parent" class="text-decoration-none">World Laughter Day</a></li>
+                        <li class="active">Download Message from DrK</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container py-3 my-5">
+        <div class="row">
+            <div class="col-lg-9 order-lg-1">
+                <p class="h3 text-center pb-3">Download Messages from DrK</p>
+                <!-- Row 1 -->
+                <div class="row pb-3">
+                    <div class="col-lg-4">
+                        <span class="thumb-info thumb-info-no-borders thumb-info-no-borders-rounded thumb-info-centered-icons">
+                            <span class="thumb-info-wrapper">
+                                <img src="{% static 'img/wld/msg/jpg/2023/wld-msg-english.jpg' %}" class="img-fluid border" alt="">
+                                <span class="thumb-info-action">
+                                    <a href="{% static 'img/wld/msg/pdf/2023/wld-msg-english.pdf' %}" target="_blank" download>
+                                        <span class="thumb-info-action-icon thumb-info-action-icon-light"><i class="fas fa-download"></i></span>
+                                    </a>
+                                </span>
+                            </span>
+                            <p class="text-center font-weight-bold">WLD Message English</p>
+                        </span>
+                    </div>
+                    <div class="col-lg-4">
+                        <span class="thumb-info thumb-info-no-borders thumb-info-no-borders-rounded thumb-info-centered-icons">
+                            <span class="thumb-info-wrapper">
+                                <img src="{% static 'img/wld/msg/jpg/2023/wld-msg-japanese.jpg' %}" class="img-fluid border" alt="">
+                                <span class="thumb-info-action">
+                                    <a href="{% static 'img/wld/msg/pdf/2023/wld-msg-japanese.pdf' %}" target="_blank" download>
+                                        <span class="thumb-info-action-icon thumb-info-action-icon-light"><i class="fas fa-download"></i></span>
+                                    </a>
+                                </span>
+                            </span>
+                            <p class="text-center font-weight-bold">WLD Message Japanese</p>
+                        </span>
+                    </div>
+                    <div class="col-lg-4">
+                        <span class="thumb-info thumb-info-no-borders thumb-info-no-borders-rounded thumb-info-centered-icons">
+                            <span class="thumb-info-wrapper">
+                                <img src="{% static 'img/wld/msg/jpg/2023/wld-msg-german.jpg' %}" class="img-fluid border" alt="">
+                                <span class="thumb-info-action">
+                                    <a href="{% static 'img/wld/msg/pdf/2023/wld-msg-german.pdf' %}" target="_blank" download>
+                                        <span class="thumb-info-action-icon thumb-info-action-icon-light"><i class="fas fa-download"></i></span>
+                                    </a>
+                                </span>
+                            </span>
+                            <p class="text-center font-weight-bold">WLD Message German</p>
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Row 2 -->
+                <div class="row pb-3">
+                    <div class="col-lg-4">
+                        <span class="thumb-info thumb-info-no-borders thumb-info-no-borders-rounded thumb-info-centered-icons">
+                            <span class="thumb-info-wrapper">
+                                <img src="{% static 'img/wld/msg/jpg/2023/wld-msg-french.jpg' %}" class="img-fluid border" alt="">
+                                <span class="thumb-info-action">
+                                    <a href="{% static 'img/wld/msg/pdf/2023/wld-msg-french.pdf' %}" target="_blank" download>
+                                        <span class="thumb-info-action-icon thumb-info-action-icon-light"><i class="fas fa-download"></i></span>
+                                    </a>
+                                </span>
+                            </span>
+                            <p class="text-center font-weight-bold">WLD Message French</p>
+                        </span>
+                    </div>
+                    <div class="col-lg-4">
+                        <span class="thumb-info thumb-info-no-borders thumb-info-no-borders-rounded thumb-info-centered-icons">
+                            <span class="thumb-info-wrapper">
+                                <img src="{% static 'img/wld/msg/jpg/2023/wld-msg-italian.jpg' %}" class="img-fluid border" alt="">
+                                <span class="thumb-info-action">
+                                    <a href="{% static 'img/wld/msg/pdf/2023/wld-msg-italian.pdf' %}" target="_blank" download>
+                                        <span class="thumb-info-action-icon thumb-info-action-icon-light"><i class="fas fa-download"></i></span>
+                                    </a>
+                                </span>
+                            </span>
+                            <p class="text-center font-weight-bold">WLD Message Italian</p>
+                        </span>
+                    </div>
+                    <div class="col-lg-4">
+                        <span class="thumb-info thumb-info-no-borders thumb-info-no-borders-rounded thumb-info-centered-icons">
+                            <span class="thumb-info-wrapper">
+                                <img src="{% static 'img/wld/msg/jpg/2023/wld-msg-spanish.jpg' %}" class="img-fluid border" alt="">
+                                <span class="thumb-info-action">
+                                    <a href="{% static 'img/wld/msg/pdf/2023/wld-msg-spanish.pdf' %}" target="_blank" download>
+                                        <span class="thumb-info-action-icon thumb-info-action-icon-light"><i class="fas fa-download"></i></span>
+                                    </a>
+                                </span>
+                            </span>
+                            <p class="text-center font-weight-bold">WLD Message Spanish</p>
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Row 3 -->
+                <div class="row pb-3">
+                    <div class="col-lg-4">
+                        <span class="thumb-info thumb-info-no-borders thumb-info-no-borders-rounded thumb-info-centered-icons">
+                            <span class="thumb-info-wrapper">
+                                <img src="{% static 'img/wld/msg/jpg/2023/wld-msg-russian.jpg' %}" class="img-fluid border" alt="">
+                                <span class="thumb-info-action">
+                                    <a href="{% static 'img/wld/msg/pdf/2023/wld-msg-russian.pdf' %}" target="_blank" download>
+                                        <span class="thumb-info-action-icon thumb-info-action-icon-light"><i class="fas fa-download"></i></span>
+                                    </a>
+                                </span>
+                            </span>
+                            <p class="text-center font-weight-bold">WLD Message Russian</p>
+                        </span>
+                    </div>
+                    <div class="col-lg-4">
+                        <span class="thumb-info thumb-info-no-borders thumb-info-no-borders-rounded thumb-info-centered-icons">
+                            <span class="thumb-info-wrapper">
+                                <img src="{% static 'img/wld/msg/jpg/2023/wld-msg-romanian.jpg' %}" class="img-fluid border" alt="">
+                                <span class="thumb-info-action">
+                                    <a href="{% static 'img/wld/msg/pdf/2023/wld-msg-romanian.pdf' %}" target="_blank" download>
+                                        <span class="thumb-info-action-icon thumb-info-action-icon-light"><i class="fas fa-download"></i></span>
+                                    </a>
+                                </span>
+                            </span>
+                            <p class="text-center font-weight-bold">WLD Message Romanian</p>
+                        </span>
+                    </div>
+                    <div class="col-lg-4">
+                        <span class="thumb-info thumb-info-no-borders thumb-info-no-borders-rounded thumb-info-centered-icons">
+                            <span class="thumb-info-wrapper">
+                                <img src="{% static 'img/wld/msg/jpg/2023/wld-msg-hewbrew.jpg' %}" class="img-fluid border" alt="">
+                                <span class="thumb-info-action">
+                                    <a href="{% static 'img/wld/msg/pdf/2023/wld-msg-hewbrew.pdf' %}" target="_blank" download>
+                                        <span class="thumb-info-action-icon thumb-info-action-icon-light"><i class="fas fa-download"></i></span>
+                                    </a>
+                                </span>
+                            </span>
+                            <p class="text-center font-weight-bold">WLD Message Hewbrew</p>
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Row 4 -->
+                <div class="row pb-3">
+                    <div class="col-lg-4">
+                        <span class="thumb-info thumb-info-no-borders thumb-info-no-borders-rounded thumb-info-centered-icons">
+                            <span class="thumb-info-wrapper">
+                                <img src="{% static 'img/wld/msg/jpg/2023/wld-msg-chinese1.jpg' %}" class="img-fluid border" alt="">
+                                <span class="thumb-info-action">
+                                    <a href="{% static 'img/wld/msg/2023/pdf/wld-msg-chinese1.pdf' %}" target="_blank" download>
+                                        <span class="thumb-info-action-icon thumb-info-action-icon-light"><i class="fas fa-download"></i></span>
+                                    </a>
+                                </span>
+                            </span>
+                            <p class="text-center font-weight-bold">WLD Message Chinese 1</p>
+                        </span>
+                    </div>
+                    <div class="col-lg-4">
+                        <span class="thumb-info thumb-info-no-borders thumb-info-no-borders-rounded thumb-info-centered-icons">
+                            <span class="thumb-info-wrapper">
+                                <img src="{% static 'img/wld/msg/jpg/2023/wld-msg-chinese2.jpg' %}" class="img-fluid border" alt="">
+                                <span class="thumb-info-action">
+                                    <a href="{% static 'img/wld/msg/pdf/2023/wld-msg-chinese2.pdf' %}" target="_blank" download>
+                                        <span class="thumb-info-action-icon thumb-info-action-icon-light"><i class="fas fa-download"></i></span>
+                                    </a>
+                                </span>
+                            </span>
+                            <p class="text-center font-weight-bold">WLD Message Chinese 2</p>
+                        </span>
+                    </div>
+                    <div class="col-lg-4">
+                        <span class="thumb-info thumb-info-no-borders thumb-info-no-borders-rounded thumb-info-centered-icons">
+                            <span class="thumb-info-wrapper">
+                                <img src="{% static 'img/wld/msg/jpg/2023/wld-msg-greek.jpg' %}" class="img-fluid border" alt="">
+                                <span class="thumb-info-action">
+                                    <a href="{% static 'img/wld/msg/pdf/2023/wld-msg-greek.pdf' %}" target="_blank" download>
+                                        <span class="thumb-info-action-icon thumb-info-action-icon-light"><i class="fas fa-download"></i></span>
+                                    </a>
+                                </span>
+                            </span>
+                            <p class="text-center font-weight-bold">WLD Message Greek</p>
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Row 5 -->
+                <div class="row">
+                    <div class="col-lg-4">
+                        <span class="thumb-info thumb-info-no-borders thumb-info-no-borders-rounded thumb-info-centered-icons">
+                            <span class="thumb-info-wrapper">
+                                <img src="{% static 'img/wld/msg/jpg/2023/wld-msg-turkish.jpg' %}" class="img-fluid border" alt="">
+                                <span class="thumb-info-action">
+                                    <a href="{% static 'img/wld/msg/pdf/2023/wld-msg-turkish.pdf' %}" target="_blank" download>
+                                        <span class="thumb-info-action-icon thumb-info-action-icon-light"><i class="fas fa-download"></i></span>
+                                    </a>
+                                </span>
+                            </span>
+                            <p class="text-center font-weight-bold">WLD Message Turkish</p>
+                        </span>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-lg-3 order-lg-2">
+                {% include 'front/includes/sidebar/wld-sidebar.html' %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

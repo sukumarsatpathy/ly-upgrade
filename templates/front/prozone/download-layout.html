@@ -1,0 +1,40 @@
+{% extends 'front/base.html' %}
+{% load i18n %}
+{% load cropping %}
+{% block content %}
+<div role="main" class="main">
+    {% include 'front/includes/breadcrumb.html' %}
+    <div class="container py-2">
+        <div class="row">
+            <div class="col-lg-9">
+                <h3>{% trans 'Download Resources' %}</h3>
+                <div class="row">
+                    {% for downloads in all_downloads %}
+                    <div class="col-md-6 col-lg-4 mb-5 mb-lg-0 appear-animation animated fadeInUpShorter appear-animation-visible"
+                         data-appear-animation="fadeInUpShorter" data-appear-animation-delay="600"
+                         style="animation-delay: 600ms;">
+                        <div class="card flip-card flip-card-3d text-center rounded-0">
+                            <div class="flip-front p-5">
+                                <div class="flip-content my-4">
+                                    <p>{{downloads.title}}</p>
+                                    <strong class="font-weight-extra-bold text-color-dark line-height-1 text-5 mb-3 d-inline-block"></strong>
+                                </div>
+                            </div>
+                            <div class="flip-back d-flex align-items-center p-5"
+                                 style="background-image: url({{downloads.image.url}}); background-size: cover; background-position: center;">
+                                <div class="flip-content my-2">
+                                    <a href="{{downloads.download_link.url}}" class="btn btn-success btn-modern">{% trans 'Download Now' %}</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="col-lg-3 order-lg-2">
+                {% include 'front/includes/sidebar/prozone.html' %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

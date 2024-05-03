@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form method="post">
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <script>
+        var options = {
+          key: "{{ razorpay_merchant_key }}",
+          amount: "{{razorpay_amount}}",
+          currency: "INR",
+          name: "Dr Kataria School of Laughter Yoga",
+          description: "World Conference",
+          order_id: "{{provider_order_id}}",
+          callback_url: "{{callback_url}}",
+          "prefill":
+          {
+            "name": "{{order.name}}",
+            "email": "{{order.email}}",
+            "contact": "{{order.phone}}"
+          },
+          "theme": {
+                "color": "#3399cc"
+          }
+        };
+        var rzp1 = new Razorpay(options);
+        rzp1.open();
+    </script>
+</form>
+</body>
+</html>

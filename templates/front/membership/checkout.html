@@ -1,0 +1,90 @@
+{% extends 'front/dashboard-base.html' %}
+{% load i18n %}
+{% load static %}
+{% load cropping %}
+{% block content %}
+{% include 'front/includes/messages.html' %}
+<div class="container-fluid py-3">
+    <div class="main-content-body">
+        <div class="row">
+            <div class="col-lg-12 col-md-12">
+                <div class="pd-xl-20">
+                    <div class="row">
+                        <div class="col-md-12 col-lg-12 col-xl-6 mx-auto d-block">
+                            <div class="card card-body pd-20  mb-0 pd-md-40 border shadow-none">
+                                <h3 class="main-content-label mg-b-5 text-center">Prozone Membership Checkout</h3>
+                                <h6 class="text-center py-3 text-danger"> Thank you for choosing {{membership.membership_name}} for ${{membership.membership_price}}. <br>Please fill-up the following form and card details to make the payment.</h6>
+                                <form action="{% url 'prozone-charge' %}" method="post" id="payment-form">
+                                    {% csrf_token %}
+                                    <div class="form-group">
+                                        <input class="form-control" type="text" name="fullname" {% if user.is_authenticated %} value="{{user.first_name}} {{user.last_name}}" {% endif %} placeholder="Full Name" required readonly>
+                                    </div>
+                                    <div class="form-group">
+                                        <input class="form-control" type="email" name="email" {% if user.is_authenticated %} value="{{user.email}}" {% endif %} placeholder="Email" required readonly>
+                                    </div>
+                                    <div class="form-group">
+                                        <input class="form-control" type="text" name="contact" {% if user.is_authenticated %} value="{{user.contact_number}}" {% endif %} placeholder="Contact" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <input class="form-control" type="text" name="address" placeholder="Address" required>
+                                            </div>
+                                            <div class="col-6">
+                                                <input class="form-control" type="text" name="postalcode" placeholder="Postal Code" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-4">
+                                                <input class="form-control" type="text" name="city" placeholder="City" required>
+                                            </div>
+                                            <div class="col-4">
+                                                <input class="form-control" type="text" name="state" placeholder="State" required>
+                                            </div>
+                                            <div class="col-4">
+                                                <select class="form-control" name="country" required>
+                                                    <option disabled selected value="">--Select Country--</option>
+                                                    {% for country in all_countries %}
+                                                    <option value="{{ country.name }}">{{ country.name }}</option>
+                                                    {% endfor %}
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-4">
+                                                <input class="form-control" type="text" name="plan_name" value="{{membership.membership_name}}" required readonly hidden>
+                                            </div>
+                                            <div class="col-4">
+                                                <input class="form-control" type="text" name="price" value="{{membership.membership_price}}" required readonly hidden>
+                                            </div>
+                                            <div class="col-4">
+                                                <input class="form-control" type="text" name="duration" value="{{membership.membership_duration}}" required readonly hidden>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="pb-2" id="card-element">
+                                        <!-- A Stripe Element will be inserted here. -->
+                                    </div>
+                                    <div class="py-2" id="card-errors" role="alert"></div>
+                                    <div class="form-group">
+                                        <div class="row justify-content-center">
+                                            <div class="col-6">
+                                                <button class="btn btn-main-primary btn-block" id="submit-button">Subscribe Now</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="{% static 'vendor/payment/stripe/stripe.js' %}"></script>
+{% endblock %}

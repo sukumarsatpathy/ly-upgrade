@@ -1,0 +1,184 @@
+{% extends 'front/base.html' %}
+{% load static %}
+{% load i18n %}
+{% block meta %}
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>About Trainings - Laughter Yoga International</title>
+    <meta name="keywords" content="trainings, basic learning course, certified leader training, certified teacher training, certified master training"/>
+    <meta name="description" content="Laughter Yoga is a unique concept, one needs to be trained as a Laughter Leader in order to facilitate a group through a Laughter Yoga session and meditation.">
+    <meta name="author" content="Dr Madan Kataria">
+{% endblock %}
+{% block content %}
+<div class="owl-carousel-wrapper" style="height: 600px;">
+    <div class="owl-carousel dots-inside dots-horizontal-center dots-light show-dots-hover show-dots-xs nav-inside nav-inside-plus nav-dark nav-md nav-font-size-md show-nav-hover mb-0"
+         data-plugin-options="{'responsive': {'0': {'items': 1}, '479': {'items': 1}, '768': {'items': 1}, '979': {'items': 1}, '1199': {'items': 1}}, 'loop': false, 'autoHeight': false, 'margin': 0, 'dots': true, 'dotsVerticalOffset': '-75px', 'nav': false, 'animateIn': 'fadeIn', 'animateOut': 'fadeOut', 'mouseDrag': false, 'touchDrag': false, 'pullDrag': false, 'autoplay': true, 'autoplayTimeout': 9000, 'autoplayHoverPause': true, 'rewind': true}">
+        <img src="{% static 'img/slides/about-training.jpg' %}"/>
+    </div>
+</div>
+<div role="main" class="main">
+    <div class="container py-3 my-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-6 mb-4 pb-2">
+                <p><img src="{% static 'img/pages/blc/blc-group.jpg' %}" width="550" class="img-fluid"/></p>
+            </div>
+            <div class="col-lg-6">
+                <h1>Laughter Yoga Training</h1>
+                <p>Since Laughter Yoga is a unique concept, one needs to be trained as a Laughter Leader in
+                    order to facilitate a group through a Laughter Yoga session and meditation.</p>
+                <p>Laughter Yoga exercises are tailor made to meet the needs of different such as Social
+                    Laughter Club, Corporate session, Schools,Seniors, People with special needs.</p>
+                <p><strong>There are 4 levels of training:</strong></p>
+                <ul>
+                    <li>Basic Learning Course is designed to learn LY for yourself</li>
+                    <li>Certified LY Leader is designed to where you become a LY facilitator</li>
+                    <li>Certified LY Teacher Training you will learn how to train LY Leaders</li>
+                    <li>Certified LY Master Trainer you will learn how to train LY Teachers</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <section class="shop section section-height-2 border-0 m-0">
+        <div class="container">
+            <div class="row pb-3 mb-2">
+                <div class="col-lg-6 mb-2 pb-2">
+                    <h1>Basic Learning Course (BLC)</h1>
+                    <p>BLC is a one day in person experiential workshop or online over 6 lessons where participants
+                        receive a basic knowledge about LY and how it works as well as learn about the immeasurable
+                        benefits it provides for the body and mind. You will experience a LY session and Laughter
+                        Meditation. You will learn to laugh all by yourself as well as with your family and friends.
+                        You will also learn practical ideas on how to bring more laughter and joy into your life.
+                        Finally, you will learn how to get involved in Laughter Yoga practises on a daily basis.</p>
+                    <p>Please <a href="{% url 'basic-learning-course' %}" target="_blank">click
+                            here</a> to find the details.</p>
+                </div>
+                <div class="col-lg-6 mb-2 pb-2">
+                    <p><img src="{% static 'img/pages/training/training-img-1.jpg' %}" width="550" class="img-fluid"
+                            alt="Basic Learning Course (BLC)"/></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container py-3 my-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-6 mb-2 pb-2">
+                <p><img src="{% static 'img/pages/training/training-img-2.jpg' %}" width="550" class="img-fluid"
+                        alt="2 Day Certified Leader Training (CLYL)"/></p>
+            </div>
+            <div class="col-lg-6 mb-2 pb-2">
+                <h1>2 Day Certified Laughter Yoga Leader Training (CLYL)</h1>
+                <p>This training is designed to learn the facilitation skills so that you can lead a group of
+                    people through a LY session and meditation.You can start a Social Laughter Club or lead a
+                    session with companies and corporations. You will learn the concept, history, philosophy and
+                    different steps of LY which includes 40 Foundation Exercises and how Laughter Meditation
+                    works. The training is run by Certified Laughter Yoga Teachers over 2 days or 12 hours. On
+                    completion, participants become certified as Laughter Yoga Leaders.</p>
+                <p>To find out more about Certified Leader Trainings around the world. <a
+                        href="{% url 'find-training' %}" target="_parent">Click Here</a></p>
+            </div>
+        </div>
+    </div>
+
+    <section class="shop section section-height-2 border-0 m-0">
+        <div class="container">
+            <div class="row pb-3 mb-2">
+                <div class="col-lg-6 mb-2 pb-2">
+                    <h1>5 Day Certified Laughter Yoga Teacher Training (CLYT)</h1>
+                    <p>This is a 5-day intensive training course conducted by Dr. Kataria and certified Master
+                        Trainers. As a certified LY Teacher, you will receive in-depth knowledge and skills to lead
+                        LY sessions in different areas of application.</p>
+                    <p>This course is 40 hours in duration over 5 days</p>
+                    <p>What you will learn in Certified Teacher Training</p>
+                    <p>During the course, you will learn how to lead a group of people through simulated Laughter
+                        Yoga Techniques developed by Dr Kataria, and skills of converting this simulated laughter
+                        into real infectious and spontaneous laughter without using jokes, comedy or humor.</p>
+                    <p>You will learn the powerful technique of Laughter Meditation, where you do not have to make
+                        any effort to laugh, and yet laughter flows like a fountain. You will also learn how to do
+                        LY all by yourself.</p>
+                    <p>You will learn marketing, promotion, PR skills and how to create a core group to build your
+                        Social Laughter Club and develop your leadership skills.</p>
+                    <p>After completing this training, you will be able to train others as Certified Laughter Yoga
+                        Leaders, start a Laughter Club, lead sessions for corporates, companies, hospitals, schools,
+                        colleges & universities, aged care homes, prisons, children with special needs etc.</p>
+                    <p>Find out more about Teacher Trainings by Master Trainers Worldwide <a
+                            href="{% url 'find-training' %}" target="_parent">Click Here</a></p>
+                    <p>To find out more about Certified Teacher Trainings by Dr Kataria in India <a
+                            href="{% url 'teacher-training' %}" target="_parent">Click Here</a>.</p>
+                </div>
+                <div class="col-lg-6 mb-2 pb-2">
+                    <p><img src="{% static 'img/pages/training/training-img-3.jpg' %}" width="550" class="img-fluid" ,
+                            alt="5 Day Certified Laughter Yoga Teacher Training (CLYT)"/></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container py-3 my-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-6 mb-2 pb-2">
+                <p><img src="{% static 'img/pages/training/training-img-4.jpg' %}" width="550" class="img-fluid"/></p>
+            </div>
+            <div class="col-lg-6 mb-2 pb-2">
+                <h1>Who Can Do These Courses?</h1>
+                <ul>
+                    <li>Anyone who wishes to bring more laughter and joy to their life</li>
+                    <li>Yoga teachers</li>
+                    <li>Alternative Healers and Therapists</li>
+                    <li>Recreation Activity facilitators</li>
+                    <li>Occupational Therapists & Health care professionals</li>
+                    <li>Psychologists, Psychotherapist, Hypnotherapists and Psychiatrists</li>
+                    <li>Marriage and family therapists</li>
+                    <li>Doctors and Nurses, Health and Senior Care Workers</li>
+                    <li>Social Workers and Counselors</li>
+                    <li>Life coaches</li>
+                    <li>Fitness trainers and sports coaches</li>
+                    <li>School Teachers</li>
+                    <li>Professional Speakers</li>
+                    <li>Entertainment professionals</li>
+                    <li>Actors, Singers and Comedians</li>
+                    <li>Hospital and therapeutic Clowns</li>
+                    <li>HR and Sales managers</li>
+                    <li>Tourism professionals & tour guides</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <section class="shop section section-height-2 border-0 m-0">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-xl-6 text-center">
+                    <a href="{% url 'basic-learning-course' %}" target="_parent">
+                        <img src="{% static 'img/extra/online-coaching.webp' %}" class="img-fluid"
+                             alt="Basic Learning Course"/>
+                    </a>
+                    <div class="col-xl-6 mt-2 mx-auto">
+                        <button class="btn btn-primary">
+                            <a class="text-light text-decoration-none" href="{% url 'basic-learning-course' %}"
+                               target="_parent">
+                                Learn More
+                            </a>
+                        </button>
+                    </div>
+                </div>
+                <div class="col-xl-6 text-center">
+                    <a href="{% url 'zoom-laughter-club' %}" target="_blank">
+                        <img src="{% static 'img/extra/zoom-laughter-yoga.webp' %}" class="img-fluid"
+                             alt="Zoom Laughter Club"/>
+                    </a>
+                    <div class="col-lg-6 mt-2 mx-auto">
+                        <button class="btn btn-primary">
+                            <a class="text-light text-decoration-none" href="{% url 'zoom-laughter-club' %}"
+                               target="_blank">
+                                Learn More
+                            </a>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+{% endblock %}

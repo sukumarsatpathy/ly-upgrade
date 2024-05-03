@@ -1,0 +1,120 @@
+{% extends 'be/base.html' %}
+{% load static %}
+{% block meta %}
+<title>Edit {{gi.title}} - {{webSettingsUniversal.title}}</title>
+<meta name="description" content="{{frontendSettingsUniversal.metaDescription}}"/>
+<meta name="keywords" content="{{frontendSettingsUniversal.metaKeyword}}"/>
+<meta property="og:title" content="Edit {{gi.title}} - {{frontendSettingsUniversal.title}}"/>
+<meta property="og:url" content="{{request.scheme}}://{{request.get_host}}{{request.get_full_path}}"/>
+<meta property="og:site_name" content="{{userAccount.full_name}} - {{frontendSettingsUniversal.title}}"/>
+{% endblock %}
+{% block content %}
+<div class="d-flex flex-column flex-column-fluid">
+    <div class="app-content flex-column-fluid mt-10">
+        <div class="app-container container-xxl">
+            {% include 'be/includes/alert.html' %}
+            <div class="card">
+                <div class="card-header ribbon ribbon-end ribbon-clip">
+                    <div class="ribbon-label">
+                        Update
+                        <span class="ribbon-inner bg-warning"></span>
+                    </div>
+                    <div class="card-title fw-bold m-0">Edit {{gi.title}}</div>
+                </div>
+                <div class="card-body pt-0">
+                    <div class="card mb-5 mb-xl-10">
+                        <div class="collapse show">
+                            <form action="{% url 'getInvolvedEdit' gi.id %}" method="post" class="form" enctype="multipart/form-data" novalidate>
+                                {% csrf_token %}
+                                <div class="card-body border-top p-9">
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <div class="form-floating mb-7 {% if giForm.title.errors %}has-error{% endif %}">
+                                                {{ giForm.title }}
+                                                <label class="required">Title</label>
+                                                {% for error in giForm.title.errors %}
+                                                <div class="text-danger mt-2">
+                                                    {{ error|escape }}
+                                                </div>
+                                                {% endfor %}
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="form-floating mb-7 {% if giForm.description.errors %}has-error{% endif %}">
+                                                {{ giForm.description }}
+                                                <label class="required">Description</label>
+                                                {% for error in giForm.description.errors %}
+                                                <div class="text-danger mt-2">
+                                                    {{ error|escape }}
+                                                </div>
+                                                {% endfor %}
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="form-floating mb-7 {% if giForm.btn_name.errors %}has-error{% endif %}">
+                                                {{ giForm.btn_name }}
+                                                <label class="required">Button Name</label>
+                                                {% for error in giForm.btn_name.errors %}
+                                                <div class="text-danger mt-2">
+                                                    {{ error|escape }}
+                                                </div>
+                                                {% endfor %}
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="form-floating mb-7 {% if giForm.url.errors %}has-error{% endif %}">
+                                                {{ giForm.url }}
+                                                <label class="required">URL/Link</label>
+                                                {% for error in giForm.url.errors %}
+                                                <div class="text-danger mt-2">
+                                                    {{ error|escape }}
+                                                </div>
+                                                {% endfor %}
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="mb-7 {% if giForm.image.errors %}has-error{% endif %}">
+                                                {{ giForm.image }}
+                                                {% for error in giForm.image.errors %}
+                                                <div class="text-danger mt-2">
+                                                    {{ error|escape }}
+                                                </div>
+                                                {% endfor %}
+                                                <label class="required">Upload Image</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="form-floating mb-7 {% if giForm.status.errors %}has-error{% endif %}">
+                                                {{ giForm.status }}
+                                                <label class="required">Status</label>
+                                                {% for error in giForm.status.errors %}
+                                                <div class="text-danger mt-2">
+                                                    {{ error|escape }}
+                                                </div>
+                                                {% endfor %}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Non Field Errors -->
+                                    {% for error in giForm.non_field_errors %}
+                                    <div class="text-danger mt-2">
+                                        {{ error|escape }}
+                                    </div>
+                                    {% endfor %}
+                                </div>
+                                <div class="card-footer d-flex justify-content-end py-6 px-9">
+                                    <a href="{% url 'getInvolvedList' %}" class="btn btn-light-info me-3">Discard</a>
+                                    <button type="submit" class="btn btn-primary">Save Changes</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block extraJS %}
+
+{% endblock %}

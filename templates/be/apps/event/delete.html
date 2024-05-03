@@ -1,0 +1,80 @@
+{% extends 'be/base.html' %}
+{% load static %}
+{% block meta %}
+<title>Delete Event - {{webSettingsUniversal.title}}</title>
+<meta name="description" content="{{webSettingsUniversal.meta_description}}"/>
+<meta name="keywords" content="{{webSettingsUniversal.meta_keywords}}"/>
+<meta property="og:title" content="Delete Event - {{webSettingsUniversal.title}}"/>
+<meta property="og:url" content="{{request.scheme}}://{{request.get_host}}{{request.get_full_path}}"/>
+<meta property="og:site_name" content="{{webSettingsUniversal.title}} - {{webSettingsUniversal.slogan}}"/>
+{% endblock %}
+{% block content %}
+<div class="d-flex flex-column flex-column-fluid">
+    <div class="app-content flex-column-fluid mt-10">
+        <div class="app-container container-xxl">
+            {% include 'be/includes/alert.html' %}
+            <div class="card">
+                <div class="card-header ribbon ribbon-end ribbon-clip">
+                    <div class="ribbon-label">
+                        Delete
+                        <span class="ribbon-inner bg-danger"></span>
+                    </div>
+                    <div class="card-title fw-bold m-0">
+                        <span class="px-2">Event Deletion of <span class="text-primary">{{event.title}}</span></span>
+                    </div>
+                </div>
+                <div class="card-body pt-0">
+                    <div class="card mb-5 mb-xl-10">
+                        <div class="collapse show">
+                            <form action="{% url 'eventDelete' event.pk %}" method="post" class="form"
+                                  enctype="multipart/form-data" novalidate>
+                                {% csrf_token %}
+                                <div class="card-body border-top p-9">
+                                    <div class="row">
+                                        <div class="col-md-6 col-lg-6">
+                                            <div class="border border-gray-300 border-dashed rounded min-w-125px py-3 px-4 me-7 mb-3">
+                                                <div class="fs-6 text-gray-800 fw-bold"><span class="text-success">{{event.type}}</span></div>
+                                                <div class="fw-semibold text-gray-400">Type</div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-lg-6">
+                                            <div class="border border-gray-300 border-dashed rounded min-w-125px py-3 px-4 me-7 mb-3">
+                                                <div class="fs-6 text-gray-800 fw-bold"><span class="text-success">{{event.category}}</span></div>
+                                                <div class="fw-semibold text-gray-400">Category</div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-lg-6">
+                                            <div class="border border-gray-300 border-dashed rounded min-w-125px py-3 px-4 me-7 mb-3">
+                                                <div class="fs-6 text-gray-800 fw-bold"><span class="text-success">{{event.title}}</span></div>
+                                                <div class="fw-semibold text-gray-400">Title</div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-lg-6">
+                                            <div class="border border-gray-300 border-dashed rounded min-w-125px py-3 px-4 me-7 mb-3">
+                                                <div class="fs-6 text-gray-800 fw-bold"><span class="text-success">{{event.description|safe|truncatechars:90}}</span></div>
+                                                <div class="fw-semibold text-gray-400">Description</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="my-3">
+                                    <div class="fs-6 text-danger text-center">You can't retrieve the event data, once you press the delete button.</div>
+                                </div>
+                                <div class="card-footer d-flex justify-content-end py-6 px-9">
+                                    <a href="{% url 'eventList' %}" class="btn btn-light-info me-3">Discard</a>
+                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block extraJS %}
+<!--begin::Custom Javascript(used for this page only)-->
+
+<!--end::Custom Javascript-->
+{% endblock %}

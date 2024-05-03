@@ -1,0 +1,31 @@
+{% extends 'front/dashboard-base.html' %}
+{% load i18n %}
+{% load static %}
+{% load cropping %}
+{% block content %}
+<div class="row row-sm">
+    <div class="col-xl-4 col-lg-6 col-md-12 col-sm-12">
+        <div class="card overflow-hidden">
+            <div class="card-header bg-transparent pd-b-0 pd-t-20 bd-b-0">
+                <div class="d-flex justify-content-between">
+                    <h2 class="card-title mg-b-10">Membership Card</h2>
+                </div>
+                {% include 'front/includes/messages.html' %}
+                <div class="row">
+                    <div class="col">
+                        <img src="{% get_media_prefix %}cards/membership-card-{{current_user.id}}.jpg" width="400px" />
+                    </div>
+                </div>
+                <div class="row my-3">
+                    <div class="col-6">
+                        <a href="{% get_media_prefix %}cards/membership-card-{{current_user.id}}.jpg" target="_blank" class="btn btn-success" download>Download Card</a>
+                    </div>
+                    <div class="col-6">
+                        <a href="{% url 'remove' user.id %}" class="btn btn-danger">Delete and Regenerate</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

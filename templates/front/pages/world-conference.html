@@ -1,0 +1,2101 @@
+{% extends 'front/base.html' %}
+{% load static %}
+{% load i18n %}
+{% block meta %}
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Laughter Yoga World Conference - October 2023 in India</title>
+<meta name="keywords"
+      content="world conference, conference, laughter festival, laughter yoga, health, happiness, world peace"/>
+<meta name="description"
+      content="RESERVE YOUR SPOT at the Laughter Yoga World Conference 2023 today for an unforgettable journey around the world of laughter!">
+<meta name="author" content="Dr Madan Kataria">
+<link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{% static 'vendor/flip/flip.min.css' %}">
+{% endblock %}
+{% block content %}
+<style type="text/css">
+    label.error {
+        background-color:#fff;
+        color: #ff0000;
+        padding: 4px 10px;
+        border-radius: 6px;
+    }
+    .tick {
+        font-size:20px;
+        font-family:"Lato";
+    }
+
+    .tick-label {
+        font-size:20px;
+        text-align:center;
+    }
+
+    .tick-group {
+        margin:10px;
+        text-align:center;
+        color: #fff;
+    }
+    #header, #footer > .container, .footer-copyright
+    {
+        display: none !important;
+    }
+    ol {
+        list-style: number;
+    }
+    li {
+      position: relative;
+      font-family:normal 25px / 28px "Mulish",Helvetica,Arial,Verdana,sans-serif;
+      color: #fff;
+      margin:20px;
+    }
+    ol li::before {
+      position: absolute;
+      font-size: 25px;
+      left: -19px;
+      top:-3px;
+    }
+    .cstmHeader{
+        font-family: 'Lato';
+        color: #ffffff;
+        font-size:70px;
+        font-weight:bolder;
+        line-height:55px;
+        padding:0px 10px;
+        text-align:center;
+        text-shadow: 2px 0px 8px rgba(0,0,0,0.6);
+    }
+    .headerTxt1{
+        font-family: 'Lato';
+        font-size: 55px;
+        font-weight: bolder;
+        line-height: 10px;
+        text-align: center;
+        text-transform: uppercase;
+        text-shadow: 0em 0.0375em 0.159375em rgba(0, 0, 0, 0.325000);
+        color: #ffffff;
+        letter-spacing: 5px;
+        position: absolute;
+        top:9%;
+        left:32%;
+    }
+    .headerTxt2{
+        font-family: 'Roboto';
+        font-size: 65px;
+        font-weight: bolder;
+        line-height: 10px;
+        text-align: center;
+        text-transform: uppercase;
+        text-shadow: 0em 0.0375em 0.28125em rgba(0, 0, 0, 0.600000);
+        color: #ffde59;
+        letter-spacing: 2px;
+        position: absolute;
+        top: 17%;
+        left: 25%;
+    }
+    .parent {
+        position: relative;
+        top: 0;
+        left: 0;
+        justify-content: center;
+      }
+      .image1 {
+        position: relative;
+        top: 0;
+        left: 0;
+        background-position: center center;
+        background-size: cover;
+        background-repeat: no-repeat;
+      }
+      .image2 {
+        position: absolute;
+        top: 7%;
+        left: 8%;
+        width: 200px;
+        height: 200px;
+      }
+      .drmmk {
+        position: absolute;
+        top:25%;
+        left:5%;
+      }
+      .confBlock{
+        position: absolute;
+        top:25%;
+        left:57%;
+      }
+
+      /*.yellowBtn {
+        position: absolute;
+        left:20%;
+        font-family:'Lato';
+        font-size:20px;
+        font-weight: bolder;
+        text-transform: uppercase;
+        text-decoration: none;
+        text-align: center;
+        padding:15px 35px;
+        background-color:#fcc73c;
+        border:3px solid #fff;
+        border-radius: 10px;
+        color: #000000;
+        margin: 20px auto;
+        box-shadow:3px 3px 8px #000000;
+      }
+      .yellowBtn a:hover {
+        text-decoration: none;
+        color: #000000;
+        box-shadow:none;
+      }
+      .yellowBtn a:active {
+        background-color:#fcc73c;
+        color: #0450B4;
+        box-shadow:none;
+      }*/
+
+      .yellowBtn {
+            font-family:'Lato';
+            font-size:20px;
+            font-weight: bolder;
+            text-transform: uppercase;
+            text-decoration: none;
+            text-align: center;
+            padding:15px 35px;
+            background-color:#fcc73c;
+            border:3px solid #fff;
+            border-radius: 10px;
+            color: #000000;
+            margin: 20px auto;
+            box-shadow:3px 3px 8px #000000;
+        }
+
+        .yellowBtn:hover {
+            color: #0450B4;
+            box-shadow: none;
+        }
+
+        .yellowBtn:active {
+            background-color: #fcc73c;
+            border:3px solid #000;
+            transform: translateY(4px);
+            box-shadow:none;
+        }
+
+      .payNowBtn{
+        font-family:'Lato';
+        font-size:30px;
+        font-weight: bolder;
+        text-transform: capitalize;
+        text-decoration: none;
+        text-align: center;
+        padding:30px 55px;
+        background-color:#67A80C;
+        border:3px solid #fff;
+        border-radius: 10px;
+        color: #ffffff;
+        box-shadow:3px 3px 8px #000000;
+        margin-bottom:10px;
+      }
+      .payNowBtn:hover {
+        text-decoration: none;
+        color: #ffffff;
+        box-shadow: none;
+        }
+      .payNowBtn:active {
+        background-color: #CDEF77;
+        border:3px solid #000;
+        color: #000;
+        transform: translateY(4px);
+        box-shadow:none;
+      }
+      .lywBtn{
+        font-family:'Lato';
+        font-size:35px;
+        font-weight: bolder;
+        text-transform: uppercase;
+        text-decoration: none;
+        text-align: center;
+        padding:30px 55px;
+        background-color:#fcc73c;
+        border:3px solid #fff;
+        border-radius: 10px;
+        color: #000000;
+        box-shadow:3px 3px 8px #000000;
+      }
+      .lywBtn:hover {
+        text-decoration: none;
+        color: #0450B4;
+        box-shadow: none;
+      }
+      .lywBtn:active {
+        background-color: #fcc73c;
+        border:3px solid #000;
+        transform: translateY(4px);
+        box-shadow:none;
+      }
+
+      .stickyBtn{
+        font-family:'Lato';
+        font-size:35px;
+        font-weight: bolder;
+        text-transform: uppercase;
+        text-decoration: none;
+        text-align: center;
+        padding:30px 55px;
+        background-color:#67A80C;
+        border:3px solid #fff;
+        border-radius: 10px;
+        box-shadow:3px 3px 8px #000000;
+      }
+      .stickyBtn a:link, a:hover {
+        text-decoration: none;
+      }
+
+      .confHglte{
+        background-image:url('{% static 'img/pages/conference/section2-bg-img.png' %}');
+        background-position: center center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        margin-top:-100px;
+      }
+      .lafterYogiesWorld{
+        background: rgb(30,126,255);
+        background: linear-gradient(0deg, rgba(30,126,255,1) 0%, rgba(60,246,255,1) 100%);
+      }
+      .lafterYogiesWorld p {
+        color: #00417d;
+      }
+      .spiritualMorning{
+        background-image: url('{% static 'img/pages/conference/9. Mornings.png' %}');
+        background-position: center center;
+        background-size: cover;
+        background-repeat: no-repeat;
+      }
+
+      .funtasticEvening{
+        background-image: url('{% static 'img/pages/conference/funtasticEvening.png' %}');
+        background-position: center center;
+        background-size: cover;
+        background-repeat: no-repeat;
+      }
+      .muchMore{
+        background-image: url('{% static 'img/pages/conference/drk-4.png' %}');
+        background-position: center center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        height: 800px;
+      }
+      .conferenceVenue{
+        background-image: url('{% static 'img/pages/conference/conference-venue.png' %}');
+        background-position: center center;
+        background-size: cover;
+        background-repeat: no-repeat;
+      }
+      .gcResortImg1{
+        background-image: url('{% static 'img/pages/conference/grapeCounty1.png' %}');
+        background-position: center center;
+        background-size: cover;
+        background-repeat: no-repeat;
+      }
+      .gcResortImg2{
+        background-image: url('');
+        background-position: center center;
+        background-size: cover;
+        background-repeat: no-repeat;
+      }
+      .gcResortImg3{
+        background-image: url('{% static 'img/pages/conference/grapeCounty3.png' %}');
+        background-position: center center;
+        background-size: cover;
+        background-repeat: no-repeat;
+      }
+      .travelRoute{
+        background-image: url('{% static 'img/pages/conference/travelRoute.png' %}');
+        background-position: center center;
+        background-size: cover;
+        background-repeat: no-repeat;
+      }
+      .cstmText{
+        font-family: 'Lato';
+        color: #ffffff;
+        font-size:50px;
+        font-weight:bolder;
+        padding:10px 10px;
+        text-align:center;
+        text-shadow: 2px 0px 8px rgba(0,0,0,0.6);
+      }
+      .cstmTextHeader{
+        font-family: 'Lato';
+        color: #ffffff;
+        font-size:50px;
+        font-weight:bolder;
+        padding:10px 10px;
+        text-align:center;
+        line-height: 40px;
+      }
+      .cstmTextNavyBlue{
+        font-family: 'Lato';
+        color: #00417d;
+        font-size:50px;
+        font-weight:bolder;
+        padding:10px 10px;
+        text-align:center;
+      }
+      .cstmTextDarkGrey{
+        font-family: 'Lato';
+        color: #32120e;
+        font-size:50px;
+        font-weight:bolder;
+        padding:10px 10px;
+        text-align:center;
+      }
+      .cstmTextDarkGreyHeader{
+        font-family: 'Lato';
+        color: #32120e;
+        font-size:50px;
+        font-weight:bolder;
+        padding:10px 10px;
+        text-align:center;
+      }
+      .seeYouAtConference{
+        background-image: url('{% static 'img/pages/conference/seeYouAtConference.png' %}');
+        background-position: center center;
+        background-size: cover;
+        background-repeat: no-repeat;
+      }
+
+      .cstmFont {
+        font-size: 23px;
+      }
+
+      .cstmSubText{
+        font-size:35px;
+      }
+
+      .dateTime {
+        position: absolute;
+        color: #ffffff;
+      }
+
+      .arrows1{
+        width: 60px;
+        height: 72px;
+      }
+      .arrows1 path {
+        stroke: #fff;
+        fill: transparent;
+        stroke-width: 3px;
+        animation: arrow 2s infinite;
+        -webkit-animation: arrow 2s infinite;
+      }
+      @keyframes arrow
+      {
+        0% {opacity:0}
+        40% {opacity:1}
+        80% {opacity:0}
+        100% {opacity:0}
+      }
+
+      @-webkit-keyframes arrow /*Safari and Chrome*/
+      {
+        0% {opacity:0}
+        40% {opacity:1}
+        80% {opacity:0}
+        100% {opacity:0}
+      }
+
+      .arrows1 path.a1 {
+            animation-delay:-1s;
+            -webkit-animation-delay:-1s; /* Safari 和 Chrome */
+        }
+
+      .arrows1 path.a2 {
+            animation-delay:-0.5s;
+            -webkit-animation-delay:-0.5s; /* Safari 和 Chrome */
+        }
+
+      .arrows1 path.a3 {
+            animation-delay:0s;
+            -webkit-animation-delay:0s; /* Safari 和 Chrome */
+        }
+
+      .arrows {
+        width: 60px;
+        height: 72px;
+        position: absolute;
+        left: 47%;
+        bottom:17%;
+      }
+
+      .arrows path {
+        stroke: #fff;
+        fill: transparent;
+        stroke-width: 3px;
+        animation: arrow 2s infinite;
+        -webkit-animation: arrow 2s infinite;
+      }
+      @keyframes arrow
+      {
+        0% {opacity:0}
+        40% {opacity:1}
+        80% {opacity:0}
+        100% {opacity:0}
+      }
+
+      @-webkit-keyframes arrow /*Safari and Chrome*/
+      {
+        0% {opacity:0}
+        40% {opacity:1}
+        80% {opacity:0}
+        100% {opacity:0}
+      }
+
+        .arrows path.a1 {
+            animation-delay:-1s;
+            -webkit-animation-delay:-1s; /* Safari 和 Chrome */
+        }
+
+        .arrows path.a2 {
+            animation-delay:-0.5s;
+            -webkit-animation-delay:-0.5s; /* Safari 和 Chrome */
+        }
+
+        .arrows path.a3 {
+            animation-delay:0s;
+            -webkit-animation-delay:0s; /* Safari 和 Chrome */
+        }
+
+      .footer {
+          position: fixed;
+          bottom: 0;
+          width: 100%;
+          height: auto;
+          overflow: hidden;
+          z-index: 1;
+        }
+        <!-- Green Background Toggle -->
+    html .toggle label, html .toggle .toggle-title {
+      color: #00664F;
+      border-left-color: #00664F;
+      border-right-color: #00664F;
+    }
+    .toggle.toggle-lg .toggle > label, .toggle.toggle-lg .toggle > .toggle-title {
+      font-size: 1.1em;
+      padding: 16px 30px;
+      color: #ffffff;
+      background-color: #003260;
+      border-left-color: #003260;
+      border-right-color: #003260;
+    }
+     .toggle.toggle-lg .toggle.active > label, .toggle.toggle-lg .toggle.active > .toggle-title {
+      background-color: #003260;
+      border-color: #003260;
+      color: #FFF;
+    }
+    toggle.toggle-lg .toggle.active > label, .toggle.toggle-lg .toggle.active > .toggle-content {
+      background-color: #CFE7FF;
+      border-color: #003260;
+      color: #003260;
+      padding:5px 30px;
+    }
+    toggle.toggle-lg .toggle.active > label, .toggle.toggle-lg .toggle.active > .toggle-content p{
+      color: #003260;
+    }
+      /* Extra small devices (phones, 600px and down) */
+      @media only screen and (max-width: 600px)
+      {
+         .image1 {
+            width: auto;
+            height:auto;
+         }
+          .image2 {
+            width: 55px;
+            height: 55px;
+            top: 3%;
+            left: 5%;
+          }
+          .headerTxt1{
+            font-size: 23px;
+            font-weight: bolder;
+            top:4%;
+            left:23%;
+          }
+          .headerTxt2{
+            font-size: 24px;
+            font-weight: bolder;
+            top:7%;
+            left:20%;
+          }
+          .drmmk {
+            position: absolute;
+            width: 200px;
+            top:11%;
+            left:23%;
+          }
+          .confBlock{
+            position: absolute;
+            top:35%;
+            left:10%;
+          }
+          .cardCstm{
+            text-align: center;
+            padding: 10px 20px;
+            border-radius: 15px;
+          }
+          .confTitle{
+            font-family: 'Lato';
+            font-size: 25px;
+            font-weight: bolder;
+            text-transform: uppercase;
+            color: #00417D;
+            padding-bottom:10px;
+          }
+          .calBg{
+            width:90px;
+            height:90px;
+            margin:5px;
+          }
+          .faCstm{
+            position: relative;
+            top: 20px;
+            left: 0;
+            font-size: 50px !important;
+            color: #76b9f0;
+          }
+          .faLocation{
+            position: absolute;
+            top: 76%;
+            left: 10%;
+            font-size: 30px;
+            color: #00417D;
+            padding-right; 50px;
+          }
+          .confStartDate{
+            position: absolute;
+            font-size: 35px;
+            font-weight: bolder;
+            color: #fff;
+            top: 40%;
+            left:21%;
+          }
+          .confEndDate{
+            position: absolute;
+            font-size: 35px;
+            font-weight: bolder;
+            color: #fff;
+            top: 40%;
+            left:67%;
+          }
+          .confPlace{
+            font-size: 27px;
+            font-weight: bolder;
+            color: #00417D;
+            padding-top:45px;
+            text-align: center;
+          }
+          .confStartDay{
+            position: absolute;
+            font-size: 22px;
+            font-weight: bolder;
+            color: #00417D;
+            top: 60%;
+            left:16%;
+          }
+          .confEndDay{
+            position: absolute;
+            font-size: 22px;
+            font-weight: bolder;
+            color: #00417D;
+            top: 60%;
+            left:64%;
+          }
+          .yellowBtn {
+            font-size:20px;
+            left: 12%;
+          }
+          .lywBtn{
+            font-size:30px;
+          }
+          .stickyBtn{
+            font-size:25px;
+            padding:10px;
+            margin: 10px 0;
+          }
+          .cstmSubText{
+            font-size:20px;
+          }
+          .cstmText, .cstmTextNavyBlue, .cstmTextDarkGrey{
+            font-size:30px;
+            line-height:35px;
+            text-shadow: none;
+            padding-top:15px;
+          }
+          .cstmTextHeader, .cstmTextDarkGreyHeader{
+            font-size:40px;
+            box-shadow: none;
+          }
+          .spiritualMorning{
+            background-image: url('{% static 'img/pages/conference/9. Mornings.png' %}');
+            background-repeat: no-repeat;
+            background-size: auto 100%;
+          }
+          .funtasticEvening{
+            background-image: url('{% static 'img/pages/conference/funtasticEvening.png' %}');
+            background-repeat: no-repeat;
+            background-size: auto 100%;
+          }
+          .muchMore{
+            background-image: url('{% static 'img/pages/conference/drk-4.png' %}');
+            background-repeat: no-repeat;
+            background-size: auto 100%;
+          }
+          html {
+              position: relative;
+              min-height: 100%;
+            }
+            body {
+              margin-bottom: 60px; /* Margin bottom by footer height */
+            }
+          .arrows {
+            width: 60px;
+            height: 72px;
+            position: absolute;
+            left: 40%;
+            bottom:13%;
+          }
+          .dateTime {
+            width: 80%;
+            top: 77%;
+            left: 10%;
+            font-size: 18px;
+            padding-top:10px;
+          }
+        }
+      /* Small devices (portrait tablets and large phones, 600px and up) */
+      @media only screen and (min-width: 600px)
+      {
+        .image1 {
+            height:100%;
+         }
+        .image2 {
+            width: 100px;
+            height: 100px;
+          }
+          .headerTxt1{
+            font-size: 27px;
+            font-weight: bolder;
+            top:11%;
+            left:30%;
+          }
+          .headerTxt2{
+            font-size: 29px;
+            font-weight: bolder;
+            top:18%;
+            left:27%;
+          }
+          .drmmk {
+            position: absolute;
+            width: 160px;
+            top:25%;
+            left:20%;
+          }
+          .confBlock{
+            position: absolute;
+            top:25%;
+            left:50%;
+          }
+          .cardCstm{
+            text-align: center;
+            padding: 10px 20px;
+            border-radius: 15px;
+          }
+          .confTitle{
+            font-family: 'Lato';
+            font-size: 22px;
+            font-weight: bolder;
+            text-transform: uppercase;
+            color: #00417D;
+            padding-bottom:10px;
+          }
+          .calBg{
+            width:60px;
+            height:60px;
+            margin:5px;
+          }
+          .faCstm{
+            position: relative;
+            top: 12px;
+            left: 0;
+            font-size: 30px !important;
+            color: #76b9f0;
+          }
+          .faLocation{
+            position: absolute;
+            top: 74%;
+            left: 20%;
+            font-size: 20px;
+            color: #00417D;
+          }
+          .confStartDate{
+            position: absolute;
+            font-size: 24px;
+            font-weight: bolder;
+            color: #fff;
+            top: 43%;
+            left: 24%;
+          }
+          .confEndDate{
+            position: absolute;
+            font-size: 24px;
+            font-weight: bolder;
+            color: #fff;
+            top: 43%;
+            left: 65%;
+          }
+          .confPlace{
+            font-size: 15px;
+            font-weight: bolder;
+            color: #00417D;
+            padding-top:25px;
+            text-align: center;
+          }
+          .confStartDay{
+            position: absolute;
+            font-size: 15px;
+            font-weight: bolder;
+            color: #00417D;
+            top: 57%;
+            left: 18%;
+          }
+          .confEndDay{
+            position: absolute;
+            font-size: 15px;
+            font-weight: bolder;
+            color: #00417D;
+            top: 57%;
+            left: 61%;
+          }
+          .yellowBtn {
+            font-size:15px;
+            left: 0;
+            margin: 10px auto;
+          }
+          .cstmText, .cstmTextNavyBlue, .cstmTextDarkGrey{
+            font-size:35px;
+            line-height:40px;
+          }
+          .cstmTextHeader, .cstmTextDarkGreyHeader{
+            font-size:45px;
+          }
+          .dateTime {
+            top: 77%;
+            left: 15%;
+            font-size: 18px;
+          }
+      }
+      /* Medium devices (landscape tablets, 768px and up) */
+      @media only screen and (min-width: 768px) {
+         .image1 {
+            height:100%;
+         }
+         .image2 {
+            width: 100px;
+            height: 100px;
+          }
+          .headerTxt1{
+            font-size: 32px;
+            font-weight: bolder;
+            top:11%;
+            left:35%;
+          }
+          .headerTxt2{
+            font-size: 34px;
+            font-weight: bolder;
+            top:17%;
+            left:32%;
+          }
+          .drmmk {
+            position: absolute;
+            width: 230px;
+            top:25%;
+            left:20%;
+          }
+          .confBlock{
+            position: absolute;
+            top:25%;
+            left:50%;
+          }
+          .cardCstm{
+            text-align: center;
+            padding: 10px 20px;
+            border-radius: 15px;
+          }
+          .confTitle{
+            font-family: 'Lato';
+            font-size: 25px;
+            font-weight: bolder;
+            text-transform: uppercase;
+            color: #00417D;
+            padding-bottom:20px;
+          }
+          .calBg{
+            width:100px;
+            height:100px;
+            margin:5px;
+          }
+          .faCstm{
+            position: relative;
+            top: 20px;
+            left: 0;
+            font-size: 50px !important;
+            color: #76b9f0;
+          }
+          .faLocation{
+            position: absolute;
+            top: 79%;
+            left: 12%;
+            font-size: 30px;
+            color: #00417D;
+            padding-right; 50px;
+          }
+          .confStartDate{
+            position: absolute;
+            font-size: 35px;
+            font-weight: bolder;
+            color: #fff;
+            top: 42%;
+            left:21%;
+          }
+          .confEndDate{
+            position: absolute;
+            font-size: 35px;
+            font-weight: bolder;
+            color: #fff;
+            top: 42%;
+            left:67%;
+          }
+          .confPlace{
+            font-size: 27px;
+            font-weight: bolder;
+            color: #00417D;
+            padding-top:60px;
+            text-align: center;
+          }
+          .confStartDay{
+            position: absolute;
+            font-size: 22px;
+            font-weight: bolder;
+            color: #00417D;
+            top: 63%;
+            left:16%;
+          }
+          .confEndDay{
+            position: absolute;
+            font-size: 22px;
+            font-weight: bolder;
+            color: #00417D;
+            top: 63%;
+            left:64%;
+          }
+          .yellowBtn {
+            left: 17%;
+          }
+          .cstmText, .cstmTextNavyBlue, .cstmTextDarkGrey{
+            font-size:35px;
+            line-height:40px;
+          }
+          .cstmTextHeader, .cstmTextDarkGreyHeader{
+            font-size:45px;
+          }
+          .footer{
+            left:50%;
+            transform: translate(-50%, 0%);
+          }
+          .dateTime {
+            top: 77%;
+            left: 19%;
+            font-size: 22px;
+          }
+      }
+      /* Large devices (laptops/desktops, 992px and up) */
+      @media only screen and (min-width: 992px)
+      {
+         .image1 {
+            height:100%;
+         }
+         .image2 {
+            width: 100px;
+            height: 100px;
+          }
+          .headerTxt1{
+            font-size: 39px;
+            font-weight: bolder;
+            top:8%;
+            left:33%;
+          }
+          .headerTxt2{
+            font-size: 43px;
+            font-weight: bolder;
+            top:14%;
+            left:27%;
+          }
+          .drmmk {
+            position: absolute;
+            width: 280px;
+            top:24%;
+            left:19%;
+          }
+          .confBlock{
+            position: absolute;
+            top:25%;
+            left:55%;
+          }
+          .cardCstm{
+            text-align: center;
+            padding: 10px 20px;
+            border-radius: 15px;
+          }
+          .confTitle{
+            font-family: 'Lato';
+            font-size: 26px;
+            font-weight: bolder;
+            text-transform: uppercase;
+            color: #00417D;
+            padding-bottom:20px;
+          }
+          .calBg{
+            width:130px;
+            height:130px;
+            margin:5px;
+          }
+          .faCstm{
+            position: relative;
+            top: 20px;
+            left: 0;
+            font-size: 50px !important;
+            color: #76b9f0;
+          }
+          .faLocation{
+            position: absolute;
+            top: 78%;
+            left: 14%;
+            font-size: 40px !important;
+            color: #00417D;
+            padding-right; 50px;
+          }
+          .confStartDate{
+            position: absolute;
+            font-size: 40px;
+            font-weight: bolder;
+            color: #fff;
+            top: 44%;
+            left:20%;
+          }
+          .confEndDate{
+            position: absolute;
+            font-size: 40px;
+            font-weight: bolder;
+            color: #fff;
+            top: 44%;
+            left: 67%;
+          }
+          .confPlace{
+            font-size: 28px;
+            font-weight: bolder;
+            color: #00417D;
+            padding-top:60px;
+            text-align: center;
+          }
+          .confStartDay{
+            position: absolute;
+            font-size: 22px;
+            font-weight: bolder;
+            color: #00417D;
+            top: 63%;
+            left:16%;
+          }
+          .confEndDay{
+            position: absolute;
+            font-size: 22px;
+            font-weight: bolder;
+            color: #00417D;
+            top: 63%;
+            left:64%;
+          }
+          .yellowBtn {
+            font-size:22px;
+            left: 24%;
+          }
+          .cstmText, .cstmTextNavyBlue, .cstmTextDarkGrey{
+            font-size:37px;
+            line-height:50px;
+            text-align: left;
+          }
+          .cstmTextHeader, .cstmTextDarkGreyHeader{
+            font-size:53px;
+            line-height: 60px;
+          }
+          .spiritualMorning{
+            background-image: url('{% static 'img/pages/conference/9. Mornings.png' %}');
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+          }
+          .footer{
+            left:50%;
+            transform: translate(-50%, 0%);
+          }
+          .dateTime {
+            top: 77%;
+            left: 19%;
+            font-size: 22px;
+          }
+      }
+
+    /* Extra large devices (large laptops and desktops, 1200px and up) */
+    @media only screen and (min-width: 1200px)
+    {
+        .image1 {
+            font-family: 'Lato';
+            height:100%;
+         }
+        .image2 {
+            width: 150px;
+            height: 150px;
+            top: 5%;
+            left: 8%;
+            width: 170px;
+            height: 170px;
+          }
+          .headerTxt1{
+            font-size: 55px;
+            font-weight: bolder;
+            top:9%;
+            left:37%;
+          }
+          .headerTxt2{
+            font-family: 'Lato';
+            font-size: 65px;
+            font-weight: bolder;
+            top:16%;
+            left:30%;
+          }
+          .drmmk {
+            position: absolute;
+            width: 350px;
+            top:24%;
+            left:20%;
+          }
+          .confBlock{
+            position: absolute;
+            top:25%;
+            left:56%;
+          }
+          .cardCstm{
+            text-align: center;
+            padding: 10px 20px;
+            border-radius: 15px;
+          }
+          .confTitle{
+            font-family: 'Lato';
+            font-size: 28px;
+            font-weight: bolder;
+            text-transform: uppercase;
+            color: #00417D;
+            padding-bottom:20px;
+          }
+          .calBg{
+            width:130px;
+            height:130px;
+            margin:5px;
+          }
+          .faCstm{
+            position: relative;
+            top: 20px;
+            left: 0;
+            font-size: 50px !important;
+            color: #76b9f0;
+          }
+          .faLocation{
+            position: absolute;
+            top: 78%;
+            left: 11%;
+            font-size: 40px !important;
+            color: #00417D;
+            padding-right; 50px;
+          }
+          .confStartDate{
+            position: absolute;
+            font-size: 50px;
+            font-weight: bolder;
+            color: #fff;
+            top: 44%;
+            left:19%;
+          }
+          .confEndDate{
+            position: absolute;
+            font-size: 50px;
+            font-weight: bolder;
+            color: #fff;
+            top: 44%;
+            left:66%;
+          }
+          .confPlace{
+            font-size: 32px;
+            font-weight: bolder;
+            color: #00417D;
+            padding-top:60px;
+            text-align: center;
+          }
+          .confStartDay{
+            position: absolute;
+            font-size: 22px;
+            font-weight: bolder;
+            color: #00417D;
+            top: 63%;
+            left:16%;
+          }
+          .confEndDay{
+            position: absolute;
+            font-size: 22px;
+            font-weight: bolder;
+            color: #00417D;
+            top: 63%;
+            left:64%;
+          }
+          .yellowBtn{
+            left: 25%;
+          }
+          .cstmText, .cstmTextNavyBlue, .cstmTextDarkGrey{
+            font-size:43px;
+            line-height:55px;
+            text-align: left;
+          }
+          .cstmTextHeader, .cstmTextDarkGreyHeader{
+            font-size:58px;
+          }
+          .spiritualMorning{
+            background-image: url('{% static 'img/pages/conference/9. Mornings.png' %}');
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+          }
+          .footer{
+            left:50%;
+            transform: translate(-50%, 0%);
+          }
+          .dateTime {
+            top: 77%;
+            left:20%;
+            font-size: 23px;
+          }
+    }
+    .cstm-gradient-leader{
+        font-size: 24px;
+        color: #fff;
+        background-image: linear-gradient(90deg, rgb(0, 190, 210) 0%, rgb(0, 114, 217) 100%);
+        box-shadow: 2px 3px #000000;
+        text-shadow: 2px 1px #000000;
+    }
+    .progressScroll {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      height: auto;
+      overflow: hidden;
+      z-index: 1;
+    }
+    .progress-container {
+      width: 100%;
+      height: 8px;
+      background: #ccc;
+    }
+
+    .progress-bar {
+      height: 8px;
+      background: #04AA6D;
+      width: 0%;
+    }
+</style>
+<div class="progressScroll">
+    <div class="progress-container">
+        <div class="progress-bar" id="myBar"></div>
+    </div>
+</div>
+<div class="body">
+    <div role="main" class="main">
+        <!-- Banner -->
+        <section class="parent">
+            <img class="image1" src="{% static 'img/pages/conference/header-img.png' %}" width="100%"/>
+            <img class="image2" src="{% static 'img/pages/conference/S1/logo.png' %}"/>
+            <div class="row" style="position:fixed; top:0; left:40%">
+                <div class="col-12">
+                    {% include 'front/includes/messages.html' %}
+                </div>
+            </div>
+            <div class="h1">
+                <span class="headerTxt1">Laughter Yoga</span>
+                <span style="line-height:90px;">&nbsp;</span><br>
+                <span class="headerTxt2" style="color:#ffde59;font-weight:700;">World Conference</span>
+            </div>
+            <img src="{% static 'img/pages/conference/S1/drmmk.png' %}"
+                 alt="Dr Madan Kataria and Madhuri Kataria"
+                 class="drmmk"/>
+            <div class="confBlock">
+                <div class="card cardCstm">
+                    <div class="card-body">
+                        <div class="confTitle">October 2023</div>
+                        <img src="{% static 'img/pages/conference/S1/calendar.png' %}"
+                             alt="Calender Image" class="calBg"/>
+                        <span class="confStartDate">16</span>
+                        <span class="confStartDay">Monday</span>
+                        <i class="fas fa-chevron-right faCstm"></i>
+                        <img src="{% static 'img/pages/conference/S1/calendar.png' %}"
+                             alt="Calender Image" class="calBg"/>
+                        <span class="confEndDate">20</span>
+                        <span class="confEndDay">Friday</span>
+                        <div class="confPlace"><i class="fas fa-map-marker-alt faLocation"></i> At Nashik India</div>
+                    </div>
+                </div>
+                <!-- RegisterNow Button -->
+                <div class="row justify-content-center">
+                    <div class="col-10">
+                        <a href="#wcPayment">
+                            <div class="yellowBtn">
+                                Register Now!
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="dateTime">The conference begins at 4 PM on October 16 and ends at 2 PM on October 20, 2023.</div>
+            <!--<svg class="arrows">
+                <path class="a1" d="M0 0 L30 32 L60 0"></path>
+                <path class="a2" d="M0 20 L30 52 L60 20"></path>
+                <path class="a3" d="M0 40 L30 72 L60 40"></path>
+            </svg>-->
+        </section>
+
+        <!-- Conference Highlights -->
+        <section class="confHglte">
+            <div class="container pt-5">
+                <p class="cstmTextHeader py-4">Conference Highlights</p>
+                <div class="row pb-5">
+                    <div class="col-lg-4 pb-2 h-100">
+                        <div class="card" style="background-color: #ff4e4a;">
+                            <div class="card-body">
+                                <p class="cstmText">Spiritual <br>Mornings</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 pb-2">
+                        <div class="card" style="background-color: #00bf63;">
+                            <div class="card-body">
+                                <p class="cstmText">Speakers &<br> Presentations</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 pb-2">
+                        <div class="card" style="background-color: #00a1ff;">
+                            <div class="card-body">
+                                <p class="cstmText">Funtastic <br> Evenings</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-lg-4 mb-3 pb-5 text-center">
+                        <img src="{% static 'img/pages/conference/S2/vgvg-yeah.png' %}" alt="VG Vg Yeah"/>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Laughter Yogies World -->
+        <section class="lafterYogiesWorld">
+            <div class="container pt-5">
+                <p class="h1 text-center py-4 mb-3">Welcome Laughter Yogis Worldwide</p>
+                <div class="row pb-5">
+                    <div class="col-lg-6 pb-2 px-3">
+                        <p class="cstmFont" style="font-weight: bolder;">I am excited to invite you to Laughter Yoga
+                            World Conference in October
+                            2023!</p>
+                        <p class="cstmFont" style="font-weight: bolder;">Our mission is to bring together delegates from
+                            around the world to share
+                            their unique skills and knowledge on the benefits of laughter yoga for health and
+                            wellness.</p>
+                        <p class="cstmFont">At this conference, we will have stimulating lectures, inspiring workshops
+                            and activities that will all be focused on the power of laughter. Join us on this journey
+                            towards understanding laughter as a
+                            tool for personal growth, community building and improved mental health outcomes.</p>
+                        <p class="cstmFont">I am looking forward to seeing you in-person at the Conference!</p>
+                    </div>
+                    <div class="col-lg-6 pb-2 text-center">
+                        <img src="{% static 'img/pages/conference/S3/drk.png' %}" alt="Dr Madan Kataria"
+                             class="img-fluid" style="width:350px;"/>
+                        <!-- RegisterNow Button -->
+                        <div class="row justify-content-center">
+                            <div class="col-sm-12 col-md-10 col-lg-8">
+                                <a href="#wcPayment">
+                                    <div class="lywBtn">
+                                        Register Now!
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <p class="text-dark h4 pt-2"><strong>Limited Seats!</strong> Reserve Your Spot Now</p>
+                    </div>
+                </div>
+                <div class="row pb-5">
+                    <div class="col-lg-4 text-center pb-2">
+                        <img src="{% static 'img/pages/conference/S3/Icon_1.png' %}" alt="Dr Madan Kataria"/>
+                        <p class="text-white h4">Listen to Dr. Kataria's<br>Future Vision of<br>Laughter Yoga</p>
+                    </div>
+                    <div class="col-lg-4 text-center pb-2">
+                        <img src="{% static 'img/pages/conference/S3/Icon_2.png' %}" alt="Dr Madan Kataria"/>
+                        <p class="text-white h4">Meet Laughter<br>Yoga Global Family<br>Members in-person</p>
+                    </div>
+                    <div class="col-lg-4 text-center pb-2">
+                        <img src="{% static 'img/pages/conference/S3/Icon_3.png' %}" alt="Dr Madan Kataria"/>
+                        <p class="text-white h4">Upgrade your LY<br>Skills for Various<br>Applications</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row pb-3">
+                <div class="col-lg-12 text-center">
+                    <svg class="arrows1">
+                        <path class="a1" d="M0 0 L30 32 L60 0"></path>
+                        <path class="a2" d="M0 20 L30 52 L60 20"></path>
+                        <path class="a3" d="M0 40 L30 72 L60 40"></path>
+                    </svg>
+                </div>
+            </div>
+        </section>
+        <section style="background-color:#DAE8FF;">
+            <div class="container">
+                <div class="row py-5">
+                    <div class="col-lg-6 pt-lg-5 mt-lg-3">
+                        <div class="d-flex align-items-center justify-content-center pt-lg-5 mt-lg-5">
+                            <p class="cstmTextNavyBlue">
+                                A once-in-a-lifetime opportunity to meet your worldwide Laughter Yoga family in
+                                person.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <img src="{% static 'img/pages/conference/S4_Image.png' %}" alt="Dr Madan Kataria"
+                             class="img-fluid"/>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section style="background-color:#feeacf;">
+            <div class="container">
+                <div class="row py-5">
+                    <div class="col-lg-6 pt-lg-5 mt-lg-3">
+                        <div class="d-flex align-items-center justify-content-center pt-lg-5 mt-lg-5">
+                            <p class="cstmTextDarkGrey">
+                                Get inspired by the stories of our star speakers from diverse cultures and
+                                countries.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <img src="{% static 'img/pages/conference/S5_Image.png' %}" alt="Dr Madan Kataria"
+                             class="img-fluid"/>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section style="background-color:#DAE8FF;">
+            <div class="container">
+                <div class="row py-5">
+                    <div class="col-lg-6 pt-lg-5 mt-lg-3">
+                        <div class="d-flex align-items-center justify-content-center pt-lg-5 mt-lg-5">
+                            <p class="cstmTextNavyBlue">
+                                Keep up with the latest trends in Laughter Yoga around the world.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <img src="{% static 'img/pages/conference/S6_Image.png' %}" alt="Dr Madan Kataria"
+                             class="img-fluid"/>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section style="background-color:#feeacf;">
+            <div class="container">
+                <div class="row py-5">
+                    <div class="col-lg-6 pt-lg-5 mt-lg-1">
+                        <div class="d-flex align-items-center justify-content-center pt-lg-5 mt-lg-5">
+                            <p class="cstmTextDarkGrey">
+                                Experience the unforgettable joy of laughing with more than 400 people at a local
+                                laughter club.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <img src="{% static 'img/pages/conference/S7_Image.png' %}" alt="Dr Madan Kataria"
+                             class="img-fluid"/>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section style="background-color:#DAE8FF;">
+            <div class="container">
+                <div class="row py-5">
+                    <div class="col-lg-6 pt-lg-5 mt-lg-3">
+                        <div class="d-flex align-items-center justify-content-center pt-lg-5 mt-lg-5">
+                            <p class="cstmTextNavyBlue">
+                                Laugh with mentally challenged girls and do Bollywood laughter yoga dance together.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <img src="{% static 'img/pages/conference/S8_Image.png' %}" alt="Dr Madan Kataria"
+                             class="img-fluid"/>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section style="background-color:#feeacf;">
+            <div class="container">
+                <div class="row py-5">
+                    <div class="col-lg-6 pt-lg-5 mt-lg-3">
+                        <div class="d-flex align-items-center justify-content-center pt-lg-5 mt-lg-5">
+                            <p class="cstmTextDarkGrey">
+                                Laugh with children who do laughter yoga using sign language.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <img src="{% static 'img/pages/conference/S9_Image.png' %}" alt="Dr Madan Kataria"
+                             class="img-fluid"/>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section
+                style="background: rgb(200,107,229); background: linear-gradient(0deg, rgba(200,107,229,1) 0%, rgba(1,74,173,1) 100%);">
+            <div class="container pt-lg-3">
+                <div class="row">
+                    <div class="col-lg-6 pt-5">
+                        <div class="row justify-content-center">
+                            <div class="col-sm-12 col-md-10 col-lg-8">
+                                <a href="#wcPayment">
+                                    <div class="lywBtn">
+                                        Register Now!
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="text-center pt-2">
+                            <span class="text-white h2 text-center pt-3"><strong>Limited Seats!</strong></span><br>
+                            <span class="text-white h4 text-center">Reserve Your Spot Now</span>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <p><img src="{% static 'img/pages/conference/drk-1.png' %}" alt="Dr Madan Kataria"
+                                class="img-fluid" style="margin-bottom: -21px;"/></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="spiritualMorning">
+            <div class="container py-5">
+                <p class="cstmTextDarkGreyHeader">Spiritual Mornings</p>
+                <div class="row py-5">
+                    <div class="col-lg-6 pb-2 px-3">
+                        <p class="cstmTextDarkGrey">
+                            The Laughter Yoga World Conference also includes special guided spiritual sessions by Dr.
+                            Madan Kataria</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row pb-3">
+                <div class="col-lg-12 text-center">
+                    <svg class="arrows1">
+                        <path class="a1" d="M0 0 L30 32 L60 0"></path>
+                        <path class="a2" d="M0 20 L30 52 L60 20"></path>
+                        <path class="a3" d="M0 40 L30 72 L60 40"></path>
+                    </svg>
+                </div>
+            </div>
+        </section>
+        <section style="background-color:#f8f7da;">
+            <div class="container">
+                <div class="row py-5">
+                    <div class="col-lg-6 pt-lg-3">
+                        <div class="d-flex align-items-center justify-content-center pt-lg-5 mt-lg-5">
+                            <p class="cstmTextDarkGrey">
+                                Advance sessions for spiritual and personal growth</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <img src="{% static 'img/pages/conference/s11-img1.png' %}" alt="Dr Madan Kataria"
+                             class="img-fluid"/>
+                    </div>
+                </div>
+                <div class="row py-5">
+                    <div class="col-lg-6 pt-lg-3">
+                        <div class="d-flex align-items-center justify-content-center pt-lg-5 mt-lg-5">
+                            <p class="cstmTextDarkGrey">
+                                Learn different meditations and mindfulness techniques</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <img src="{% static 'img/pages/conference/s11-img2.png' %}" alt="Dr Madan Kataria"
+                             class="img-fluid"/>
+                    </div>
+                </div>
+                <div class="row py-5">
+                    <div class="col-lg-6 pt-lg-3">
+                        <div class="d-flex align-items-center justify-content-center pt-lg-5 mt-lg-5">
+                            <p class="cstmTextDarkGrey">
+                                Learn how to align with higher intelligence to realize your unlimited potential</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <img src="{% static 'img/pages/conference/s11-img3.png' %}" alt="Dr Madan Kataria"
+                             class="img-fluid"/>
+                    </div>
+                </div>
+                <div class="row py-5">
+                    <div class="col-lg-6 pt-lg-2">
+                        <div class="d-flex align-items-center justify-content-center pt-lg-5 mt-lg-5">
+                            <p class="cstmTextDarkGrey">
+                                Learn how to align with higher intelligence to realize your unlimited potential</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <img src="{% static 'img/pages/conference/s11-img4.png' %}" alt="Dr Madan Kataria"
+                             class="img-fluid"/>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section
+                style="background: rgb(200,107,229); background: linear-gradient(0deg, rgba(200,107,229,1) 0%, rgba(1,74,173,1) 100%);">
+            <div class="container pt-lg-3">
+                <div class="row">
+                    <div class="col-lg-6 pt-5">
+                        <div class="row justify-content-center">
+                            <div class="col-sm-12 col-md-10 col-lg-8">
+                                <a href="#wcPayment">
+                                    <div class="lywBtn">
+                                        Register Now!
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="text-center pt-2">
+                            <span class="text-white h2 text-center pt-3"><strong>Limited Seats!</strong></span><br>
+                            <span class="text-white h4 text-center">Reserve Your Spot Now</span>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 text-center">
+                        <p><img src="{% static 'img/pages/conference/drk-2.png' %}" alt="Dr Madan Kataria"
+                                class="img-fluid" style="width:300px; margin-bottom: -20px;"/></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="funtasticEvening">
+            <div class="container py-5">
+                <p class="cstmTextHeader">Funtastic Evenings</p>
+                <div class="row py-5">
+                    <div class="col-lg-6">
+                        &nbsp;
+                    </div>
+                    <div class="col-lg-6 pb-2 px-3">
+                        <br><br>
+                        <p class="cstmText">
+                            The Laughter Yoga World Conference also includes fun and frolic during evenings.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row pb-3">
+                <div class="col-lg-12 text-center">
+                    <svg class="arrows1">
+                        <path class="a1" d="M0 0 L30 32 L60 0"></path>
+                        <path class="a2" d="M0 20 L30 52 L60 20"></path>
+                        <path class="a3" d="M0 40 L30 72 L60 40"></path>
+                    </svg>
+                </div>
+            </div>
+        </section>
+        <section style="background-color:#feeacf;">
+            <div class="container">
+                <div class="row py-5">
+                    <div class="col-lg-6 pt-lg-3">
+                        <div class="d-flex align-items-center justify-content-center pt-lg-5 mt-lg-5">
+                            <p class="cstmTextDarkGrey">
+                                An impromptu creativity workshop</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <img src="{% static 'img/pages/conference/s12-img1.png' %}" alt="Dr Madan Kataria"
+                             class="img-fluid"/>
+                    </div>
+                </div>
+                <div class="row py-5">
+                    <div class="col-lg-6 pt-lg-3">
+                        <div class="d-flex align-items-center justify-content-center pt-lg-5 mt-lg-5">
+                            <p class="cstmTextDarkGrey">
+                                Boost your four elements of joy by singing, dancing, playing and laughing</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <img src="{% static 'img/pages/conference/s12-img2.png' %}" alt="Dr Madan Kataria"
+                             class="img-fluid"/>
+                    </div>
+                </div>
+                <div class="row py-5">
+                    <div class="col-lg-6 pt-lg-3">
+                        <div class="d-flex align-items-center justify-content-center pt-lg-5 mt-lg-5">
+                            <p class="cstmTextDarkGrey">
+                                Discover new laughter exercises and songs</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <img src="{% static 'img/pages/conference/s12-img3.png' %}" alt="Dr Madan Kataria"
+                             class="img-fluid"/>
+                    </div>
+                </div>
+                <div class="row py-5">
+                    <div class="col-lg-6 pt-lg-3">
+                        <div class="d-flex align-items-center justify-content-center pt-lg-5 mt-lg-5">
+                            <p class="cstmTextDarkGrey">
+                                Gibberish workshop and new fun games</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <img src="{% static 'img/pages/conference/s12-img4.png' %}" alt="Dr Madan Kataria"
+                             class="img-fluid"/>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="muchMore">
+            <div class="container py-5">
+                <div class="row py-5">
+                    <div class="col-lg-12 pb-2 px-3">
+                        <p class="cstmTextHeader">
+                            And Much Much More!</p><br><br>
+                    </div>
+                </div>
+            </div>
+            <div class="row pt-5 mt-5">
+                <div class="col-lg-12 pt-5 mt-4 text-center">
+                    <img src="{% static 'img/pages/conference/muchMore.png' %}"/>
+                </div>
+            </div>
+        </section>
+
+        <section style="background-color:#00417d;" id="wcPayment">
+            <div class="container">
+                <p class="pt-5 text-center cstmTextHeader">Registration Fees</p>
+                <p class="text-center cstmText">Laughter Yoga World Conference Fees: $375 <br><span class="cstmSubText"> October 16-20, 2023 at Nashik, India</span>
+                </p>
+                <div class="row justify-content-center">
+                    <div class="col-lg-6">
+                        <div class="row justify-content-center my-4">
+                                <div class="col-lg-8 text-center">
+                                    <a href="https://buy.stripe.com/4gwdRR8CncFt8a44gm" target="_blank" class="payNowBtn">Pay Now $ 375</a>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+                <div class="row py-5">
+                    <div class="col-lg-6 text-center">
+                        <img src="{% static 'img/pages/conference/payment-important.png' %}" class="img-fluid"/>
+                    </div>
+                    <div class="col-lg-6">
+                        <ol>
+                            <li><strong>Limited Seats!</strong> Book your seats now by registering for the conference.
+                            </li>
+                            <li>After you register, you will receive acknowledgment email with further details.</li>
+                            <li>Cost of travel, accommodations & food are not included in this conference registration
+                                fees.
+                            </li>
+                            <li>The booking process for accommodations & food begins on September 1, 2023. Further
+                                information will be emailed to you separately at a later date.
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section style="background: rgb(200,107,229);
+        background: linear-gradient(0deg, rgba(200,107,229,1) 0%, rgba(1,74,173,1) 100%);">
+            <div class="container pt-lg-3">
+                <div class="row">
+                    <div class="col-lg-6 pt-5">
+                        <div class="row justify-content-center">
+                            <div class="col-sm-12 col-md-10 col-lg-8">
+                                <a href="#wcPayment">
+                                    <div class="lywBtn">
+                                        Register Now!
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="text-center pt-2">
+                            <span class="text-white h2 text-center pt-3"><strong>Limited Seats!</strong></span><br>
+                            <span class="text-white h4 text-center">Reserve Your Spot Now</span>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <p><img src="{% static 'img/pages/conference/drk-5.png' %}" alt="Dr Madan Kataria"
+                                class="img-fluid" style="width:400px; margin-bottom: -20px;"/></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="conferenceVenue">
+            <div class="container py-5">
+                <p class="cstmTextHeader">Conference Venue</p>
+                <div class="row py-5">
+                    <div class="col-lg-6 pb-2 px-3">
+                        <p class="cstmTextHeader" style="text-align:left;">
+                            Grape County <br> Eco Resort</p>
+                        <p class="cstmText" style="text-align:left;">
+                            Trayambakeshwar Road, <br>Vadholi, Nashik, <br>Maharashtra 422213.</p>
+                    </div>
+                    <div class="col-lg-6">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3750.156774583105!2d73.60921108005063!3d19.959908075783446!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bddf2dd8f3ceb6d%3A0x26175aeed4855a3b!2sGrape%20County%20Eco%20Resort%20%26%20Spa%2C%20Nashik!5e0!3m2!1sen!2sin!4v1685017366730!5m2!1sen!2sin"
+                                width="100%" height="100%"
+                                style="border:4px solid #fff; border-radius:20px;-webkit-box-shadow: 0px 0px 62px -5px rgba(0,0,0,0.75);-moz-box-shadow: 0px 0px 62px -5px rgba(0,0,0,0.75);box-shadow: 0px 0px 62px -5px rgba(0,0,0,0.75);"
+                                allowfullscreen="" loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Resort Image Section Starts Here -->
+        <section class="section border-0 m-0">
+            <div class="container py-3 my-5">
+                <div class="col-lg-12 text-center">
+                    <div class="overflow-hidden">
+                        <h2 class="font-weight-bold text-color-dark line-height-1 pb-3 mb-0">Grape County Eco
+                            Resort</h2>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4 pb-3">
+                        <img src="{% static 'img/pages/conference/grapeCounty1.png' %}"
+                             class="img-fluid rounded" alt="Grape County Image 1">
+                    </div>
+                    <div class="col-lg-4 pb-3 ">
+                        <img src="{% static 'img/pages/conference/grapeCounty2.png' %}"
+                             class="img-fluid rounded" alt="Grape County Image 2">
+                    </div>
+                    <div class="col-lg-4 pb-3">
+                        <img src="{% static 'img/pages/conference/grapeCounty3.png' %}"
+                             class="img-fluid rounded" alt="Grape County Image 1">
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section style="background-color: #00417d;">
+            <div class="container">
+                <div class="row py-4">
+                    <div class="col-lg-6 text-center py-4">
+                        <img src="{% static 'img/pages/conference/room1.png' %}" alt="room1" class="img-fluid"
+                             style="width:500px;"/>
+                    </div>
+                    <div class="col-lg-6 text-center py-4">
+                        <img src="{% static 'img/pages/conference/room2.png' %}" alt="room2" class="img-fluid"
+                             style="width:500px;"/>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12 text-center py-5">
+                        <p style="color: #00dee1; font-size:30px; line-height:35px;"><strong>The booking process for
+                            accommodation begins on September 1, 2023.</strong><br>Further information will be emailed
+                            to you separately at a later date.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="travelRoute">
+            <div class="container py-5">
+                <div class="row py-5">
+                    <div class="col-lg-12 pb-2 px-3">
+                        <p class="cstmHeader">Travel Routes</p><br><br>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6 text-center my-3 py-lg-5">
+                        <p class="cstmText" style="background-color:#079AEF; padding:10px 25px;">Route Option A</p>
+                        <div style="background-color:#000000; border:5px solid #079AEF; margin-top:-20px;padding:10px 25px; opacity:0.80;">
+                            <p class="cstmText">
+                                Land at Mumbai Airport and book a taxi for a 5-hour drive to the city of Nashik.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 text-center my-3 py-lg-5">
+                        <p class="cstmText" style="background-color:#079AEF; padding:10px 25px;">Route Option B</p>
+                        <div style="background-color:#000000; border:5px solid #079AEF; margin-top:-20px;padding:10px 25px; opacity:0.80;">
+                            <p class="cstmText">
+                                Land at New Delhi Airport and take another flight to the city of Nashik.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <p class="h2 text-center text-white">The distance between Nashik and Mumbai is approx. 180 kilometres (112 miles).</p>
+                <br><br>
+            </div>
+        </section>
+        <section style="background: rgb(200,107,229);
+        background: linear-gradient(0deg, rgba(200,107,229,1) 0%, rgba(1,74,173,1) 100%); margin-top:-20px;">
+            <div class="container pt-lg-3">
+                <div class="row">
+                    <div class="col-lg-6 pt-5">
+                        <div class="row justify-content-center">
+                            <div class="col-sm-12 col-md-10 col-lg-8">
+                                <a href="#wcPayment">
+                                    <div class="lywBtn">Register Now!</div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="text-center pt-2">
+                            <span class="text-white h2 text-center pt-3"><strong>Limited Seats!</strong></span><br>
+                            <span class="text-white h4 text-center">Reserve Your Spot Now</span>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <p><img src="{% static 'img/pages/conference/drk-6.png' %}" alt="Dr Madan Kataria"
+                                class="img-fluid" style="width:400px; margin-bottom: -20px;"/></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="py-5" style="background-color: #94BCF1; margin-bottom:-50px;" id="wcFAQ">
+            <div class="container pt-md-4 pt-xl-0">
+                <div class="row justify-content-center">
+                    <div class="col-lg-10">
+                        <div class="h2 text-center font-weight-bold text-capitalize pb-4" style="color:#050A30">
+                            Frequently Asked Questions
+                        </div>
+                        <div class="toggle toggle-lg" data-plugin-toggle="">
+                            <section class="toggle mb-4 active">
+                                <a class="toggle-title text-decoration-none">Why should I pay conference registration
+                                    fees in advance?</a>
+                                <div class="toggle-content">
+                                    <p>Due to the high demand worldwide for the Laughter Yoga World Conference, bookings
+                                        are filling up fast. Bookings will be closed once we reach maximum auditorium
+                                        capacity, and the only way to guarantee your seat is to register now.</p>
+                                </div>
+                            </section>
+                            <section class="toggle mb-4">
+                                <a class="toggle-title text-decoration-none">Will the conference be live-streamed as
+                                    well?</a>
+                                <div class="toggle-content">
+                                    <p>No. It is an in-person conference in Nashik, India.</p>
+                                </div>
+                            </section>
+                            <section class="toggle mb-4">
+                                <a class="toggle-title text-decoration-none">What is the conference duration?</a>
+                                <div class="toggle-content">
+                                    <p>It is a five-day event that begins on Monday, 16th October 2023 and concludes on
+                                        Friday, 20th October 2023.</p>
+                                </div>
+                            </section>
+                            <section class="toggle mb-4">
+                                <a class="toggle-title text-decoration-none">Does the conference registration fee
+                                    include travel, food and accommodation?</a>
+                                <div class="toggle-content">
+                                    <p>No. $375 is ONLY for registering and booking your conference seat.</p>
+                                </div>
+                            </section>
+                            <section class="toggle mb-4">
+                                <a class="toggle-title text-decoration-none">When should I start preparing for the
+                                    conference?</a>
+                                <div class="toggle-content">
+                                    <p>You can start planning at your convenience. As soon as you register and book your
+                                        conference seat, you can also check/book flight tickets in advance from your
+                                        country to Nashik, India.</p>
+                                </div>
+                            </section>
+                            <section class="toggle mb-4">
+                                <a class="toggle-title text-decoration-none">When should I arrive at the venue?</a>
+                                <div class="toggle-content">
+                                    <p>You can arrive one day before, i.e. on 15th October 2023, to get accustomed to
+                                        the climate and be fresh before the big event. And if you are planning to tour
+                                        India before the conference, then ensure you arrive at the conference on
+                                        time.</p>
+                                </div>
+                            </section>
+                            <section class="toggle mb-4">
+                                <a class="toggle-title text-decoration-none">What are the preferred travel routes to
+                                    Nashik, India?</a>
+                                <div class="toggle-content">
+                                    <p>
+                                    <ul>
+                                        <li style="color: #003260;"><strong>Route Option A:</strong> Land at New Delhi
+                                            Airport and take another flight to the city of Nashik.
+                                        </li>
+                                        <li style="color: #003260;"><strong>Route Option B:</strong> Land at Mumbai
+                                            Airport and book a taxi for a 5-hour drive to the city of Nashik.
+                                        </li>
+                                    </ul>
+                                    </p>
+                                </div>
+                            </section>
+                            <section class="toggle mb-4">
+                                <a class="toggle-title text-decoration-none">How to get more information about the Visa
+                                    process?</a>
+                                <div class="toggle-content">
+                                    <p>You can access this page for application for a tourist e-visa: <a
+                                            href="https://indianvisaonline.gov.in/evisa/tvoa.html" target="_blank">https://indianvisaonline.gov.in/evisa/tvoa.html</a>
+                                    </p>
+                                </div>
+                            </section>
+                            <section class="toggle mb-4">
+                                <a class="toggle-title text-decoration-none">When and how can I pay and book food and
+                                    accommodation?</a>
+                                <div class="toggle-content">
+                                    <p>The accommodation booking process will start later, and you will be informed in
+                                        advance through email on the email id you used to register for the
+                                        conference.</p>
+                                </div>
+                            </section>
+                            <section class="toggle mb-4">
+                                <a class="toggle-title text-decoration-none">What if I don't get accommodation?</a>
+                                <div class="toggle-content">
+                                    <p>Your accommodation will be 100% confirmed when you pay the $375 conference fees
+                                        and register your seat for the conference.</p>
+                                </div>
+                            </section>
+                            <section class="toggle mb-4">
+                                <a class="toggle-title text-decoration-none">What accommodation types are available, and
+                                    what are their charges?</a>
+                                <div class="toggle-content">
+                                    <p>We have a discounted package deal with the hotel as follows:</p>
+                                    <ul>
+                                        <li style="font-size: 20px; color:#003260; line-height:20px; margin-top:-1px;">
+                                            Deluxe Rooms: $85 per person/night
+                                        </li>
+                                        <li style="font-size: 20px; color:#003260; line-height:20px; margin-top:-2px;">
+                                            Luxury Villa: $110 per person/night
+                                        </li>
+                                    </ul>
+                                    <p>Please note:</p>
+                                    <ul>
+                                        <li style="font-size: 20px; color:#003260; line-height:20px; margin-top:-1px;">
+                                            These are all-meals packages
+                                        </li>
+                                        <li style="font-size: 20px; color:#003260; line-height:20px; margin-top:-2px;">
+                                            Packages are two-person sharing
+                                        </li>
+                                        <li style="font-size: 20px; color:#003260; line-height:20px; margin-top:-2px;">
+                                            Single-person accommodations are unavailable
+                                        </li>
+                                    </ul>
+                                    <p style="padding-top:20px;">The accommodation booking process will start later, and
+                                        you will be informed in advance through email on the email id you used to
+                                        register for the conference.</p>
+                                </div>
+                            </section>
+                            <section class="toggle mb-4">
+                                <a class="toggle-title text-decoration-none">What if I want a single room for
+                                    myself?</a>
+                                <div class="toggle-content">
+                                    <p>You can book your room outside the conference venue independently. You can
+                                        contact us, and we will provide you with hotel details.</p>
+                                </div>
+                            </section>
+                            <section class="toggle mb-4">
+                                <a class="toggle-title text-decoration-none">I have more queries. Who can I contact to
+                                    discuss them?</a>
+                                <div class="toggle-content">
+                                    <p>Please feel free to Call or WhatsApp us at <a href="tel:+918884567891"
+                                                                                     target="_blank">(+91) 888 456
+                                        7891</a> or Email us at <a href="mailto:help@laughteryoga.org" target="_blank">help@laughteryoga.org</a>
+                                    </p>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="seeYouAtConference">
+            <div class="container">
+                <img src="{% static 'img/pages/conference/seeYouAtConference1.png' %}" class="img-fluid"
+                     alt="See You At Conference"/>
+            </div>
+        </section>
+        <section style="background-color: #292929; margin-bottom:-50px;">
+            <div class="container">
+                <div class="row py-5">
+                    <div class="col-lg-12 text-center pb-5">
+                        <p class="cstmText text-center">For Support and/or Query Resolution</p>
+                    </div>
+                    <div class="col-lg-6 text-center pb-3">
+                        <img src="{% static 'img/pages/conference/mail.png' %}" alt="Email" class="img-fluid"/>
+                        <p style="font-size:20px; font-weight:bolder; color: #fff;">help@laughteryoga.org</p>
+                    </div>
+                    <div class="col-lg-6 text-center pb-3">
+                        <img src="{% static 'img/pages/conference/whatsapp.png' %}" alt="Email" class="img-fluid"/>
+                        <p style="font-size:20px; font-weight:bolder; color: #fff;">(+91) 888 456 7891</p><br>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="footer text-white" style="background-color: #125BC1; opacity: 0.65;">
+            <div class="container">
+                <!--<div class="row justify-content-center">
+                    <div class="col-lg-6 pt-lg-2">
+                        <div class="tick" data-did-init="handleTickInit">
+                            <div data-repeat="true"
+                                 data-layout="horizontal center fit"
+                                 data-transform="preset(d, h, m, s) -> delay">
+                                <div class="tick-group">
+                                    <div data-key="value"
+                                         data-repeat="true"
+                                         data-transform="pad(00) -> split -> delay">
+                                        <span data-view="flip"></span>
+                                    </div>
+                                    <span data-key="label"
+                                          data-view="text"
+                                          class="tick-label"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-4 col-lg-6 pt-lg-4">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <a href="#wcPayment" style="color:#ffffff;">
+                                    <div class="stickyBtn">Register Now!</div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>-->
+            </div>
+        </section>
+    </div>
+</div>
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<script>
+	function handleTickInit(tick) {
+		Tick.count.down('2023-10-16').onupdate = function(value) {
+			tick.value = value;
+        };
+	}
+</script>
+<script>
+    // When the user scrolls the page, execute myFunction
+    window.onscroll = function() {myFunction()};
+
+    function myFunction() {
+      var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+      var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      var scrolled = (winScroll / height) * 100;
+      document.getElementById("myBar").style.width = scrolled + "%";
+    }
+</script>
+<script src="{% static 'vendor/flip/flip.min.js' %}"></script>
+{% endblock %}

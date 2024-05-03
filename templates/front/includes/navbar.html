@@ -1,0 +1,119 @@
+{% load static %}
+{% load i18n %}
+<div class="header-container container" style="height:65px !important;  ">
+    <div class="header-row">
+        <div class="header-column w-100">
+            <div class="header-row justify-content-between">
+                <div class="header-logo z-index-2 col-lg-2 px-0">
+                    <a href="{% url 'home' %}">
+                        <img alt="Laughter Yoga International" width="200" height="35"
+                             src="{% static 'img/logo.png' %}">
+                    </a>
+                </div>
+                {% with url_name=request.resolver_match.url_name %}
+                <div class="header-nav header-nav-links justify-content-end pr-lg-4 mr-lg-3">
+                    <div class="header-nav-main header-nav-main-dropdown-no-borders header-nav-main-effect-3 header-nav-main-sub-effect-1">
+                        <nav class="collapse">
+                            <ul class="nav nav-pills" id="mainNav">
+                                <li class="dropdown line-height-2">
+                                    <a class="dropdown-item dropdown-toggle {% if url_name == 'home' %}active{% endif %}" href="/">{% trans 'Home' %}</a>
+                                </li>
+                                <li class="dropdown line-height-2">
+                                    <a class="dropdown-item dropdown-toggle" href="#">{% trans 'About' %}</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="{% url 'about-laughter-yoga' %}">{% trans 'About Laughter Yoga' %}</a></li>
+                                        <!--<li><a class="dropdown-item text-uppercase text" href="{% url 'world-laughter-day' %}">{% trans 'World Laughter Day' %}</a></li>-->
+                                        <!--<li><a class="dropdown-item" href="{% url 'about-laughter-club' %}">{% trans 'Join Laughter Clubs' %}</a></li>-->
+                                        <li><a class="dropdown-item" href="{% url 'zoom-laughter-club' %}">{% trans 'Free Online Laughter Club' %}</a></li>
+                                        <li><a class="dropdown-item" href="{% url 'yoga-plus-ly' %}">{% trans 'LY for Yoga Practitioners' %}</a></li>
+                                        <li><a class="dropdown-item" href="{% url 'seniors' %}">{% trans 'LY with Senior' %}</a></li>
+                                        <li><a class="dropdown-item" href="{% url 'business' %}">{% trans 'LY in Business' %}</a></li>
+                                        <li><a class="dropdown-item" href="{% url 'school-children' %}">{% trans 'LY in Schools and Colleges' %}</a></li>
+                                        <li><a class="dropdown-item" href="{% url 'depression' %}">{% trans 'Laughter Yoga in Depression' %}</a></li>
+                                        <li><a class="dropdown-item" href="{% url 'cancer' %}">{% trans 'Laughter Yoga in Cancer' %}</a></li>
+                                        <li><a class="dropdown-item" href="{% url 'special-needs' %}">{% trans 'Laughter Yoga in Special Needs' %}</a></li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown">
+                                    <a class="dropdown-item dropdown-toggle" href="#">
+                                        Trainings
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="{% url 'about-training' %}">About Training</a></li>
+                                        <li><a class="dropdown-item" href="{% url 'find-training' %}">Find Training Worldwide</a></li>
+                                        <li><a class="dropdown-item" href="{% url 'basic-learning-course' %}" target="_parent">Online Trainings</a></li>
+                                        <li><a class="dropdown-item" href="{% url 'teacher-training' %}">Teacher Training by Dr. K</a></li>
+                                        <li><a class="dropdown-item" href="{% url 'spiritualRetreat' %}">Spiritual Retreat by Dr. K</a></li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown">
+                                    <a class="dropdown-item dropdown-toggle" href="#">Finder</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="{% url 'find-ly-professionals' %}">Find LY
+                                            Professionals</a></li>
+                                        <!--<li><a class="dropdown-item" href="{% url 'find-registered-laughter-yoga-professionals' %}">Find Reg. LY Professionals</a></li>-->
+                                        <li><a class="dropdown-item" href="{% url 'find-training' %}">Find Training
+                                            Worldwide</a></li>
+                                        <li><a class="dropdown-item" href="{% url 'find-event' %}">Find Events
+                                            Worldwide</a></li>
+                                        <li><a class="dropdown-item" href="{% url 'find-club' %}">Find Laughter
+                                            Clubs</a></li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown">
+                                    <a class="dropdown-item dropdown-toggle" href="#">
+                                        Knowledge Center
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li>
+                                            <a class="dropdown-item" href="{% url 'diary-list' %}">Dr. Kataria’s Diary</a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="{% url 'laughter-blogs' %}">Laughter Yoga Blogs</a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="{% url 'general-research-articles' %}">LY Research Articles</a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="{% url 'news' %}">Laughter Yoga News</a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="{% url 'testimonial' %}">Life Changing Experiences</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown">
+                                    <a class="dropdown-item dropdown-toggle {% if url_name == 'prozone' %}active{% endif %}" href="{% url 'prozone' %}">Prozone</a>
+                                </li>
+                                <li class="dropdown">
+                                    <a class="dropdown-item dropdown-toggle" href="#">LY 2.0</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="{% url 'ly2' %}">LY 2.0 English</a></li>
+                                        <li><a class="dropdown-item" href="{% url 'ly2jp' %}">LY 2.0 Japanese</a></li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown"><a class="dropdown-item dropdown-toggle" href="https://shop.laughteryoga.org" target="_blank">Shop</a></li>
+                                {% if user.is_authenticated %}
+                                <li class="dropdown">
+                                    <a class="dropdown-item dropdown-toggle" href="#">Account</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="{% url 'dashboard' %}">Dashboard</a></li>
+                                        <li><a class="dropdown-item" href="{% url 'logout' %}">Logout</a></li>
+                                    </ul>
+                                </li>
+                                {% else %}
+                                <li class="dropdown"><a class="dropdown-item" href="{% url 'login' %}">Login</a></li>
+                                {% endif %}
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+                {% endwith %}
+                <button class="btn header-btn-collapse-nav ml-4" data-toggle="collapse"
+                        data-target=".header-nav-main nav" aria-label="Mobile Nav">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

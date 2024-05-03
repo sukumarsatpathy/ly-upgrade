@@ -1,0 +1,44 @@
+{% extends 'front/base.html' %}
+{% load i18n %}
+{% block meta %}
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>{{ra_detail.title}} - Laughter Yoga International</title>
+    <meta name="title" content="{{ra_detail.meta_title}}"/>
+    <meta name="keywords" content="{{ra_detail.meta_keywords}}"/>
+    <meta name="description" content="{{ra_detail.meta_description}}">
+    <meta name="author" content="Dr Madan Kataria">
+{% endblock %}
+{% block content %}
+<div role="main" class="main">
+    <!-- Breadcrumb Starts Here -->
+    <section class="page-header page-header-classic">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <ul class="breadcrumb">
+                        <li><a href="{% url 'home' %}" target="_parent" class="text-decoration-none">Home</a></li>
+                        <li><a href="#" target="_parent" class="text-decoration-none">Knowledge Center</a></li>
+                        <li><a href="{% url 'general-research-articles' %}" target="_parent" class="text-decoration-none">Research Articles</a></li>
+                        <li class="active">{{ra_detail.title|slice:":25"}}..</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="container py-2">
+        <div class="row">
+            <div class="col-lg-9">
+                <h4>{{ra_detail.title}}</h4>
+                {% if ra_detail.image %}
+                <p><img src="{{ra_detail.image.url}}" alt="{{ra_detail.title}}" class="rounded" style="width:800px;"></p>
+                {% endif %}
+                <p>{{ra_detail.description|safe}}</p>
+            </div>
+            <div class="col-lg-3 order-lg-2">
+                {% include 'front/includes/sidebar/default.html' %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,70 @@
+{% extends 'front/base.html' %}
+{% load static %}
+{% load i18n %}
+{% load cropping %}
+{% block content %}
+{% include 'front/includes/breadcrumb.html' %}
+<div class="container py-4">
+	<div class="row">
+		<div class="col-lg-9 order-lg-1">
+			<div class="blog-posts">
+ 				{% for articles in all_ly_articles %}
+				<article class="post post-medium">
+				<div class="row mb-3">
+					<div class="col-lg-5">
+						<div class="post-image">
+							<a href="{% url 'ly-article-detail' articles.slug %}">
+								<img src="{% cropped_thumbnail articles 'cropped_image' width=326 %}" class="img-fluid img-thumbnail img-thumbnail-no-borders rounded-0" alt=""/>
+							</a>
+						</div>
+					</div>
+					<div class="col-lg-7">
+						<div class="post-content">
+							<h2 class="font-weight-semibold pt-4 pt-lg-0 text-5 line-height-4 mb-2"><a href="{% url 'ly-article-detail' articles.slug %}">{{articles.title}}</a></h2>
+							<p class="mb-0">{{articles.description|slice:":249"|safe}}..</p>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col">
+						<div class="post-meta">
+								<span><i class="far fa-calendar-alt"></i> {{articles.created_date}}</span>
+								<span><i class="far fa-eye"></i> {{articles.views}}</span>
+								<span class="d-block d-sm-inline-block float-sm-right mt-3 mt-sm-0"><a href="{% url 'ly-article-detail' articles.slug %}" class="btn btn-xs btn-light text-1 text-uppercase">Read More</a></span>
+						</div>
+					</div>
+				</div>
+			</article>
+			{% endfor %}
+			{% if all_ly_articles.has_other_pages %}
+			<ul class="pagination float-right">
+			<!-- Left Arrow -->
+				{% if all_ly_articles.has_previous %}
+				<li class="page-item"><a class="page-link" href="?page={{all_ly_articles.previous_page_number}}"><i class="fas fa-angle-left"></i></a></li>
+				{% else %}
+				<li class="page-item disabled"><a class="page-link"><i class="fas fa-angle-left"></i></a></li>
+				{% endif %}
+				{% for i in all_ly_articles.paginator.page_range %}
+					{% if all_ly_articles == i %}
+					<li class="page-item"><a class="page-link" href="#">{{i}}</a></li>
+					{% else %}
+					<li class="page-item"><a class="page-link" href="?page={{i}}">{{i}}</a></li>
+					{% endif %}
+				{% endfor %}
+
+				<!-- Right Arrow -->
+				{% if all_ly_articles.has_next %}
+				<li class="page-item"><a class="page-link" href="?page={{all_ly_articles.next_page_number}}"><i class="fas fa-angle-right"></i></a></li>
+				{% else %}
+				<li class="page-item disabled"><a class="page-link"><i class="fas fa-angle-right"></i></a></li>
+				{% endif %}
+			</ul>
+			{% endif %}
+		</div>
+	</div>
+<div class="col-lg-3 order-lg-2">
+{% include 'front/includes/sidebar.html' %}
+</div>
+</div>
+</div>
+{% endblock %}

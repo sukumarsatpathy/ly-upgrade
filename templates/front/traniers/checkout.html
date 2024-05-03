@@ -1,0 +1,205 @@
+{% extends 'front/dashboard-base.html' %}
+{% load i18n %}
+{% load static %}
+{% load cropping %}
+{% block content %}
+{% include 'front/includes/messages.html' %}
+<div class="col-xl-6 col-lg-12 col-md-12 col-sm-12 col-auto">
+    <div class="card">
+        <div class="card-body pt-3">
+            <div class=" align-items-center">
+                <div class="text-center">
+                    <div class="description">
+                        <div class="title mb-1 pb-0 text-center"><span class="tx-22 font-weight-semibold text-primary">{% trans 'Pay and Register' %}</span>
+                        </div>
+                        <div class="table-responsive mb-0">
+                            <table class="table table-hover table-dashboard-two table-bordered mb-0">
+                                <thead>
+                                <tr>
+                                    <th class="text-center">{% trans 'Trainer Name' %}</th>
+                                    <th class="text-center">{% trans 'Membership Duration' %}</th>
+                                    <th class="text-center">{% trans 'Price' %}</th>
+                                </tr>
+                                </thead>
+                                <tbody  id="tbody">
+                             
+                               
+                            </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+
+
+                    <script>
+
+                      function  create_td(innertext)
+                      {
+                        var td = document.createElement('td')
+                            td.classList.add('text-center')
+                            td.innerHTML = innertext
+                            return td
+
+                      }
+
+                        if (localStorage.getItem('user')) 
+                        {
+
+                            var Price = 10
+                             
+                            var tbody = document.getElementById('tbody')
+                            user = JSON.parse(localStorage.getItem('user'))
+
+                            var tr = document.createElement('tr')
+                            tr.append(create_td(user.email))
+                            tr.append(create_td(user.membership))
+                            tr.append(create_td("10$"))
+                            tbody.append(tr)
+
+                            var tr2  = document.createElement('tr')
+                            tr2.append(create_td("Total"))
+                            var td_total = create_td(`${Price}$`)
+                            td_total.setAttribute('colspan' , 2)
+                            tr2.append(td_total)
+                            tbody.append(tr2)
+
+                            
+                        }
+
+                        else{
+ 
+                            users = JSON.parse(localStorage.getItem('users'))
+
+                            var Price = 0
+                            var tbody = document.getElementById('tbody')
+                            for (const user of users) {
+
+                            
+
+                             
+                          
+ 
+                             var tr = document.createElement('tr')
+                             tr.append(create_td(user.email))
+                             tr.append(create_td(user.membership))
+                             tr.append(create_td("10$"))
+                             tbody.append(tr)
+                             Price +=10
+                            }
+                            // console.log(Price2)
+                            
+                            var tr2  = document.createElement('tr')
+                            tr2.append(create_td("Total"))
+
+                            var td_total = create_td(`${Price}$`)
+                            td_total.setAttribute('colspan' , 2)
+                            tr2.append(td_total)
+                            tbody.append(tr2)
+                           
+
+
+
+
+
+
+                            
+                        }
+                            
+                            
+                    </script>
+
+
+                    <div class="card-body row justify-content-center">
+                        <div id="paypal-button-container"></div>
+                        <script src="https://www.paypal.com/sdk/js?client-id=ARRqvaiA1F5rmQ3X_lB6FyUhTTX0zZK9tf1a-ALqfXvQTgQlSTM2mryjUNeQBl12m-9a6g6-OWWkanUS&currency=USD"></script>
+                        <script>
+                        function handleErrors(response) {
+if (response.status != 200) {
+    throw Error(response.statusText);
+}
+return response;
+}
+                        
+
+                        // Render the PayPal button into #paypal-button-container
+                        paypal.Buttons({
+
+                            style: {
+                                color:  'blue',
+                                shape:  'rect',
+                                label:  'pay',
+                            },
+
+                            // Set up the transaction
+                            createOrder: function(data, actions) {
+                                return actions.order.create({
+                                    purchase_units: [{
+                                        amount: {
+                                            value: Price
+                                        }
+                                    }]
+                                });
+                            },
+
+                            // Finalize the transaction
+                            onApprove: function(data, actions) {
+                                return actions.order.capture().then(function(details) {
+                                    // Show a success message to the buyer
+                                    if( localStorage.getItem('users') ){
+                                         
+                                   
+
+
+                                        fetch("{% url 'submit_trainers_checkout' %}", {
+      method: 'post',
+      headers: {
+        'Accept': 'application/json, text/plain, */*',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(users)
+    })
+    .then(handleErrors)
+    .then( res =>
+    {
+    window.location='http://ly.vinth.in/success/'
+      
+    }
+    )
+    .catch((error) => {
+    alert(error)
+  })
+
+
+                                    }
+                                    else{
+
+                                  
+
+                                        $.ajax({                       // initialize an AJAX request
+          url: "{% url 'submit_trainer_checkout' %}",  
+          type: "post",               // set the url of the request (= localhost:8000/hr/ajax/load-cities/)
+          data: user  ,
+          success: function (data) {   // `data` is the return of the `load_cities` view function
+       window.location ='http://ly.vinth.in/success/'
+        },
+        error: function (request, status, error) {
+        
+          alert(error);
+        
+        }
+        });
+                                         
+                                    }
+                                    
+                                });
+                            }
+
+                        }).render('#paypal-button-container');
+                        </script>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,471 @@
+{% extends 'front/base.html' %}
+{% load static %}
+{% load i18n %}
+{% load cropping %}
+{% block meta %}
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Online Certified Leader Training - Laughter Yoga International</title>
+    <meta name="keywords" content="laughter yoga trainings, laughter coaching, laughter course, laughter certifications"/>
+    <meta name="description" content="Do you want to become a certified Laughter Yoga leader and start a Laughter Club and lead the sessions in companies and corporations, yoga & fitness centers, schools, senior centres and offer public seminars?">
+    <meta name="author" content="Dr Madan Kataria">
+{% endblock %}
+{% block content %}
+<script>
+    var deadline = new Date("apr 24, 2023 08:00:00").getTime(); // Date to be changed in this line. Time: 24 Hrs Format
+
+    var x = setInterval(function() {
+
+    var now = new Date().getTime();
+    var t = deadline - now;
+    var days = Math.floor(t / (1000 * 60 * 60 * 24));
+    var hours = Math.floor((t%(1000 * 60 * 60 * 24))/(1000 * 60 * 60));
+    var minutes = Math.floor((t % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((t % (1000 * 60)) / 1000);
+    document.getElementById("day").innerHTML =days ;
+    document.getElementById("hour").innerHTML =hours;
+    document.getElementById("minute").innerHTML = minutes;
+    document.getElementById("second").innerHTML =seconds;
+    if (t < 0) {
+            clearInterval(x);
+            document.getElementById("demo").innerHTML = "Time Up";
+            document.getElementById("day").innerHTML ='0';
+            document.getElementById("hour").innerHTML ='0';
+            document.getElementById("minute").innerHTML ='0' ;
+            document.getElementById("second").innerHTML = '0'; }
+    }, 1000);
+</script>
+<div class="owl-carousel-wrapper" style="height: 600px;">
+    <div class="owl-carousel dots-inside dots-horizontal-center dots-light show-dots-hover show-dots-xs nav-inside nav-inside-plus nav-dark nav-md nav-font-size-md show-nav-hover mb-0"
+         data-plugin-options="{'responsive': {'0': {'items': 1}, '479': {'items': 1}, '768': {'items': 1}, '979': {'items': 1}, '1199': {'items': 1}}, 'loop': false, 'autoHeight': false, 'margin': 0, 'dots': true, 'dotsVerticalOffset': '-75px', 'nav': false, 'animateIn': 'fadeIn', 'animateOut': 'fadeOut', 'mouseDrag': false, 'touchDrag': false, 'pullDrag': false, 'autoplay': true, 'autoplayTimeout': 9000, 'autoplayHoverPause': true, 'rewind': true}">
+        <img src="{% static 'img/slides/leader-training.jpg' %}"/>
+    </div>
+</div>
+<div class="body">
+    <div role="main" class="main">
+        <div class="container my-5 pt-md-4 pt-xl-0">
+            <!--<div class="row align-items-center justify-content-center pb-4 mb-5">
+                <div class="row">
+                    <div class="col-12">
+                        <h1 class="text-center">Course Starts in </h1>
+                        <div id="clockdiv">
+                            <div>
+                                <span class="days" id="day"></span>
+                                <div class="smalltext">Days</div>
+                            </div>
+                            <div>
+                                <span class="hours" id="hour"></span>
+                                <div class="smalltext">Hours</div>
+                            </div>
+                            <div>
+                                <span class="minutes" id="minute"></span>
+                                <div class="smalltext">Minutes</div>
+                            </div>
+                            <div>
+                                <span class="seconds" id="second"></span>
+                                <div class="smalltext">Seconds</div>
+                            </div>
+                        </div>
+                        <p class="text-center h3 mx-2" id="demo"></p>
+                    </div>
+                </div>
+            </div>-->
+            <div class="row align-items-center justify-content-center pb-4 mb-5">
+                <div class="row pb-1">
+                    <div class="col-lg-6 mb-2 pb-2">
+                        <h1>Certified Laughter Yoga Leader Training (CLYL)</h1>
+                        <p>This is the next level of training after basic learning course where you will learn the
+                            facilitation skills to lead a group of people through laughter yoga session and
+                            meditation.</p>
+                        <p>It is a six lesson course after the basic learning course. You can start a laughter club,
+                            lead the sessions in companies, corporations, yoga studios and offer public seminars.</p>
+                        <p>Do you want to become a certified Laughter Yoga leader and start a Laughter Club and lead the
+                            sessions in companies and corporations, yoga & fitness centers, schools, senior centres and
+                            offer public seminars?</p>
+                        <p><strong>Important:</strong> Basic learning course is a part of leader training 6 lessons.</p>
+                    </div>
+                    <div class="col-lg-6">
+                        <iframe width="100%" height="315" src="https://www.youtube.com/embed/gGACCtveEpY" frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen></iframe>
+                        <div class="row justify-content-center pt-3">
+                            <div class="col-xl-4">
+                                <a href="#payment" class="btn btn-success">Enroll Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <section class="section coaching border-0 m-0">
+            <div class="container my-5 pt-md-4 pt-xl-0">
+                <h1 class="pb-3 text-center">Leader Training Lesson Plan</h1>
+                <div class="row pb-1">
+                    <div class="col-lg-6">
+                        <!-- Lesson Plan 1 -->
+                        <p><strong>Lesson 1:</strong></p>
+                        <ul>
+                            <li class="text-light">Introduction objectives of laughter yoga leader training</li>
+                            <li class="text-light">Basics of laughter yoga – 5 points, 3 reasons, 4 steps and 5
+                                benefits
+                            </li>
+                            <li class="text-light">Demonstrate and lead five laughter exercises followed by student’s
+                                participation
+                            </li>
+                            <li class="text-light"><strong>Homework:</strong> Memorise five points and three reasons and
+                                record a video of five points and three reasons
+                            </li>
+                        </ul>
+
+                        <!-- Lesson Plan 2 -->
+                        <p><strong>Lesson 2:</strong></p>
+                        <ul>
+                            <li class="text-light">What happens in a laughter yoga session?</li>
+                            <li class="text-light">Practice 4 steps of laughter yoga</li>
+                            <li class="text-light">Systems and procedures of laughter yoga session – how to lead a
+                                laughter yoga session effectively – Guidelines
+                            </li>
+                            <li class="text-light">Guidelines for doing laughter meditation</li>
+                            <li class="text-light">Demonstrate five more exercises followed by students’ practice</li>
+                            <li class="text-light"><strong>Homework:</strong> Record more exercises alone or with the
+                                family.
+                            </li>
+                        </ul>
+
+                        <!-- Lesson Plan 3 -->
+                        <p><strong>Lesson 3:</strong></p>
+                        <ul>
+                            <li class="text-light">Concept and philosophy of laughter yoga (more in detail)</li>
+                            <li class="text-light">Do we need sense of humour to laugh?</li>
+                            <li class="text-light">How to laugh when you don’t feel like laughing?</li>
+                            <li class="text-light">How can you laugh when you are not happy?</li>
+                            <li class="text-light">Why children laugh 300-400 times and adults only 15 times?</li>
+                            <li class="text-light">Can we train ourselves to laugh?</li>
+                            <li class="text-light">Followed by five laughter exercises and students practice session
+                            </li>
+                            <li class="text-light"><strong>Homework:</strong> Record four steps of laughter yoga and a
+                                few laughter exercises giving complete instructions before initiating the laughter.
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-6 mb-4 pb-2">
+                        <!-- Lesson Plan 4 -->
+                        <p><strong>Lesson 4:</strong></p>
+                        <ul>
+                            <li class="text-light">Essential link between Yoga and Laughter.</li>
+                            <li class="text-light">Laughter yoga – the science of breathing.</li>
+                            <li class="text-light">Scientific research on laughter yoga.</li>
+                            <li class="text-light">Followed by five laughter exercises and students’ practice session.
+                            </li>
+                            <li class="text-light">Bollywood laughter dance and short yoga nidra.</li>
+                            <li class="text-light"><strong>Homework:</strong> Record four steps of laughter yoga and a
+                                few laughter exercises giving complete instructions before initiating the laughter.
+                            </li>
+                        </ul>
+
+                        <!-- Lesson Plan 5 -->
+                        <p><strong>Lesson 5:</strong></p>
+                        <ul>
+                            <li class="text-light">Health benefits of laughter yoga</li>
+                            <li class="text-light">Memorise five benefits of laughter and practice with buddy</li>
+                            <li class="text-light">Followed by five new laughter exercises and students practice session
+                                and record the instructions for laughter exercises.
+                            </li>
+                            <li class="text-light">Bollywood laughter dance followed by yoga nidra.</li>
+                            <li class="text-light"><strong>Homework:</strong> Record a video of benefits of laughter
+                                yoga.
+                            </li>
+                        </ul>
+
+                        <!-- Lesson Plan 6 -->
+                        <p><strong>Lesson 6:</strong></p>
+                        <ul>
+                            <li class="text-light">What is laughter club, how to start and promote laughter club.</li>
+                            <li class="text-light">Guidelines about vision – mission of free social laughter clubs.</li>
+                            <li class="text-light">What is free and what is chargeable in laughter yoga.</li>
+                            <li class="text-light">Five new exercises followed by student's practice.</li>
+                            <li class="text-light">Practice Bollywood laughter dance</li>
+                            <li class="text-light"><strong>Homework:</strong> Make videos of more exercises either alone
+                                or with your family.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <p><strong>IMPORTANT:</strong> Each lesson will be of 60 minutes duration. This course is the first
+                    level of Laughter Yoga program and this is for your personal use only. If you want to teach other
+                    people, after this course you need to attend certified laughter yoga leader and teacher training
+                    courses, which are the next levels of training.</p>
+                <div class="row justify-content-center">
+                    <div class="col-xl-3">
+                        <a href="#payment" class="btn btn-light">Enroll Now</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="container my-5 pt-md-4 pt-xl-0">
+            <div class="row align-items-center justify-content-center pb-4 mb-5">
+                <h1 class="pb-3">Who can do this course?</h1>
+                <div class="row pb-1">
+                    <div class="col-lg-6 mb-4 pb-2">
+                        <img src="{% static 'img/pages/blc/blc-group.jpg' %}" class="img-fluid" alt="">
+                    </div>
+                    <div class="col-lg-6">
+                        <ul>
+                            <li>Anyone who wants to bring more laughter and joy in their life</li>
+                            <li>Stress, anxiety and depression</li>
+                            <li>Cancer patients.</li>
+                            <li>Introvert and shy people</li>
+                            <li>Long term chronic diseases</li>
+                            <li>Psychologists</li>
+                            <li>Fitness trainer</li>
+                            <li>Alternative therapists</li>
+                            <li>Social workers/Healthcare workers</li>
+                            <li>Yoga practitioners and teachers</li>
+                            <li>Recreation activity facilitators</li>
+                            <li>Occupational therapist</li>
+                            <li>Professional speakers</li>
+                            <li>Actors/singers/clowns</li>
+                            <li>Those dealing with addictions</li>
+                            <li>Business and HR Professional</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <section class="section coaching border-0 m-0">
+            <div class="container my-5 pt-md-4 pt-xl-0">
+                <h1 class="pb-3 text-center">April - May 2023 <br> <strong>Fee:</strong> USD 175</h1>
+                <div class="row">
+                    <div class="col-lg-7">
+                        <p class="text-center"><strong>Leader Training Schedule (Each lesson 60 minutes)</strong></p>
+                        <div class="row">
+                            <div class="col-lg-5">
+                                <p><strong>For India, Australia, New Zealand and other Asian Countries</strong></p>
+                            <p>Lesson 1: April 24th<br>
+                                Lesson 2: April 26th<br>
+                                Lesson 3: April 28th<br>
+                                Lesson 4: May 1st<br>
+                                Lesson 5: May 3rd<br>
+                                Lesson 6: May 5th</p>
+                            <p><strong>Timings</strong></p>
+                            <p>8:00 AM Indian Standard Time<br>
+                                Aus 12:30 PM, NZ 02:30 PM, Malaysia/HK/Singapore/Philippines/
+                                Taiwan 10.30 AM<br>
+                                Thailand/Indonesia/Vietnam 09:30 AM, Japan 11:30 PM, UAE 06:30 AM<br>
+                            </p>
+                        </div>
+                        <div class="col-lg-5">
+                            <p><strong>For USA, Canada and South America</strong></p>
+                            <p>Lesson 1: April 23rd<br>
+                                Lesson 2: April 25th<br>
+                                Lesson 3: April 27th<br>
+                                Lesson 4: April 30th<br>
+                                Lesson 5: May 2nd<br>
+                                Lesson 6: May 4th</p>
+                            <p><strong>Timings</strong></p>
+                            <p>USA/Can PST – 06:30 PM <br>
+                                USA/Can MST – 07:30 PM <br>
+                                USA/Can CT/Mexico – 08:30 PM <br>
+                                USA/Can ET – 09:30 PM</p>
+                            </div>
+                        </div>
+                        <p><strong>Coaching Platform:</strong> Zoom | <strong>Language:</strong> English</p>
+                        <p><strong>IMPORTANT:</strong> In case you miss any lesson, you will get the recording of the
+                            same.</p>
+                    </div>
+                    <div class="col-lg-5">
+                        <img src="{% static 'img/calendar.webp' %}" class="img-fluid" width="100%" height="100%" alt="Calender">
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        <div class="container my-5 pt-md-4 pt-xl-0">
+            <div class="row align-items-center justify-content-center pb-4 mb-5">
+                <h1 class="pb-3">Your Trainers</h1>
+                <div class="row pb-1">
+                    <div class="col-lg-6 mb-4 pb-2">
+                        <p><img src="{% static 'img/pages/dr-madan-kataria.jpg' %}" class="img-fluid"
+                                alt="dr-madan-kataria"
+                                style="float:left; width:220px; height:280px; padding: 0px 10px 0px;">Dr. Madan Kataria,
+                            a medical doctor from Mumbai, India, popularly known as the ‘Guru of Giggling’ (London
+                            Times), is the founder of Laughter Yoga which grown into a worldwide movement with thousands
+                            of Laughter Yoga clubs in over 100 countries. <br/> <br/>Dr.Madan Kataria from his 25 years
+                            of experience can teach you special guided techniques how to laugh all by yourself, with
+                            your family and your colleagues. Dr. Kataria is a keynote, motivational and inspirational
+                            speaker for companies, corporations and organizations all over the world. He is also a
+                            corporate consultant for holistic health, stress management, teambuilding, leadership, peak
+                            performance and communication skills.</p>
+                    </div>
+                    <div class="col-lg-6">
+                        <p><img src="{% static 'img/pages/vinayak-shastri.jpg' %}" class="img-fluid"
+                                alt="vinayak-shastri"
+                                style="float:left; width:220px; height:280px; padding: 0px 10px 0px;">Vinayak Shastri is
+                            a Certified Laughter Yoga Teacher and Master Trainer, personally trained by Dr Kataria and
+                            has assisted him in International training for seven years. He has excellent facilitation
+                            skills to conduct corporate seminars. Also, he has conducted training and workshops in
+                            Japan, Hong Kong and China.<br/> <br/> He completed his master’s degree in traditional yoga
+                            from S-VYASA University, Bangalore India. He has conducted several online laughter yoga
+                            workshops. He has widely travelled all over India to set up free social laughter clubs and
+                            conducted seminars in prisons, schools, Indian army police and commando training centres.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <section class="section coaching border-0 m-0">
+            <div class="container my-5 pt-md-4 pt-xl-0">
+                <div class="products row row-gutter-sm mb-4 appear-animation" data-appear-animation="fadeInUpShorter"
+                     data-appear-animation-delay="750">
+                    <div class="col-lg-6">
+                        <p><img src="{% static 'img/pages/leader-certificate.jpg' %}" class="img-fluid"
+                                alt="leader-training-certification-sample"/></p>
+                    </div>
+                    <div class="col-lg-6 mb-2 pb-2">
+                        <h1 class="text-center">You will receive</h1>
+                        <p class="pl-5 ml-4">On Completion of this course You will receive</p>
+                        <ol class="pl-5 ml-5">
+                            <li class="pb-3">Leader Certificate</li>
+                            <li class="pb-3">Leader Training Manual PDF</li>
+                            <li class="pb-3">40 Foundation Laughter Exercise Video Download</li>
+                        </ol>
+                        <div class="row justify-content-center">
+                            <div class="col-xl-3">
+                                <a href="#payment" class="btn btn-light">Enroll Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="container my-5 pt-md-4 pt-xl-0" id="payment">
+            <div class="row align-items-center justify-content-center pb-4 mb-5">
+                <div class="row pb-1">
+                    <div class="col-lg-6 mb-4 pb-2">
+                        <div class="h4 text-dark text-center">Register and Pay</div>
+                        <p class="text-center">Basic Learning Course (6 Lessons) USD 99 <br> Basic Learning Course +
+                            Certified Leader Training Combo <br> (12 Lessons) USD 274</p>
+                        <form action="{% url 'blccharge' %}" method="post" id="payment-form">
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <div class="row justify-content-center">
+                                    <div class="col-lg-12 pb-1">
+                                        <select class="form-control" name="course">
+                                            <option disabled selected value="">--Select Your Course--</option>
+                                            <option value="Basic Learning Course">Basic Learning Course - Fees: USD 99</option>
+                                            <option value="Basic Learning Course + Certified Leader Training">Basic Learning Course + Certified Leader Training - Fees: USD 274</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row justify-content-center">
+                                    <div class="col-lg-6">
+                                        <input class="form-control" type="text" name="fullname"
+                                               placeholder="Full Name" required>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <input class="form-control" type="email" name="email" placeholder="Email"
+                                               required>
+                                    </div>
+                                </div>
+                                <div class="row justify-content-center">
+                                    <div class="col-lg-6">
+                                        <input class="form-control" type="text" name="address" placeholder="Address"
+                                               required>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <input class="form-control" type="text" name="postalcode"
+                                               placeholder="Postal Code" required>
+                                    </div>
+                                </div>
+                                <div class="row justify-content-center">
+                                    <div class="col-lg-4">
+                                        <input class="form-control" type="text" name="city" placeholder="City"
+                                               required>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <input class="form-control" type="text" name="state" placeholder="State"
+                                               required>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <select class="form-control" name="country" style="margin-top: 5px;"
+                                                required>
+                                            <option disabled selected value="">--Select Country--</option>
+                                            {% for country in all_countries %}
+                                            <option value="{{ country.name }}">{{ country.name }}</option>
+                                            {% endfor %}
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row justify-content-center">
+                                    <div class="col-lg-6">
+                                        <input class="form-control" type="text" name="contact"
+                                               placeholder="Phone/WhatsApp Number"
+                                               oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
+                                               required>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <input class="form-control" type="text" name="information"
+                                               placeholder="How did you come to know?" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="pb-2" id="card-element">
+                                <!-- A Stripe Element will be inserted here. -->
+                            </div>
+                            <div class="py-2" id="card-errors" role="alert"></div>
+                            <div class="form-row justify-content-center">
+                                <div class="form-group">
+                                    <div class="g-recaptcha" data-sitekey="{{site_key}}"></div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="row justify-content-center">
+                                    <div class="col-lg-6">
+                                        <button class="btn btn-success">Enroll Now</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-lg-5">
+                        <div class="h4 pb-1 text-dark text-center">Enquiry Form</div>
+                        {% include 'front/includes/messages.html' %}
+                        <form action="{% url 'leader-training' %}" method="post" class="needs-validation" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <div class="form-group row justify-content-center">
+                                <div class="col-lg-9">
+                                    <input class="form-control" type="text" name="name" placeholder="Full Name" required>
+                                </div>
+                                <div class="col-lg-9">
+                                    <input class="form-control" type="email" name="email" placeholder="Email" required>
+                                </div>
+                                <div class="col-lg-9">
+                                    <input class="form-control" type="tel" name="contact" placeholder="Contact No" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" required>
+                                </div>
+                                <div class="col-lg-9">
+                                    <input class="form-control" type="text" name="country" placeholder="Country Name" required>
+                                </div>
+                                <div class="col-lg-9 pt-2">
+                                    <textarea class="form-control" type="text" name="message" placeholder="Message" rows="7" cols="50" required></textarea>
+                                </div>
+                            </div>
+                            <div class="form-row justify-content-center">
+                                <div class="form-group">
+                                    <div class="g-recaptcha" data-sitekey="{{site_key}}"></div>
+                                </div>
+                            </div>
+                            <div class="form-group row justify-content-center">
+                                <div class="col-lg-6">
+                                    <button type="submit" class="btn btn-success btn-modern">Submit</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="{% static 'vendor/payment/stripe/stripe.js' %}"></script>
+{% endblock %}

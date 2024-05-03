@@ -1,0 +1,63 @@
+{% load static %}
+<div id="fb-root"></div>
+<footer id="footer">
+    <div class="container">
+        <a href="{% url 'contact-us' %}" class="cstm-float">
+            <i class="fas fa-envelope cstm-float-icon"></i>
+        </a>
+        <div class="row pt-5 pb-4">
+            <div class="col-lg-3 mb-lg-0">
+                <h5 class="text-3 mb-3">LEARN</h5>
+                <ul class="list list-icons list-icons-sm mb-0">
+                    <li><i class="fas fa-angle-right top-8"></i> <a class="link-hover-style-1" href="{% url 'diary-list' %}" target="_parent">Dr. K’s Diary</a></li>
+                    <li><i class="fas fa-angle-right top-8"></i> <a class="link-hover-style-1" href="{% url 'general-research-articles' %}" target="_parent">LY Scientific Research</a></li>
+                    <li><i class="fas fa-angle-right top-8"></i> <a class="link-hover-style-1" href="{% url 'laughter-blogs' %}" target="_parent">LY Blogs</a></li>
+                    <li><i class="fas fa-angle-right top-8"></i> <a class="link-hover-style-1" href="{% url 'coming-soon' %}" target="_parent">Free Downloads</a></li>
+                    <li><i class="fas fa-angle-right top-8"></i> <a class="link-hover-style-1" href="{% url 'watch-videos' %}" target="_parent">Watch Videos</a></li>
+                </ul>
+            </div>
+            <div class="col-lg-3 mb-lg-0">
+                <h5 class="text-3 mb-3">PRACTISE</h5>
+                <ul class="list list-icons list-icons-sm mb-0">
+                    <li><i class="fas fa-angle-right top-8"></i> <a class="link-hover-style-1" href="{% url 'zoom-laughter-club' %}" target="_parent">Free Zoom Laughter Club</a></li>
+                    <li><i class="fas fa-angle-right top-8"></i> <a class="link-hover-style-1" href="{% url 'basic-learning-course' %}" target="_parent">Basic Course for Beginners</a></li>
+                    <li><i class="fas fa-angle-right top-8"></i> <a class="link-hover-style-1" href="{% url 'find-ly-professionals' %}" target="_parent">Find LY Professionals</a></li>
+                    <li><i class="fas fa-angle-right top-8"></i> <a class="link-hover-style-1" href="{% url 'find-club' %}" target="_parent">Find Laughter Club</a></li>
+                    <li><i class="fas fa-angle-right top-8"></i> <a class="link-hover-style-1" href="{% url 'find-training' %}" target="_parent">Find Training Worldwide</a></li>
+                </ul>
+            </div>
+            <div class="col-lg-3 mb-lg-0">
+                <h5 class="text-3 mb-3">GET INVOLVED</h5>
+                <ul class="list list-icons list-icons-sm mb-0">
+                    <li><i class="fas fa-angle-right top-8"></i> <a class="link-hover-style-1" href="{% url 'business' %}" target="_parent">Invite Dr K as a Speaker</a></li>
+                    <li><i class="fas fa-angle-right top-8"></i> <a class="link-hover-style-1" href="{% url 'depression' %}" target="_parent">LY for Depression</a></li>
+                    <li><i class="fas fa-angle-right top-8"></i> <a class="link-hover-style-1" href="{% url 'cancer' %}" target="_parent">LY for Cancer Patients</a></li>
+                    <li><i class="fas fa-angle-right top-8"></i> <a class="link-hover-style-1" href="{% url 'yoga-plus-ly' %}" target="_parent">LY for Yoga Teachers</a></li>
+                </ul>
+            </div>
+            <div class="col-lg-3 mb-lg-0">
+                <h5 class="text-3 mb-3">Important Links</h5>
+                <ul class="list list-icons list-icons-sm mb-0">
+                    <li><i class="fas fa-angle-right top-8"></i> <a class="link-hover-style-1" href="{% url 'contact-us' %}" target="_parent">Contact Us</a></li>
+                    <li><i class="fas fa-angle-right top-8"></i> <a class="link-hover-style-1" href="{% url 'faq' %}" target="_parent">Frequently Asked Questions</a></li>
+                    <li><i class="fas fa-angle-right top-8"></i> <a class="link-hover-style-1" href="{% url 'terms-and conditions' %}" target="_parent">Terms and Conditions</a></li>
+                    <li><i class="fas fa-angle-right top-8"></i> <a class="link-hover-style-1" href="{% url 'privacy-policy' %}" target="_parent">Privacy Policy</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="footer-copyright">
+        <div class="container py-2">
+            <div class="row py-2">
+                <div class="col-lg-6 d-flex align-items-center justify-content-center justify-content-lg-start mb-4 mb-lg-0">
+                    <a href="{% url 'home' %}" class="logo pr-0 pr-lg-3">
+                        <img src="{% static 'img/logo-footer.png' %}" alt="Laughter Yoga International"
+                             class="opacity-5" height="33">
+                    </a>
+                    <p>© {% now "Y" %} Laughter Yoga International. All Rights Reserved.</p>
+                </div>
+                <div class="col-lg-6 d-flex align-items-center justify-content-center justify-content-lg-end"></div>
+            </div>
+        </div>
+    </div>
+</footer>

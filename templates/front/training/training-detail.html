@@ -1,0 +1,235 @@
+{% extends 'front/base.html' %}
+{% load static %}
+{% load cropping %}
+{% load i18n %}
+{% load addthis %}
+{% load embed_video_tags %}
+{% block meta %}
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>{{training_detail.trainer_name}} - Laughter Yoga International</title>
+    <meta name="keywords" content="Certified Leader Training, Certified Teacher Training, Basic Learning Course, Dr Madan Kataria, trainings, certifications"/>
+    <meta name="description" content="{{training_detail.category_title}} by {{training_detail.trainer_name}}">
+    <meta name="author" content="Dr Madan Kataria">
+    <!-- For Social Media -->
+    <meta property="og:url" content="https://laughteryoga.org/trainings/{{training_detail.id}}" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="{{training_detail.category_title}} by {{training_detail.trainer_name}}" />
+    <meta property="og:description" content="Date: {{training_detail.start_date}} to {{training_detail.end_date}}, Venue: {{training_detail.location}}" />
+    <meta property="og:image" content="{{training_detail.author.profile_pic.url}}" />
+{% endblock %}
+{% block content %}
+<div role="main" class="main">
+    <!-- Breadcrumb Starts Here -->
+    <section class="page-header page-header-classic">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <ul class="breadcrumb">
+                        <li><a href="{% url 'home' %}" target="_parent" class="text-decoration-none">Home</a></li>
+                        <li><a href="{% url 'find-training' %}" target="_parent" class="text-decoration-none">Find Trainings Worldwide</a></li>
+                        <li class="text-capitalize active">{{training_detail.category_title}} by {{training_detail.trainer_name}}</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="container">
+        <div class="main-body">
+            <div class="row gutters-sm">
+                <div class="col-md-4 mb-3">
+                    <div class="card" style="background-color: #e0f4ff;">
+                        <div class="card-body">
+                            <div class="d-flex flex-column align-items-center text-center">
+                                <img src="{{training_detail.author.profile_pic.url}}" width="350px" alt="{{user_detail.first_name}} {{user_detail.last_name}}" class="rounded">
+                                <div class="mt-3">
+                                    <div class="h6"><strong>{{training_detail.trainer_name}}</strong></div>
+                                    <div class="h6 text-center">{{training_detail.category_title}}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="my-3 text-center">
+                        <div class="addthis_inline_share_toolbox"></div>
+                        {% addthis_widget %}
+                    </div>
+                    <div class="card  bg-light mb-3 mt-3">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">
+                                <div class="mb-0">
+                                    <strong>{% trans 'Date' %}</strong> : {{training_detail.start_date}} to {{training_detail.end_date}}
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="card  bg-light mb-3 mt-3">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">
+                                <div class="mb-0">
+                                    <strong>{% trans 'Venue' %}</strong> : {{training_detail.location}}
+                                </div>
+                            </li>
+                            <li class="list-group-item d-flex">
+                                <div class="mb-0">
+                                    <strong>{% trans 'Email' %}</strong> : <a href="mailto:{{training_detail.email}}" target="_blank"
+                                       class="text-decoration-none">{{training_detail.email}}</a>
+                                </div>
+                            </li>
+                            <li class="list-group-item d-flex">
+                                <div class="mb-0">
+                                    <strong>{% trans 'Contact' %}</strong> : <a href="callto:{{training_detail.contact_no}}" target="_blank"
+                                       class="text-decoration-none">{{training_detail.contact_no}}</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    {% if training_detail.img1 or training_detail.img2 or training_detail.img3 or training_detail.img4 %}
+                    <div class="card  bg-light mb-3 mt-3">
+                        <h5 class="pl-2 pt-2 text-center">{% trans 'Training Images' %}</h5>
+                        <table>
+                            <tr>
+                                {% if training_detail.img1 %}
+                                <td>
+                                    <a href="{% cropped_thumbnail training_detail 'cropped_img1' %}" data-toggle="modal" data-target="#imgModal1">
+                                        <img src="{% cropped_thumbnail training_detail 'cropped_img1' width=172 %}" class="rounded">
+                                    </a>
+                                    <div class="modal fade" id="imgModal1" tabindex="-1"
+                                         aria-labelledby="defaultModalLabel" style="display: none;" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h4 class="modal-title">{% trans 'Image 1' %}</h4>
+                                                    <button type="button" class="close" data-dismiss="modal"
+                                                            aria-hidden="true">×
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <img src="{{training_detail.img1.url}}" width="470px"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                                {% endif %}
+                                {% if training_detail.img2 %}
+                                <td>
+                                    <a href="{% cropped_thumbnail training_detail 'cropped_img2' %}" data-toggle="modal" data-target="#imgModal2">
+                                        <img src="{% cropped_thumbnail training_detail 'cropped_img2' width=172 %}" class="rounded">
+                                    </a>
+                                    <div class="modal fade" id="imgModal2" tabindex="-1"
+                                         aria-labelledby="defaultModalLabel" style="display: none;" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h4 class="modal-title">{% trans 'Image 2' %}</h4>
+                                                    <button type="button" class="close" data-dismiss="modal"
+                                                            aria-hidden="true">×
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <img src="{{training_detail.img2.url}}" width="470px"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                                {% endif %}
+                            </tr>
+                            <tr>
+                                {% if training_detail.img3 %}
+                                <td>
+                                    <a href="{% cropped_thumbnail training_detail 'cropped_img3' %}" data-toggle="modal" data-target="#imgModal3">
+                                        <img src="{% cropped_thumbnail training_detail 'cropped_img3' width=172 %}" class="rounded">
+                                    </a>
+                                    <div class="modal fade" id="imgModal3" tabindex="-1"
+                                         aria-labelledby="defaultModalLabel" style="display: none;" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h4 class="modal-title">{% trans 'Image 3' %}</h4>
+                                                    <button type="button" class="close" data-dismiss="modal"
+                                                            aria-hidden="true">×
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <img src="{{training_detail.img3.url}}" width="470px"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                                {% endif %}
+                                {% if training_detail.img4 %}
+                                <td>
+                                    <a href="{% cropped_thumbnail training_detail 'cropped_img4' %}" data-toggle="modal" data-target="#imgModal4">
+                                        <img src="{% cropped_thumbnail training_detail 'cropped_img4' width=172 %}" class="rounded">
+                                    </a>
+                                    <div class="modal fade" id="imgModal4" tabindex="-1"
+                                         aria-labelledby="defaultModalLabel" style="display: none;" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h4 class="modal-title">{% trans 'Image 4' %}</h4>
+                                                    <button type="button" class="close" data-dismiss="modal"
+                                                            aria-hidden="true">×
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <img src="{{training_detail.img4.url}}" width="470px"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                                {% endif %}
+                            </tr>
+                        </table>
+                    </div>
+                    {% endif %}
+
+                    {% if training_detail.video_url_1 or training_detail.video_url_2 or training_detail.video_url_3 or training_detail.video_url_4 %}
+                    <div class="card  bg-light mb-3 mt-3">
+                        <h5 class="pl-2 pt-2 text-center">{% trans 'Training Videos' %}</h5>
+                        <table>
+                            {% if training_detail.video_url_1 %}
+                            <tr>
+                                <td>{% video training_detail.video_url_1 '340x200' %}</td>
+                            </tr>
+                            {% endif %}
+                            {% if training_detail.video_url_2 %}
+                            <tr>
+                                <td>{% video training_detail.video_url_2 '340x200' %}</td>
+                            </tr>
+                            {% endif %}
+                            {% if training_detail.video_url_3 %}
+                            <tr>
+                                <td>{% video training_detail.video_url_3 '340x200' %}</td>
+                            </tr>
+                            {% endif %}
+                            {% if training_detail.video_url_4 %}
+                            <tr>
+                                <td>{% video training_detail.video_url_4 '340x200' %}</td>
+                            </tr>
+                            {% endif %}
+                        </table>
+                    </div>
+                    {% endif %}
+                </div>
+                <div class="col-md-8">
+                    <div class="row gutters-sm">
+                        <div class="col-xl-12">
+                            <div class="card h-100">
+                                <div class="card-body">
+                                    <h4 class="d-flex align-items-center mb-3">{{training_detail.category_title}}</h4>
+                                    <p>{% video training_detail.video_url '690x350' %}</p>
+                                    {{training_detail.description|safe}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,237 @@
+{% extends 'be/base.html' %}
+{% load static %}
+{% block meta %}
+<title>Edit News - {{webSettingsUniversal.title}}</title>
+<meta charset="utf-8"/>
+<meta name="description" content="{{frontendSettingsUniversal.metaDescription}}"/>
+<meta name="keywords" content="{{frontendSettingsUniversal.metaKeyword}}"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta property="og:locale" content="en_US"/>
+<meta property="og:type" content="article"/>
+<meta property="og:title" content="Edit News - {{frontendSettingsUniversal.title}}"/>
+<meta property="og:url" content="{{request.scheme}}://{{request.get_host}}{{request.get_full_path}}"/>
+<meta property="og:site_name" content="{{userAccount.full_name}} - {{frontendSettingsUniversal.title}}"/>
+{% endblock %}
+{% block content %}
+<div class="d-flex flex-column flex-column-fluid">
+    <div class="app-content flex-column-fluid mt-10">
+        <div class="app-container container-xxl">
+            {% include 'be/includes/alert.html' %}
+            <div class="card">
+                <div class="card-header ribbon ribbon-end ribbon-clip">
+                    <div class="ribbon-label">
+                        Update
+                        <span class="ribbon-inner bg-warning"></span>
+                    </div>
+                    <div class="card-title fw-bold m-0">Edit News</div>
+                </div>
+                <div class="card-body pt-0">
+                    <div class="card mb-5 mb-xl-10">
+                        <div class="collapse show">
+                            <form action="{% url 'newsEdit' news.pk %}" method="post" class="form" enctype="multipart/form-data" novalidate>
+                                {% csrf_token %}
+                                <div class="card-body border-top p-9">
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <div class="form-floating mb-7 {% if nForm.title.errors %}has-error{% endif %}">
+                                                {{ nForm.title }}
+                                                <label class="required">Title</label>
+                                                {% for error in nForm.title.errors %}
+                                                <div class="text-danger mt-2">
+                                                    {{ error|escape }}
+                                                </div>
+                                                {% endfor %}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <div class="mb-7 {% if nForm.description.errors %}has-error{% endif %}">
+                                                <label class="required">Description</label>
+                                                {{ nForm.description }}
+                                                {{ nForm.media }}
+                                                {% for error in nForm.description.errors %}
+                                                <div class="text-danger mt-2">
+                                                    {{ error|escape }}
+                                                </div>
+                                                {% endfor %}
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <!-- Image input field -->
+                                            <div id="imageInput" class="mb-7 {% if nForm.image.errors %}has-error{% endif %}">
+                                                <label class="required">Upload News Image</label><br>
+                                                {{ nForm.image }}
+                                                {% for error in nForm.title.errors %}
+                                                <div class="text-danger mt-2">
+                                                    {{ error|escape }}
+                                                </div>
+                                                {% endfor %}
+                                            </div>
+                                            <img id="imagePreview" style="max-width: 100%; display: none;">
+                                        </div>
+                                    </div>
+                                    <!-- Non Field Errors -->
+                                    {% for error in nForm.non_field_errors %}
+                                    <div class="text-danger mt-2">
+                                        {{ error|escape }}
+                                    </div>
+                                    {% endfor %}
+                                </div>
+                                <div class="h4 px-5">Miscellaneous Details</div>
+                                <div class="card-body border-top">
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <div class="form-floating mb-7 {% if nForm.location.errors %}has-error{% endif %}">
+                                                {{ nForm.location }}
+                                                <label class="required">Location</label>
+                                                {% for error in nForm.location.errors %}
+                                                <div class="text-danger mt-2">
+                                                    {{ error|escape }}
+                                                </div>
+                                                {% endfor %}
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="form-floating mb-7 {% if nForm.status.errors %}has-error{% endif %}">
+                                                {{ nForm.status }}
+                                                <label class="required">Status</label>
+                                                {% for error in nForm.status.errors %}
+                                                <div class="text-danger mt-2">
+                                                    {{ error|escape }}
+                                                </div>
+                                                {% endfor %}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Non Field Errors -->
+                                    {% for error in tcForm.non_field_errors %}
+                                    <div class="text-danger mt-2">
+                                        {{ error|escape }}
+                                    </div>
+                                    {% endfor %}
+                                </div>
+                                <div class="h4 px-5">SEO Details <small>(Optional)</small></div>
+                                <div class="card-body border-top p-9 datepicker">
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <div class="form-floating mb-7 {% if nForm.meta_title.errors %}has-error{% endif %} ">
+                                                {{ nForm.meta_title }}
+                                                <label class="fw-semibold fs-6 mb-2">Meta Title</label>
+                                                {% for error in nForm.meta_title.errors %}
+                                                <div class="text-danger mt-2">
+                                                    {{ error|escape }}
+                                                </div>
+                                                {% endfor %}
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="form-floating mb-7 {% if nForm.meta_description.errors %}has-error{% endif %} ">
+                                                {{ nForm.meta_description }}
+                                                <label class="fw-semibold fs-6 mb-2">Meta Description</label>
+                                                {% for error in nForm.meta_description.errors %}
+                                                <div class="text-danger mt-2">
+                                                    {{ error|escape }}
+                                                </div>
+                                                {% endfor %}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Non Field Errors -->
+                                    {% for error in nForm.non_field_errors %}
+                                    <div class="text-danger mt-2">
+                                        {{ error|escape }}
+                                    </div>
+                                    {% endfor %}
+                                </div>
+                                <div class="card-footer d-flex justify-content-end py-6 px-9">
+                                    <a href="{% url 'newsList' %}" class="btn btn-light-info me-3">Discard</a>
+                                    <button type="submit" class="btn btn-primary">Save Changes</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block extraJS %}
+<!--begin::Custom Javascript(used for this page only)-->
+<script src="{% static 'be/js/jquery-3.3.1.min.js' %}"></script>
+<!-- To Generate date rows based on category selection -->
+<script>
+$(document).ready(function() {
+    $('#maxlength_mt').maxlength({
+        warningClass: "badge badge-warning",
+        limitReachedClass: "badge badge-success"
+    });
+    $('#maxlength_md').maxlength({
+        warningClass: "badge badge-warning",
+        limitReachedClass: "badge badge-success"
+    });
+});
+document.addEventListener('DOMContentLoaded', function () {
+    var image = document.getElementById('imagePreview');
+    var input = document.getElementById('imageInput');
+    var cropper;
+
+    input.addEventListener('change', function (e) {
+        var files = e.target.files;
+        var done = function (url) {
+            input.value = '';
+            image.src = url;
+            if (cropper) {
+                cropper.destroy();
+            }
+            cropper = new Cropper(image, {
+                aspectRatio: 1.25,  // Ensures the crop box is square
+                viewMode: 1,
+            });
+        };
+
+        if (files && files.length > 0) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                done(reader.result);
+            };
+            reader.readAsDataURL(files[0]);
+        }
+    });
+
+    // Optional: Post the cropped image data to your server on form submit
+    document.getElementById('imagePreview').addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        if (cropper) {
+            cropper.getCroppedCanvas().toBlob(function (blob) {
+                var formData = new FormData();
+
+                formData.append('image', blob, 'cropped-image.png');
+                // Append other form data
+
+                // Post the form data to the server
+                // Adjust the URL to your form submission endpoint
+                fetch('/your-form-submission-url', {
+                    method: 'POST',
+                    body: formData,
+                })
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data);
+                    // Handle success, redirect, or refresh
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+            });
+        }
+    });
+});
+</script>
+<script src="{% static 'be/plugins/global/plugins.bundle.js' %}"></script>
+<!-- Cropper JS For image cropping -->
+<link href="{% static 'be/plugins/custom/cropper/cropper.bundle.css' %}" rel="stylesheet" type="text/css" />
+<script src="{% static 'be/plugins/custom/cropper/cropper.bundle.js' %}"></script>
+{% endblock %}

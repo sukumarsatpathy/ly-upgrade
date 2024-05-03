@@ -1,0 +1,166 @@
+{% load i18n %}
+{% load static %}
+{% load cropping %}
+{% if user.is_authenticated %}
+<div class="app-sidebar__overlay" data-toggle="sidebar"></div>
+<aside class="app-sidebar sidebar-scroll">
+    <div class="main-sidebar-header active">
+        <a class="desktop-logo logo-light active" href="{% url 'dashboard' %}"><img
+                src="{% static 'dashboard/assets/img/brand/logo.png' %}" class="main-logo" alt="logo"></a>
+        <a class="logo-icon mobile-logo icon-light active" href="{% url 'dashboard' %}"><img
+                src="{% static 'dashboard/assets/img/brand/favicon.png' %}" class="logo-icon" alt="logo"></a>
+    </div>
+    <div class="main-sidemenu">
+        <div class="app-sidebar__user clearfix">
+            <div class="user-info">
+                <div class="users-profile">
+                    <a href="#" class="user-profile-img">
+                    {% if user.profile_pic %}
+                        <img src="{% cropped_thumbnail user 'pp_cropped' width=250 %}" alt="{{user.first_name}} {{user.last_name}}" class="brround avatar-xl">
+                    {% else %}
+                        <img src="{% static 'img/default.jpg' %}" alt="Default Image" class="brround avatar-xl">
+                    {% endif %}
+                    </a>
+                    <div class="green_icon"></div>
+                </div>
+                <div class="social-details mt-2">
+                    {% if user.first_name and user.last_name %}
+                    <h6 class="mb-0">{{user.first_name}} {{user.last_name}}</h6>
+                    {% else %}
+                    <h6 class="mb-0">Name Missing - <a href="{% url 'edit-profile' %}">Edit Profile</a></h6>
+                    {% endif %}
+
+                    <p class="mb-2 mt-1 text-muted tx-12">{{user.user_type}}</p>
+                </div>
+            </div>
+        </div>
+        <ul class="side-menu">
+            <li class="slide">
+                <a class="side-menu__item" href="{% url 'dashboard' %}">
+                    <i class="side-menu__icon bx bx-home-circle"></i>
+                    <span class="side-menu__label">{% trans 'Dashboard' %}</span>
+                </a>
+            </li>
+
+            <!-- Membership Section Starts Here -->
+            {% if user.user_type != 'General User' %}
+            <li class="slide">
+                <a class="side-menu__item" href="{% url 'membership-plan' %}">
+                    <i class="side-menu__icon fas fa-money-check-alt"></i>
+                    <span class="side-menu__label">{% trans 'Membership' %}</span>
+                </a>
+            </li>
+            {% endif %}
+            <!-- Profile Section Starts Here -->
+            <li class="slide">
+                <a class="side-menu__item" href="{% url 'edit-profile' %}">
+                    <i class="side-menu__icon bx bxs-edit"></i>
+                    <span class="side-menu__label">{% trans 'Edit Profile' %}</span>
+                </a>
+            </li>
+
+            <!-- Training Section Starts Here -->
+            {% if user.user_type != 'General User' %}
+            <li class="slide mb-2">
+                <a class="side-menu__item" data-toggle="slide" href="#">
+                    <i class="side-menu__icon fas fa-user-graduate"></i>
+                    <span class="side-menu__label">{% trans 'Trainings' %}</span>
+                    <i class="angle fe fe-chevron-down"></i>
+                </a>
+                <ul class="slide-menu">
+                    <li><a class="sub-slide-item" href="{% url 'add-training' %}">{% trans 'Add Training' %}</a></li>
+                    <li><a class="sub-slide-item" href="{% url 'list-training' %}">{% trans 'Manage Trainings' %}</a></li>
+                </ul>
+            </li>
+            {% endif %}
+            <!-- Training Section Ends Here -->
+
+            <!-- Event Section Starts Here -->
+            {% if user.user_type != 'General User' %}
+            <li class="slide mb-2">
+                <a class="side-menu__item" data-toggle="slide" href="#">
+                    <i class="side-menu__icon fas fa-calendar-alt"></i>
+                    <span class="side-menu__label">{% trans 'Events' %}</span>
+                    <i class="angle fe fe-chevron-down"></i>
+                </a>
+                <ul class="slide-menu">
+                    <li><a class="sub-slide-item" href="{% url 'add-event' %}">{% trans 'Add Event' %}</a></li>
+                    <li><a class="sub-slide-item" href="{% url 'list-event' %}">{% trans 'Manage Events' %}</a></li>
+                </ul>
+            </li>
+            {% endif %}
+            <!-- Event Section Ends Here -->
+
+            <!-- Club Section Starts Here -->
+            {% if user.user_type != 'General User' %}
+            <li class="slide mb-2">
+                <a class="side-menu__item" data-toggle="slide" href="#">
+                    <i class="side-menu__icon fas fa-users"></i>
+                    <span class="side-menu__label">{% trans 'Laughter Clubs' %}</span>
+                    <i class="angle fe fe-chevron-down"></i>
+                </a>
+                <ul class="slide-menu">
+                    <li><a class="sub-slide-item" href="{% url 'add-club' %}">{% trans 'Add Club' %}</a></li>
+                    <li><a class="sub-slide-item" href="{% url 'list-club' %}">{% trans 'Manage Clubs' %}</a></li>
+                </ul>
+            </li>
+            {% endif %}
+            <!-- Club Section Ends Here -->
+
+            <!-- Leader Registration Starts Here -->
+            {% if user.user_type != 'General User' and user.user_type != 'Certified Leader' %}
+            <li class="slide mb-2">
+                <a class="side-menu__item" href="{% url 'leaders-registration' %}" target="_parent">
+                    <i class="side-menu__icon fas fa-user-plus"></i>
+                    <span class="side-menu__label">{% trans 'Register New Leaders' %}</span>
+                </a>
+            </li>
+            {% endif %}
+            <!-- Leader Registration Ends Here -->
+
+            <!-- Teacher Registration Starts Here -->
+            {% if user.user_type == 'Certified Master Trainer' %}
+            <li class="slide mb-2">
+                <a class="side-menu__item" href="{% url 'teacher-registration' %}" target="_parent">
+                    <i class="side-menu__icon fas fa-user-plus"></i>
+                    <span class="side-menu__label">{% trans 'Register New Teachers' %}</span>
+                </a>
+            </li>
+            {% endif %}
+            <!-- Teacher Registration Ends Here -->
+
+            <!--  Prozone Services -->
+
+            <li class="slide mb-2">
+                <a class="side-menu__item" data-toggle="slide" href="#">
+                    <i class="side-menu__icon fas fa-cogs"></i>
+                    <span class="side-menu__label">{% trans 'Prozone Services' %}</span>
+                    <i class="angle fe fe-chevron-down"></i>
+                </a>
+                <ul class="slide-menu">
+                    <li><a class="sub-slide-item" href="{% url 'membership-card' user.id %}">{% trans 'Membership Card' %}</a></li>
+                    <!--<li><a class="sub-slide-item" href="{% url 'visiting-card' user.id %}">{% trans 'Visiting Card' %}</a></li>-->
+                </ul>
+            </li>
+            <!--  Certificate Services -->
+            {% if user.user_type == 'Certified Master Trainer' or user.user_type == 'Certified Teacher' %}
+            <li class="slide mb-2">
+                <a class="side-menu__item" data-toggle="slide" href="#">
+                    <i class="side-menu__icon fas fa-certificate"></i>
+                    <span class="side-menu__label">{% trans 'Download Certificates' %}</span>
+                    <i class="angle fe fe-chevron-down"></i>
+                </a>
+                <ul class="slide-menu">
+                    {% if user.user_type == 'Certified Master Trainer' %}
+                    <li><a class="sub-slide-item" href="{% url 'leader-certificate' user.id %}">{% trans 'Leader Certificate' %}</a></li>
+                    {% endif %}
+                    {% if user.user_type == 'Certified Teacher' %}
+                    <li><a class="sub-slide-item" href="{% url 'leader-certificate' user.id %}">{% trans 'Leader Certificate' %}</a></li>
+                    {% endif %}
+                </ul>
+            </li>
+            {% endif %}
+        </ul>
+    </div>
+</aside>
+{% endif %}

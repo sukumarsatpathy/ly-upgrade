@@ -1,0 +1,27 @@
+{% load static %}
+<div class="tabs tabs-vertical tabs-right tabs-navigation">
+    <ul class="nav nav-tabs col-sm-3">
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'wld-message-from-drk' %}">Download Message from DrK</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'wld-round-logo' %}">Download Round Logo</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'wld-blue-bg-logo' %}">Download Blue Background Logo</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'wld-banner' %}">Download Banner</a>
+        </li>
+    </ul>
+</div>
+<div class="mb-4">
+    <a href="{% url 'basic-learning-course' %}" target="_parent">
+        <img src="{% static 'img/extra/online-coaching.webp' %}" class="img-fluid" alt="Basic Learning Course" />
+    </a>
+</div>
+<div class="mb-4">
+    <a href="{% url 'zoom-laughter-club' %}" target="_blank">
+        <img src="{% static 'img/extra/zoom-laughter-yoga.webp' %}" class="img-fluid" alt="Zoom Laughter Club" />
+    </a>
+</div>

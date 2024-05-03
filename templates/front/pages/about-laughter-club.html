@@ -1,0 +1,111 @@
+{% extends 'front/base.html' %}
+{% load static %}
+{% load i18n %}
+{% block meta %}
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Social Laughter Club - Laughter Yoga International</title>
+    <meta name="keywords" content="laughter clubs, laughter meditation, laughter session, online laughter clubs"/>
+    <meta name="description" content="These worldwide clubs are free for everyone and connect people from different cultures, countries, no matter what language they speak or how they live">
+    <meta name="author" content="Dr Madan Kataria">
+{% endblock %}
+{% block content %}
+<div class="owl-carousel-wrapper" style="height: 600px;">
+    <div class="owl-carousel dots-inside dots-horizontal-center dots-light show-dots-hover show-dots-xs nav-inside nav-inside-plus nav-dark nav-md nav-font-size-md show-nav-hover mb-0"
+         data-plugin-options="{'responsive': {'0': {'items': 1}, '479': {'items': 1}, '768': {'items': 1}, '979': {'items': 1}, '1199': {'items': 1}}, 'loop': false, 'autoHeight': false, 'margin': 0, 'dots': true, 'dotsVerticalOffset': '-75px', 'nav': false, 'animateIn': 'fadeIn', 'animateOut': 'fadeOut', 'mouseDrag': false, 'touchDrag': false, 'pullDrag': false, 'autoplay': true, 'autoplayTimeout': 9000, 'autoplayHoverPause': true, 'rewind': true}">
+        <img src="{% static 'img/slides/laughter-club.jpg' %}"/>
+    </div>
+</div>
+<div role="main" class="main">
+    <div class="container my-5 pt-md-4 pt-xl-0">
+        <div class="row align-items-center justify-content-center">
+            <div class="row pb-1">
+                <div class="col-lg-6">
+                    <iframe width="540" height="315" src="https://www.youtube.com/embed/RSEzhMfE3zc" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div class="col-lg-6">
+                    <h1>What is Laughter Club</h1>
+                    <p>Laughter Clubs are the heart and soul of the Laughter Yoga movement. These are a worldwide
+                        network of social clubs run by volunteers. People get together in groups in open public
+                        places, online and indoor venues. They practice laughter exercises along with breathing and
+                        stretching exercises to reap enormous health benefits. <strong>These worldwide clubs are
+                        free for everyone and connect people from different cultures, countries, no matter what language
+                        they speak or how they live.</strong></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="shop section section-height-2 border-0 m-0">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <h1>How to Start a Laughter Club</h1>
+                    <p><strong>Starting a Laughter Club in India:</strong> In India, most Laughter Clubs meet every
+                        day at public parks where people go for morning walks. If you want to start a Laughter Club,
+                        find a place in your locality where people can assemble, for example in public parks, open
+                        grounds or a beach. The advantage of selecting a public place is that people are already
+                        there so can join in. The chosen place should not be in the immediate vicinity of
+                        residential complexes so as to prevent any disturbance. During winter, most Laughter Clubs
+                        meet indoors. Laughter Yoga can also be combined with yoga classes, health clubs and aerobic
+                        centers as laughter is a value addition to health building activities.</p>
+                </div>
+                <div class="col-lg-6 mb-2 pb-2">
+                    <p><img src="{% static 'img/pages/clubs/club-img-1.jpg' %}" width="550" /></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container my-5 pt-md-4 pt-xl-0">
+        <div class="row align-items-center justify-content-center">
+            <div class="row ">
+                <div class="col-lg-6">
+                    <p><img src="{% static 'img/pages/clubs/club-img-3.jpg' %}" width="550" /></p>
+                </div>
+                <div class="col-lg-6">
+                    <h1>In Western Countries</h1>
+                    <p>The concept of Laughter Clubs is slightly different in the West. Laughter Club members meet
+                        for 1 hour every weekend or fortnight. They do laughter exercises for 30 minutes followed by
+                        Laughter Meditation. At the end of the Laughter Session, they incorporate singing, dancing
+                        and music. Other groups will do Yoga Nidra, humming and other relaxation techniques.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="shop section section-height-2 border-0 m-0">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <h1>Learn Laughter Yoga</h1>
+                    <p>You need to be trained as a Laughter Yoga Leader inorder to run a laughter club. We have
+                        trainers around the world and some training is taking place online.</p>
+                    <a href="https://coaching.laughteryoga.org" target="_blank" class="btn btn-primary col-lg-4 text-decoration-none">Know More</a>
+                </div>
+                <div class="col-lg-6">
+                    <p><img src="{% static 'img/pages/clubs/club-img-4.jpg' %}" width="550" /></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container my-5 pt-md-4 pt-xl-0">
+        <div class="row align-items-center justify-content-center">
+            <div class="row pb-1">
+                <div class="col-lg-6">
+                    <p><img src="{% static 'img/pages/clubs/club-img-3.jpg' %}" width="550" /></p>
+                </div>
+                <div class="col-lg-6">
+                    <h1>Online Laughter Clubs</h1>
+                    <p>During COVID, more and more people have started joining Online Laughter Clubs. The advantage
+                        with Online Laughter Clubs is that you can join from any part of the world from the comfort
+                        of your home.</p>
+                    <a href="{% url 'zoom-laughter-club' %}" target="_parent" class="btn btn-primary col-lg-4 text-decoration-none">Know More</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

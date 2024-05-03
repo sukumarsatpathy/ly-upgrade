@@ -1,0 +1,141 @@
+{% extends 'be/base.html' %}
+{% load static %}
+{% block meta %}
+<title>Edit {{userAddress.full_name}} - {{webSettingsUniversal.title}}</title>
+<meta name="description" content="{{webSettingsUniversal.metaDescription}}"/>
+<meta name="keywords" content="{{webSettingsUniversal.metaKeyword}}"/>
+<meta property="og:title" content="Edit {{userAddress.full_name}} -{{webSettingsUniversal.title}}"/>
+<meta property="og:url" content="{{request.scheme}}://{{request.get_host}}{{request.get_full_path}}"/>
+<meta property="og:site_name" content="{{webSettingsUniversal.title}} - {{webSettingsUniversal.slogan}}"/>
+{% endblock %}
+{% block content %}
+<div class="d-flex flex-column flex-column-fluid">
+    <div class="app-content flex-column-fluid mt-10">
+        <div class="app-container container-xxl">
+            <div class="card">
+                <div class="card-header ribbon ribbon-end ribbon-clip">
+                    <div class="ribbon-label">
+                        Update
+                        <span class="ribbon-inner bg-warning"></span>
+                    </div>
+                    <div class="card-title fw-bold m-0">
+                        <span class="px-2">Update Address Details of <span class="text-primary">{{userAddress.user.full_name}}</span></span>
+                    </div>
+                </div>
+                <div class="card-body pt-0">
+                    <div class="card mb-5 mb-xl-10">
+                        <div class="collapse show">
+                            <form action="#" method="post" class="form"
+                                  data-states-url="{% url 'ajax_load_states' %}"
+                                  data-cities-url="{% url 'ajax_load_cities' %}"
+                                  enctype="multipart/form-data" novalidate>
+                                {% csrf_token %}
+                                <div class="card-body border-top p-9">
+                                    <div class="row">
+                                        <!-- Title -->
+                                        <div class="col-lg-6">
+                                            <div class="form-floating mb-7 {% if addrForm.title.errors %}has-error{% endif %}">
+                                                {{ addrForm.title }}
+                                                <label class="required">Is this your Home/Office Address?</label>
+                                                {% for error in addrForm.title.errors %}
+                                                <div class="text-danger mt-2">
+                                                    <strong>{{ error|escape }}</strong>
+                                                </div>
+                                                {% endfor %}
+                                            </div>
+                                        </div>
+
+                                        <!-- Street Details -->
+                                        <div class="col-lg-6">
+                                            <div class="form-floating mb-7 {% if addrForm.address.errors %}has-error{% endif %}">
+                                                {{ addrForm.address }}
+                                                <label>Street Details</label>
+                                                {% for error in addrForm.address.errors %}
+                                                <div class="text-danger mt-2">
+                                                    <strong>{{ error|escape }}</strong>
+                                                </div>
+                                                {% endfor %}
+                                            </div>
+                                        </div>
+
+                                        <!-- Country -->
+                                        <div class="col-lg-6">
+                                            <div class="form-floating mb-7 {% if addrForm.country.errors %}has-error{% endif %}">
+                                                {{ addrForm.country }}
+                                                <label class="required">Country</label>
+                                                {% for error in addrForm.country.errors %}
+                                                <div class="text-danger mt-2">
+                                                    <strong>{{ error|escape }}</strong>
+                                                </div>
+                                                {% endfor %}
+                                            </div>
+                                        </div>
+
+                                        <!-- State -->
+                                        <div class="col-lg-6">
+                                            <div class="form-floating mb-7 {% if addrForm.state.errors %}has-error{% endif %}">
+                                                {{ addrForm.state }}
+                                                <label class="required">State</label>
+                                                {% for error in addrForm.state.errors %}
+                                                <div class="text-danger mt-2">
+                                                    <strong>{{ error|escape }}</strong>
+                                                </div>
+                                                {% endfor %}
+                                            </div>
+                                        </div>
+
+                                        <!-- City -->
+                                        <div class="col-lg-6">
+                                            <div class="form-floating mb-7 {% if addrForm.city.errors %}has-error{% endif %}">
+                                                {{ addrForm.city }}
+                                                <label class="required">City</label>
+                                                {% for error in addrForm.city.errors %}
+                                                <div class="text-danger mt-2">
+                                                    <strong>{{ error|escape }}</strong>
+                                                </div>
+                                                {% endfor %}
+                                            </div>
+                                        </div>
+
+                                        <!-- Postal code -->
+                                        <div class="col-lg-6">
+                                            <div class="form-floating mb-7 {% if addrForm.postal_code.errors %}has-error{% endif %}">
+                                                {{ addrForm.postal_code }}
+                                                <label class="required">Postal code</label>
+                                                {% for error in addrForm.postal_code.errors %}
+                                                <div class="text-danger mt-2">
+                                                    <strong>{{ error|escape }}</strong>
+                                                </div>
+                                                {% endfor %}
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Non Field Errors -->
+                                    {% for error in userAddressForm.non_field_errors %}
+                                    <div class="text-danger mt-2">
+                                        <strong>{{ error|escape }}</strong>
+                                    </div>
+                                    {% endfor %}
+                                </div>
+
+                                <div class="card-footer d-flex justify-content-end py-6 px-9">
+                                    <a href="{% if user.is_superuser %}{% url 'userList' %}{% else %}{% url 'userView' user.id %}{% endif %}" class="btn btn-light-info me-3">Discard</a>
+                                    <button type="submit" class="btn btn-primary">Save Changes</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block extraJS %}
+<!--begin::Custom Javascript(used for this page only)-->
+<script src="{% static 'be/js/jquery-3.3.1.min.js' %}"></script>
+<!-- Auto filter based on country state city filter -->
+<script src="{% static 'be/plugins/custom/filter/country-state-city-dropdown.js' %}"></script>
+<!--end::Custom Javascript-->
+{% endblock %}

@@ -1,0 +1,163 @@
+{% extends 'front/base.html' %}
+{% load static %}
+{% load i18n %}
+{% block meta %}
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>LY for Yoga Practitioners - Laughter Yoga International</title>
+<meta name="keywords" content="laughter yoga, breathing, spiritually, diaphragm"/>
+<meta name="description"
+      content="Are you a yoga teacher or yoga practitioner? Laughter Yoga is a great value addition to your yoga practice">
+<meta name="author" content="Dr Madan Kataria">
+{% endblock %}
+{% block content %}
+<div class="owl-carousel-wrapper" style="height: 600px;">
+    <div class="owl-carousel dots-inside dots-horizontal-center dots-light show-dots-hover show-dots-xs nav-inside nav-inside-plus nav-dark nav-md nav-font-size-md show-nav-hover mb-0"
+         data-plugin-options="{'responsive': {'0': {'items': 1}, '479': {'items': 1}, '768': {'items': 1}, '979': {'items': 1}, '1199': {'items': 1}}, 'loop': false, 'autoHeight': false, 'margin': 0, 'dots': true, 'dotsVerticalOffset': '-75px', 'nav': false, 'animateIn': 'fadeIn', 'animateOut': 'fadeOut', 'mouseDrag': false, 'touchDrag': false, 'pullDrag': false, 'autoplay': true, 'autoplayTimeout': 9000, 'autoplayHoverPause': true, 'rewind': true}">
+        <img src="{% static 'img/slides/yoga-and-ly.webp' %}"/>
+    </div>
+</div>
+<div role="main" class="main">
+    <section class="shop border-0 m-0">
+        <div class="container mt-5 pt-5 mb-4 pt-md-4 pt-xl-0">
+            <div class="row align-items-center justify-content-center">
+                <div class="row pb-1">
+                    <div class="col-lg-6 mb-2 pb-2">
+                        <div class="video-container">
+                            <iframe width="100%" height="350" src="https://www.youtube.com/embed/JKfM-ZyNBHg"
+                                    title="Laughter Yoga - Science of Breathing" frameborder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    class="rounded" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <h1>Yoga + Laughter Yoga</h1>
+                        <p><strong>Are you a yoga teacher or yoga practitioner? Laughter Yoga is a great value addition to
+                            your yoga practice.</strong></p>
+                        <p>Although they are calm and peaceful inside, most yogis look very serious as they don’t laugh
+                            much. What is missing is the element of joy. More and more yoga teachers are getting trained as
+                            LY Professionals and incorporating it into their yoga classes. What they’re finding is that 10
+                            minutes of laughter exercises at the end of a session (before relaxation/shavasana) is taking
+                            their yoga practice to the next level.</p>
+                        <p>There’s a great connection between yoga and Laughter Yoga both Scientifically and Spiritually.
+                            Let us examine the link between them.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="shop section section-height-2 border-0 m-0">
+        <div class="container">
+            <div class="products row row-gutter-sm appear-animation" data-appear-animation="fadeInUpShorter"
+                 data-appear-animation-delay="750">
+                <div class="col-lg-6">
+                    <h1>Connection Between Yoga And Laughter</h1>
+                    <p>The word Yoga arises from the Sanskrit root Yuj which means to integrate and harmonize our body,
+                        mind, spirit.</p>
+                    <p>As the concept of Laughter Yoga evolved, Dr. Kataria found a deep connection between the
+                        fundamentals of yoga and what one did in laughter clubs. Intially, he incorporated deep
+                        breathing exercises ( pranayama) from yoga with laughter exercises, which helps to increase
+                        oxygen to the body and brain.</p>
+                </div>
+                <div class="col-lg-6">
+                    <h1>Breath is life</h1>
+                    <p>Breathing is fundamental to life. One can live without food and water for several days, but
+                        cannot survive if breathing stops for even a few minutes. According to yogic philosophy, we are
+                        alive because the cosmic energy from the Universe flows into the body through the breath, which
+                        is the life energy force or as called in yoga, Prana. </p>
+                    <p>From a medical point of view, the most important component of breath is oxygen. Due to stress and
+                        negative mental states, breathing becomes shallow and irregular. We tend to hold our breath
+                        whenever the mind is upset. This leads to accumulation carbon dioxide in the blood which
+                        triggers anxiety, stress and emotional reactions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="shop border-0 m-0 mx-3 my-3">
+        <div class="container mt-5 pt-5 mb-4 pt-md-4 pt-xl-0">
+            <div class="row align-items-center justify-content-center pb-4 mb-5">
+                <div class="row pb-1">
+                    <div class="col-lg-6 mb-2 pb-2">
+                        <h1>More oxygen from exhalation</h1>
+                        <p>The hallmark of yoga breathing is that we should exhale longer than we inhale so as to get rid of
+                            the residual air from the lungs. This will increase the amount of fresh air and more oxygen.</p>
+                        <p>Laughter is like a breathing exercise which helps us to exhale longer and get rid of stale air
+                            from our lungs. In normal breathing we inhale and exhale only 500 ml of air. While there is
+                            large amount of residual air in our lungs ( Residual Volume 1500 ml) by practising prolonged
+                            laughter we can force exhale the residual air and get more oxygen. </p>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="row justify-content-center pt-3">
+                            <div class="col-lg-10">
+                                <img src="{% static 'img/pages/lungs.webp' %}" class="img-fluid" alt="More oxygen from exhalation" width="100%" height="100%">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section border-0 m-0">
+        <div class="container my-5 pt-md-4 pt-xl-0">
+            <div class="products row row-gutter-sm mb-4 appear-animation" data-appear-animation="fadeInUpShorter"
+                 data-appear-animation-delay="750">
+                <div class="col-lg-6">
+                    <img src="{% static 'img/pages/diaphragm.webp' %}" class="img-fluid"
+                         alt="Diaphragm activates parasympathetic system">
+                </div>
+                <div class="col-lg-6 mb-4 pb-2">
+                    <h1>Diaphragm activates parasympathetic system</h1>
+                    <p>It is important to know that diaphragm is a major muscle of respiration which separates the
+                        thoracic and abdominal cavity. Two thirds of breathing takes place by the movement of the
+                        diaphragm and only one third by the expansion of the rib cage. Under stressful situations, most
+                        people breathe from the chest and do not use their diaphragm. Both laughter and yogic breathing
+                        exercises are intended to stimulate the movement of the diaphragm and the abdominal muscles.</p>
+                    <p>The diaphragm is connected to a special branch of the autonomic nervous system called the
+                        parasympathetic system or the calming branch responsible for relaxation. The opposite of this is
+                        the sympathetic system, also known as the stress arousal system. One can turn off the stress
+                        arousal system simply by learning to move the diaphragm. In Laughter Yoga we are training our
+                        diaphragm and abdominal muscles to stimulate the parasympathetic system.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="shop border-0 m-0 mx-3 my-3">
+        <div class="container pt-5">
+            <div class="row justify-content-center">
+                <div class="col-xl-6 text-center pb-5">
+                    <a href="{% url 'basic-learning-course' %}" target="_parent">
+                        <img src="{% static 'img/extra/online-coaching.webp' %}" class="img-fluid"
+                             alt="Basic Learning Course" width="100%" height="100%" />
+                    </a>
+                    <div class="col-xl-6 mt-2 mx-auto">
+                        <button class="btn btn-primary">
+                            <a class="text-light text-decoration-none" href="{% url 'basic-learning-course' %}"
+                               target="_parent">
+                                Learn More
+                            </a>
+                        </button>
+                    </div>
+                </div>
+                <div class="col-xl-6">
+                    <a href="{% url 'zoom-laughter-club' %}" target="_blank">
+                        <img src="{% static 'img/extra/zoom-laughter-yoga.webp' %}" class="img-fluid"
+                             alt="Zoom Laughter Club" width="100%" height="100%" />
+                    </a>
+                    <div class="col-lg-6 mt-2 mx-auto">
+                        <button class="btn btn-primary">
+                            <a class="text-light text-decoration-none" href="{% url 'zoom-laughter-club' %}"
+                               target="_blank">
+                                Learn More
+                            </a>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+{% endblock %}

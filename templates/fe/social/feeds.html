@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Real-Time Feeds</title>
+</head>
+<body>
+    <div id="feedUpdates">Waiting for updates...</div>
+
+    <script type="text/javascript">
+        // Determine the correct WebSocket URL
+        const wsScheme = window.location.protocol == "https:" ? "wss://" : "ws://";
+        const wsPath = wsScheme + window.location.host + "/ws/feeds/";
+        const socket = new WebSocket(wsPath);
+
+        socket.onopen = function(e) {
+            console.log("WebSocket is connected.");
+            // You can send messages to the server here if needed
+            // socket.send(JSON.stringify({ message: 'Hello Server!' }));
+        };
+
+        socket.onmessage = function(e) {
+            const data = JSON.parse(e.data);
+            // Assuming 'data' contains the feed update. Adjust to your data structure.
+            console.log("Message from server ", data);
+            document.getElementById('feedUpdates').innerHTML = data.feeds + "<br>" + "Views: " + data.views;
+        };
+
+        socket.onclose = function(e) {
+            console.error('Chat socket closed unexpectedly');
+        };
+
+        socket.onerror = function(error) {
+            console.error('WebSocket error: ' + error.message);
+        };
+    </script>
+</body>
+</html>

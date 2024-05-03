@@ -1,0 +1,22 @@
+<script>
+setTimeout(function(){
+  $('#frontMessage').fadeOut('slow');
+}, 4000)
+</script>
+
+{% if messages %}
+    {% for message in messages %}
+    <div id="frontMessage">
+        <div {% if message.tags %} class="alert alert-{{message.tags}}" {% endif %}>
+            {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+                <h4 class="mb-2 text-{{message.tags}}">Error:</h4>
+                {% elif message.level == DEFAULT_MESSAGE_LEVELS.INFO %}
+                <h4 class="mb-2 text-{{message.tags}}">Warning:</h4>
+                {% else %}
+                <h4 class="mb-1 text-{{message.tags}}">{{message.tags|title}}</h4>
+                {% endif %}
+                <span class="text-{{message.tags}}">{{message}}</span>
+        </div>
+    </div>
+    {% endfor %}
+{% endif %}

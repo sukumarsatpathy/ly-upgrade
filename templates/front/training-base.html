@@ -1,0 +1,87 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Basic -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Laughter Yoga International</title>
+
+    <meta name="keywords" content="Laughter Yoga International"/>
+    <meta name="description" content="Laughter Yoga International - For Health, Happiness and World Peace">
+    <meta name="author" content="okler.net">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="{% static 'img/favicon.ico' %}" type="image/x-icon"/>
+    <link rel="apple-touch-icon" href="{% static 'img/apple-touch-icon.png' %}">
+
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, shrink-to-fit=no">
+
+    <!-- Web Fonts  -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800%7CShadows+Into+Light%7CPlayfair+Display:400&display=swap"
+          rel="stylesheet" type="text/css">
+
+    <!-- Fontawesome Locally-->
+    <link rel="stylesheet" href="{% static 'vendor/fontawesome-free/css/all.min.css' %}">
+
+    <!-- Template CSS Files -->
+    <link rel="stylesheet" href="{% static 'finder/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'finder/css/line-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'finder/css/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'finder/css/owl.theme.default.min.css' %}">
+    <link rel="stylesheet" href="{% static 'finder/css/animated-headline.css' %}">
+    <link rel="stylesheet" href="{% static 'finder/css/jquery-ui.css' %}">
+    <link rel="stylesheet" href="{% static 'finder/css/jquery.fancybox.css' %}">
+    <link rel="stylesheet" href="{% static 'finder/css/chosen.min.css' %}">
+    <link rel="stylesheet" href="{% static 'finder/css/style.css' %}">
+
+    <!-- Theme CSS -->
+    <link rel="stylesheet" href="{% static 'css/theme.css' %}">
+    <link rel="stylesheet" href="{% static 'css/theme-elements.css' %}">
+
+</head>
+<body class="loading-overlay-showing" data-plugin-page-transition data-loading-overlay
+      data-plugin-options="{'hideDelay': 500}">
+<header id="header" class="header-effect-shrink"
+        data-plugin-options="{'stickyEnabled': true, 'stickyEffect': 'shrink', 'stickyEnableOnBoxed': true, 'stickyEnableOnMobile': true, 'stickyChangeLogo': true, 'stickyStartAt': 120, 'stickyHeaderContainerHeight': 70}">
+    <div class="header-body border-color-primary header-body-bottom-border">
+        <!-- TopBar Starts Here -->
+        {% include 'front/includes/topbar.html' %}
+        <!-- TopBar Ends Here -->
+        <!-- NavBar Starts Here -->
+        {% include 'front/includes/navbar.html' %}
+        <!-- NavBar Ends Here -->
+    </div>
+</header>
+{% include 'front/includes/breadcrumb.html' %}
+
+<!-- ================================
+    START CARD AREA
+================================= -->
+{% block content %}
+
+{% endblock %}
+<!-- ================================
+    END CARD AREA
+================================= -->
+
+{% include 'front/includes/footer.html' %}
+
+<!-- Template JS Files
+<script src="{% static 'finder/js/jquery-3.4.1.min.js' %}"></script>
+<script src="{% static 'finder/js/jquery-ui.js' %}"></script>
+<script src="{% static 'finder/js/popper.min.js' %}"></script>
+<script src="{% static 'finder/js/bootstrap.min.js' %}"></script>
+<script src="{% static 'finder/js/owl.carousel.min.js' %}"></script>
+<script src="{% static 'finder/js/jquery.fancybox.min.js' %}"></script>
+<script src="{% static 'finder/js/animated-headline.js' %}"></script>
+<script src="{% static 'finder/js/chosen.min.js' %}"></script>
+<script src="{% static 'finder/js/datedropper.min.js' %}"></script>
+<script src="{% static 'finder/js/waypoints.min.js' %}"></script>
+<script src="{% static 'finder/js/jquery.counterup.min.js' %}"></script>
+<script src="{% static 'finder/js/jquery.lazy.min.js' %}"></script>-->
+<script src="{% static 'finder/js/main.js' %}"></script>
+</body>
+</html>

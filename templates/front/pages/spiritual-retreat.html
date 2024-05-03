@@ -1,0 +1,1164 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#e3a54a">
+    <title>Laughter and Silence Mindfulness Retreat in Nashik, India</title>
+    <meta name="description"
+          content="Experience the Power of Laughter and Silence for Health, Happiness and Spiritual Growth with
+                    Laughter Guru, Dr Madan Kataria">
+    <meta name="robots" content="noindex,follow">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Laughter and Silence Mindfulness Retreat in Nashik, India">
+    <meta property="og:description"
+          content="Experience the Power of Laughter and Silence for Health, Happiness and Spiritual Growth with
+                    Laughter Guru, Dr Madan Kataria">
+    <meta property="og:url" content="https://www.laughteryoga.org/spiritual-retreat/">
+    <meta property="og:site_name" content="Laughter Yoga International">
+    <meta property="og:image" content="{% static 'img/logo-footer.png' %}">
+    <meta property="og:image:secure_url" content="{% static 'img/logo-footer.png' %}">
+    <meta property="og:image:width" content="640">
+    <meta property="og:image:height" content="480">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Laughter and Silence Mindfulness Retreat in Nashik, India">
+    <meta name="twitter:description"
+          content="Experience the Power of Laughter and Silence for Health, Happiness and Spiritual Growth with
+                    Laughter Guru, Dr Madan Kataria">
+    <meta name="twitter:image" content="{% static 'img/logo-footer.png' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="{% static 'img/favicon.ico' %}" rel="icon">
+    <link href="{% static 'img/favicon.ico' %}" rel="apple-touch-icon">
+    <link rel="preload" href="{% static 'img/logo-footer.png' %}" as="image" media="(max-width: 400px)">
+    <link rel="preload" href="{% static 'img/logo-footer.png' %}" as="image" media="(min-width: 400px)">
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,500;0,600;0,700;0,800;1,500;1,600&amp;display=swap"
+          as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet" type="text/css"
+              href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,500;0,600;0,700;0,800;1,500;1,600&display=swap"/>
+    </noscript>
+    <link rel="stylesheet" href="{% static '/boot5/bootstrap-compressed.css' %}" as="style"
+          onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link href="{% static '/boot5/bootstrap-compressed.css' %}" rel="stylesheet"/>
+    </noscript>
+    <link rel="stylesheet" href="{% static '/boot5/page.css' %}" as="style"
+          onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link href="{% static '/boot5/page.css' %}" rel="stylesheet"/>
+    </noscript>
+    <!-- Google Recaptcha -->
+    <script src='https://www.google.com/recaptcha/api.js' async defer></script>
+</head>
+<body class="home">
+<style>
+    img {
+        border-radius:20px;
+    }
+    .footer {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      height: auto;
+      overflow: hidden;
+      z-index: 1;
+    }
+    .content-new {
+        position: relative;
+    }
+    .ribbon_1, .ribbon_2  {
+        position: absolute;
+        top: -5px;
+        right: -25px;
+        width:50px !important;
+    }
+    @media (max-width: 768px) {
+        .content-new .ribbon_2 {
+            position: absolute;
+            top: 118px;
+            right: -12px;
+            width: 12% !important;
+        }
+        .content-new .ribbon_1 {
+            position: absolute;
+            top: 133px;
+            right: -12px;
+            width: 12% !important;
+        }
+    }
+    .loader::after {
+      content: "";
+       position: absolute;
+       top: 213px;
+      border: 6px solid #f3f3f3;
+      border-top: 6px solid #3498db;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      animation: spin 1s linear infinite;
+       -webkit-animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+        0% { -webkit-transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+      100% { -webkit-transform: rotate(360deg); }
+    }
+    .hidden {
+      display: none;
+    }
+    .d-none {
+      display: none;
+    }
+    @media screen and (min-width: 1024px) {
+        .home #loader_home {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #f2efea;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: 0 0;
+            z-index: 9999;
+        }
+        .mobile {
+            display: none;
+        }
+        .mob-hide {
+            display: none;
+        }
+    }
+
+    @media screen and (max-width: 767px) {
+        .home  #loader_home {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #f2efea;
+        background-image: url('/resources/img/mob-loader.png');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: 0 0;
+        z-index: 9999;
+        }
+        .img-mobile {
+            width: 420px;
+            height: auto;
+            margin: 0 auto 20px;
+            text-align: center;
+        }
+        .desktop {
+            display: none;
+        }
+        .web-hide {
+            display: none;
+        }
+    }
+}
+</style>
+<section id="hero" class="d-flex align-items-center">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-7">
+                {% include 'front/includes/messages.html' %}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6 pt-4">
+                <div class="col-lg-6 align-content-end mob-hide mb-3">
+                    <img src="{% static 'img/pages/spiritual-retreat/retreat-video.webp' %}"
+                         alt="Spiritual Retreat Video" class="img-fluid">
+                    <p style="font-size:20px; color: #0174be; text-align: center; padding-top: 20px;"><strong>Secure your spot at the Retreat today with a generous Rs. 1100/- donation, and conveniently pay for your meals and accommodation upon arrival at the resort.</strong></p>
+                </div>
+                <h1 id="title">Laughter and Silence <br>Mindfulness Retreat <br>in Nashik, India</h1>
+                <h2>Experience the Power of Laughter and Silence for Health, Happiness and Spiritual Growth with
+                    Laughter Guru, Dr Madan Kataria</h2>
+                <div class="mb-3">
+                    <a href="#register_form" id="register_now_btn"
+                       class="btn-get-started scrollto register-now-track-btn">Sign-up Now</a>
+                </div>
+            </div>
+            <div class="col-lg-6 align-content-end web-hide">
+                <a href="#register_form" target="_self"><img
+                        src="{% static 'img/pages/spiritual-retreat/retreat-mar24.webp' %}"
+                        alt="Spiritual Retreat Video" class="img-fluid w-100"></a>
+            </div>
+        </div>
+        <div class="row justify-content-center pt-5">
+            <div class="col-lg-8">
+                <p style="font-size:20px; color: #0174be; text-align: center;" class="web-hide"><strong>Secure your spot at the Retreat today with a generous Rs. 1100/- donation, and conveniently pay for your meals and accommodation upon arrival at the resort.</strong></p>
+            </div>
+        </div>
+    </div>
+</section>
+<main id="main">
+    <section id="included" class="Included">
+        <div class="container">
+            <div class="row mb-4">
+                <div class="col-lg-9">
+                    <div class="grid gtc-lg-4 gtc-md-2 gtc gtc-sm-1 date_time_block">
+                        <div class="item date_time">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor"
+                                 class="bi bi-calendar-check icon-cstm-color" viewBox="0 0 16 16">
+                                <path d="M10.854 7.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 9.793l2.646-2.647a.5.5 0 0 1 .708 0z"/>
+                                <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5M1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4z"/>
+                            </svg>
+                            <div class="stdate">Dates</div>
+                            <div class="fulldate" id="workshop_date">Mar 29-31, 2024<br></div>
+                        </div>
+                        <div class="item date_time">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor"
+                                 class="bi bi-clock icon-cstm-color" viewBox="0 0 16 16">
+                                <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71z"/>
+                                <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16m7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0"/>
+                            </svg>
+                            <div class="stdate">Timings</div>
+                            <div class="fulldate">
+                                7 am to 9:30 pm
+                            </div>
+                        </div>
+                        <div class="item date_time">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor"
+                                 class="bi bi-globe icon-cstm-color" viewBox="0 0 16 16">
+                                <path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m7.5-6.923c-.67.204-1.335.82-1.887 1.855A7.97 7.97 0 0 0 5.145 4H7.5zM4.09 4a9.267 9.267 0 0 1 .64-1.539 6.7 6.7 0 0 1 .597-.933A7.025 7.025 0 0 0 2.255 4zm-.582 3.5c.03-.877.138-1.718.312-2.5H1.674a6.958 6.958 0 0 0-.656 2.5zM4.847 5a12.5 12.5 0 0 0-.338 2.5H7.5V5zM8.5 5v2.5h2.99a12.495 12.495 0 0 0-.337-2.5zM4.51 8.5a12.5 12.5 0 0 0 .337 2.5H7.5V8.5zm3.99 0V11h2.653c.187-.765.306-1.608.338-2.5zM5.145 12c.138.386.295.744.468 1.068.552 1.035 1.218 1.65 1.887 1.855V12zm.182 2.472a6.696 6.696 0 0 1-.597-.933A9.268 9.268 0 0 1 4.09 12H2.255a7.024 7.024 0 0 0 3.072 2.472M3.82 11a13.652 13.652 0 0 1-.312-2.5h-2.49c.062.89.291 1.733.656 2.5zm6.853 3.472A7.024 7.024 0 0 0 13.745 12H11.91a9.27 9.27 0 0 1-.64 1.539 6.688 6.688 0 0 1-.597.933M8.5 12v2.923c.67-.204 1.335-.82 1.887-1.855.173-.324.33-.682.468-1.068zm3.68-1h2.146c.365-.767.594-1.61.656-2.5h-2.49a13.65 13.65 0 0 1-.312 2.5zm2.802-3.5a6.959 6.959 0 0 0-.656-2.5H12.18c.174.782.282 1.623.312 2.5zM11.27 2.461c.247.464.462.98.64 1.539h1.835a7.024 7.024 0 0 0-3.072-2.472c.218.284.418.598.597.933zM10.855 4a7.966 7.966 0 0 0-.468-1.068C9.835 1.897 9.17 1.282 8.5 1.077V4z"/>
+                            </svg>
+                            <div class="stdate">Language</div>
+                            <div class="fulldate">English and Hindi</div>
+                        </div>
+                        <div class="item date_time duaration_time">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor"
+                                 class="bi bi-calendar-week icon-cstm-color" viewBox="0 0 16 16">
+                                <path d="M11 6.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm-3 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm-5 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm3 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5z"/>
+                                <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5M1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4z"/>
+                            </svg>
+                            <div class="stdate">Duration</div>
+                            <div class="fulldate">3 Days</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container Included_Block">
+            <div class="row">
+                <div class="col-lg-9">
+                    <div class="white_block white_block_transparent count_block_whiteblock">
+                        <h3 class="brown_heading whats_head py-3">What is Laughter Yoga?</h3>
+                        <div class="include_details">
+                            <div class="row">
+                                <div class="col-lg-3">
+                                    <img src="{% static 'img/pages/spiritual-retreat/what-is-ly.png' %}"
+                                         loading="lazy" class="img-fluid">
+                                </div>
+                                <div class="col-lg-9">
+                                    <div>
+                                        <h4>Do you want to bring more laughter and joy into your life? You must learn
+                                            Laughter Yoga.</h4>
+                                        <div class="include_text">Laughter yoga is not comedy; it is a form of
+                                            exercise that combines deep breathing techniques and laughter exercises,
+                                            <span class="mobile">which reduce stress, boost your immune system,
+                                            and keep your mind positive</span>
+                                            <ul class="pt-2 desktop">
+                                                <li>which reduce stress</li>
+                                                <li>boost your immune system</li>
+                                                <li>and keep your mind positive</li>
+                                            </ul>
+                                            It is based on scientific studies that the body cannot differentiate between
+                                            simulated and genuine laughter,so the physiological and psychological
+                                            benefits are the same.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- What is Mindfulness Block -->
+        <div class="container Included_Block">
+            <div class="row">
+                <div class="col-lg-9">
+                    <div class="white_block white_block_transparent count_block_whiteblock">
+                        <h3 class="brown_heading whats_head py-3">What is Mindfulness?</h3>
+                        <div class="include_details">
+                            <div class="row">
+                                <div class="col-lg-3">
+                                    <img src="{% static 'img/pages/spiritual-retreat/what-is-mindfulness.png' %}"
+                                         loading="lazy" class="img-fluid">
+                                </div>
+                                <div class="col-lg-9">
+                                    <div>
+                                        <h4>Everybody wants to enjoy life, but you can't enjoy it if you are not
+                                            entirely in the present moment.</h4>
+                                        <div class="include_text">Our mind keeps jumping from one thought to another.
+                                            That's why we call it a monkey mind. A Harvard study found that people spend
+                                            46.9% of their waking hours thinking about something other than what they
+                                            are doing.
+                                        </div>
+                                        <div class="include_text" style="padding-top:7px;">Mindfulness is becoming aware
+                                            and fully engaged in the present moment, rather than dwelling in the pastor
+                                            projecting into the future. It is the art of being 100% with what we're
+                                            doing
+                                            and paying attention to one's thoughts, feelings, and sensations without
+                                            judgment. Mindfulness will help you enjoy life and achieve maximum results
+                                            with minimum efforts.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Combining Laughter with Silence for Self-awareness -->
+        <div class="container Included_Block">
+            <div class="row">
+                <div class="col-lg-9">
+                    <div class="white_block white_block_transparent count_block_whiteblock">
+                        <h3 class="brown_heading whats_head py-3">Combining Laughter with Silence <br>for Self-awareness
+                        </h3>
+                        <div class="include_details">
+                            <div class="row">
+                                <div class="col-lg-3">
+                                    <img src="{% static 'img/pages/spiritual-retreat/silence-for-self-awareness.png' %}"
+                                         loading="lazy" class="img-fluid">
+                                </div>
+                                <div class="col-lg-9">
+                                    <div>
+                                        <h4>It is said that silence is gold and the mother of all meditations</h4>
+                                        <div class="include_text">Generally, people find it hard to maintain silence
+                                            even for a few minutes. The moment they sit in silence, they are flooded
+                                            with thoughts, which hampers peaceful meditation.
+                                        </div>
+                                        <div class="include_text" style="padding-top:7px;">This is where the practice of
+                                            unconditional laughter
+                                            can help you clear your mind of unwanted mental clutter so that you can
+                                            experience deep silence. Once you practice silence, laughter will flow out
+                                            of you like a fountain, very deep and intense. This is what we call Laughter
+                                            Meditation. It's believed that laughter not only deepens the experience of
+                                            silence but that silence, in turn, deepens the laughter. (Video)
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- What you will learn -->
+        <div class="container Included_Block">
+            <div class="row">
+                <div class="col-lg-9">
+                    <div class="white_block white_block_transparent count_block_whiteblock">
+                        <h3 class="brown_heading whats_head py-3">What you will learn?</h3>
+                        <div class="include_details" style="box-shadow: 5px 10px 10px rgba(245,245,245,.9);">
+                            <div>
+                                <img loading="lazy" srcset="{% static 'img/pages/spiritual-retreat/ly-basics.png' %}"
+                                     sizes="(max-width: 600px) 480px, 800px"
+                                     src="{% static 'img/pages/spiritual-retreat/ly-basics.png' %}">
+                                <div class="include_details_bg">
+                                    <h4>Laughter Yoga Basics</h4>
+                                    <div class="include_text">Learn from the master how to laugh for no reason and make
+                                        a habit of laughing. He will teach you the techniques of how to laugh in a group
+                                        and laugh aloneat home to get many health benefits, reducing stress,a strong
+                                        immune system, and keeping your mind positive even during challenging times.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="include_details" style="box-shadow: 5px 10px 10px rgba(245,245,245,.9);">
+                            <div>
+                                <img loading="lazy"
+                                     srcset="{% static 'img/pages/spiritual-retreat/how-to-meditate.png' %}"
+                                     sizes="(max-width: 600px) 480px, 800px"
+                                     src="{% static 'img/pages/spiritual-retreat/how-to-meditate.png' %}">
+                                <div class="include_details_bg">
+                                    <h4>How To Meditate</h4>
+                                    <div class="include_text">Dr. Kataria will teach you how to meditate in a simple
+                                        way, and you will learn different types of dynamic and still meditations.
+                                        Meditation provides effective stress management, improves perception and
+                                        memory,controls addictions, and cultivates positive health habits.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="include_details" style="box-shadow: 5px 10px 10px rgba(245,245,245,.9);">
+                            <div>
+                                <img loading="lazy"
+                                     srcset="{% static 'img/pages/spiritual-retreat/mindfulness.png' %}"
+                                     sizes="(max-width: 600px) 480px, 800px"
+                                     src="{% static 'img/pages/spiritual-retreat/mindfulness.png' %}">
+                                <div class="include_details_bg">
+                                    <h4>Mindfulness</h4>
+                                    <div class="include_text pb-4">During the retreat, you will learn to observe your
+                                        breath, which will bring you into the present. Placing awareness on your breath
+                                        will allow you to become one with the moment, as you can truly experience the
+                                        beauty of life as it exists.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="include_details" style="box-shadow: 5px 10px 10px rgba(245,245,245,.9);">
+                            <div>
+                                <img loading="lazy"
+                                     srcset="{% static 'img/pages/spiritual-retreat/contemplation-and-self-awareness.png' %}"
+                                     src="{% static 'img/pages/spiritual-retreat/contemplation-and-self-awareness.png' %}"
+                                >
+                                <div class="include_details_bg">
+                                    <h4>Contemplation and Self-Awareness</h4>
+                                    <div class="include_text">Both laughter and silence will help you transcend the
+                                        conscious and judging mind and unfold the layers ofthe subconscious mind, which
+                                        can help you get intouch with your inner self to know who you are, whatis the
+                                        meaning and purpose of life. You will know more about your physical health, food
+                                        habits, emotional expressions, and relationships. As thoughts keep flowing
+                                        during silence, you keep writing down for better understanding your needs and
+                                        desires, what changes you need to bring to your lifestyle.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Program Details -->
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-9">
+                    <!-- Retreat Agenda -->
+                    <div id="about" class="white_block_no_padding about">
+                        <div id="about-1" class="white_block about-1 text-center">
+                            <h4 class="brown_heading py-3">Retreat Agenda</h4>
+                            <div class="row border mb-2">
+                                 <h3 class="brown_heading mt-4 mb-3" style="font-size: 30px;">Mar 29, 2024 (Friday)</h3>
+                                <div class="col-lg-6">
+                                    <p class="aboput_text px-0 px-md-5">
+                                        <span style="font-size: 20px;"><strong>12:30 - 2 pm</strong></span><br><span class="text-capitalize"> Lunch followed by Rest</span><span style="line-height: 40px;">&nbsp;</span><br>
+                                        <span style="font-size: 20px;"><strong>4 - 5 pm</strong></span><br><span class="text-capitalize"> Introduction to Basics of Laughter Yoga, followed by a Laughter Session.</span><span style="line-height: 40px;">&nbsp;</span><br>
+                                        <span style="font-size: 20px;"><strong>5 - 6 pm</strong></span><br><span class="text-capitalize"> Learning Meditation - Understanding types (still and dynamic), exploring three stages of silence (physical, verbal, and mental), and practicing silence meditation.</span>
+                                    </p>
+                                </div>
+                                <div class="col-lg-6">
+                                    <p class="aboput_text px-0 px-md-5">
+                                        <span style="font-size: 20px;"><strong>6 - 7 pm</strong></span><br><span class="text-capitalize"> What is Mindfulness? Exploring the differences between meditation and mindfulness, various mindful practices (eating, listening, observation)</span><span style="line-height: 40px;">&nbsp;</span><br>
+                                        <span style="font-size: 20px;"><strong>7 - 8 pm</strong></span><br><span class="text-capitalize"> Dinner in Silence (Mindful Eating Meditation).</span><span style="line-height: 40px;">&nbsp;</span><br>
+                                        <span style="font-size: 20px;"><strong>8 - 9:30 pm</strong></span><br><span class="text-capitalize"> Laughter Festival (Utsav) - Activities include singing, dancing, playing, laughing, and a Gibberish Workshop for creative stimulation.</span>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="row border mb-2">
+                                 <h3 class="brown_heading mt-4 mb-3" style="font-size: 30px;">Mar 30, 2024 (Saturday)</h3>
+                                <div class="col-lg-6">
+                                    <p class="aboput_text px-0 px-md-5">
+                                        <span style="font-size: 20px;"><strong>7 - 8:30 am</strong></span><br><span class="text-capitalize"> Recap of Meditation and Mindfulness concepts, followed by practice of Laughter and Silence Meditation.</span><span style="line-height: 40px;">&nbsp;</span><br>
+                                        <span style="font-size: 20px;"><strong>8:30 - 9:30 am</strong></span><br><span class="text-capitalize"> Breakfast (Mindful Eating Meditation).</span><span style="line-height: 40px;">&nbsp;</span><br>
+                                        <span style="font-size: 20px;"><strong>9:30 - 10:30 am</strong></span><br><span class="text-capitalize"> Exploring Spirituality - How to become spiritual, connecting with Universal Energy, and So-Hum Meditation.</span><span style="line-height: 40px;">&nbsp;</span><br>
+                                        <span style="font-size: 20px;"><strong>10:30 am - 12:30 pm</strong></span><br><span class="text-capitalize"> Silent Nature Walk - Contemplating physical and mental health, eating habits, and exercise routines.</span><span style="line-height: 40px;">&nbsp;</span><br>
+                                        <span style="font-size: 20px;"><strong>12:30 - 2 pm</strong></span><br><span class="text-capitalize"> Lunch followed by rest (Mindful Eating in Silence).</span>
+                                    </p>
+                                </div>
+                                <div class="col-lg-6">
+                                    <p class="aboput_text px-0 px-md-5">
+                                        <span style="font-size: 20px;"><strong>3 - 4 pm</strong></span><br><span class="text-capitalize"> Rest with observational silence in rooms.</span><span style="line-height: 40px;">&nbsp;</span><br>
+                                        <span style="font-size: 20px;"><strong>4 - 5 pm</strong></span><br><span class="text-capitalize"> Mindful walking in nature, practicing mindful observation with the commentator technique.</span><span style="line-height: 40px;">&nbsp;</span><br>
+                                        <span style="font-size: 20px;"><strong>5 - 7 pm</strong></span><br><span class="text-capitalize"> Dialogue Program - Sharing experiences, Q&A session, followed by Yoga Nidra, a powerful technique to recharge your body and mind.</span><span style="line-height: 40px;">&nbsp;</span><br>
+                                        <span style="font-size: 20px;"><strong>6:30 - 8 pm</strong></span><br><span class="text-capitalize"> Dinner in Silence (Mindful Eating).</span><span style="line-height: 40px;">&nbsp;</span><br>
+                                        <span style="font-size: 20px;"><strong>8 - 9:30 pm</strong></span><br><span class="text-capitalize"> Fun Night - Bollywood Laughter Yoga Dance, singing, dancing, playing, and laughing.</span>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="row border">
+                                 <h3 class="brown_heading mt-4 mb-3" style="font-size: 30px;">Mar 31, 2024 (Sunday)</h3>
+                                <div class="col-lg-6">
+                                    <p class="aboput_text px-0 px-md-5">
+                                        <span style="font-size: 20px;"><strong>7 - 8:30 am</strong></span><br><span class="text-capitalize"> Laughter Meditation followed by Silence Meditation.</span><span style="line-height: 40px;">&nbsp;</span><br>
+                                        <span style="font-size: 20px;"><strong>8:30 - 9:30 am</strong></span><br><span class="text-capitalize"> Breakfast.</span><span style="line-height: 40px;">&nbsp;</span><br>
+                                        <span style="font-size: 20px;"><strong>9:30 - 10 am</strong></span><br><span class="text-capitalize"> Complete Laughter Yoga session with new exercises.</span>
+                                    </p>
+                                </div>
+                                <div class="col-lg-6">
+                                    <p class="aboput_text px-0 px-md-5">
+                                        <span style="font-size: 20px;"><strong>10 - 11 am</strong></span><br><span class="text-capitalize"> Managing Negative People and Thoughts, followed by Humming Meditation.</span><span style="line-height: 40px;">&nbsp;</span><br>
+                                        <span style="font-size: 20px;"><strong>11 am - 12:30 pm</strong></span><br><span class="text-capitalize"> Strategy Session - Incorporating laughter and silence meditation into daily life.</span><span style="line-height: 40px;">&nbsp;</span><br>
+                                        <span style="font-size: 20px;"><strong>12:30 pm</strong></span><br><span class="text-capitalize"> Lunch and Departure.</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Venue Details -->
+                    <div class="white_block who ">
+                        <h3 class="brown_heading py-3 text-center">Venue</h3>
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <img src="{% static 'img/pages/spiritual-retreat/GP_Farms_Venue_1.png' %}"
+                                     alt="For Yoga Teachers / Practitioners" height="300" loading="lazy">
+                            </div>
+                            <div class="col-lg-6">
+                                <img src="{% static 'img/pages/spiritual-retreat/GP_Farms_Venue_2.png' %}"
+                                     alt="For Laughter Yogis" height="300" loading="lazy">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <img src="{% static 'img/pages/spiritual-retreat/GP_Farms_Venue_3.png' %}"
+                                     alt="For Health Seekers" height="300" loading="lazy">
+                            </div>
+                            <div class="col-lg-6">
+                                <img src="{% static 'img/pages/spiritual-retreat/GP_Farms_Venue_4.png' %}"
+                                     alt="For Spiritual Seekers" height="300" loading="lazy">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <p class="text-center" style="font-size: 18px;"><strong>GP Hotels and Resorts <br>Harsul
+                                    Road, Girnare, Nashik, Maharashtra - 422203</strong></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Retreat Details -->
+                    <div class="white_block white_block_transparent count_block_whiteblock">
+                        <h3 class="brown_heading whats_head pt-3">Food, Accommodation & Cost Details</h3>
+                        <p style="font-size: 22px;"><strong>Secure your spot at the Retreat today with a generous Rs. 1100/- donation, and conveniently pay for your meals and accommodation upon arrival at the resort.</strong></p><br>
+                        <div class="include_details" style="box-shadow: 5px 10px 10px rgba(245,245,245,.9);">
+                            <div>
+                                <img loading="lazy"
+                                     srcset="{% static 'img/pages/spiritual-retreat/cost.png' %}"
+                                     sizes="(max-width: 600px) 480px, 800px"
+                                     src="{% static 'img/pages/spiritual-retreat/cost.png' %}">
+                                <div class="include_details_bg">
+                                    <h4>Food and Accommodation charges (Total for 3 Days)</h4>
+                                    <div><strong>Double Sharing Room</strong>: ₹ 4400/- Per Person</div>
+                                    <div><strong>Four Sharing Room</strong>: ₹ 3900/- Per Person</div>
+                                    <div><strong>Dormitory</strong>: ₹ 2500/- Per Person</div>
+                                    <div><strong>No Accommodation</strong>: ₹ 1200/- Per Person</div>
+                                    <div class="row pb-4">
+                                        <div class="col-12">
+                                            <div style="padding-top:7px; margin-left: -10px;"><strong>Important Notes:</strong>
+                                            </div>
+                                            <div>1. Meal and accommodation charges are additional and details are given above.</div>
+                                            <div>2. Resort charges include your stay, breakfast, and all meals for the whole retreat.</div>
+                                            <div>3. You can make payment for these charges upon your arrival at the resort.</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-9">
+                    <div id="people" class="white_block people">
+                        <h3 class="brown_heading text-center mb-2">People are saying</h3>
+                        <h5 class="text-center review_location  mb-4 ln-23">Hear from past participants about their retreat experiences.</h5>
+                        <div class="row">
+                            <div class="col-sn-12 col-md-6 col-lg-6 pb-3">
+                                <div class="text-center mt-0">
+                                    <div>
+                                        <iframe style="border-radius: 30px;" width="80%" height="200px" src="https://www.youtube.com/embed/jUK5yp74wnY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                                    </div>
+                                    <div class="review_name pt-1">Dr Madhav Mhaske</div>
+                                </div>
+                            </div>
+                            <div class="col-sn-12 col-md-6 col-lg-6 pb-3">
+                                <div class="text-center mt-0">
+                                    <div>
+                                        <iframe style="border-radius: 30px;" width="80%" height="200px" src="https://www.youtube.com/embed/4mwxVWsiYwE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                                    </div>
+                                    <div class="review_name p-1">Sharda</div>
+                                </div>
+                            </div>
+                            <div class="col-sn-12 col-md-6 col-lg-6 pb-3">
+                                <div class="text-center mt-0">
+                                    <div>
+                                        <iframe style="border-radius: 30px;" width="80%" height="200px" src="https://www.youtube.com/embed/3GpVgr6XIgg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                                    </div>
+                                    <div class="review_name p-1">Jasminder Rajpal</div>
+                                </div>
+                            </div>
+                            <div class="col-sn-12 col-md-6 col-lg-6 pb-3">
+                                <div class="text-center mt-0">
+                                    <div>
+                                        <iframe style="border-radius: 30px;" width="80%" height="200px" src="https://www.youtube.com/embed/p746jdUEfZI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                                    </div>
+                                    <div class="review_name pt-1">Vinay</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-9">
+                    <div id="who" class="white_block who ">
+                        <h3 class="brown_heading py-3">Who is this for?</h3>
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <img src="{% static 'img/pages/spiritual-retreat/yoga-and-teachers.png' %}"
+                                     alt="For Yoga Teachers / Practitioners" height="150" loading="lazy">
+                                <h3 class="heading_who px-md-3">For Yoga Teachers / Practitioners</h3>
+                                <div class="text_who px-2 px-md-3">Calling Yoga Teachers/Practitioners! Explore
+                                    innovative techniques, deepen mindfulness, and enhance teaching skills.
+                                    Elevate your practice with transformative sessions led by an expert. Join for
+                                    healing, joy, and a renewed yoga perspective.
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <img src="{% static 'img/pages/spiritual-retreat/laughter-yogis.png' %}"
+                                     alt="For Laughter Yogis" height="150" loading="lazy">
+                                <h3 class="heading_who px-md-3">For Laughter Yogis</h3>
+                                <div class="text_who px-2 px-md-3">Delve into advanced techniques, deepen laughter
+                                    practices, and enrich your community contributions. Elevate your joy and healing
+                                    through expert-led sessions. Embrace this transformative retreat for profound
+                                    laughter wellness.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <img src="{% static 'img/pages/spiritual-retreat/health-seekers.png' %}"
+                                     alt="For Health Seekers" height="150" loading="lazy">
+                                <h3 class="heading_who px-md-3">For Health Seekers</h3>
+                                <div class="text_who px-2 px-md-3">Seeking holistic wellness? Explore powerful
+                                    techniques, cultivate joy, and deepen mindfulness for overall well-being. Join this
+                                    rejuvenating experience to unlock laughter's healing power and embrace a healthier,
+                                    happier you.
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <img src="{% static 'img/pages/spiritual-retreat/spiritual-seekers.png' %}"
+                                     alt="For Spiritual Seekers" height="150" loading="lazy">
+                                <h3 class="heading_who px-md-3">For Spiritual Seekers</h3>
+                                <div class="text_who px-2 px-md-3">Explore inner joy, deepen mindfulness, and discover
+                                    laughter's spiritual connection. Join this transformative journey to awaken your
+                                    spirit, find harmony, and explore the profound union of laughter and mindfulness in
+                                    a sacred space.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <img src="{% static 'img/pages/spiritual-retreat/working-professional.png' %}"
+                                     alt="For Working Professionals" height="150" loading="lazy">
+                                <h3 class="heading_who px-md-3">For Working Professionals</h3>
+                                <div class="text_who px-2 px-md-3">Recharge, unwind, learn stress-relief techniques,
+                                    and cultivate mindfulness for a balanced work-life approach. Elevate productivity,
+                                    find joy, and explore innovative methods for workplace well-being.
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <img src="{% static 'img/pages/spiritual-retreat/take-a-break-and-recharge.png' %}"
+                                     alt="For People Who Want to Take a Break & Recharge
+                                    Yourself" height="150" loading="lazy">
+                                <h3 class="heading_who px-md-3">For People Who Want to Take a Break & Recharge
+                                    Yourself</h3>
+                                <div class="text_who px-2 px-md-3">Need a break for rejuvenation? Relax, recharge, and
+                                    explore laughter's healing benefits. Rediscover joy, embrace mindfulness, and
+                                    revitalize your spirit in a serene environment. Take a transformative pause for
+                                    self-renewal and a refreshed outlook on life.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Combining Laughter with Silence for Self-awareness -->
+                    <div class="white_block who ">
+                        <h3 class="brown_heading py-3">Dr Madan Kataria</h3>
+                        <div class="row">
+                            <div class="col-lg-3">
+                                <img src="{% static 'img/pages/dr-madan-kataria.jpg' %}"
+                                     alt="Dr Madan Kataria" class="img-fluid" width="200" loading="lazy">
+                            </div>
+                            <div class="col-lg-9 mt-3">
+                                <div class="include_text">Dr. Madan Kataria founded Laughter Yoga in Mumbai,
+                                    India, in 1995 and is known as the “Guru of Giggling” (London Times). Over
+                                    120 countries have laughter yoga clubs, which has grown into a worldwide
+                                    movement. Dr. Madan Kataria has 25 years of experience teaching you how to
+                                    laugh on your own, with others, and with your family and colleagues.
+                                </div>
+                                <div class="include_text" style="padding-top: 7px;">Dr. Kataria provides keynote
+                                    speeches, motivational
+                                    and inspirational talks for companies, corporations and organizations
+                                    worldwide. He also provides corporate coaching in holistic health, stress
+                                    management, team building, leadership, peak performance, communication and
+                                    leadership skills.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="register_form" class="register_form text-center mb-5">
+                        <h3 class="register_tag">Sign-up Now</h3>
+                        <div class="form_block mb-5">
+                            <form action="{% url 'spiritualRetreat' %}" method="post" enctype="multipart/form-data">
+                                {% csrf_token %}
+                                <div class="row">
+                                    <div class="col-sm-12 col-lg-6 mb-3 mb-sm-3 mb-md-3">
+                                        <label class="d-none">Your Name?*</label>
+                                        <input type="text" class="form-control" placeholder="Your Name?*" name="name"
+                                               id="name" autocomplete="off" required>
+                                    </div>
+                                    <div class="col-sm-12 col-lg-6 mb-3 mb-sm-3 mb-md-3">
+                                        <label class="d-none">Your Email ID?*</label>
+                                        <input type="text" class="form-control" placeholder="Your Email ID?*"
+                                               name="email"
+                                               id="email" autocomplete="off" required>
+                                    </div>
+                                    <div class="col-sm-12 col-lg-6 mb-4 mb-sm-3 mb-md-3 d-flex">
+                                        <label class="d-none">Your WhatsApp Number?*</label>
+                                        <div id="country_code_div" class="d-flex">
+                                            <select name="country_code" id="country_code"
+                                                    class="custom-autocomplete text-center">
+                                                <option value="+376">AD +376</option>
+                                                <option value="+971">AE +971</option>
+                                                <option value="+93">AF +93</option>
+                                                <option value="+1268">AG +1268</option>
+                                                <option value="+1264">AI +1264</option>
+                                                <option value="+355">AL +355</option>
+                                                <option value="+374">AM +374</option>
+                                                <option value="+599">AN +599</option>
+                                                <option value="+244">AO +244</option>
+                                                <option value="+672">AQ +672</option>
+                                                <option value="+54">AR +54</option>
+                                                <option value="+1684">AS +1684</option>
+                                                <option value="+43">AT +43</option>
+                                                <option value="+61">AU +61</option>
+                                                <option value="+297">AW +297</option>
+                                                <option value="+358">AX +358</option>
+                                                <option value="+994">AZ +994</option>
+                                                <option value="+387">BA +387</option>
+                                                <option value="+1246">BB +1246</option>
+                                                <option value="+880">BD +880</option>
+                                                <option value="+32">BE +32</option>
+                                                <option value="+226">BF +226</option>
+                                                <option value="+359">BG +359</option>
+                                                <option value="+973">BH +973</option>
+                                                <option value="+257">BI +257</option>
+                                                <option value="+229">BJ +229</option>
+                                                <option value="+590">BL +590</option>
+                                                <option value="+1441">BM +1441</option>
+                                                <option value="+673">BN +673</option>
+                                                <option value="+591">BO +591</option>
+                                                <option value="+55">BR +55</option>
+                                                <option value="+1242">BS +1242</option>
+                                                <option value="+975">BT +975</option>
+                                                <option value="+267">BW +267</option>
+                                                <option value="+375">BY +375</option>
+                                                <option value="+501">BZ +501</option>
+                                                <option value="+1">CA +1</option>
+                                                <option value="+61">CC +61</option>
+                                                <option value="+243">CD +243</option>
+                                                <option value="+236">CF +236</option>
+                                                <option value="+242">CG +242</option>
+                                                <option value="+41">CH +41</option>
+                                                <option value="+225">CI +225</option>
+                                                <option value="+682">CK +682</option>
+                                                <option value="+56">CL +56</option>
+                                                <option value="+237">CM +237</option>
+                                                <option value="+86">CN +86</option>
+                                                <option value="+57">CO +57</option>
+                                                <option value="+506">CR +506</option>
+                                                <option value="+53">CU +53</option>
+                                                <option value="+238">CV +238</option>
+                                                <option value="+61">CX +61</option>
+                                                <option value="+357">CY +357</option>
+                                                <option value="+420">CZ +420</option>
+                                                <option value="+49">DE +49</option>
+                                                <option value="+253">DJ +253</option>
+                                                <option value="+45">DK +45</option>
+                                                <option value="+1767">DM +1767</option>
+                                                <option value="+1849">DO +1849</option>
+                                                <option value="+213">DZ +213</option>
+                                                <option value="+593">EC +593</option>
+                                                <option value="+372">EE +372</option>
+                                                <option value="+20">EG +20</option>
+                                                <option value="+291">ER +291</option>
+                                                <option value="+34">ES +34</option>
+                                                <option value="+251">ET +251</option>
+                                                <option value="+358">FI +358</option>
+                                                <option value="+679">FJ +679</option>
+                                                <option value="+500">FK +500</option>
+                                                <option value="+691">FM +691</option>
+                                                <option value="+298">FO +298</option>
+                                                <option value="+33">FR +33</option>
+                                                <option value="+241">GA +241</option>
+                                                <option value="+44">GB +44</option>
+                                                <option value="+1473">GD +1473</option>
+                                                <option value="+995">GE +995</option>
+                                                <option value="+594">GF +594</option>
+                                                <option value="+44">GG +44</option>
+                                                <option value="+233">GH +233</option>
+                                                <option value="+350">GI +350</option>
+                                                <option value="+299">GL +299</option>
+                                                <option value="+220">GM +220</option>
+                                                <option value="+224">GN +224</option>
+                                                <option value="+590">GP +590</option>
+                                                <option value="+240">GQ +240</option>
+                                                <option value="+30">GR +30</option>
+                                                <option value="+500">GS +500</option>
+                                                <option value="+502">GT +502</option>
+                                                <option value="+1671">GU +1671</option>
+                                                <option value="+245">GW +245</option>
+                                                <option value="+595">GY +595</option>
+                                                <option value="+852">HK +852</option>
+                                                <option value="+504">HN +504</option>
+                                                <option value="+385">HR +385</option>
+                                                <option value="+509">HT +509</option>
+                                                <option value="+36">HU +36</option>
+                                                <option value="+62">ID +62</option>
+                                                <option value="+353">IE +353</option>
+                                                <option value="+972">IL +972</option>
+                                                <option value="+44">IM +44</option>
+                                                <option value="+91" selected="selected">IN +91</option>
+                                                <option value="+246">IO +246</option>
+                                                <option value="+964">IQ +964</option>
+                                                <option value="+98">IR +98</option>
+                                                <option value="+354">IS +354</option>
+                                                <option value="+39">IT +39</option>
+                                                <option value="+44">JE +44</option>
+                                                <option value="+1876">JM +1876</option>
+                                                <option value="+962">JO +962</option>
+                                                <option value="+81">JP +81</option>
+                                                <option value="+254">KE +254</option>
+                                                <option value="+996">KG +996</option>
+                                                <option value="+855">KH +855</option>
+                                                <option value="+686">KI +686</option>
+                                                <option value="+269">KM +269</option>
+                                                <option value="+1869">KN +1869</option>
+                                                <option value="+850">KP +850</option>
+                                                <option value="+82">KR +82</option>
+                                                <option value="+965">KW +965</option>
+                                                <option value="+ 345">KY + 345</option>
+                                                <option value="+77">KZ +77</option>
+                                                <option value="+856">LA +856</option>
+                                                <option value="+961">LB +961</option>
+                                                <option value="+1758">LC +1758</option>
+                                                <option value="+423">LI +423</option>
+                                                <option value="+94">LK +94</option>
+                                                <option value="+231">LR +231</option>
+                                                <option value="+266">LS +266</option>
+                                                <option value="+370">LT +370</option>
+                                                <option value="+352">LU +352</option>
+                                                <option value="+371">LV +371</option>
+                                                <option value="+218">LY +218</option>
+                                                <option value="+212">MA +212</option>
+                                                <option value="+377">MC +377</option>
+                                                <option value="+373">MD +373</option>
+                                                <option value="+382">ME +382</option>
+                                                <option value="+590">MF +590</option>
+                                                <option value="+261">MG +261</option>
+                                                <option value="+692">MH +692</option>
+                                                <option value="+389">MK +389</option>
+                                                <option value="+223">ML +223</option>
+                                                <option value="+95">MM +95</option>
+                                                <option value="+976">MN +976</option>
+                                                <option value="+853">MO +853</option>
+                                                <option value="+1670">MP +1670</option>
+                                                <option value="+596">MQ +596</option>
+                                                <option value="+222">MR +222</option>
+                                                <option value="+1664">MS +1664</option>
+                                                <option value="+356">MT +356</option>
+                                                <option value="+230">MU +230</option>
+                                                <option value="+960">MV +960</option>
+                                                <option value="+265">MW +265</option>
+                                                <option value="+52">MX +52</option>
+                                                <option value="+60">MY +60</option>
+                                                <option value="+258">MZ +258</option>
+                                                <option value="+264">NA +264</option>
+                                                <option value="+687">NC +687</option>
+                                                <option value="+227">NE +227</option>
+                                                <option value="+672">NF +672</option>
+                                                <option value="+234">NG +234</option>
+                                                <option value="+505">NI +505</option>
+                                                <option value="+31">NL +31</option>
+                                                <option value="+47">NO +47</option>
+                                                <option value="+977">NP +977</option>
+                                                <option value="+674">NR +674</option>
+                                                <option value="+683">NU +683</option>
+                                                <option value="+64">NZ +64</option>
+                                                <option value="+968">OM +968</option>
+                                                <option value="+507">PA +507</option>
+                                                <option value="+51">PE +51</option>
+                                                <option value="+689">PF +689</option>
+                                                <option value="+675">PG +675</option>
+                                                <option value="+63">PH +63</option>
+                                                <option value="+92">PK +92</option>
+                                                <option value="+48">PL +48</option>
+                                                <option value="+508">PM +508</option>
+                                                <option value="+872">PN +872</option>
+                                                <option value="+1939">PR +1939</option>
+                                                <option value="+970">PS +970</option>
+                                                <option value="+351">PT +351</option>
+                                                <option value="+680">PW +680</option>
+                                                <option value="+595">PY +595</option>
+                                                <option value="+974">QA +974</option>
+                                                <option value="+262">RE +262</option>
+                                                <option value="+40">RO +40</option>
+                                                <option value="+381">RS +381</option>
+                                                <option value="+7">RU +7</option>
+                                                <option value="+250">RW +250</option>
+                                                <option value="+966">SA +966</option>
+                                                <option value="+677">SB +677</option>
+                                                <option value="+248">SC +248</option>
+                                                <option value="+249">SD +249</option>
+                                                <option value="+46">SE +46</option>
+                                                <option value="+65">SG +65</option>
+                                                <option value="+290">SH +290</option>
+                                                <option value="+386">SI +386</option>
+                                                <option value="+47">SJ +47</option>
+                                                <option value="+421">SK +421</option>
+                                                <option value="+232">SL +232</option>
+                                                <option value="+378">SM +378</option>
+                                                <option value="+221">SN +221</option>
+                                                <option value="+252">SO +252</option>
+                                                <option value="+597">SR +597</option>
+                                                <option value="+211">SS +211</option>
+                                                <option value="+239">ST +239</option>
+                                                <option value="+503">SV +503</option>
+                                                <option value="+963">SY +963</option>
+                                                <option value="+268">SZ +268</option>
+                                                <option value="+1649">TC +1649</option>
+                                                <option value="+235">TD +235</option>
+                                                <option value="+228">TG +228</option>
+                                                <option value="+66">TH +66</option>
+                                                <option value="+992">TJ +992</option>
+                                                <option value="+690">TK +690</option>
+                                                <option value="+670">TL +670</option>
+                                                <option value="+993">TM +993</option>
+                                                <option value="+216">TN +216</option>
+                                                <option value="+676">TO +676</option>
+                                                <option value="+90">TR +90</option>
+                                                <option value="+1868">TT +1868</option>
+                                                <option value="+688">TV +688</option>
+                                                <option value="+886">TW +886</option>
+                                                <option value="+255">TZ +255</option>
+                                                <option value="+380">UA +380</option>
+                                                <option value="+256">UG +256</option>
+                                                <option value="+1">US +1</option>
+                                                <option value="+598">UY +598</option>
+                                                <option value="+998">UZ +998</option>
+                                                <option value="+379">VA +379</option>
+                                                <option value="+1784">VC +1784</option>
+                                                <option value="+58">VE +58</option>
+                                                <option value="+1284">VG +1284</option>
+                                                <option value="+1340">VI +1340</option>
+                                                <option value="+84">VN +84</option>
+                                                <option value="+678">VU +678</option>
+                                                <option value="+681">WF +681</option>
+                                                <option value="+685">WS +685</option>
+                                                <option value="+967">YE +967</option>
+                                                <option value="+262">YT +262</option>
+                                                <option value="+27">ZA +27</option>
+                                                <option value="+260">ZM +260</option>
+                                                <option value="+263">ZW +263</option>
+                                            </select>
+                                        </div>
+                                        <div class="d-block w-100">
+                                            <input type="text" class="form-control phone" placeholder="Whatsapp Number*"
+                                                   name="whatsapp" id="phone" autocomplete="off" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12 col-lg-6 mb-3 mb-sm-3 mb-md-3">
+                                        <label class="d-none">Your City?*</label>
+                                        <input type="text" class="form-control" placeholder="Your City?*"
+                                               name="location"
+                                               id="location" autocomplete="off" required>
+                                    </div>
+                                    <div class="col-sm-12 col-lg-6 mb-4 mb-sm-3 mb-md-3 w-100 d-flex"
+                                         id="time_slot_div">
+                                        <span class="custom-autocomplete date-and-time time-slot pt-2"
+                                              style="width:65px!important;">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                 fill="currentColor" class="bi bi-house" viewBox="0 0 16 16">
+                                              <path d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L2 8.207V13.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V8.207l.646.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293zM13 7.207V13.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V7.207l5-5z"/>
+                                            </svg>
+                                        </span>
+                                        <select name="accommodation" id="time_slot" class="custom-select" required>
+                                            <option value="">Your Accommodation Preference?*</option>
+                                            <option
+                                                    value="2 Sharing Room (Rs. 4400/- Per Person Total for 3 Days with Breakfast & Meals)">
+                                                2 Sharing Room (Rs. 4400/- Per Person Total for 3 Days with Breakfast &
+                                                Meals)
+                                            </option>
+                                            <option value="4 Sharing Room (Rs. 3900/- Per Person Total for 3 Days with Breakfast & Meals)">
+                                                4 Sharing Room (Rs. 3900/- Per Person Total for 3 Days with Breakfast &
+                                                Meals)
+                                            </option>
+                                            <option value="Dormitory - Multiple Sharing Hall (Rs. 2500/- Per Person Total for 3 days with Breakfast & Meals)">
+                                                Dormitory - Multiple Sharing Hall (Rs. 2500/- Per Person Total for 3
+                                                days with Breakfast & Meals)
+                                            </option>
+                                            <option value="Don't Need Accommodation (Rs. 1200/- Per Person Total for 3 days with Meals)">
+                                                Don't Need Accommodation (Rs. 1200/- Per Person Total for 3 days with
+                                                Meals)
+                                            </option>
+                                        </select>
+                                    </div>
+                                    <div class="col-sm-12 col-lg-12 mb-4 mb-sm-3 mb-md-3 ">
+                                        <label class="d-none">Where Did You Hear About This Retreat?</label>
+                                        <input type="text" class="form-control"
+                                               placeholder="Where Did You Hear About This Retreat? (Optional)"
+                                               name="info"
+                                               id="info" autocomplete="off">
+                                    </div>
+                                    <div class="col-sm-12 col-lg-12 mb-4 mb-sm-3 mb-md-3 ">
+                                        <label class="d-none">Any Comments?</label>
+                                        <input type="text" class="form-control" placeholder="Any Comments? (Optional)"
+                                               name="comments"
+                                               id="comments" autocomplete="off">
+                                    </div>
+                                    <div class="col-sm-12 col-lg-12">
+                                        <div class="form-check">
+                                            <input class="form-check-input css-checkbox" type="checkbox" value=""
+                                                   id="donation" required>
+                                            <label class="form-check-label" for="donation">
+                                                I confirm that I will pay the Rs. 1100 donation to secure my spot for the retreat.
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="row justify-content-center pt-4">
+                                        <div class="col-lg-6">
+                                            <div class="g-recaptcha" data-sitekey="{{site_key}}"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button id="pay_button" class="btn-get-started">Sign-up and Donate ₹ 1100</button>
+                            </form>
+                            <i class="text-light">Check your email (or spam) and WhatsApp for details to secure your seat with a Rs. 1100/- donation!</i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="right_block_container">
+                    <div class="right_block register_desktop mt-5" style="display: none;">
+                        <h3>Laughter and Silence <br> Mindfulness Retreat <br>in Nashik, India</h3>
+                        <span class="date-and-time">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                                 class="bi bi-calendar-check icon-cstm-color" viewBox="0 0 16 16">
+                                <path d="M10.854 7.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 9.793l2.646-2.647a.5.5 0 0 1 .708 0z"/>
+                                <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5M1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4z"/>
+                            </svg>
+                            <span style="padding-left:10px; padding-top:10px;">Mar 29-31, 2024</span>
+                        </span>
+                        <span class="date-and-time d-flex">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                                 class="bi bi-clock icon-cstm-color" viewBox="0 0 16 16">
+                              <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71z"/>
+                              <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16m7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0"/>
+                            </svg>
+                            <span style="padding-left:14px;">7 am to 9:30 pm (IST)</span>
+                        </span>
+                        <span class="date-and-time">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                                 class="bi bi-globe icon-cstm-color" viewBox="0 0 16 16">
+                              <path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m7.5-6.923c-.67.204-1.335.82-1.887 1.855A7.97 7.97 0 0 0 5.145 4H7.5zM4.09 4a9.267 9.267 0 0 1 .64-1.539 6.7 6.7 0 0 1 .597-.933A7.025 7.025 0 0 0 2.255 4zm-.582 3.5c.03-.877.138-1.718.312-2.5H1.674a6.958 6.958 0 0 0-.656 2.5zM4.847 5a12.5 12.5 0 0 0-.338 2.5H7.5V5zM8.5 5v2.5h2.99a12.495 12.495 0 0 0-.337-2.5zM4.51 8.5a12.5 12.5 0 0 0 .337 2.5H7.5V8.5zm3.99 0V11h2.653c.187-.765.306-1.608.338-2.5zM5.145 12c.138.386.295.744.468 1.068.552 1.035 1.218 1.65 1.887 1.855V12zm.182 2.472a6.696 6.696 0 0 1-.597-.933A9.268 9.268 0 0 1 4.09 12H2.255a7.024 7.024 0 0 0 3.072 2.472M3.82 11a13.652 13.652 0 0 1-.312-2.5h-2.49c.062.89.291 1.733.656 2.5zm6.853 3.472A7.024 7.024 0 0 0 13.745 12H11.91a9.27 9.27 0 0 1-.64 1.539 6.688 6.688 0 0 1-.597.933M8.5 12v2.923c.67-.204 1.335-.82 1.887-1.855.173-.324.33-.682.468-1.068zm3.68-1h2.146c.365-.767.594-1.61.656-2.5h-2.49a13.65 13.65 0 0 1-.312 2.5zm2.802-3.5a6.959 6.959 0 0 0-.656-2.5H12.18c.174.782.282 1.623.312 2.5zM11.27 2.461c.247.464.462.98.64 1.539h1.835a7.024 7.024 0 0 0-3.072-2.472c.218.284.418.598.597.933zM10.855 4a7.966 7.966 0 0 0-.468-1.068C9.835 1.897 9.17 1.282 8.5 1.077V4z"/>
+                            </svg>
+                            <span class="mt-2" style="padding-left:10px;">English and Hindi</span>
+                        </span>
+                        <span class="date-and-time">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                                 class="bi bi-calendar-week icon-cstm-color" viewBox="0 0 16 16">
+                              <path d="M11 6.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm-3 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm-5 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm3 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5z"/>
+                              <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5M1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4z"/>
+                            </svg>
+                            <span style="padding-left:10px; margin-top:10px;">3 Days</span>
+                        </span>
+                        <a href="#register_form" class="btn-get-started scrollto right_register register-now-track-btn btn-get-started"
+                           id="register_right_button" data-btn="bottom-side">Sign-up Now
+                            <img loading="lazy" class="btn_arrow" id="right_register_arrow"
+                                 src="/resources/img/btn-arrow.png" alt="Arrow" width="20px" height="14px"
+                                 style="display: none;">
+                        </a>
+                    </div>
+                </div>
+                <!-- Mobile Footer Sticky -->
+                <div class="register_mobile">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-12">
+                            <div class="text-center pb-1" style="font-size:20px; font-weight:600;">Retreat on Mar 29-31,
+                                2024
+                            </div>
+                        </div>
+                        <div class="col-lg-12 py-2 offset-md-3 text-center">
+                            <a href="#register_form" class="btn btn-primary btn-lg rounded-pill btn-get-started">Sign-up Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+<script src="{% static 'boot5/optimize.js' %}"></script>
+<script>
+    $(document).ready(function() {
+
+        setTimeout(init_execution, 2000);
+        function loadScript(url, callback) {
+            var script = document.createElement("script");
+            script.type = "text/javascript";
+            if (script.readyState) { //IE
+                script.onreadystatechange = function() {
+                    if (script.readyState == "loaded" || script.readyState == "complete") {
+                        script.onreadystatechange = null;
+                        script.setAttribute("crossorigin", "anonymous")
+                        callback();
+                    }
+                };
+            } else { //Others
+                script.onload = function() {
+                    callback();
+                };
+            }
+            script.src = url;
+            document.getElementsByTagName("head")[0].appendChild(script);
+        }
+
+        function init_execution() {
+
+            $(document).scroll(function() {
+                var y = $(this).scrollTop();
+                if (y > 190) {
+                    $('.register_desktop').fadeIn();
+                    $('.register_desktop').css("display", "block");
+                } else {
+                    $('.register_desktop').fadeOut();
+                    $('.register_desktop').css("display", "none");
+                }
+            });
+        }
+    });
+
+    const container = document.getElementById('container');
+    const button = googlePayClient.createButton({
+      buttonColor: 'white',
+      buttonType: 'donate',
+      buttonSizeMode: 'fill',
+      onClick: () => {},
+      allowedPaymentMethods: [] // use the same payment methods as for the loadPaymentData() API call
+    });
+
+    container.appendChild(button);
+</script>
+<!-- Theme Custom -->
+<script src="{% static 'js/custom.js' %}"></script>
+</body>
+</html>

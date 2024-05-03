@@ -1,0 +1,369 @@
+{% extends 'front/base.html' %}
+{% load static %}
+{% load i18n %}
+{% load cropping %}
+{% block content %}
+<div role="main" class="main">
+    <!-- Breadcrumb Starts Here -->
+    <section class="page-header page-header-classic">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <ul class="breadcrumb">
+                        <li><a href="{% url 'home' %}" target="_parent" class="text-decoration-none">Home</a></li>
+                        <li><a href="{% url 'world-laughter-day' %}" target="_parent" class="text-decoration-none">World Laughter Day</a></li>
+                        <li class="active">Download Blue Bg Logo</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container py-3 my-5">
+        <div class="row">
+            <div class="col-lg-9 order-lg-1">
+                <p class="h3 text-center pb-3">Download Blue Background Logo</p>
+                <!-- Row 1 -->
+                <div class="row pb-3">
+                    <div class="col-lg-3">
+                        <span class="thumb-info thumb-info-no-borders thumb-info-no-borders-rounded thumb-info-centered-icons">
+                            <span class="thumb-info-wrapper">
+                                <img src="{% static 'img/wld/logo/blue-bg/jpg/wld-arabic-logo.jpg' %}" class="img-fluid border">
+                                <span class="thumb-info-action">
+                                    <a href="{% static 'img/wld/logo/blue-bg/pdf/wld-arabic-logo.pdf' %}" target="_blank" download>
+                                        <span class="thumb-info-action-icon thumb-info-action-icon-light"><i class="fas fa-download"></i></span>
+                                    </a>
+                                </span>
+                            </span>
+                            <p class="text-center font-weight-bold">Arabic Logo</p>
+                        </span>
+                    </div>
+                    <div class="col-lg-3">
+                        <span class="thumb-info thumb-info-no-borders thumb-info-no-borders-rounded thumb-info-centered-icons">
+                            <span class="thumb-info-wrapper">
+                                <img src="{% static 'img/wld/logo/blue-bg/jpg/wld-chinese-logo.jpg' %}" class="img-fluid border">
+                                <span class="thumb-info-action">
+                                    <a href="{% static 'img/wld/logo/blue-bg/pdf/wld-chinese-logo.pdf' %}" target="_blank" download>
+                                        <span class="thumb-info-action-icon thumb-info-action-icon-light"><i class="fas fa-download"></i></span>
+                                    </a>
+                                </span>
+                            </span>
+                            <p class="text-center font-weight-bold">Chinese Logo</p>
+                        </span>
+                    </div>
+                    <div class="col-lg-3">
+                        <span class="thumb-info thumb-info-no-borders thumb-info-no-borders-rounded thumb-info-centered-icons">
+                            <span class="thumb-info-wrapper">
+                                <img src="{% static 'img/wld/logo/blue-bg/jpg/wld-chinese-taiwan-logo.jpg' %}" class="img-fluid border">
+                                <span class="thumb-info-action">
+                                    <a href="{% static 'img/wld/logo/blue-bg/pdf/wld-chinese-taiwan-logo.pdf' %}" target="_blank" download>
+                                        <span class="thumb-info-action-icon thumb-info-action-icon-light"><i class="fas fa-download"></i></span>
+                                    </a>
+                                </span>
+                            </span>
+                            <p class="text-center font-weight-bold">Chinese Taiwan Logo</p>
+                        </span>
+                    </div>
+                    <div class="col-lg-3">
+                        <span class="thumb-info thumb-info-no-borders thumb-info-no-borders-rounded thumb-info-centered-icons">
+                            <span class="thumb-info-wrapper">
+                                <img src="{% static 'img/wld/logo/blue-bg/jpg/wld-czech-logo.jpg' %}" class="img-fluid border">
+                                <span class="thumb-info-action">
+                                    <a href="{% static 'img/wld/logo/blue-bg/pdf/wld-czech-logo.pdf' %}" target="_blank" download>
+                                        <span class="thumb-info-action-icon thumb-info-action-icon-light"><i class="fas fa-download"></i></span>
+                                    </a>
+                                </span>
+                            </span>
+                            <p class="text-center font-weight-bold">Czech Logo</p>
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Row 2 -->
+                <div class="row pb-3">
+                    <div class="col-lg-3">
+                        <span class="thumb-info thumb-info-no-borders thumb-info-no-borders-rounded thumb-info-centered-icons">
+                            <span class="thumb-info-wrapper">
+                                <img src="{% static 'img/wld/logo/blue-bg/jpg/wld-denmark-logo.jpg' %}" class="img-fluid border">
+                                <span class="thumb-info-action">
+                                    <a href="{% static 'img/wld/logo/blue-bg/pdf/wld-denmark-logo.pdf' %}" target="_blank" download>
+                                        <span class="thumb-info-action-icon thumb-info-action-icon-light"><i class="fas fa-download"></i></span>
+                                    </a>
+                                </span>
+                            </span>
+                            <p class="text-center font-weight-bold">Denmark Logo</p>
+                        </span>
+                    </div>
+                    <div class="col-lg-3">
+                        <span class="thumb-info thumb-info-no-borders thumb-info-no-borders-rounded thumb-info-centered-icons">
+                            <span class="thumb-info-wrapper">
+                                <img src="{% static 'img/wld/logo/blue-bg/jpg/wld-english-logo.jpg' %}" class="img-fluid border">
+                                <span class="thumb-info-action">
+                                    <a href="{% static 'img/wld/logo/blue-bg/pdf/wld-english-logo.pdf' %}" target="_blank" download>
+                                        <span class="thumb-info-action-icon thumb-info-action-icon-light"><i class="fas fa-download"></i></span>
+                                    </a>
+                                </span>
+                            </span>
+                            <p class="text-center font-weight-bold">English Logo</p>
+                        </span>
+                    </div>
+                    <div class="col-lg-3">
+                        <span class="thumb-info thumb-info-no-borders thumb-info-no-borders-rounded thumb-info-centered-icons">
+                            <span class="thumb-info-wrapper">
+                                <img src="{% static 'img/wld/logo/blue-bg/jpg/wld-farsi-logo.jpg' %}" class="img-fluid border">
+                                <span class="thumb-info-action">
+                                    <a href="{% static 'img/wld/logo/blue-bg/pdf/wld-farsi-logo.pdf' %}" target="_blank" download>
+                                        <span class="thumb-info-action-icon thumb-info-action-icon-light"><i class="fas fa-download"></i></span>
+                                    </a>
+                                </span>
+                            </span>
+                            <p class="text-center font-weight-bold">Farsi Logo</p>
+                        </span>
+                    </div>
+                    <div class="col-lg-3">
+                        <span class="thumb-info thumb-info-no-borders thumb-info-no-borders-rounded thumb-info-centered-icons">
+                            <span class="thumb-info-wrapper">
+                                <img src="{% static 'img/wld/logo/blue-bg/jpg/wld-french-logo.jpg' %}" class="img-fluid border">
+                                <span class="thumb-info-action">
+                                    <a href="{% static 'img/wld/logo/blue-bg/pdf/wld-french-logo.pdf' %}" target="_blank" download>
+                                        <span class="thumb-info-action-icon thumb-info-action-icon-light"><i class="fas fa-download"></i></span>
+                                    </a>
+                                </span>
+                            </span>
+                            <p class="text-center font-weight-bold">French Logo</p>
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Row 3 -->
+                <div class="row pb-3">
+                    <div class="col-lg-3">
+                        <span class="thumb-info thumb-info-no-borders thumb-info-no-borders-rounded thumb-info-centered-icons">
+                            <span class="thumb-info-wrapper">
+                                <img src="{% static 'img/wld/logo/blue-bg/jpg/wld-german-logo.jpg' %}" class="img-fluid border">
+                                <span class="thumb-info-action">
+                                    <a href="{% static 'img/wld/logo/blue-bg/pdf/wld-german-logo.pdf' %}" target="_blank" download>
+                                        <span class="thumb-info-action-icon thumb-info-action-icon-light"><i class="fas fa-download"></i></span>
+                                    </a>
+                                </span>
+                            </span>
+                            <p class="text-center font-weight-bold">German Logo</p>
+                        </span>
+                    </div>
+                    <div class="col-lg-3">
+                        <span class="thumb-info thumb-info-no-borders thumb-info-no-borders-rounded thumb-info-centered-icons">
+                            <span class="thumb-info-wrapper">
+                                <img src="{% static 'img/wld/logo/blue-bg/jpg/wld-greek-logo.jpg' %}" class="img-fluid border">
+                                <span class="thumb-info-action">
+                                    <a href="{% static 'img/wld/logo/blue-bg/pdf/wld-greek-logo.pdf' %}" target="_blank" download>
+                                        <span class="thumb-info-action-icon thumb-info-action-icon-light"><i class="fas fa-download"></i></span>
+                                    </a>
+                                </span>
+                            </span>
+                            <p class="text-center font-weight-bold">Greek Logo</p>
+                        </span>
+                    </div>
+                    <div class="col-lg-3">
+                        <span class="thumb-info thumb-info-no-borders thumb-info-no-borders-rounded thumb-info-centered-icons">
+                            <span class="thumb-info-wrapper">
+                                <img src="{% static 'img/wld/logo/blue-bg/jpg/wld-hebrew-logo.jpg' %}" class="img-fluid border">
+                                <span class="thumb-info-action">
+                                    <a href="{% static 'img/wld/logo/blue-bg/pdf/wld-hebrew-logo.pdf' %}" target="_blank" download>
+                                        <span class="thumb-info-action-icon thumb-info-action-icon-light"><i class="fas fa-download"></i></span>
+                                    </a>
+                                </span>
+                            </span>
+                            <p class="text-center font-weight-bold">Hebrew Logo</p>
+                        </span>
+                    </div>
+                    <div class="col-lg-3">
+                        <span class="thumb-info thumb-info-no-borders thumb-info-no-borders-rounded thumb-info-centered-icons">
+                            <span class="thumb-info-wrapper">
+                                <img src="{% static 'img/wld/logo/blue-bg/jpg/wld-hindi-logo.jpg' %}" class="img-fluid border">
+                                <span class="thumb-info-action">
+                                    <a href="{% static 'img/wld/logo/blue-bg/pdf/wld-hindi-logo.pdf' %}" target="_blank" download>
+                                        <span class="thumb-info-action-icon thumb-info-action-icon-light"><i class="fas fa-download"></i></span>
+                                    </a>
+                                </span>
+                            </span>
+                            <p class="text-center font-weight-bold">Hindi Logo</p>
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Row 4 -->
+                <div class="row pb-3">
+                    <div class="col-lg-3">
+                        <span class="thumb-info thumb-info-no-borders thumb-info-no-borders-rounded thumb-info-centered-icons">
+                            <span class="thumb-info-wrapper">
+                                <img src="{% static 'img/wld/logo/blue-bg/jpg/wld-italian-logo.jpg' %}" class="img-fluid border">
+                                <span class="thumb-info-action">
+                                    <a href="{% static 'img/wld/logo/blue-bg/pdf/wld-italian-logo.pdf' %}" target="_blank" download>
+                                        <span class="thumb-info-action-icon thumb-info-action-icon-light"><i class="fas fa-download"></i></span>
+                                    </a>
+                                </span>
+                            </span>
+                            <p class="text-center font-weight-bold">Italian Logo</p>
+                        </span>
+                    </div>
+                    <div class="col-lg-3">
+                        <span class="thumb-info thumb-info-no-borders thumb-info-no-borders-rounded thumb-info-centered-icons">
+                            <span class="thumb-info-wrapper">
+                                <img src="{% static 'img/wld/logo/blue-bg/jpg/wld-japanese-logo.jpg' %}" class="img-fluid border">
+                                <span class="thumb-info-action">
+                                    <a href="{% static 'img/wld/logo/blue-bg/pdf/wld-japanese-logo.pdf' %}" target="_blank" download>
+                                        <span class="thumb-info-action-icon thumb-info-action-icon-light"><i class="fas fa-download"></i></span>
+                                    </a>
+                                </span>
+                            </span>
+                            <p class="text-center font-weight-bold">Japanese Logo</p>
+                        </span>
+                    </div>
+                    <div class="col-lg-3">
+                        <span class="thumb-info thumb-info-no-borders thumb-info-no-borders-rounded thumb-info-centered-icons">
+                            <span class="thumb-info-wrapper">
+                                <img src="{% static 'img/wld/logo/blue-bg/jpg/wld-latvian-logo.jpg' %}" class="img-fluid border">
+                                <span class="thumb-info-action">
+                                    <a href="{% static 'img/wld/logo/blue-bg/pdf/wld-latvian-logo.pdf' %}" target="_blank" download>
+                                        <span class="thumb-info-action-icon thumb-info-action-icon-light"><i class="fas fa-download"></i></span>
+                                    </a>
+                                </span>
+                            </span>
+                            <p class="text-center font-weight-bold">Lativian Logo</p>
+                        </span>
+                    </div>
+                    <div class="col-lg-3">
+                        <span class="thumb-info thumb-info-no-borders thumb-info-no-borders-rounded thumb-info-centered-icons">
+                            <span class="thumb-info-wrapper">
+                                <img src="{% static 'img/wld/logo/blue-bg/jpg/wld-marathi-logo.jpg' %}" class="img-fluid border">
+                                <span class="thumb-info-action">
+                                    <a href="{% static 'img/wld/logo/blue-bg/pdf/wld-marathi-logo.pdf' %}" target="_blank" download>
+                                        <span class="thumb-info-action-icon thumb-info-action-icon-light"><i class="fas fa-download"></i></span>
+                                    </a>
+                                </span>
+                            </span>
+                            <p class="text-center font-weight-bold">Marathi Logo</p>
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Row 5 -->
+                <div class="row pb-3">
+                    <div class="col-lg-3">
+                        <span class="thumb-info thumb-info-no-borders thumb-info-no-borders-rounded thumb-info-centered-icons">
+                            <span class="thumb-info-wrapper">
+                                <img src="{% static 'img/wld/logo/blue-bg/jpg/wld-polish-logo.jpg' %}" class="img-fluid border">
+                                <span class="thumb-info-action">
+                                    <a href="{% static 'img/wld/logo/blue-bg/pdf/wld-polish-logo.pdf' %}" target="_blank" download>
+                                        <span class="thumb-info-action-icon thumb-info-action-icon-light"><i class="fas fa-download"></i></span>
+                                    </a>
+                                </span>
+                            </span>
+                            <p class="text-center font-weight-bold">Polish Logo</p>
+                        </span>
+                    </div>
+                    <div class="col-lg-3">
+                        <span class="thumb-info thumb-info-no-borders thumb-info-no-borders-rounded thumb-info-centered-icons">
+                            <span class="thumb-info-wrapper">
+                                <img src="{% static 'img/wld/logo/blue-bg/jpg/wld-portugese-logo.jpg' %}" class="img-fluid border">
+                                <span class="thumb-info-action">
+                                    <a href="{% static 'img/wld/logo/blue-bg/pdf/wld-portugese-logo.pdf' %}" target="_blank" download>
+                                        <span class="thumb-info-action-icon thumb-info-action-icon-light"><i class="fas fa-download"></i></span>
+                                    </a>
+                                </span>
+                            </span>
+                            <p class="text-center font-weight-bold">Portugese Logo</p>
+                        </span>
+                    </div>
+                    <div class="col-lg-3">
+                        <span class="thumb-info thumb-info-no-borders thumb-info-no-borders-rounded thumb-info-centered-icons">
+                            <span class="thumb-info-wrapper">
+                                <img src="{% static 'img/wld/logo/blue-bg/jpg/wld-romania-logo.jpg' %}" class="img-fluid border">
+                                <span class="thumb-info-action">
+                                    <a href="{% static 'img/wld/logo/blue-bg/pdf/wld-romania-logo.pdf' %}" target="_blank" download>
+                                        <span class="thumb-info-action-icon thumb-info-action-icon-light"><i class="fas fa-download"></i></span>
+                                    </a>
+                                </span>
+                            </span>
+                            <p class="text-center font-weight-bold">Romania Logo</p>
+                        </span>
+                    </div>
+                    <div class="col-lg-3">
+                        <span class="thumb-info thumb-info-no-borders thumb-info-no-borders-rounded thumb-info-centered-icons">
+                            <span class="thumb-info-wrapper">
+                                <img src="{% static 'img/wld/logo/blue-bg/jpg/wld-serbia-logo.jpg' %}" class="img-fluid border">
+                                <span class="thumb-info-action">
+                                    <a href="{% static 'img/wld/logo/blue-bg/pdf/wld-serbia-logo.pdf' %}" target="_blank" download>
+                                        <span class="thumb-info-action-icon thumb-info-action-icon-light"><i class="fas fa-download"></i></span>
+                                    </a>
+                                </span>
+                            </span>
+                            <p class="text-center font-weight-bold">Serbia Logo</p>
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Row 6 -->
+                <div class="row pb-3">
+                    <div class="col-lg-3">
+                        <span class="thumb-info thumb-info-no-borders thumb-info-no-borders-rounded thumb-info-centered-icons">
+                            <span class="thumb-info-wrapper">
+                                <img src="{% static 'img/wld/logo/blue-bg/jpg/wld-spanish-logo.jpg' %}" class="img-fluid border">
+                                <span class="thumb-info-action">
+                                    <a href="{% static 'img/wld/logo/blue-bg/pdf/wld-spanish-logo.pdf' %}" target="_blank" download>
+                                        <span class="thumb-info-action-icon thumb-info-action-icon-light"><i class="fas fa-download"></i></span>
+                                    </a>
+                                </span>
+                            </span>
+                            <p class="text-center font-weight-bold">Spanish Logo</p>
+                        </span>
+                    </div>
+                    <div class="col-lg-3">
+                        <span class="thumb-info thumb-info-no-borders thumb-info-no-borders-rounded thumb-info-centered-icons">
+                            <span class="thumb-info-wrapper">
+                                <img src="{% static 'img/wld/logo/blue-bg/jpg/wld-thailand-logo.jpg' %}" class="img-fluid border">
+                                <span class="thumb-info-action">
+                                    <a href="{% static 'img/wld/logo/blue-bg/pdf/wld-thailand-logo.pdf' %}" target="_blank" download>
+                                        <span class="thumb-info-action-icon thumb-info-action-icon-light"><i class="fas fa-download"></i></span>
+                                    </a>
+                                </span>
+                            </span>
+                            <p class="text-center font-weight-bold">Thailand Logo</p>
+                        </span>
+                    </div>
+                    <div class="col-lg-3">
+                        <span class="thumb-info thumb-info-no-borders thumb-info-no-borders-rounded thumb-info-centered-icons">
+                            <span class="thumb-info-wrapper">
+                                <img src="{% static 'img/wld/logo/blue-bg/jpg/wld-turkish-logo.jpg' %}" class="img-fluid border">
+                                <span class="thumb-info-action">
+                                    <a href="{% static 'img/wld/logo/blue-bg/pdf/wld-turkish-logo.pdf' %}" target="_blank" download>
+                                        <span class="thumb-info-action-icon thumb-info-action-icon-light"><i class="fas fa-download"></i></span>
+                                    </a>
+                                </span>
+                            </span>
+                            <p class="text-center font-weight-bold">Turkish Logo</p>
+                        </span>
+                    </div>
+                    <div class="col-lg-3">
+                        <span class="thumb-info thumb-info-no-borders thumb-info-no-borders-rounded thumb-info-centered-icons">
+                            <span class="thumb-info-wrapper">
+                                <img src="{% static 'img/wld/logo/blue-bg/jpg/wld-vietnamese-logo.jpg' %}" class="img-fluid border">
+                                <span class="thumb-info-action">
+                                    <a href="{% static 'img/wld/logo/blue-bg/pdf/wld-vietnamese-logo.pdf' %}" target="_blank" download>
+                                        <span class="thumb-info-action-icon thumb-info-action-icon-light"><i class="fas fa-download"></i></span>
+                                    </a>
+                                </span>
+                            </span>
+                            <p class="text-center font-weight-bold">Vietnamese Logo</p>
+                        </span>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-lg-3 order-lg-2">
+                {% include 'front/includes/sidebar/wld-sidebar.html' %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

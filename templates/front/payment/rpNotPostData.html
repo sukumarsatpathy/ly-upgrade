@@ -1,0 +1,29 @@
+{% extends 'front/base.html' %}
+{% block content %}
+<div class="main shop py-4 border-top" xmlns="http://www.w3.org/1999/html">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-2"></div>
+                    <div class="col-lg-8">
+                        <div class="card">
+                            <div class="alert alert-danger text-center" role="alert">
+                                No Post Data
+                            </div>
+                            <div class="px-4">
+                                <p class="h3 text-center"><strong>Oh Snap!</strong></p>
+                                <p class="h3 text-center mb-2"><span class="font-weight-bold text-danger">Your Payment has Failed!</span></p><br>
+                                <p class="text-left">We were unable to process payment. There are many reasons why a payment might be declined: insufficient funds, an expired card, incorrect information, security measures, etc. Because of this, your payment was declined.</p>
+                                <p class="text-left">Don’t worry. You can try again on the <a href="https://www.laughteryoga.org/world-conference" target="_blank">World Conference Page</a>.</p>
+                                <p class="text-left">Or you can even contact us directly: <br><strong>Call/Whatsapp:</strong> <a href="tel:+918884567891" target="_blank">(+91) 888 456 7891</a> <br> <strong>Email:</strong> <a href="mailto:help@laughteryoga.org" target="_blank">help@laughteryoga.org</a></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

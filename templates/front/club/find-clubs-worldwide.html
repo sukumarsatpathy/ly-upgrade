@@ -1,0 +1,223 @@
+{% extends 'front/base.html' %}
+{% load static %}
+{% load cropping %}
+{% load widget_tweaks %}
+{% load i18n %}
+{% block meta %}
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Find Laughter Clubs - Laughter Yoga International</title>
+    <meta name="keywords" content="clubs, free laughter clubs, zoom laughter clubs, physical laughter clubs, skype laughter clubs"/>
+    <meta name="description" content="You will find all free laughter clubs around the globe.">
+    <meta name="author" content="Dr Madan Kataria">
+{% endblock %}
+{% block content %}
+{% load members_url %}
+<div role="main" class="main">
+    <!-- Breadcrumb Starts Here -->
+    <section class="page-header page-header-classic">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <ul class="breadcrumb">
+                        <li><a href="{% url 'home' %}" target="_parent" class="text-decoration-none">Home</a></li>
+                        <li class="active">Find</li>
+                        <li class="active">Laughter Clubs Worldwide</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="container py-4">
+        <div class="row">
+            <div class="col-xl-12 col-l-12 col-md-12 col-s-12 col-xs-12">
+                <div class="card card-body">
+                    <form method="get" data-countries-url="{% url 'load_countries_category_club' %}">
+                        {% csrf_token %}
+                        <div class="well">
+                            <h4 class="color-primary font-weight-semibold text-4 text-uppercase mb-3 row justify-content-center">
+                                {% trans 'Find Laughter Clubs Worldwide' %}</h4>
+                            <div class="row">
+                                <div class="form-group col-xl-3">
+                                    {{ form.category_title.label_tag }}
+                                    {% render_field form.category_title class="form-control" %}
+                                </div>
+                                <div class="form-group col-xl-3">
+                                    {{ form.country.label_tag }}
+                                    {% render_field form.country class="form-control" %}
+                                </div>
+                                <div class="form-group col-xl-3">
+                                    {{ form.state.label_tag }}
+                                    {% render_field form.state class="form-control" %}
+                                </div>
+                                <div class="form-group col-xl-3">
+                                    {{ form.city.label_tag }}
+                                    {% render_field form.city class="form-control" %}
+                                </div>
+                            </div>
+                            <div class="d-grid gap-5 col-5 mx-auto">
+                                <button type="submit" class="btn btn-primary btn-lg" onclick="window.location.href='#search';">{% trans 'Find' %}</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <br/>
+        <br/>
+        <div class="row" id="search">
+            <div class="col-xl-12 col-l-10 col-md-8 col-s-6 col-xs-4">
+                <table class="table table-bordered">
+                    <thead>
+                    <tr>
+                        <th>Sl.</th>
+                        <th>Title</th>
+                        <th>Category</th>
+                        <th>Trainer</th>
+                        <th>State</th>
+                        <th>City</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for club in all_clubs %}
+                    <tr>
+                        <td>{{forloop.counter0|add:all_clubs.start_index}}</td>
+                        <td><a href="{% url 'club-detail' club.pk %}" target="_blank" class="text-decoration-none">{{club.title}}</a></td>
+                        <td>{{club.category_title}}</td>
+                        <td>{{club.contact_name}}</td>
+                        <td>{{club.state}}</td>
+                        <td>{{club.city}}</td>
+                    </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        {% if all_clubs.has_other_pages %}
+        <ul class="pagination float-right">
+            <!-- Left Arrow -->
+            {% if all_clubs.has_previous %}
+            <li class="page-item"><a class="page-link" href="{% custom_url all_clubs.previous_page_number 'page' request.get.urlencode %}"><i class="fas fa-angle-left"></i></a></li>
+            {% else %}
+            <li class="page-item disabled"><a class="page-link"><i class="fas fa-angle-left"></i></a></li>
+            {% endif %}
+
+            {% for i in all_clubs.paginator.page_range %}
+                {% if all_clubs.number == i %}
+                    <li class="page-item"><a class="page-link" href="#">{{i}}</a></li>
+                {% elif i > all_clubs.number|add:'-13' and i < all_clubs.number|add:'13' %}
+                    <!--<li class="page-item"><a class="page-link" href="#">{{i}}</a></li>-->
+                    <li class="page-item"><a class="page-link" href="{% custom_url i 'page' request.GET.urlencode %}">{{i}}</a></li>
+
+                {% endif %}
+            {% endfor %}
+
+            <!-- Right Arrow -->
+            {% if all_clubs.has_next %}
+            <li class="page-item"><a class="page-link" href="{% custom_url all_clubs.next_page_number 'page' request.get.urlencode %}"><i class="fas fa-angle-right"></i></a></li>
+            {% else %}
+            <li class="page-item disabled"><a class="page-link"><i class="fas fa-angle-right"></i></a></li>
+            {% endif %}
+        </ul>
+        {% endif %}
+    </div>
+</div>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+
+    <script>
+
+    $("#id_category_title").change(function () {
+    
+
+    
+     
+      var url = "{% url 'load_countries_category_club' %}"  // get the url of the `load_cities` view
+      var id_category = $(this).val();   // get the selected country ID from the HTML input
+
+      console.log(id_category , url)
+ 
+      $.ajax({                       // initialize an AJAX request
+        url: url,                    // set the url of the request (= localhost:8000/hr/ajax/load-cities/)
+        data: {
+          'id_category': id_category       // add the country id to the GET parameters
+        },
+        success: function (data) {   // `data` is the return of the `load_cities` view function
+          $("#id_country").html(data);  // replace the contents of the city input with the data that came from the server
+        }
+      });
+
+    });
+
+
+
+    // Country Change
+
+    $("#id_country").change(function () {
+    
+        var url = "{% url 'load_state_category_club' %}"
+        var id_country = $(this).val();    
+        var id_category = $("#id_category_title").val()
+        console.log(url)
+        console.log("COUNTRY",id_country)
+        console.log("CATEGORY",id_category)
+ 
+        $.ajax({                       // initialize an AJAX request
+        url: url,                    // set the url of the request (= localhost:8000/hr/ajax/load-cities/)
+        data: {
+         'id_category': id_category, 
+          'id_country':id_country,   
+        },
+        success: function (data) {  
+            console.log(data)
+            // `data` is the return of the `load_cities` view function
+          $("#id_state").html(data);  // replace the contents of the city input with the data that came from the server
+        }
+       
+      });
+
+  
+
+  });
+
+
+
+  $("#id_state").change(function () {
+
+
+    
+    var id_category = $("#id_category_title").val()
+    var id_country = $("#id_country").val()
+    var id_state = $(this).val();   // get the selected country ID from the HTML input
+    var url = "{% url 'load_city_category_club' %}"
+
+    console.log(
+        id_category, 
+        id_country, 
+        id_state, 
+    )
+
+    $.ajax({                       // initialize an AJAX request
+        url: url,                    // set the url of the request (= localhost:8000/hr/ajax/load-cities/)
+        data: {
+         'id_category': id_category, 
+          'id_country':id_country,   
+          'id_state':  id_state,
+        },
+        success: function (data) {  
+            console.log(data)
+            // `data` is the return of the `load_cities` view function
+          $("#id_city").html(data);  // replace the contents of the city input with the data that came from the server
+        }
+       
+      });
+
+});
+
+
+ 
+
+    </script>
+
+
+    {% endblock %}

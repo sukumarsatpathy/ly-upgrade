@@ -1,0 +1,54 @@
+{% extends 'front/dashboard-base.html' %}
+{% load i18n %}
+{% load cropping %}
+{% block content %}
+{% include 'front/includes/messages.html' %}
+{% if user.is_authenticated %}
+<div class="col-xl-12">
+    <div class="card">
+        <div class="card-header pb-0">
+            <div class="d-flex justify-content-between">
+                <h4 class="card-title mb-2 mt-2">{% trans 'List News' %}</h4>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive border">
+                <table class="table table-hover mb-0 text-md-nowrap">
+                    <thead>
+                    <tr>
+                        <th>{% trans 'Image' %}</th>
+                        <th>{% trans 'Title' %}</th>
+                        <th>{% trans 'Submitted' %}</th>
+                        <th>{% trans 'Last Edit' %}</th>
+                        <th class="align-middle text-center">{% trans 'Status' %}</th>
+                        <th class="align-middle text-center">{% trans 'Views' %}</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for news in object_list %}
+                        {% if user.id == news.author.id %}
+                        <tr class="align-middle">
+                            <td><img src="{% cropped_thumbnail news 'cropped_image' width=350 %}" alt="{{news.title}}" class="round avatar"/></td>
+                            <td class="align-middle">{{news.ln_title}}</td>
+                            <!--<td class="align-middle">{{news.ln_created_date}}</td>-->
+                            <td class="align-middle">{{news.ln_modified_date}}</td>
+                            <td class="align-middle text-center">{{news.ln_status}}</td>
+                            <td class="align-middle text-center">{{news.ln_views}}</td>
+                        </tr>
+                        {% endif %}
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="card-footer">
+            <p><strong>Status</strong></p>
+            <p><span style="color:red;">Review</span>: After successful review by our team members,
+                your news will be available on the website.</p>
+            <p><span style="color:green;">Active</span>: Your news is live on the website.</p>
+            <p><span style="color:red;">Rejected</span>: Please create a ticket to know more about the rejection reason.</p>
+        </div>
+    </div>
+</div>
+{% endif %}
+{% endblock %}

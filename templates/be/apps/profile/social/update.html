@@ -1,0 +1,137 @@
+{% extends 'be/base.html' %}
+{% load static %}
+{% block meta %}
+<title>Edit {{userSocialProfile.user.full_name}} - {{webSettingsUniversal.title}}</title>
+<meta name="description" content="{{webSettingsUniversal.metaDescription}}"/>
+<meta name="keywords" content="{{webSettingsUniversal.metaKeyword}}"/>
+<meta property="og:title" content="Edit {{userNewsletter.user.full_name}} -{{webSettingsUniversal.title}}"/>
+<meta property="og:url" content="{{request.scheme}}://{{request.get_host}}{{request.get_full_path}}"/>
+<meta property="og:site_name" content="{{webSettingsUniversal.title}} - {{webSettingsUniversal.slogan}}"/>
+{% endblock %}
+{% block content %}
+<div class="d-flex flex-column flex-column-fluid">
+    <div class="app-content flex-column-fluid mt-10">
+        <div class="app-container container-xxl">
+            <div class="card">
+                <div class="card-header ribbon ribbon-end ribbon-clip">
+                    <div class="ribbon-label">
+                        Update
+                        <span class="ribbon-inner bg-warning"></span>
+                    </div>
+                    <div class="card-title fw-bold m-0">
+                        <span class="px-2">Update Social Profile Details of <span class="text-primary">{{userSocialProfile.user.full_name}}</span></span>
+                    </div>
+                </div>
+                <div class="card-body pt-0">
+                    <div class="card mb-5 mb-xl-10">
+                        <div class="collapse show">
+                            <form action="{% url 'socialProfileEdit' userSocialProfile.user.pk %}" method="post" class="form"
+                                  enctype="multipart/form-data" novalidate>
+                                {% csrf_token %}
+                                <div class="card-body border-top p-9">
+                                    <div class="row">
+                                        <!-- Facebook  -->
+                                        <div class="col-lg-6">
+                                            <div class="form-floating mb-7
+                                            {% if spForm.facebook.errors %}has-error{% endif %}">
+                                                {{ spForm.facebook }}
+                                                <label class="form-check-label">Facebook</label>
+                                                {% for error in spForm.facebook.errors %}
+                                                <div class="text-danger mt-2">
+                                                    <strong>{{ error|escape }}</strong>
+                                                </div>
+                                                {% endfor %}
+                                            </div>
+                                        </div>
+                                        <!-- Youtube  -->
+                                        <div class="col-lg-6">
+                                            <div class="form-floating mb-7
+                                            {% if spForm.youtube.errors %}has-error{% endif %}">
+                                                {{ spForm.youtube }}
+                                                <label class="form-check-label">Youtube</label>
+                                                {% for error in spForm.youtube.errors %}
+                                                <div class="text-danger mt-2">
+                                                    <strong>{{ error|escape }}</strong>
+                                                </div>
+                                                {% endfor %}
+                                            </div>
+                                        </div>
+                                        <!-- Instagram  -->
+                                        <div class="col-lg-6">
+                                            <div class="form-floating mb-7
+                                            {% if spForm.instagram.errors %}has-error{% endif %}">
+                                                {{ spForm.instagram }}
+                                                <label class="form-check-label">Instagram</label>
+                                                {% for error in spForm.instagram.errors %}
+                                                <div class="text-danger mt-2">
+                                                    <strong>{{ error|escape }}</strong>
+                                                </div>
+                                                {% endfor %}
+                                            </div>
+                                        </div>
+                                        <!-- Twitter  -->
+                                        <div class="col-lg-6">
+                                            <div class="form-floating mb-7
+                                            {% if spForm.twitter.errors %}has-error{% endif %}">
+                                                {{ spForm.twitter }}
+                                                <label class="form-check-label">Twitter</label>
+                                                {% for error in spForm.twitter.errors %}
+                                                <div class="text-danger mt-2">
+                                                    <strong>{{ error|escape }}</strong>
+                                                </div>
+                                                {% endfor %}
+                                            </div>
+                                        </div>
+                                        <!-- Linked In  -->
+                                        <div class="col-lg-6">
+                                            <div class="form-floating mb-7
+                                            {% if spForm.linkedin.errors %}has-error{% endif %}">
+                                                {{ spForm.linkedin }}
+                                                <label class="form-check-label">Linked In</label>
+                                                {% for error in spForm.linkedin.errors %}
+                                                <div class="text-danger mt-2">
+                                                    <strong>{{ error|escape }}</strong>
+                                                </div>
+                                                {% endfor %}
+                                            </div>
+                                        </div>
+                                        <!-- Website  -->
+                                        <div class="col-lg-6">
+                                            <div class="form-floating mb-7
+                                            {% if spForm.website.errors %}has-error{% endif %}">
+                                                {{ spForm.website }}
+                                                <label class="form-check-label">Website</label>
+                                                {% for error in spForm.website.errors %}
+                                                <div class="text-danger mt-2">
+                                                    <strong>{{ error|escape }}</strong>
+                                                </div>
+                                                {% endfor %}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Non Field Errors -->
+                                    {% for error in userSocialProfile.spForm.non_field_errors %}
+                                    <div class="text-danger mt-2">
+                                        <strong>{{ error|escape }}</strong>
+                                    </div>
+                                    {% endfor %}
+                                </div>
+
+                                <div class="card-footer d-flex justify-content-end py-6 px-9">
+                                    <a href="{% if user.is_superuser %}{% url 'userList' %}{% else %}{% url 'userView' user.id %}{% endif %}" class="btn btn-light-info me-3">Discard</a>
+                                    <button type="submit" class="btn btn-primary">Save Changes</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block extraJS %}
+<!--begin::Custom Javascript(used for this page only)-->
+
+<!--end::Custom Javascript-->
+{% endblock %}

@@ -1,0 +1,404 @@
+{% extends 'front/base.html' %}
+{% load static %}
+{% load i18n %}
+{% block meta %}
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Laughter Yoga International - Health, Happiness and World Peace</title>
+<meta name="keywords"
+      content="laughter yoga international, laughter yoga, laughing yoga, laughter therapy, laughing therapy, humor therapy, hasya yoga, laughter is the best medicine, laughter yoga exercises, laughter yoga classes near me, laughter yoga for cancer, laughter yoga for hypertension, laughter yoga for diabetes, laughter yoga for addictions, laughter yoga for depression, laughter yoga for mental health, laughter yoga for anxiety, laughter yoga for weight loss, laughter yoga for insomnia, laughter yoga for stress, laughter yoga for stress release, laughter yoga for peak performance, laughter yoga for creativity, laughter yoga team building, laughter clubs, laugh clubs, laughter yoga trainings, laughter coaching, laughter therapy training, laughter course, laughter certifications, laughter meditation, laughter quotes, laughter yoga dvds, laughter training videos, laughing guru, Dr Madan Kataria"/>
+<meta name="description"
+      content="Are you stressed out, depressed, and having health problems? Do you want to bring more laughter and joy into your life? Laughter Yoga is the right choice for you">
+<meta name="author" content="Dr Madan Kataria">
+
+<!-- Facebook Sharing Content -->
+<meta property="og:site_name" content="Laughter Yoga International">
+<meta property="og:title" content="Laughter Yoga International - Health, Happiness and World Peace">
+<meta property="og:url" content="https://www.laughteryoga.org">
+<meta property="og:image" content="{% static 'img/extra/home-social.webp' %}">
+<meta property="og:description"
+      content="Stressed Out? Bring more laughter into your life Join Online Free Laughter Club">
+{% endblock %}
+{% block content %}
+<!-- {% include 'front/includes/banner.html' %} -->
+<div role="main" class="main">
+    <section class="border-0" style="background-color:#d1e4f5;">
+        <div class="container">
+            <div class="row justify-content-center pt-3">
+                <div class="col-lg-6">
+                    <figure class="text-center">
+                        <img src="{% static 'img/notification-round-logo.png' %}" alt="Dr Madan Kataria and Madhuri Kataria" class="img-fluid" width="100" />
+                    </figure>
+                    <p class="mb-4 text-center">Official Website of Dr Madan Kataria The Laughter Guru</p>
+                    <div class="mb-1 mx-md-10 mx-lg-0 text-uppercase text-center">
+                        <p style="letter-spacing:5px; font-size:35px; banner-font">Laughter Yoga </p>
+                        <p style="letter-spacing:10px; font-size:30px;"> International</p>
+                    </div>
+                    <p class="display-5 mb-2 text-center">Global Movement for</p>
+                    <p class="mb-7 text-center">Health | Happiness | World Peace</p>
+                </div>
+                <div class="col-lg-6">
+                    <img src="{% static 'img/pages/drk-madhuri.png' %}"
+                         alt="Dr Madan Kataria and Madhuri Kataria"
+                         class="img-fluid"
+                         width="620" />
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="container py-3 my-4">
+        <div class="row justify-content-center">
+            <div class="col-xl-6">
+                <h1>Learn Laughter Yoga For Health and Happiness</h1>
+                <p><strong>Are you stressed out, depressed and having health problems? Do you want to bring more
+                    laughter and joy into your life? Laughter Yoga is the right choice for you.</strong>
+                    Laughter Yoga (LY) is not a comedy. It is an exercise program developed by Indian physician
+                    Dr Madan Kataria where anyone can laugh without relying on humour, jokes or comedies. It is
+                    practised in more than 110 countries. </p>
+                <p>It combines laughter exercises with yoga breathing techniques (Pranayama) which brings more
+                    oxygen to our body and brain making us feel more energetic and healthy. Ten to 15 minutes of
+                    LY exercises can reduce stress, make your immune system stronger and keep your mind positive
+                    during challenging times.</p>
+            </div>
+            <div class="col-lg-6 mb-2 pb-2">
+                <!--<p class="custom-h1-heading">Laughter Yoga in Companies and Corporations</p>-->
+                <div class="video-container mt-3">
+                    <iframe
+                            srcdoc="
+                            <style>
+                                body, .full {
+                                    width: 100%;
+                                    height: 100%;
+                                    margin: 0;
+                                    position: absolute;
+                                    display: flex;
+                                    justify-content: center;
+                                    object-fit: cover;
+                                }
+                            </style>
+                            <a href='https://www.youtube.com/embed/sEJScAiFRCI?autoplay=1' class='full'>
+                                <img data-src='{% static 'img/pages/videos/home/home1.webp' %}' loading='lazy' class='full'
+                                src='{% static 'img/pages/videos/home/home1.webp' %}'
+                                width='100%' height='100%' alt='Laughter Yoga in companies and corporations'>
+                                <svg version='1.1' viewBox='0 0 68 48' width='68px' style='position: relative;'>
+                                    <path d='M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z' fill='#f00'></path>
+                                    <path d='M 45,24 27,14 27,34' fill='#fff'></path>
+                                </svg>
+                            </a>"
+                            title="World Laughter Day"
+                            style="max-width: 640px; width: 100%; aspect-ratio: 16/9;"
+                            frameborder="0"></iframe>
+                </div>
+                <!--<h4 class="text-center pt-3" style="color:#0066b3;"><strong>Mission: World Peace through Laughter</strong></h4>
+                <div class="col-xl-5 mx-auto">
+                    <a class="btn btn-primary text-light text-decoration-none" href="{% url 'world-laughter-day' %}" target="_parent">
+                        More Details Click Here
+                    </a>
+                </div>-->
+            </div>
+            <div class="col-xl-4">
+                <button class="btn btn-primary">
+                    <a class="text-light text-decoration-none" href="{% url 'basic-learning-course' %}"
+                       target="_parent">
+                        Sign Up Now
+                    </a>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <section class="shop section section-height-2 border-0 m-0">
+        <div class="container">
+            <div class="row justify-content-center pb-3 mb-0">
+                <div class="col-lg-8 text-center">
+                    <div class="overflow-hidden">
+                        <h2 class="font-weight-bold text-color-dark line-height-1 mb-3 appear-animation"
+                            data-appear-animation="maskUp" data-appear-animation-delay="250">More Ways to Get
+                            Involved</h2>
+                    </div>
+                    <p data-appear-animation="fadeInUpShorter" data-appear-animation-delay="500"><strong>Join our
+                        daily free Zoom Laughter Club. <br/>Take a look at the many applications of Laughter Yoga
+                        below:</strong></p>
+                </div>
+            </div>
+
+            <div class="owl-carousel nav-outside nav-style-1 nav-dark nav-arrows-thin custom-carousel-box-shadow-1 mb-0"
+                 data-plugin-options="{'responsive': {'0': {'items': 1}, '479': {'items': 1}, '768': {'items': 2}, '979': {'items': 2}, '1199': {'items': 3}}, 'autoplay': true, 'autoplayTimeout': 2000, 'autoplayHoverPause': true, 'dots': false, 'nav': true, 'loop': false, 'margin': 30, 'stagePadding': '50'}">
+                {% for gi_items in home_get_involved %}
+                <div>
+                    <div class="product mb-0 text-center">
+                        <div class="product-thumb-info border-0 mb-3">
+                            <div class="product-thumb-info-image bg-light">
+                                <a href="{{gi_items.url}}">
+                                    <img alt="" class="img-fluid"
+                                         src="{{gi_items.image.url}}">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-center">
+                            <h5>
+                                <a href="{{gi_items.url}}" class="text-color-dark text-decoration-none">{{gi_items.title}}</a>
+                            </h5>
+                        </div>
+                        <div class="d-flex justify-content-center">
+                            <p>{{gi_items.description}}</p>
+                        </div>
+                        <div class="d-block d-sm-inline-block mt-sm-0 pt-1">
+                            <a href="{{gi_items.url}}" class="btn btn-sm btn-primary text-1 text-uppercase"
+                               target="_blank">
+                                {{gi_items.btn_name}}
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <div class="container py-3 my-5">
+        <div class="row justify-content-center">
+            <div class="row justify-content-center pb-3 mb-0">
+                <div class="col-lg-9 col-xl-8 text-center">
+                    <div class="overflow-hidden">
+                        <h2 class="font-weight-bold text-color-dark line-height-1 mb-2 appear-animation"
+                            data-appear-animation="maskUp" data-appear-animation-delay="250">Learn from the Laughter
+                            Guru</h2>
+                    </div>
+                    <p data-appear-animation="fadeInUpShorter" data-appear-animation-delay="500"><strong>Dr Kataria,
+                        the founder and creator of LY conducts certified training from Basic Learning to Master
+                        Trainer. Do you wish to be trained by the Master?</strong></p>
+                </div>
+            </div>
+            <div class="products row row-gutter-sm justify-content-center mb-4 appear-animation"
+                 data-appear-animation="fadeInUpShorter">
+                <div class="col-md-4">
+                    <a href="{% url 'basic-learning-course' %}" target="_parent">
+                        <img src="{% static 'img/extra/blc-home.webp' %}" class="img-fluid text-center"
+                             alt="Basic Learning Course"/>
+                    </a>
+                    <div class="col-xl-6 mt-2 mx-auto">
+                        <button class="btn btn-primary">
+                            <a class="text-light text-decoration-none" href="{% url 'basic-learning-course' %}"
+                               target="_parent">
+                                Register Now
+                            </a>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <a href="{% url 'ly2' %}" target="_parent">
+                        <img src="{% static 'img/extra/ly2-home.webp' %}" class="img-fluid"
+                             alt="LY 2.0 Season 6"/>
+                    </a>
+                    <div class="col-xl-6 mt-2 mx-auto">
+                        <button class="btn btn-primary">
+                            <a class="text-light text-decoration-none" href="{% url 'ly2' %}"
+                               target="_parent">
+                                Learn More
+                            </a>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <a href="{% url 'business' %}" target="_parent">
+                        <img src="{% static 'img/extra/drk-speaker.webp' %}" class="img-fluid"
+                             alt="Invite DrK as Speaker"/>
+                    </a>
+                    <div class="col-lg-6 mt-2 mx-auto">
+                        <button class="btn btn-primary">
+                            <a class="text-light text-decoration-none" href="{% url 'business' %}" target="_blank">
+                                Learn More
+                            </a>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="section border-0 m-0">
+        <div class="container py-3 my-5">
+            <div class="col-lg-12 text-center">
+                <div class="overflow-hidden">
+                    <h2 class="font-weight-bold text-color-dark line-height-1 pb-3 mb-0">Life Changing Experiences</h2>
+                    <p data-appear-animation="fadeInUpShorter" data-appear-animation-delay="500"><strong>Read
+                        inspiring stories of people from around the world whose lives have been transformed with daily
+                        practice of Laughter Yoga</strong></p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="owl-carousel nav-outside nav-style-1 nav-dark nav-arrows-thin nav-font-size-lg custom-carousel-box-shadow-1 mb-0"
+                         data-plugin-options="{'responsive': {'0': {'items': 1}, '479': {'items': 1}, '768': {'items': 2}, '979': {'items': 2}, '1199': {'items': 3}}, 'autoplay': true, 'autoplayTimeout': 5000, 'autoplayHoverPause': true, 'dots': false, 'nav': true, 'loop': true, 'margin': 30, 'stagePadding': '75'}">
+                        {% for testimonials in home_testimonials %}
+                        <div>
+                            <span class="thumb-info thumb-info-no-borders thumb-info-no-borders-rounded thumb-info-lighten thumb-info-bottom-info thumb-info-bottom-info-dark thumb-info-centered-icons">
+                                <span class="thumb-info-wrapper">
+                                    <a href="{% url 'testimonial_detail' testimonials.slug %}" target="_parent"><img
+                                            src="{{testimonials.image.url}}"
+                                            class="img-fluid" alt="{{testimonials.tm_author}}"></a>
+                                    <span class="thumb-info-title">
+                                        <span class="thumb-info-inner line-height-1">
+                                            <a class="text-color-light"
+                                               href="{% url 'testimonial_detail' testimonials.slug %}"
+                                               target="_parent>">{{testimonials.tm_title}}</a>
+                                        </span>
+                                    </span>
+                                </span>
+                            </span>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    <div class="row">
+                        <div class="col-xl-5 mt-3 " style="margin: 0px auto;">
+                            <a href="{% url 'testimonial' %}"
+                               class="btn btn-primary custom-btn-border-radius font-weight-bold text-2 line-height-9 btn-px-5 btn-py-3 appear-animation"
+                               data-appear-animation="fadeInUpShorterPlus" data-appear-animation-delay="800">VIEW ALL
+                                TESTIMONIALS</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container py-3 my-5">
+        <div class="row justify-content-center">
+            <div class="row justify-content-center pb-3 mb-0">
+                <div class="col-lg-9 col-xl-8 text-center">
+                    <div class="overflow-hidden">
+                        <h2 class="font-weight-bold text-color-dark line-height-1 mb-2 appear-animation"
+                            data-appear-animation="maskUp" data-appear-animation-delay="250">Premium Membership for LY
+                            Professionals</h2>
+                    </div>
+                    <p data-appear-animation="fadeInUpShorter" data-appear-animation-delay="500"><strong>Prozone is a
+                        premium membership program for LY Professionals. Find out how to upgrade your knowledge and
+                        skills in different areas. Build a profile, find more business opportunities by posting your
+                        training and events.</strong></p>
+                </div>
+            </div>
+            <div class="products row row-gutter-sm justify-content-center mb-4 appear-animation"
+                 data-appear-animation="fadeInUpShorter">
+                <div class="col-xl-5">
+                    <a href="{% url 'prozone' %}" target="_parent">
+                        <img src="{% static 'img/extra/prozone-box.webp' %}" class="img-fluid"
+                             alt="Laughter Yoga Prozone"/>
+                    </a>
+                    <div class="col-xl-6 mt-2 mx-auto">
+                        <button class="btn btn-primary">
+                            <a class="text-light text-decoration-none" href="{% url 'prozone' %}" target="_parent">
+                                Learn More
+                            </a>
+                        </button>
+                    </div>
+                </div>
+                <div class="col-xl-1"></div>
+                <div class="col-xl-5">
+                    <a href="{% url 'spiritualRetreat' %}" target="_parent">
+                        <img src="{% static 'img/extra/retreat-home-mar-24.webp' %}" class="img-fluid" alt="Spiritual Retreat"/>
+                    </a>
+                    <div class="col-lg-6 mt-2 mx-auto">
+                        <button class="btn btn-primary">
+                            <a class="text-light text-decoration-none" href="{% url 'spiritualRetreat' %}" target="_blank">
+                                Sing-up Now <!--Join Now-->
+                            </a>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="shop section section-height-2 border-0 m-0">
+        <div class="container">
+            <div class="row justify-content-center pb-3 mb-4">
+                <div class="col-lg-8 text-center">
+                    <div class="overflow-hidden">
+                        <h2 class="font-weight-bold text-color-dark line-height-1 pb-3 mb-0 appear-animation"
+                            data-appear-animation="maskUp" data-appear-animation-delay="250">Latest News</h2>
+                    </div>
+                    <p data-appear-animation="fadeInUpShorter" data-appear-animation-delay="500"><strong>Keep
+                        yourself updated with news from the world of laughter yoga.</strong></p>
+                </div>
+            </div>
+            <div class="products row row-gutter-sm mb-4 appear-animation" data-appear-animation="fadeInUpShorter">
+                {% for news in home_news %}
+                <div class="col-sm-6 col-lg-4 mb-4 pb-2">
+                    <span class="thumb-info thumb-info-no-borders thumb-info-no-borders-rounded thumb-info-lighten thumb-info-bottom-info thumb-info-bottom-info-dark thumb-info-centered-icons">
+                        <span class="thumb-info-wrapper">
+                            <a href="{% url 'news_detail' news.ln_slug %}" target="_parent">
+                                <img src="{{news.image.url}}" class="img-fluid"
+                                     alt="{{news.ln_title}}">
+                            </a>
+                            <span class="thumb-info-title">
+                                <span class="thumb-info-inner line-height-1">
+                                    <a class="text-color-light" href="{% url 'news_detail' news.slug %}"
+                                       target="_parent>">{{news.ln_title}}</a>
+                                </span>
+                            </span>
+                        </span>
+                    </span>
+                </div>
+                {% endfor %}
+            </div>
+            <div class="row">
+                <div class="col-xl-3 text-center" style="margin: 0px auto;">
+                    <a href="{% url 'news' %}"
+                       class="btn btn-primary custom-btn-border-radius font-weight-bold text-3 btn-px-5 btn-py-3 appear-animation"
+                       data-appear-animation="fadeInUpShorterPlus" data-appear-animation-delay="800">VIEW ALL NEWS</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container py-3 my-5">
+        <div class="row justify-content-center">
+            <div class="row justify-content-center pb-3 mb-0">
+                <div class="col-lg-9 col-xl-8 text-center">
+                    <div class="overflow-hidden">
+                        <h2 class="font-weight-bold text-color-dark line-height-1 mb-2 appear-animation"
+                            data-appear-animation="maskUp" data-appear-animation-delay="250">Learning Resources</h2>
+                    </div>
+                    <p data-appear-animation="fadeInUpShorter" data-appear-animation-delay="500"><strong>Access decades
+                        of wisdom and methods in Laughter Yoga at your fingertips. From video, audio downloads to
+                        ebooks. Discounts available in our saver kits.</strong></p>
+                </div>
+            </div>
+            <div class="products row row-gutter-sm justify-content-center mb-4 appear-animation"
+                 data-appear-animation="fadeInUpShorter">
+                <div class="col-xl-5">
+                    <a href="https://shop.laughteryoga.org" target="_blank">
+                        <img src="{% static 'img/extra/shop-box.webp' %}" class="img-fluid" alt="Laughter Yoga Shop"/>
+                    </a>
+                    <div class="col-xl-6 mt-2 mx-auto">
+                        <button class="btn btn-primary">
+                            <a class="text-light text-decoration-none" href="https://shop.laughteryoga.org"
+                               target="_blank">
+                                Shop Now
+                            </a>
+                        </button>
+                    </div>
+                </div>
+                <div class="col-xl-1"></div>
+                <div class="col-xl-5">
+                    <a href="#" target="_blank">
+                        <img src="{% static 'img/extra/drk-monthwise-schedule.webp' %}" class="img-fluid"
+                             alt="DrK's Upcoming Events"/>
+                    </a>
+                    <div class="col-xl-6 mt-2 mx-auto">
+                        <button class="btn btn-primary">
+                            <a class="text-light text-decoration-none" href="#"
+                               target="_blank">
+                                Check Now
+                            </a>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

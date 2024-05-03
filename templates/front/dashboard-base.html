@@ -1,0 +1,174 @@
+{% load static %}
+{% load i18n %}
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name='viewport' content='width=device-width, initial-scale=1.0, user-scalable=0'>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="Description" content="Laughter Yoga International - Health, Happiness and World-peace">
+		<meta name="Author" content="Er Sukumar Satpathy">
+		<meta name="Keywords" content="laughter, laughter yoga, hasya yoga, stress, depression, mental health"/>
+
+		<!-- Title -->
+		<title> Dashboard - Laughter Yoga International</title>
+
+		<!--- Favicon -->
+		<link rel="icon" href="{% static 'dashboard/assets/img/brand/favicon.png' %}" type="image/x-icon"/>
+
+		<!--- Icons css -->
+		<link href="{% static 'dashboard/assets/css/icons.css' %}" rel="stylesheet">
+
+		<!--- Right-sidemenu css -->
+		<link href="{% static 'dashboard/assets/plugins/sidebar/sidebar.css' %}" rel="stylesheet">
+
+		<!--- Custom Scroll bar -->
+		<link href="{% static 'dashboard/assets/plugins/mscrollbar/jquery.mCustomScrollbar.css' %}" rel="stylesheet"/>
+
+		<!--- Style css -->
+		<link rel="stylesheet" type="text/css" media="all" href="{% static 'dashboard/assets/css/style.css' %}">
+
+		<!-- Colors css -->
+		<link id="theme" rel="stylesheet" type="text/css" media="all" href="{% static 'dashboard/assets/css/colors/color.css' %}">
+
+		<!--- Skinmodes css -->
+		<link href="{% static 'dashboard/assets/css/skin-modes.css' %}" rel="stylesheet">
+
+		<!--- Darktheme css -->
+		<link href="{% static 'dashboard/assets/css/style-dark.css' %}" rel="stylesheet">
+
+		<!--- Sidemenu css -->
+		<link rel="stylesheet" href="{% static 'dashboard/assets/css/single-sidemenu/singlemenu.css' %}">
+
+		<!--  Map css-->
+		<link href="{% static 'dashboard/assets/plugins/jqvmap/jqvmap.min.css' %}" rel="stylesheet">
+
+		<!--- Animations css -->
+		<link href="{% static 'dashboard/assets/css/animate.css' %}" rel="stylesheet">
+
+		<!-- Stripe JS -->
+		<script src="https://js.stripe.com/v3/"></script>
+
+		{{ form.media }}
+
+
+	</head>
+
+	<body class="main-body app sidebar-mini">
+
+		<!-- Page -->
+		<div class="page">
+
+			<!-- Loader -->
+			<div id="global-loader">
+				<img src="{% static 'dashboard/assets/img/loader.svg' %}" class="loader-img" alt="Loader">
+			</div>
+			<!-- /Loader -->
+
+			<!-- main-sidebar -->
+			{% include 'front/includes/dashboard/vertical-menu.html' %}
+
+			<!-- main-sidebar -->
+			<div class="app-sidebar__overlay" data-toggle="sidebar"></div>
+			<!-- Main-content -->
+			<div class="main-content singlemenu">
+
+				<!-- Mobile-header closed -->
+				{% include 'front/includes/dashboard/dashboard-header.html' %}
+				<!-- Container-fluid -->
+				<div class="container-fluid">
+					<!-- Main-content-body -->
+					{% block content %}
+
+    				{% endblock %}
+					<!-- Main-content-body closed -->
+				</div>
+				<!-- Container-fluid closed -->
+			</div>
+			<!-- Main-content closed -->
+
+			<!-- Footer opened -->
+			{% include 'front/includes/dashboard/dashboard-footer.html' %}
+			<!-- Footer closed -->
+
+		</div>
+		<!-- Page closed -->
+
+		<!--Sidebar-right-->
+		{% include 'front/includes/dashboard/dashboard-sidebar-right.html' %}
+		<!--/Sidebar-right-->
+
+		<!-- Back-to-top -->
+		<a href="#top" id="back-to-top"><i class="las la-angle-double-up"></i></a>
+
+		<!-- JQuery min js -->
+		<script src="{% static 'dashboard/assets/plugins/jquery/jquery.min.js' %}"></script>
+
+		<!-- Popper js -->
+		<script src="{% static 'dashboard/assets/plugins/popper/popper.min.js' %}"></script>
+
+		<!-- Bootstrap Bundle js -->
+		<script src="{% static 'dashboard/assets/plugins/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+
+		<!-- Ionicons js -->
+		<script src="{% static 'dashboard/assets/plugins/ionicons/ionicons.js' %}"></script>
+
+		<!-- Moment js -->
+		<script src="{% static 'dashboard/assets/plugins/moment/moment.js' %}"></script>
+
+		<!-- Sparkline js -->
+		<script src="{% static 'dashboard/assets/plugins/jquery-sparkline/jquery.sparkline.min.js' %}"></script>
+
+		<!-- Piety js -->
+		<script src="{% static 'dashboard/assets/plugins/peity/jquery.peity.min.js' %}"></script>
+
+		<!-- P-scroll js -->
+		<script src="{% static 'dashboard/assets/plugins/perfect-scrollbar/perfect-scrollbar.min.js' %}"></script>
+		<script src="{% static 'dashboard/assets/plugins/perfect-scrollbar/p-scroll.js' %}"></script>
+
+		<!-- Internal Flot js-->
+		<script src="{% static 'dashboard/assets/plugins/jquery.flot/jquery.flot.js' %}"></script>
+		<script src="{% static 'dashboard/assets/plugins/jquery.flot/jquery.flot.pie.js' %}"></script>
+		<script src="{% static 'dashboard/assets/plugins/jquery.flot/jquery.flot.resize.js' %}"></script>
+		<script src="{% static 'dashboard/assets/plugins/jquery.flot/jquery.flot.categories.js' %}"></script>
+
+		<!-- Internal Chart js-->
+		<script src="{% static 'dashboard/assets/plugins/chart.js/Chart.bundle.min.js' %}"></script>
+
+		<!-- Sidemenu js -->
+		<script src="{% static 'dashboard/assets/plugins/side-menu/single-menu.js' %}"></script>
+
+		<!-- Sidebar js -->
+		<script src="{% static 'dashboard/assets/plugins/sidebar/sidebar.js' %}"></script>
+		<script src="{% static 'dashboard/assets/plugins/sidebar/sidebar-custom.js' %}"></script>
+
+		<!-- P-scroll js -->
+		<script src="{% static 'dashboard/assets/js/p-scroll1.js' %}"></script>
+
+		<!-- Rating js-->
+		<script src="{% static 'dashboard/assets/plugins/rating/jquery.rating-stars.js' %}"></script>
+		<script src="{% static 'dashboard/assets/plugins/rating/jquery.barrating.js' %}"></script>
+
+		<!--- Internal Echart Plugin -->
+		<script src="{% static 'dashboard/assets/plugins/echart/echart.js' %}"></script>
+
+		<!--- Tooltip js -->
+		<script src="{% static 'dashboard/assets/js/tooltip.js' %}"></script>
+
+		<!-- Internal Index js -->
+		<script src="{% static 'dashboard/assets/js/index.js' %}"></script>
+		<script src="{% static 'dashboard/assets/js/dashboard.sampledata.js' %}"></script>
+		<script src="{% static 'dashboard/assets/js/chart.flot.sampledata.js' %}"></script>
+		<!-- Custom js -->
+		<script src="{% static 'dashboard/assets/js/custom.js' %}"></script>
+		<!-- form-elements js -->
+		<script src="{% static 'dashboard/assets/js/form-elements.js' %}"></script>
+		<!-- Internal jquery-simple-datetimepicker js -->
+		<script src="{% static 'dashboard/assets/plugins/amazeui-datetimepicker/js/amazeui.datetimepicker.min.js' %}"></script>
+
+		<!-- Ionicons js -->
+		<script src="{% static 'dashboard/assets/plugins/jquery-simple-datetimepicker/jquery.simple-dtpicker.js' %}"></script>
+
+		<!-- Internal Pickerjs js -->
+		<script src="{% static 'dashboard/assets/plugins/pickerjs/picker.min.js' %}"></script>
+	</body>
+</html>

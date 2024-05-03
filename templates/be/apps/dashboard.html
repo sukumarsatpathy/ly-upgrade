@@ -1,0 +1,96 @@
+{% extends 'be/base.html' %}
+{% load static %}
+
+{% block meta %}
+<title>Dashboard - {{webSettingsUniversal.title}}</title>
+<meta name="description" content="{{webSettingsUniversal.meta_description}}"/>
+<meta name="keywords" content="{{webSettingsUniversal.meta_keywords}}"/>
+<meta property="og:title" content="Dashboard - {{webSettingsUniversal.title}}"/>
+<meta property="og:url" content="{{request.scheme}}://{{request.get_host}}{{request.get_full_path}}"/>
+<meta property="og:site_name" content="{{webSettingsUniversal.title}} - {{webSettingsUniversal.slogan}}"/>
+{% endblock %}
+
+{% block content %}
+<div class="d-flex flex-column flex-column-fluid">
+    <div class="app-content flex-column-fluid mt-10">
+        <div class="app-container container-xxl">
+            <div class="card">
+                {% include 'be/includes/alert.html' %}
+                <div class="card-header border-0 pt-6"></div>
+                <div class="card-body py-4">
+                    <ul id="lightgallery" class="list-unstyled mb-0 row row-sm">
+                        {% if user.user_type != 'General User' %}
+                        <li class="col-sm-6 col-lg-4"
+                            data-responsive="{% static 'img/downloads/paid/prozone/pro-diary.png' %}"
+                            data-src="{% static 'img/downloads/paid/prozone/pro-diary.png' %}">
+                            <a href="{% url 'drk-pro-diary' %}" target="_parent" class="shadow p-3 bg-white rounded">
+                                <img class="img-responsive"
+                                     src="{% static 'img/downloads/paid/prozone/pro-diary.png' %}"
+                                     alt="Dr K's Pro Diary">
+                            </a>
+                        </li>
+                        {% endif %}
+                        {% if user.user_type != 'General User' %}
+                        <li class="col-sm-6 col-lg-4"
+                            data-responsive="{% static 'img/downloads/paid/prozone/pro-research-article.png' %}"
+                            data-src="{% static 'img/downloads/paid/prozone/pro-research-article.png' %}">
+                            <a href="{% url 'pro-research-articles' %}" target="_parent"
+                               class="shadow p-3 bg-white rounded">
+                                <img class="img-responsive"
+                                     src="{% static 'img/downloads/paid/prozone/pro-research-article.png' %}"
+                                     alt="Change Password">
+                            </a>
+                        </li>
+                        {% endif %}
+                        {% if user.user_type != 'General User' %}
+                        <li class="col-sm-6 col-lg-4"
+                            data-responsive="{% static 'img/downloads/paid/prozone/pro-videos.png' %}"
+                            data-src="{% static 'img/downloads/paid/prozone/pro-videos.png' %}">
+                            <a href="{% url 'watch-pro-videos' %}" target="_parent" class="shadow p-3 bg-white rounded">
+                                <img class="img-responsive"
+                                     src="{% static 'img/downloads/paid/prozone/pro-videos.png' %}"
+                                     alt="Access Prozone">
+                            </a>
+                        </li>
+                        {% endif %}
+                        {% if user.user_type != 'General User' %}
+                        <li class="col-sm-6 col-lg-4"
+                            data-responsive="{% static 'img/downloads/paid/prozone/pro-resources.png' %}"
+                            data-src="{% static 'img/downloads/paid/prozone/pro-resources.png' %}">
+                            <a href="{% url 'download-resources' %}" target="_parent"
+                               class="shadow p-3 bg-white rounded">
+                                <img class="img-responsive"
+                                     src="{% static 'img/downloads/paid/prozone/pro-resources.png' %}"
+                                     alt="Access LY 2.0">
+                            </a>
+                        </li>
+                        {% endif %}
+                        {% if user.user_type != 'General User' %}
+                        <li class="col-sm-6 col-lg-4"
+                            data-responsive="{% static 'img/downloads/paid/prozone/pro-download-photos.png' %}"
+                            data-src="{% static 'img/downloads/paid/prozone/pro-download-photos.png' %}">
+                            <a href="{% url 'download-photos' %}" target="_parent" class="shadow p-3 bg-white rounded">
+                                <img class="img-responsive"
+                                     src="{% static 'img/downloads/paid/prozone/pro-download-photos.png' %}"
+                                     alt="Download Photos">
+                            </a>
+                        </li>
+                        {% endif %}
+                        {% if user.user_type != 'General User' %}
+                        <li class="col-sm-6 col-lg-4"
+                            data-responsive="{% static 'img/downloads/paid/prozone/laughter-quotes.png' %}"
+                            data-src="{% static 'img/downloads/paid/prozone/laughter-quotes.png' %}">
+                            <a href="{% url 'download-quotes' %}" target="_parent" class="shadow p-3 bg-white rounded">
+                                <img class="img-responsive"
+                                     src="{% static 'img/downloads/paid/prozone/laughter-quotes.png' %}"
+                                     alt="Laughter Quotes">
+                            </a>
+                        </li>
+                        {% endif %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

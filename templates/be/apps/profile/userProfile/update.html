@@ -1,0 +1,185 @@
+{% extends 'be/base.html' %}
+{% load static %}
+{% block meta %}
+<title>Update Profile - {{webSettingsUniversal.title}}</title>
+<meta name="description" content="{{webSettingsUniversal.metaDescription}}"/>
+<meta name="keywords" content="{{webSettingsUniversal.metaKeyword}}"/>
+<meta property="og:title" content="Update Profile -{{webSettingsUniversal.title}}"/>
+<meta property="og:url" content="{{request.scheme}}://{{request.get_host}}{{request.get_full_path}}"/>
+<meta property="og:site_name" content="{{webSettingsUniversal.title}} - {{webSettingsUniversal.slogan}}"/>
+{% endblock %}
+{% block content %}
+<div class="d-flex flex-column flex-column-fluid">
+    <div class="app-content flex-column-fluid mt-10">
+        <div class="app-container container-xxl">
+            {% include 'be/includes/alert.html' %}
+            <div class="card">
+                <div class="card-header ribbon ribbon-end ribbon-clip">
+                    <div class="ribbon-label">
+                        Update
+                        <span class="ribbon-inner bg-warning"></span>
+                    </div>
+                    <div class="card-title fw-bold m-0">
+                        <span class="px-2">Update Profile of</span> <span class="text-primary">{{target_user.full_name}}</span>
+                    </div>
+                </div>
+                <div class="card-body pt-0">
+                    <div class="card mb-5 mb-xl-10">
+                        <div class="collapse show">
+                            <form action="{% url 'userProfileEdit' target_user.pk %}" method="post" class="form"
+                                  enctype="multipart/form-data" novalidate>
+                                {% csrf_token %}
+                                <div class="card-body border-top p-9">
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <div class="form-floating mb-7 {% if uprofForm.user_type.errors %}has-error{% endif %}">
+                                                {{ uprofForm.user_type }}
+                                                <label class="required">User Type</label>
+                                                {% for error in uprofForm.user_type.errors %}
+                                                <div class="text-danger mt-2">
+                                                    {{ error|escape }}
+                                                </div>
+                                                {% endfor %}
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-6">
+                                            <div class="form-floating mb-7 {% if uprofForm.trainers.errors %}has-error{% endif %}">
+                                                {{ uprofForm.trainers }}
+                                                <label class="required">Trainers</label>
+                                                {% for error in uprofForm.trainers.errors %}
+                                                <div class="text-danger mt-2">
+                                                    {{ error|escape }}
+                                                </div>
+                                                {% endfor %}
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-6">
+                                            <div class="form-floating mb-7 {% if uprofForm.services.errors %}has-error{% endif %}">
+                                                {{ uprofForm.services }}
+                                                <label>Services</label>
+                                                {% for error in uprofForm.services.errors %}
+                                                <div class="text-danger mt-2">
+                                                    {{ error|escape }}
+                                                </div>
+                                                {% endfor %}
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-6">
+                                            <div class="mb-7 {% if uprofForm.description.errors %}has-error{% endif %}">
+                                                {{ uprofForm.description }}
+                                                {{uprofForm.media}}
+                                                <label  class="required">Description</label>
+                                                {% for error in uprofForm.description.errors %}
+                                                <div class="text-danger mt-2">
+                                                    {{ error|escape }}
+                                                </div>
+                                                {% endfor %}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-footer d-flex justify-content-end py-6 px-9">
+                                    <a href="{% if user.is_superuser %}{% url 'userList' %}{% else %}{% url 'userView' user.id %}{% endif %}" class="btn btn-light-info me-3">Discard</a>
+                                    <button type="submit" class="btn btn-primary">Save Changes</button>
+                                </div>
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal for adding new service -->
+<div class="modal fade" tabindex="-1" id="addServiceModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Add New Service</h3>
+
+                <!--begin::Close-->
+                <div class="btn btn-icon btn-sm btn-active-light-primary ms-2" data-bs-dismiss="modal"
+                     aria-label="Close">
+                    <i class="ki-duotone ki-cross fs-1"><span class="path1"></span><span class="path2"></span></i>
+                </div>
+                <!--end::Close-->
+            </div>
+
+            <div class="modal-body">
+                <input type="text" id="newServiceName" placeholder="Service Name" class="form-control">
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" id="saveNewService">Save</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+{% block extraJS %}
+<!--begin::Custom Javascript(used for this page only)-->
+<script src="{% static 'be/js/jquery-3.3.1.min.js' %}"></script>
+<script>
+    $(document).ready(function() {
+        // Only initialize Select2 for the specific fields
+        $('#id_user_type, #id_trainers, #id_services').select2({
+            theme: 'bootstrap5'
+        });
+
+        // Explicitly destroy Select2 for the description field, just in case.
+        $('#id_description').select2('destroy');
+
+        // Detect if "Add now" is selected in the multi-select dropdown for services
+        $('#id_services').on('change', function() {
+            // Check if 'add_new' is one of the selected options
+            if ($(this).val() && $(this).val().includes('add_new')) {
+                $('#addServiceModal').modal('show');
+            }
+        });
+
+        // Handle the saving of a new service
+        $('#saveNewService').on('click', function() {
+            const serviceName = $('#newServiceName').val().trim();
+
+            if (!serviceName) {
+                alert('Please enter a service name.');
+                return;
+            }
+
+            // Use AJAX to save the new service to the server
+            $.post('/settings/add_service/', { name: serviceName }, function(data) {
+                if (data && data.success) {
+                    // Add the new service to the dropdown and select it
+                    $('#id_services').append(new Option(serviceName, data.service_id, true, true));
+
+                    // Remove the 'add_new' selection from the dropdown
+                    let selectedValues = $('#id_services').val();
+                    selectedValues = selectedValues.filter(val => val !== 'add_new');
+                    $('#id_services').val(selectedValues).trigger('change');
+
+                    $('#addServiceModal').modal('hide');
+                } else {
+                    alert('Error adding service.');
+                }
+            }).fail(function() {
+                alert('Error adding service. Please try again.');
+            });
+        });
+
+        // Reset the dropdown when the modal is closed
+        $('#addServiceModal').on('hidden.bs.modal', function() {
+            let selectedValues = $('#id_services').val();
+            if (selectedValues) {
+                selectedValues = selectedValues.filter(val => val !== 'add_new');
+                $('#id_services').val(selectedValues).trigger('change');
+            }
+        });
+    });
+</script>
+{% endblock %}

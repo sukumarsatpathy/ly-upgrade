@@ -1,0 +1,68 @@
+{% extends 'front/base.html' %}
+{% load static %}
+{% load i18n %}
+{% load cropping %}
+{% block meta %}
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Access Prozone - Laughter Yoga International</title>
+    <meta name="keywords" content="dr madan kataria, laughter, prozone, laughter yoga"/>
+    <meta name="description" content="You will find all the premium content over here.">
+    <meta name="author" content="Dr Madan Kataria">
+{% endblock %}
+{% block content %}
+<div class="owl-carousel-wrapper" style="height: 600px;">
+    <div class="owl-carousel dots-inside dots-horizontal-center dots-light show-dots-hover show-dots-xs nav-inside nav-inside-plus nav-dark nav-md nav-font-size-md show-nav-hover mb-0"
+         data-plugin-options="{'responsive': {'0': {'items': 1}, '479': {'items': 1}, '768': {'items': 1}, '979': {'items': 1}, '1199': {'items': 1}}, 'loop': false, 'autoHeight': false, 'margin': 0, 'dots': true, 'dotsVerticalOffset': '-75px', 'nav': false, 'animateIn': 'fadeIn', 'animateOut': 'fadeOut', 'mouseDrag': false, 'touchDrag': false, 'pullDrag': false, 'autoplay': true, 'autoplayTimeout': 9000, 'autoplayHoverPause': true, 'rewind': true}">
+        <img src="{% static 'img/slides/prozone.jpg' %}"/>
+    </div>
+</div>
+<div class="container py-2">
+    <div class="row">
+        <div class="col">
+            <div class="row">
+                <div class="col">
+                    <div class="row">
+                        <div class="col-lg-4 pb-3">
+                            <span class="img-thumbnail d-block">
+                                <a href="{% url 'drk-pro-diary' %}" target="_parent"><img class="img-fluid" src="{% static 'img/downloads/paid/prozone/pro-diary.jpg' %}" alt="pro-diary"></a>
+                            </span>
+                            <p class="text-center"><a href="{% url 'drk-pro-diary' %}" target="_parent">DrK's Pro Diary</a></p>
+                        </div>
+                        <div class="col-lg-4 pb-3">
+                            <span class="img-thumbnail d-block">
+                                <a href="{% url 'pro-research-articles' %}" target="_parent"><img class="img-fluid" src="{% static 'img/downloads/paid/prozone/pro-research-article.jpg' %}" alt="pro-diary"></a>
+                            </span>
+                            <p class="text-center"><a href="{% url 'pro-research-articles' %}" target="_parent">Scientific Research</a></p>
+                        </div>
+                        <div class="col-lg-4 pb-3">
+                            <span class="img-thumbnail d-block">
+                                <a href="{% url 'watch-pro-videos' %}" target="_parent"><img class="img-fluid" src="{% static 'img/downloads/paid/prozone/pro-videos.jpg' %}" alt="pro-videos"></a>
+                            </span>
+                            <p class="text-center"><a href="{% url 'watch-pro-videos' %}" target="_parent">Watch Pro Videos</a></p>
+                        </div>
+                        <div class="col-lg-4 pb-3">
+                            <span class="img-thumbnail d-block">
+                                <a href="{% url 'download-resources' %}" target="_parent"><img class="img-fluid" src="{% static 'img/downloads/paid/prozone/pro-resources.jpg' %}" alt="pro-resources"></a>
+                            </span>
+                            <p class="text-center"><a href="{% url 'download-resources' %}" target="_parent">Download Pro Resources</a></p>
+                        </div>
+                        <div class="col-lg-4 pb-3">
+                            <span class="img-thumbnail d-block">
+                                <a href="{% url 'download-photos' %}" target="_parent"><img class="img-fluid" src="{% static 'img/downloads/paid/prozone/pro-download-photos.jpg' %}" alt="pro-resources"></a>
+                            </span>
+                            <p class="text-center"><a href="{% url 'download-photos' %}" target="_parent">Download Photos</a></p>
+                        </div>
+                        <div class="col-lg-4 pb-3">
+                            <span class="img-thumbnail d-block">
+                                <a href="{% url 'download-quotes' %}" target="_parent"><img class="img-fluid" src="{% static 'img/downloads/free/laughter-quotes.jpg' %}" alt="pro-resources"></a>
+                            </span>
+                            <p class="text-center"><a href="{% url 'download-quotes' %}" target="_parent">Download Quotes</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

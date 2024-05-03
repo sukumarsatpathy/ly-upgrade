@@ -1,0 +1,9 @@
+<div class="tabs tabs-vertical tabs-right tabs-navigation">
+    <ul class="nav nav-tabs col-sm-3">
+        {% for cat in procat %}
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'download-cat-photos' cat.slug %}">{{cat.title}}</a>
+        </li>
+        {% endfor %}
+    </ul>
+</div>

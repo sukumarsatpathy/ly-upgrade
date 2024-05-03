@@ -1,0 +1,126 @@
+{% load static %}
+{% load compress %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Basic -->
+    {% block meta %}
+    
+    {% endblock %}
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="{% static 'img/favicon.ico' %}" type="image/x-icon"/>
+    <link rel="apple-touch-icon" href="{% static 'img/logo-footer.png' %}">
+
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, shrink-to-fit=no">
+
+    <!-- Web Fonts  -->
+    <!--<link id="googleFonts" href="https://fonts.googleapis.com/css?family=Mulish:300,400,500,600,700,800&display=swap" rel="stylesheet" type="text/css">-->
+
+    {% compress css %}
+	<!-- Fontawesome Locally-->
+	<link rel="stylesheet" href="{% static 'vendor/fontawesome-free/css/all.min.css' %}">
+
+    <!-- Vendor CSS -->
+    <link rel="stylesheet" href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'vendor/animate/animate.compat.css' %}">
+    <link rel="stylesheet" href="{% static 'vendor/simple-line-icons/css/simple-line-icons.min.css' %}">
+    <link rel="stylesheet" href="{% static 'vendor/owl.carousel/assets/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'vendor/owl.carousel/assets/owl.theme.default.min.css' %}">
+    <link rel="stylesheet" href="{% static 'vendor/magnific-popup/magnific-popup.min.css' %}">
+
+    <!-- Theme CSS -->
+    <link rel="stylesheet" href="{% static 'css/theme.css' %}">
+    <link rel="stylesheet" href="{% static 'css/theme-elements.css' %}">
+
+    <!-- Skin CSS -->
+    <link rel="stylesheet" href="{% static 'css/skins/default.css' %}">
+
+    <!-- Theme Custom CSS -->
+    <link rel="stylesheet" href="{% static 'css/custom.css' %}">
+    {% endcompress %}
+
+    <!-- Google Recaptcha -->
+    <script src='https://www.google.com/recaptcha/api.js' async defer></script>
+
+    <!-- Stripe JS -->
+    <script src="https://js.stripe.com/v3/"></script>
+
+    <!-- Google tag (gtag.js) -->
+    <!-- Added on Aug 23, 2023 for google ad tracking -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-10800949517"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'AW-10800949517');
+    </script>
+
+    <!-- Facebook Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window,document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+     fbq('init', '105238969345722');
+     fbq('track', 'PageView');
+    </script>
+    <noscript>
+     <img height="1" width="1"
+    src="https://www.facebook.com/tr?id=105238969345722&ev=PageView
+    &noscript=1"/>
+    </noscript>
+    <!-- End Facebook Pixel Code -->
+    {% block CustomJS %}
+
+    {% endblock %}
+
+</head>
+<body>
+<div class="body">
+    <header id="header" class="header-effect-shrink" data-plugin-options="{'stickyEnabled': true, 'stickyEffect': 'shrink', 'stickyEnableOnBoxed': true, 'stickyEnableOnMobile': true, 'stickyChangeLogo': true, 'stickyStartAt': 120, 'stickyHeaderContainerHeight': 70}">
+        <div class="header-body border-color-primary header-body-bottom-border">
+            <!-- TopBar Starts Here -->
+            {% include 'front/includes/topbar.html' %}
+            <!-- TopBar Ends Here -->
+            <!-- NavBar Starts Here -->
+            {% include 'front/includes/navbar.html' %}
+            <!-- NavBar Ends Here -->
+        </div>
+    </header>
+    {% block content %}
+
+    {% endblock %}
+
+    {% include 'front/includes/footer.html' %}
+
+    {% compress js %}
+    <!-- Vendor -->
+    <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'vendor/jquery.appear/jquery.appear.min.js' %}"></script>
+    <script src="{% static 'vendor/jquery.easing/jquery.easing.min.js' %}"></script>
+    <script src="{% static 'vendor/jquery.cookie/jquery.cookie.min.js' %}"></script>
+    <script src="{% static 'vendor/popper/umd/popper.min.js' %}"></script>
+    <script src="{% static 'vendor/bootstrap/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'vendor/common/common.min.js' %}"></script>
+    <script src="{% static 'vendor/jquery.validation/jquery.validate.min.js' %}"></script>
+    <script src="{% static 'vendor/owl.carousel/owl.carousel.min.js' %}"></script>
+
+
+    <!-- Theme Base, Components and Settings -->
+    <script src="{% static 'js/theme.js' %}"></script>
+
+    <!-- Theme Custom -->
+    <script src="{% static 'js/custom.js' %}"></script>
+
+    <!-- Theme Initialization Files -->
+    <script src="{% static 'js/theme.init.js' %}"></script>
+    {% endcompress %}
+
+</body>
+</html>

@@ -1,0 +1,192 @@
+{% extends 'front/dashboard-base.html' %}
+{% load i18n %}
+{% load static %}
+{% load cropping %}
+{% block content %}
+{% include 'front/includes/messages.html' %}
+<div class="container-fluid">
+    <div class="main-content-body">
+        <div class="row">
+            <div class="col-md-12 col-lg-12 col-xl-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h3 class="mb-4 main-content-label text-center">{% trans 'Edit Profile' %}</h3>
+                        <p class="text-center text-danger"><a href="https://{{request.META.HTTP_HOST}}/profile/3" target="_blank">Click here</a> to view the sample profile.</p>
+                        <form class="form-group" method="POST" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            {{form.field_errors}}
+                            {{form.non_field_errors}}
+                            <div class="mb-4 main-content-label">{% trans 'Personal Info' %}</div>
+                            <div class="form-group has-danger">
+                                <div class="row">
+                                    <div class="col-md-3"><label class="form-label">First Name</label></div>
+                                    <div class="col-md-9">{{form.first_name}}{{form.first_name.errors}}</div>
+                                </div>
+                            </div>
+                            <div class="form-group ">
+                                <div class="row">
+                                    <div class="col-md-3"><label class="form-label">Last Name</label></div>
+                                    <div class="col-md-9">{{form.last_name}}</div>
+                                </div>
+                            </div>
+                            <div class="form-group ">
+                                <div class="row">
+                                    <div class="col-md-3"><label class="form-label">Profile Picture</label></div>
+                                    <div class="col-md-9">{{form.profile_pic}}</div>
+                                </div>
+                            </div>
+                            <div class="mb-4 main-content-label">Professional Info</div>
+                            <div class="form-group ">
+                                <div class="row">
+                                    <div class="col-md-3"><label class="form-label">Trainer Name</label></div>
+                                    <div class="col-md-9">{{form.trained_by}}</div>
+                                </div>
+                            </div>
+                            <div class="form-group ">
+                                <div class="row">
+                                    <div class="col-md-3"><label class="form-label">Services Offered</label></div>
+                                    <div class="col-md-9 form-check-label">{{form.services}}</div>
+                                </div>
+                            </div>
+                            <div class="form-group ">
+                                <div class="row">
+                                    <div class="col-md-3"><label class="form-label">Other Services</label></div>
+                                    <div class="col-md-9 form-check-label">{{form.other_services}}</div>
+                                </div>
+                            </div>
+                            <div class="form-group ">
+                                <div class="row">
+                                    <div class="col-md-3"><label class="form-label">Description</label></div>
+                                    <div class="col-md-9">{{form.description}}</div>
+                                </div>
+                            </div>
+                            <div class="mb-4 main-content-label">Location Info</div>
+                            <div class="form-group ">
+                                <div class="row">
+                                    <div class="col-md-3"><label class="form-label">Country</label></div>
+                                    <div class="col-md-9">{{form.country}}</div>
+                                </div>
+                            </div>
+                            <div class="form-group ">
+                                <div class="row">
+                                    <div class="col-md-3"><label class="form-label">State</label></div>
+                                    <div class="col-md-9">{{form.state}}</div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-md-3"><label class="form-label">City</label></div>
+                                    <div class="col-md-9">{{form.city}}</div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="row pb-2 text-danger">
+                                    <div class="col-12 text-center">** Note - If your country, state or city is not showing in drop down menu, please contact <a href="mailto:help@laughteryoga.org" target="_blank">help@laughteryoga.org</a></div>
+                                </div>
+                            </div>
+                            <div class="mb-4 main-content-label">Contact Info</div>
+                            <div class="form-group ">
+                                <div class="row">
+                                    <div class="col-md-3"><label class="form-label">Email</label></div>
+                                    <div class="col-md-9">{{form.email}}</div>
+                                </div>
+                            </div>
+                            <div class="form-group ">
+                                <div class="row">
+                                    <div class="col-md-3"><label class="form-label">Contact No</label></div>
+                                    <div class="col-md-9">{{form.contact_number}}</div>
+                                </div>
+                            </div>
+                            <div class="form-group ">
+                                <div class="row">
+                                    <div class="col-md-3"><label class="form-label">Website</label></div>
+                                    <div class="col-md-9">{{form.website_url}}</div>
+                                </div>
+                            </div>
+                            <div class="mb-4 main-content-label">Social Info</div>
+                            <div class="form-group ">
+                                <div class="row">
+                                    <div class="col-md-3"><label class="form-label">{% trans 'Facebook' %}</label></div>
+                                    <div class="col-md-9">
+                                        {{form.facebook_url}}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group ">
+                                <div class="row">
+                                    <div class="col-md-3"><label class="form-label">Youtube</label></div>
+                                    <div class="col-md-9 input-group">
+                                        {{form.youtube_url}}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group ">
+                                <div class="row">
+                                    <div class="col-md-3"><label class="form-label">Linked In</label></div>
+                                    <div class="col-md-9 input-group">
+                                        {{form.linkedin_url}}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mb-4 main-content-label">YouTube Videos (optional)</div>
+                            <div class="form-group ">
+                                <div class="row">
+                                    <div class="col-md-3"><label class="form-label">Video URL 1</label></div>
+                                    <div class="col-md-9">{{form.video_url_1}}</div>
+                                </div>
+                            </div>
+                            <div class="form-group ">
+                                <div class="row">
+                                    <div class="col-md-3"><label class="form-label">Video URL 2</label></div>
+                                    <div class="col-md-9">{{form.video_url_2}}</div>
+                                </div>
+                            </div>
+                            <div class="form-group ">
+                                <div class="row">
+                                    <div class="col-md-3"><label class="form-label">Video URL 3</label></div>
+                                    <div class="col-md-9">{{form.video_url_3}}</div>
+                                </div>
+                            </div>
+                            <div class="form-group ">
+                                <div class="row">
+                                    <div class="col-md-3"><label class="form-label">Video URL 4</label></div>
+                                    <div class="col-md-9">{{form.video_url_4}}</div>
+                                </div>
+                            </div>
+                            <div class="mb-4 main-content-label">Upcoming Trainings</div>
+                            <div class="form-group ">
+                                <div class="row">
+                                    <div class="col-md-3"><label class="form-label">Basic Learning Course URL</label></div>
+                                    <div class="col-md-9">{{form.basic_learning_course}}</div>
+                                </div>
+                            </div>
+                            <div class="form-group ">
+                                <div class="row">
+                                    <div class="col-md-3"><label class="form-label">Certified Leader Training URL</label></div>
+                                    <div class="col-md-9">{{form.certified_leader_training}}</div>
+                                </div>
+                            </div>
+                            <div class="form-group ">
+                                <div class="row">
+                                    <div class="col-md-3"><label class="form-label">Certified Teacher Training URL</label></div>
+                                    <div class="col-md-9">{{form.certified_teacher_training}}</div>
+                                </div>
+                            </div>
+                            <div class="mb-4 main-content-label">{% trans 'Privacy' %}</div>
+                            <div class="form-group ">
+                                <div class="row">
+                                    <div class="col-md-3"><label class="form-label">Want Masked Profile?</label></div>
+                                    <div class="col-md-9">{{form.is_masked}} <label> If you check this field all your contact information will be blured and a contact form will be shown.</label></div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary waves-effect waves-light">Update Profile</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

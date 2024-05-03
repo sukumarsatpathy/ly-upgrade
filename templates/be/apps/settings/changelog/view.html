@@ -1,0 +1,51 @@
+{% extends 'be/base.html' %}
+{% load static %}
+{% block meta %}
+    <title>Changelog - {{webSettingsUniversal.title}}</title>
+    <meta name="description" content="{{webSettingsUniversal.meta_description}}"/>
+    <meta name="keywords" content="{{webSettingsUniversal.meta_keywords}}"/>
+    <meta property="og:title" content="Edit Mail Server - {{webSettingsUniversal.title}}"/>
+    <meta property="og:url" content="{{request.scheme}}://{{request.get_host}}{{request.get_full_path}}"/>
+    <meta property="og:site_name" content="{{webSettingsUniversal.title}} - {{webSettingsUniversal.slogan}}"/>
+{% endblock %}
+{% block content %}
+<div class="d-flex flex-column flex-column-fluid">
+    <div class="app-content flex-column-fluid mt-10">
+        <div class="app-container container-xxl">
+            <div class="docs-content d-flex flex-column flex-column-fluid" id="kt_docs_content">
+                <div class="container d-flex flex-column flex-lg-row" id="kt_docs_content_container">
+                    <div class="card card-docs flex-row-fluid mb-2" id="kt_docs_content_card">
+                        <div class="card-body fs-6 py-15 px-10 py-lg-15 px-lg-15 text-gray-700">
+                            <div class="accordion accordion-flush accordion-icon-toggle" id="kt_accordion">
+                                {% for changelog in all_changelog %}
+                                <div class="accordion-item mb-5">
+                                    <div class="accordion-header py-3 d-flex collapsed" data-bs-toggle="collapse"
+                                         data-bs-target="#kt_accordion_body_v3_0_6" aria-expanded="false">
+                                        <span class="accordion-icon">
+                                            <i class="ki-duotone ki-arrow-right fs-3">
+                                                <span class="path1"></span>
+                                                <span class="path2"></span>
+                                            </i>
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-arrow-bar-right" viewBox="0 0 16 16">
+                                                <path fill-rule="evenodd" d="M6 8a.5.5 0 0 0 .5.5h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L12.293 7.5H6.5A.5.5 0 0 0 6 8m-2.5 7a.5.5 0 0 1-.5-.5v-13a.5.5 0 0 1 1 0v13a.5.5 0 0 1-.5.5"/>
+                                            </svg>
+                                        </span>
+                                        <h3 class="fs-2 text-gray-800 fw-bold mb-0 ms-4">{{changelog.title}} - {{changelog.created|date:"M d, Y"}} </h3>
+                                    </div>
+                                    <div id="kt_accordion_body_v3_0_6" class="fs-6 mt-1 mb-1 py-0 ps-10 collapse"
+                                         data-bs-parent="#kt_accordion" style="">
+                                        <div class="accordion-body ps-0 pt-0">
+                                            <div class="mb-5">{{changelog.description|safe}}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

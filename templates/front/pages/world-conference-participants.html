@@ -1,0 +1,97 @@
+{% extends 'front/base.html' %}
+{% load static %}
+{% load i18n %}
+{% load cropping %}
+{% load members_url %}
+{% block meta %}
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>WC Participants - Laughter Yoga International</title>
+<meta name="keywords" content="dementia and Alzheimer’s disease, older, community building, social bonding"/>
+<meta name="description"
+      content="Laughter Yoga is a great tool for transformational aging and increased longevity. We have many research studies which measures the positive effects of LY for seniors">
+<meta name="author" content="Dr Madan Kataria">
+<link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+{% endblock %}
+{% block content %}
+<section class="page-header page-header-classic">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <ul class="breadcrumb">
+                    <li><a href="{% url 'home' %}" target="_parent" class="text-decoration-none">Home</a></li>
+                    <li class="active">Find World Conference Participants</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="container">
+    <div class="row">
+        <div class="col-lg-6">
+            <form class="form-inline" action="{% url 'wcParticipants' %}">
+                <input class="form-control" type="search" placeholder="Search by Country" name="search">
+                <button class="btn btn-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+    </div>
+    <div class="row" id="search">
+        <div class="col-xl-12 col-l-10 col-md-8 col-s-6 col-xs-4">
+            <table class="table table-bordered">
+                <thead>
+                <tr>
+                    <th>Sl No.</th>
+                    <th>Participant Name</th>
+                    <th>Room Type</th>
+                    <th>Country</th>
+                    <th>Enrollment Date</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for members in allMembers %}
+                <tr>
+                    <td>{{members.id}}</td>
+                    <td>{{members.name}}</td>
+                    <td>{{members.occupationType}}</td>
+                    <td>{{members.country}}</td>
+                    <td>{{members.payment_date}}</td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    {% if allMembers.has_other_pages %}
+    <ul class="pagination float-right">
+        <!-- Left Arrow -->
+        {% if allMembers.has_previous %}
+        <li class="page-item"><a class="page-link"
+                                 href="{% custom_url allMembers.previous_page_number 'page' request.get.urlencode %}"><i
+                class="fas fa-angle-left"></i></a></li>
+        {% else %}
+        <li class="page-item disabled"><a class="page-link"><i class="fas fa-angle-left"></i></a></li>
+        {% endif %}
+
+        {% for i in allMembers.paginator.page_range %}
+        {% if allMembers.number == i %}
+        <li class="page-item"><a class="page-link" href="#">{{i}}</a></li>
+        {% elif i > allMembers.number|add:'-13' and i < allMembers.number|add:'13' %}
+        <!--<li class="page-item"><a class="page-link" href="#">{{i}}</a></li>-->
+        <li class="page-item"><a class="page-link" href="{% custom_url i 'page' request.GET.urlencode %}">{{i}}</a></li>
+
+        {% endif %}
+        {% endfor %}
+
+        <!-- Right Arrow -->
+        {% if allMembers.has_next %}
+        <li class="page-item"><a class="page-link"
+                                 href="{% custom_url allMembers.next_page_number 'page' request.get.urlencode %}"><i
+                class="fas fa-angle-right"></i></a></li>
+        {% else %}
+        <li class="page-item disabled"><a class="page-link"><i class="fas fa-angle-right"></i></a></li>
+        {% endif %}
+    </ul>
+    {% endif %}
+</section>
+{% endblock %}

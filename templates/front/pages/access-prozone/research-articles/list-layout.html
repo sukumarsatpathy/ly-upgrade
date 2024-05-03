@@ -1,0 +1,69 @@
+{% extends 'front/base.html' %}
+{% load i18n %}
+{% block meta %}
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Research Articles - Laughter Yoga International</title>
+    <meta name="keywords" content="dr madan kataria, laughter, pro diary, laughter yoga"/>
+    <meta name="description" content="You can able to view all the diary articles written by Dr Madan Kataria.">
+    <meta name="author" content="Dr Madan Kataria">
+{% endblock %}
+{% block content %}
+<div role="main" class="main">
+    <!-- Breadcrumb Starts Here -->
+    <section class="page-header page-header-classic">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <ul class="breadcrumb">
+                        <li><a href="{% url 'home' %}" target="_parent" class="text-decoration-none">Home</a></li>
+                        <li><a href="{% url 'prozone' %}" target="_parent" class="text-decoration-none">Prozone</a></li>
+                        <li><a href="{% url 'access-prozone' %}" target="_parent" class="text-decoration-none">Access Prozone</a></li>
+                        <li class="active">Research Articles</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="container py-2">
+        <div class="row">
+            <div class="col-lg-9">
+                <div class="row">
+                    <div class="col-lg-6">
+                          <h3>{% trans 'Research Articles' %}</h3>
+                    </div>
+                    <div class="col-lg-3"></div>
+                    <div class="col-lg-3">
+                        <a href="{% url 'access-prozone' %}" target="_parent" class="btn btn-modern btn-primary rounded-0 mb-2 text-align:right;">Back to Dashboard</a>
+                    </div>
+                </div>
+                <table class="table table-bordered">
+                    <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>{% trans 'Title' %}</th>
+                        <!--<th>{% trans 'Author' %}</th>
+                        <th>{% trans 'Published Date' %}</th>-->
+                        <th>{% trans 'Views' %}</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for sra in all_research_articles %}
+                    <tr>
+                        <td>{{forloop.counter}}</td>
+                        <td><a href="{{sra.slug}}">{{sra.title}}</a></td>
+                        <!--<td>{% trans 'Dr. Madan Kataria' %}</td>
+                        <td>{{diaries.created_date.date}}</td>-->
+                        <td>{{sra.views}}</td>
+                    </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-lg-3 order-lg-2">
+                {% include 'front/includes/sidebar/default.html' %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends 'front/base.html' %}
+{% load static %}
+{% load i18n %}
+{% block meta %}
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>DrK's Diary - Laughter Yoga International</title>
+    <meta name="keywords" content="Diary, Drk's Diary, dr madan kataria, stories"/>
+    <meta name="description" content="You will find all the experiences directly from Dr Kataria.">
+    <meta name="author" content="Dr Madan Kataria">
+{% endblock %}
+{% block content %}
+<div role="main" class="main">
+    <!-- Breadcrumb Starts Here -->
+    {% include 'front/includes/breadcrumb.html' %}
+    <div class="container py-2">
+        <div class="row">
+            <!-- Body Starts Here -->
+            <div class="col-lg-9">
+                <h2 class="font-weight-normal text-7 mb-2"><strong class="font-weight-extra-bold">{{single_diary.title}}</strong>
+                </h2>
+                <article class="post post-medium" style="padding:0px 0px 0px 1px;">
+                    <div class="row mb-3 ml-1">
+                        <span><i class="far fa-calendar-alt"></i> {{single_diary.created_date}}</span>
+                        <span><i class="far fa-eye"></i> {{single_diary.views}}</span>
+                    </div>
+                    <img class="float-left img-fluid" src="{{single_diary.image.url}}" alt="{{single_diary.title}}-img" style="padding:10px 10px 0px 0px; width:326px; height:217px;">
+                    <p>{{single_diary.description|safe}}</p>
+                </article>
+            </div>
+            <!-- SideBar Starts Here -->
+            <div class="col-lg-3 order-lg-2">
+                {% include 'front/includes/sidebar/default.html' %}
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

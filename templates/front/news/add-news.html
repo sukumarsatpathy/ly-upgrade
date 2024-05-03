@@ -1,0 +1,63 @@
+{% extends 'front/dashboard-base.html' %}
+{% load i18n %}
+{% load static %}
+{% block content %}
+{% include 'front/includes/messages.html' %}
+{% if user.is_authenticated %}
+<div class="container-fluid">
+    <!-- Main-content-body -->
+    <div class="main-content-body">
+        <div class="row">
+            <div class="col-md-12 col-lg-12 col-xl-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h2 class="text-center">{% trans 'Submit News' %}</h2><br/>
+                        <form class="form-group" method="POST" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <div class="form-group ">
+                                <div class="row">
+                                    <div class="col-md-3"><label class="form-label">{% trans 'Title' %}</label></div>
+                                    <div class="col-md-9">{{form.ln_title}}</div>
+                                </div>
+                            </div>
+                            <div class="form-group ">
+                                <div class="row">
+                                    <div class="col-md-3"><label class="form-label">{% trans 'Description' %}</label></div>
+                                    <div class="col-md-9">{{form.ln_description}}</div>
+                                </div>
+                            </div>
+                            <div class="form-group ">
+                                <div class="row">
+                                    <div class="col-md-3"><label class="form-label">{% trans 'Location' %}</label></div>
+                                    <div class="col-md-9">{{form.ln_location}}</div>
+                                </div>
+                            </div>
+                            <div class="form-group ">
+                                <div class="row">
+                                    <div class="col-md-3"><label class="form-label">{% trans 'Image' %}</label></div>
+                                    <div class="col-md-9">{{form.ln_image}}</div>
+                                </div>
+                            </div>
+                            <div class="form-group ">
+                                <div class="row">
+                                    <div class="col-md-12">{{form.ln_author}}</div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary waves-effect waves-light">{% trans 'Submit' %}</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /row -->
+    </div>
+    <!-- Main-content-body closed -->
+</div>
+<script>
+    var author = "{{user.id}}"
+    document.getElementById("author").value = author;
+</script>
+{% endif %}
+{% endblock %}

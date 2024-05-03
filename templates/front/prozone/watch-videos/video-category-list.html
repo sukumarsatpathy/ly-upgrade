@@ -1,0 +1,80 @@
+{% extends 'front/base.html' %}
+{% load static %}
+{% load i18n %}
+{% load cropping %}
+{% block content %}
+<div class="owl-carousel-wrapper" style="height: 600px;">
+    <div class="owl-carousel dots-inside dots-horizontal-center dots-light show-dots-hover show-dots-xs nav-inside nav-inside-plus nav-dark nav-md nav-font-size-md show-nav-hover mb-0"
+         data-plugin-options="{'responsive': {'0': {'items': 1}, '479': {'items': 1}, '768': {'items': 1}, '979': {'items': 1}, '1199': {'items': 1}}, 'loop': false, 'autoHeight': false, 'margin': 0, 'dots': true, 'dotsVerticalOffset': '-75px', 'nav': false, 'animateIn': 'fadeIn', 'animateOut': 'fadeOut', 'mouseDrag': false, 'touchDrag': false, 'pullDrag': false, 'autoplay': true, 'autoplayTimeout': 9000, 'autoplayHoverPause': true, 'rewind': true}">
+        <img src="{% static 'img/slides/prozone.jpg' %}"/>
+    </div>
+</div>
+<div class="container py-2">
+    <div class="row">
+        <div class="col">
+            <div class="row">
+                <div class="col">
+                    <div class="row">
+                        <div class="col-lg-4 pb-3">
+                            <span class="img-thumbnail d-block">
+                                <a href="" target="_parent"><img class="img-fluid" src="{% static 'img/home/home-concept-item-1.png' %}" alt="ebooks"></a>
+                            </span>
+                            <p class="text-center"><a href="{% url 'audio-download' %}" target="_parent">Audios</a></p>
+                        </div>
+                        <div class="col-lg-4 pb-3">
+                            <span class="img-thumbnail d-block">
+                                <a href="" target="_parent"><img class="img-fluid" src="{% static 'img/home/home-concept-item-1.png' %}" alt="ebooks"></a>
+                            </span>
+                            <p class="text-center"><a href="{% url 'book-download' %}" target="_parent">Documents</a></p>
+                        </div>
+                        <div class="col-lg-4 pb-3">
+                            <span class="img-thumbnail d-block">
+                                <a href="" target="_parent"><img class="img-fluid" src="{% static 'img/home/home-concept-item-1.png' %}" alt="ebooks"></a>
+                            </span>
+                            <p class="text-center"><a href="{% url 'logo-download' %}" target="_parent">Logos</a></p>
+                        </div>
+                        <div class="col-lg-4 pb-3">
+                            <span class="img-thumbnail d-block">
+                                <a href="" target="_parent"><img class="img-fluid" src="{% static 'img/home/home-concept-item-1.png' %}" alt="ebooks"></a>
+                            </span>
+                            <p class="text-center"><a href="{% url 'quote-download' %}" target="_parent">LaughterQuotes</a></p>
+                        </div>
+                        <div class="col-lg-4 pb-3">
+                            <span class="img-thumbnail d-block">
+                                <a href="" target="_parent"><img class="img-fluid" src="{% static 'img/home/home-concept-item-1.png' %}" alt="ebooks"></a>
+                            </span>
+                            <p class="text-center"><a href="{% url 'book-download' %}" target="_parent">eBooks</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+<!--            {% if downloads.has_other_pages %}-->
+<!--            <ul class="pagination float-right">-->
+<!--                &lt;!&ndash; Left Arrow &ndash;&gt;-->
+<!--                {% if downloads.has_previous %}-->
+<!--                <li class="page-item"><a class="page-link" href="?page={{downloads.previous_page_number}}"><i-->
+<!--                        class="fas fa-angle-left"></i></a></li>-->
+<!--                {% else %}-->
+<!--                <li class="page-item disabled"><a class="page-link"><i class="fas fa-angle-left"></i></a></li>-->
+<!--                {% endif %}-->
+<!--                {% for i in downloads.paginator.page_range %}-->
+<!--                {% if downloads == i %}-->
+<!--                <li class="page-item"><a class="page-link" href="#">{{i}}</a></li>-->
+<!--                {% else %}-->
+<!--                <li class="page-item"><a class="page-link" href="?page={{i}}">{{i}}</a></li>-->
+<!--                {% endif %}-->
+<!--                {% endfor %}-->
+
+<!--                &lt;!&ndash; Right Arrow &ndash;&gt;-->
+<!--                {% if downloads.has_next %}-->
+<!--                <li class="page-item"><a class="page-link" href="?page={{downloads.nextr_page_number}}"><i-->
+<!--                        class="fas fa-angle-right"></i></a></li>-->
+<!--                {% else %}-->
+<!--                <li class="page-item disabled"><a class="page-link"><i class="fas fa-angle-right"></i></a></li>-->
+<!--                {% endif %}-->
+<!--            </ul>-->
+<!--            {% endif %}-->
+        </div>
+    </div>
+</div>
+{% endblock %}

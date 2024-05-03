@@ -1,0 +1,264 @@
+{% extends 'be/base.html' %}
+{% load static %}
+{% block meta %}
+<title>Add Testimonial - {{webSettingsUniversal.title}}</title>
+<meta name="description" content="{{frontendSettingsUniversal.metaDescription}}"/>
+<meta name="keywords" content="{{frontendSettingsUniversal.metaKeyword}}"/>
+<meta property="og:title" content="Add Testimonial - {{frontendSettingsUniversal.title}}"/>
+<meta property="og:url" content="{{request.scheme}}://{{request.get_host}}{{request.get_full_path}}"/>
+<meta property="og:site_name" content="{{userAccount.full_name}} - {{frontendSettingsUniversal.title}}"/>
+{% endblock %}
+{% block content %}
+<div class="d-flex flex-column flex-column-fluid">
+    <div class="app-content flex-column-fluid mt-10">
+        <div class="app-container container-xxl">
+            {% include 'be/includes/alert.html' %}
+            <div class="card">
+                <div class="card-header ribbon ribbon-end ribbon-clip">
+                    <div class="ribbon-label">
+                        Create
+                        <span class="ribbon-inner bg-primary"></span>
+                    </div>
+                    <div class="card-title fw-bold m-0">Add Testimonial</div>
+                </div>
+                <div class="card-body pt-0">
+                    <div class="card mb-5 mb-xl-10">
+                        <div class="collapse show">
+                            <form id="testimonialForm" action="{% url 'testimonialAdd' %}" method="post" class="form" enctype="multipart/form-data" novalidate>
+                                {% csrf_token %}
+                                <div class="card-body border-top p-9">
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            {% if user.is_superuser %}
+                                            <div id="id_author"
+                                                 class="form-floating mb-7 {% if tForm.author.errors %}has-error{% endif %}">
+                                                <select id="author-select" class="form-select" name="author"></select>
+                                                <label class="required">Select Author</label>
+                                                {% for error in tForm.author.errors %}
+                                                <div class="text-danger mt-2" id="error-for-author">
+                                                    {{ error|escape }}
+                                                </div>
+                                                {% endfor %}
+                                            </div>
+                                            {% endif %}
+                                            {% if not user.is_superuser %}
+                                            {{ tForm.author }}
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <div class="form-floating mb-7 {% if tForm.title.errors %}has-error{% endif %}">
+                                                {{ tForm.title }}
+                                                <label class="required">Title</label>
+                                                {% for error in tForm.title.errors %}
+                                                <div class="text-danger mt-2" id="error-for-title">
+                                                    {{ error|escape }}
+                                                </div>
+                                                {% endfor %}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <div class="mb-7 {% if tForm.description.errors %}has-error{% endif %}">
+                                                {{ tForm.description }}
+                                                {{ tForm.media }}
+                                                <label class="required">Description</label>
+                                                {% for error in tForm.description.errors %}
+                                                <div class="text-danger mt-2" id="error-for-description">
+                                                    {{ error|escape }}
+                                                </div>
+                                                {% endfor %}
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <!-- Image input field -->
+                                            <div id="imageInput" class="mb-7 {% if tForm.image.errors %}has-error{% endif %}">
+                                                {{ tForm.image }}
+                                                {% for error in tForm.image.errors %}
+                                                <div class="text-danger mt-2" id="error-for-image">
+                                                    {{ error|escape }}
+                                                </div>
+                                                {% endfor %}
+                                            </div>
+                                            <img id="imagePreview" style="max-width: 100%; display: none;">
+                                        </div>
+                                    </div>
+                                    <!-- Non Field Errors -->
+                                    {% for error in tForm.non_field_errors %}
+                                    <div class="text-danger mt-2">
+                                        {{ error|escape }}
+                                    </div>
+                                    {% endfor %}
+                                </div>
+                                <div class="h4 px-5">Personal Details</div>
+                                <div class="card-body border-top">
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <div class="form-floating mb-7 {% if tForm.location.errors %}has-error{% endif %}">
+                                                {{ tForm.location }}
+                                                <label class="required">Country</label>
+                                                {% for error in tForm.location.errors %}
+                                                <div class="text-danger mt-2" id="error-for-location">
+                                                    {{ error|escape }}
+                                                </div>
+                                                {% endfor %}
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="form-floating mb-7 {% if tForm.publisher.errors %}has-error{% endif %}">
+                                                {{ tForm.publisher }}
+                                                <label class="required">Author</label>
+                                                {% for error in tForm.publisher.errors %}
+                                                <div class="text-danger mt-2">
+                                                    {{ error|escape }}
+                                                </div>
+                                                {% endfor %}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Non Field Errors -->
+                                    {% for error in tcForm.non_field_errors %}
+                                    <div class="text-danger mt-2">
+                                        {{ error|escape }}
+                                    </div>
+                                    {% endfor %}
+                                </div>
+                                <div class="h4 px-5">SEO Details <small>(Optional)</small></div>
+                                <div class="card-body border-top p-9 datepicker">
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <div class="form-floating mb-7 {% if tForm.meta_title.errors %}has-error{% endif %} ">
+                                                {{ tForm.meta_title }}
+                                                <label class="fw-semibold fs-6 mb-2">Meta Title</label>
+                                                {% for error in tForm.meta_title.errors %}
+                                                <div class="text-danger mt-2">
+                                                    {{ error|escape }}
+                                                </div>
+                                                {% endfor %}
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="form-floating mb-7 {% if tForm.meta_description.errors %}has-error{% endif %} ">
+                                                {{ tForm.meta_description }}
+                                                <label class="fw-semibold fs-6 mb-2">Meta Description</label>
+                                                {% for error in tForm.meta_description.errors %}
+                                                <div class="text-danger mt-2">
+                                                    {{ error|escape }}
+                                                </div>
+                                                {% endfor %}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Non Field Errors -->
+                                    {% for error in tForm.non_field_errors %}
+                                    <div class="text-danger mt-2">
+                                        {{ error|escape }}
+                                    </div>
+                                    {% endfor %}
+                                </div>
+                                <div class="card-footer d-flex justify-content-end py-6 px-9">
+                                    <a href="{% url 'testimonialList' %}" class="btn btn-light-info me-3">Discard</a>
+                                    <button type="submit" class="btn btn-primary">Save Changes</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block extraJS %}
+<!--begin::Custom Javascript(used for this page only)-->
+<!-- To Generate date rows based on category selection -->
+<script>
+$(document).ready(function() {
+    $('#maxlength_mt').maxlength({
+        warningClass: "badge badge-warning",
+        limitReachedClass: "badge badge-success"
+    });
+    $('#maxlength_md').maxlength({
+        warningClass: "badge badge-warning",
+        limitReachedClass: "badge badge-success"
+    });
+});
+document.addEventListener('DOMContentLoaded', function() {
+    var image = document.getElementById('imagePreview');
+    var input = document.getElementById('imageInput');
+    var form = document.getElementById('testimonialForm'); // Ensure this matches your form's ID
+    var cropper;
+
+    input.addEventListener('change', function(e) {
+        var files = e.target.files;
+        var done = function(url) {
+            input.value = '';
+            image.src = url;
+            if (cropper) {
+                cropper.destroy();
+            }
+            cropper = new Cropper(image, {
+                aspectRatio: 1,
+                viewMode: 1,
+            });
+        };
+
+        if (files && files.length > 0) {
+            var reader = new FileReader();
+            reader.onload = function(e) {
+                done(reader.result);
+            };
+            reader.readAsDataURL(files[0]);
+        }
+    });
+
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        if (cropper) {
+            cropper.getCroppedCanvas().toBlob(function(blob) {
+                var formData = new FormData(form);
+                var publisherNameField = document.querySelector('[name="publisher"]'); // Adjust the name attribute to match your form field's name
+                var publisherName = publisherNameField ? publisherNameField.value : 'publisher';
+                var timestamp = new Date().getTime(); // Add a timestamp to make the filename unique
+                var fileName = `${publisherName}-cropped-${timestamp}.png`;
+                formData.append('image', blob, fileName);
+
+                fetch(form.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'X-Requested-With': 'XMLHttpRequest', // Indicate AJAX request
+                    },
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        window.location.href = data.redirect_url;// Assuming 'redirect_url' is sent from the server
+                    } else {
+                        Object.keys(data.errors).forEach(function(field) {
+                            var errorElement = document.getElementById('error-for-' + field);
+                            if (errorElement) { // Check if the element exists
+                                var errorMessage = data.errors[field].join(' ');
+                                errorElement.innerText = errorMessage;
+                                errorElement.style.display = 'block'; // Ensure the element is visible
+                            }
+                        });
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+            });
+        }
+    });
+});
+</script>
+<script src="{% static 'be/js/jquery-3.3.1.min.js' %}"></script>
+<!-- Search User Based on input from database -->
+<script src="{% static 'be/plugins/custom/filter/load-user.js' %}"></script>
+<!-- Cropper JS For image cropping -->
+<link href="{% static 'be/plugins/custom/cropper/cropper.bundle.css' %}" rel="stylesheet" type="text/css" />
+<script src="{% static 'be/plugins/custom/cropper/cropper.bundle.js' %}"></script>
+{% endblock %}

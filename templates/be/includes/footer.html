@@ -1,0 +1,13 @@
+{% load static %}
+<div id="kt_app_footer" class="app-footer">
+    <div class="app-container container-fluid d-flex flex-column flex-md-row flex-center flex-md-stack py-3">
+        <div class="text-dark order-2 order-md-1">
+            <span class="fw-bold me-1"><span class="text-danger">&copy;</span> <span class="text-primary">{% now "Y" %}</span></span>
+            <a href="{{request.scheme}}://{{request.get_host}}{{request.get_full_path}}" target="_blank" class="text-gray-800 text-hover-primary">{{webSettingsUniversal.title}}</a>. All Rights Reserved.
+        </div>
+		<div class="text-dark order-2 order-md-1">
+            <span class="text-muted fw-semibold">Created with <img src="{% static 'be/media/heart.png' %}" width="18px" height="18px" /> by</span>
+            <a href="https://www.laughteryoga.org" target="_blank" class="menu-link">Er. Sukumar Satapathy</a>
+        </div>
+    </div>
+</div>

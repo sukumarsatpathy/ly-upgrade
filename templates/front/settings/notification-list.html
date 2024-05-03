@@ -1,0 +1,40 @@
+{% extends 'front/dashboard-base.html' %}
+{% load i18n %}
+{% load static %}
+{% load cropping %}
+{% block content %}
+<div class="container-fluid">
+    <div class="main-content-body">
+        <div class="row">
+            {% for notifications in all_notifications %}
+            <div class="col-xl-4 col-lg-6 col-md-12">
+                <div class="card overflow-hidden blog-style1">
+                    <div class="card-body">
+                        <div class="item7-card-desc d-flex mb-3">
+                            <a href="#" class="d-flex">
+                                <svg class="fill-default svg-size-sm mr-2" xmlns="http://www.w3.org/2000/svg"
+                                     viewBox="0 0 24 24">
+                                    <path d="M0 0h24v24H0V0z" fill="none"></path>
+                                    <path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V9h14v10zm0-12H5V5h14v2zM7 11h5v5H7z"></path>
+                                </svg>
+                                <div class="mt-0 text-muted">{{notifications.modified_date}}</div>
+                            </a>
+                        </div>
+                        <h5 class="font-weight-semibold title">{{notifications.title}}</h5>
+                        <p class="mb-0">{{notifications.description|safe}}</p>
+                    </div>
+                    <div class="card-body">
+                        <div class="d-flex align-items-center mt-auto">
+                            <img src="{% static 'img/notification-round-logo.png' %}" class="avatar brround avatar-sm mr-3" alt="Laughter Yoga International Logo"/>
+                            <div>
+                                <a href="profile.html" class="font-weight-semibold user-name">Laughter Yoga International</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}

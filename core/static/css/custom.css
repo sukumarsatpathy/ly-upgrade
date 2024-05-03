@@ -1,0 +1,511 @@
+/* style inputs and link buttons */
+input,
+.btn {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 4px;
+  margin: 5px 0;
+  opacity: 0.85;
+  display: inline-block;
+  font-size: 17px;
+  line-height: 20px;
+  text-decoration: none; /* remove underline from anchors */
+}
+
+input:hover,
+.btn:hover {
+  opacity: 1;
+}
+
+/* add appropriate colors to fb, twitter and google buttons */
+.fb {
+  background-color: #3B5998;
+  color: white;
+}
+
+.twitter {
+  background-color: #55ACEE;
+  color: white;
+}
+
+.google {
+  background-color: #dd4b39;
+  color: white;
+}
+
+/* style the submit button */
+input[type=submit] {
+  background-color: #4CAF50;
+  color: white;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+/* Two-column layout */
+.col {
+  float: left;
+  width: 50%;
+  margin: auto;
+  padding: 0 50px;
+  margin-top: 6px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* vertical line */
+.vl {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+  border: 2px solid #ddd;
+  height: 175px;
+}
+
+/* text inside the vertical line */
+.vl-innertext {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #f1f1f1;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  padding: 8px 10px;
+}
+
+/* hide some text on medium and large screens */
+.hide-md-lg {
+  display: none;
+}
+
+/* bottom container */
+.bottom-container {
+  text-align: center;
+  background-color: #666;
+  border-radius: 0px 0px 4px 4px;
+}
+
+/* Responsive layout - when the screen is less than 650px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 650px) {
+  .col {
+    width: 100%;
+    margin-top: 0;
+  }
+  /* hide the vertical line */
+  .vl {
+    display: none;
+  }
+  /* show the hidden text on small screens */
+  .hide-md-lg {
+    display: block;
+    text-align: center;
+  }
+}
+
+/* Pricing Table  Design 2 */
+.pricingTable {
+    text-align: center;
+    background: #fff;
+    margin: 0 -15px;
+    box-shadow: 0 0 10px #ababab;
+    padding-bottom: 40px;
+    border-radius: 10px;
+    color: #cad0de;
+    transform: scale(1);
+    transition: all .5s ease 0s
+}
+
+.pricingTable:hover {
+    transform: scale(1.05);
+    z-index: 1
+}
+
+.pricingTable .pricingTable-header {
+    padding: 40px 0;
+    background: #d1e4f5;
+    border-radius: 10px 10px 50% 50%;
+    transition: all .5s ease 0s
+}
+
+.pricingTable:hover .pricingTable-header {
+    background: #0066b3;
+}
+
+.pricingTable .pricingTable-header i {
+    font-size: 50px;
+    color: #858c9a;
+    margin-bottom: 10px;
+    transition: all .5s ease 0s
+}
+
+.pricingTable .price-value {
+    font-size: 35px;
+    color: #0066b3;
+    transition: all .5s ease 0s
+}
+
+.pricingTable .month {
+    display: block;
+    font-size: 17px;
+    font-weight: 700;
+    color: #0066b3;
+}
+
+.pricingTable:hover .month,
+.pricingTable:hover .price-value,
+.pricingTable:hover .pricingTable-header i {
+    color: #fff;
+}
+
+.pricingTable .heading {
+    font-size: 24px;
+    color: #0066b3;
+    margin: 5px 0 20px;
+    text-transform: uppercase
+}
+
+.pricingTable .pricing-content ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 30px
+}
+
+.pricingTable .pricing-content ul li {
+    line-height: 30px;
+    color: #a7a8aa
+}
+
+.pricingTable .pricingTable-signup a {
+    display: inline-block;
+    font-size: 15px;
+    color: #fff;
+    padding: 10px 35px;
+    border-radius: 20px;
+    background: #0066b3;
+    text-transform: uppercase;
+    transition: all .3s ease 0s
+}
+
+.pricingTable .pricingTable-signup a:hover {
+    box-shadow: 0 0 10px #0066b3;
+}
+
+.pricingTable.blue .heading,
+.pricingTable.blue .price-value {
+    color: #0066b3
+}
+
+.pricingTable.blue .pricingTable-signup a,
+.pricingTable.blue:hover .pricingTable-header {
+    background: #0066b3;
+}
+
+.pricingTable.blue .pricingTable-signup a:hover {
+    box-shadow: 0 0 10px #0066b3;
+}
+
+.pricingTable.red .heading,
+.pricingTable.red .price-value {
+    color: #ff4b4b
+}
+
+.pricingTable.red .pricingTable-signup a,
+.pricingTable.red:hover .pricingTable-header {
+    background: #ff4b4b
+}
+
+.pricingTable.red .pricingTable-signup a:hover {
+    box-shadow: 0 0 10px #ff4b4b
+}
+
+.pricingTable.green .heading,
+.pricingTable.green .price-value {
+    color: #0066b3
+}
+
+.pricingTable.green .pricingTable-signup a,
+.pricingTable.green:hover .pricingTable-header {
+    background: #0066b3
+}
+
+.pricingTable.green .pricingTable-signup a:hover {
+    box-shadow: 0 0 10px #0066b3;
+}
+
+.pricingTable.blue:hover .price-value,
+.pricingTable.green:hover .price-value,
+.pricingTable.red:hover .price-value {
+    color: #fff
+}
+
+@media screen and (max-width:990px) {
+    .pricingTable {
+        margin: 0 0 20px
+    }
+}
+
+/* Stripe Card Element Custom CSS */
+#card-element {
+    display: block;
+    width: 100%;
+    height: calc(1.5em + .75rem + 2px);
+    padding: 10px 15px;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-top-color: rgb(206, 212, 218);
+    border-right-color: rgb(206, 212, 218);
+    border-bottom-color: rgb(206, 212, 218);
+    border-left-color: rgb(206, 212, 218);
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+/* Error Page Custom CSS */
+#notfound {
+	position: relative;
+	height: 75vh;
+}
+
+#notfound .notfound {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	-webkit-transform: translate(-50%, -50%);
+	  -ms-transform: translate(-50%, -50%);
+		  transform: translate(-50%, -50%);
+}
+
+.notfound {
+	max-width: 560px;
+	width: 100%;
+	padding-left: 160px;
+	line-height: 1.1;
+}
+
+.notfound .notfound-404 {
+	position: absolute;
+	left: 0;
+	top: 0;
+	display: inline-block;
+	width: 140px;
+	height: 140px;
+	background-size: cover;
+}
+
+.notfound .notfound-404:before {
+	content: '';
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	-webkit-transform: scale(2.4);
+	  -ms-transform: scale(2.4);
+		  transform: scale(2.4);
+	border-radius: 50%;
+	background-color: #f2f5f8;
+	z-index: -1;
+}
+
+.notfound h1 {
+	font-family: 'Nunito', sans-serif;
+	font-size: 65px;
+	font-weight: 700;
+	margin-top: 0px;
+	margin-bottom: 10px;
+	color: #151723;
+	text-transform: uppercase;
+}
+
+.notfound h2 {
+	font-family: 'Nunito', sans-serif;
+	font-size: 21px;
+	font-weight: 400;
+	margin: 0;
+	text-transform: uppercase;
+	color: #151723;
+}
+
+.notfound p {
+	font-family: 'Nunito', sans-serif;
+	color: #999fa5;
+	font-weight: 400;
+}
+
+.notfound a {
+	font-family: 'Nunito', sans-serif;
+	display: inline-block;
+	font-weight: 700;
+	border-radius: 40px;
+	text-decoration: none;
+	color: #388dbc;
+}
+
+@media only screen and (max-width: 767px) {
+	.notfound .notfound-404 {
+		width: 110px;
+		height: 110px;
+	}
+	.notfound {
+		padding-left: 15px;
+		padding-right: 15px;
+		padding-top: 110px;
+	}
+}
+
+/* Holidays Color Scheme Blue Starts Here */
+section.section.holidays {
+    background: #bb96d1;
+	border-top: 5px solid #f1f1f1;
+	margin: 30px 0;
+	padding: 5px 0;
+}
+
+section.section.holidays p{
+    color: #ffffff;
+}
+
+section.section.holidays h1{
+    color: #ffffff;
+}
+
+section.section.holidays ol{
+    color: #ffffff;
+}
+
+/* Holidays Color Scheme Blue Ends Here */
+
+.cstm-float{
+    position:fixed;
+	width:50px;
+	height:48px;
+	bottom:50px;
+	right:10px;
+	background-color:#0066b3;
+	color:#ffffff !important;
+	border-radius:5px;
+	text-align:center;
+	box-shadow: 2px 2px 3px #999;
+}
+
+.cstm-float-icon{
+	margin-top:16px;
+}
+
+/* Countdown animation */
+
+#countdown
+{
+    text-align: center;
+}
+
+.cstm-ul {
+    padding-left: 0px !important;
+}
+
+.cstm-li {
+  display: inline-block;
+  font-size: 1em;
+  list-style-type: none;
+  padding: 1em;
+  text-transform: uppercase;
+  line-height:50px;
+}
+
+.cstm-li span {
+  display: block;
+  font-size: 4.5rem;
+}
+
+@media all and (max-width: 768px) {
+  .cstm-li {
+    font-size: calc(1rem * var(--smaller));
+    padding: calc(2em * var(--smaller));
+  }
+
+  .cstm-li span {
+    font-size: calc(3.375rem * var(--smaller));
+  }
+}
+
+
+/* Coundown CSS Starts Here */
+
+#clockdiv{
+    color: #696969;
+    display: inline-block;
+    font-weight: 100;
+    text-align: center;
+    font-size: 30px;
+}
+#clockdiv > div{
+    color: #fff;
+    padding: 10px;
+    border-radius: 3px;
+    background: #696969;
+    display: inline-block;
+}
+#clockdiv div > span{
+    color: #696969;
+    padding: 15px;
+    border-radius: 3px;
+    background: #F5F5F5;
+    display: inline-block;
+}
+.smalltext{
+    padding-top: 5px;
+    font-size: 16px;
+}
+
+/* Coundown CSS Ends Here */
+
+/* Blur Text Starts Here */
+.blurry-text {
+   text-shadow: 0 0 15px #000000;
+   color: transparent;
+}
+.no-select {
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+}
+/* Blur Text Ends Here */
+
+
+/* Youtube Video Width CSS Starts Here */
+.video-container
+    {
+        position: relative;
+        padding-bottom: 56.25%;
+        height: 0;
+    }
+
+    .video-container iframe
+    {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+/* Youtube Video Width CSS Ends Here */
+
+.custom-h1-heading{
+    font: normal 44px / 54px "Lato", Helvetica, Arial, Verdana, sans-serif;
+    font-size: 26px;
+    line-height: 44px;
+    margin: 0 0 15px 0;
+    color: #212529;
+}

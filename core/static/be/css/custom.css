@@ -1,0 +1,11 @@
+.has-error input, .has-error select, .has-error textarea {
+    border: 1px solid red;
+}
+
+.has-error .form-select {
+    border: 1px solid red;
+}
+
+.has-error .form-control {
+    border: 1px solid red;
+}

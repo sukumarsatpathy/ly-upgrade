@@ -1,0 +1,198 @@
+{% extends 'front/base.html' %}
+{% load static %}
+{% load i18n %}
+{% load cropping %}
+{% block content %}
+
+<div class="owl-carousel-wrapper" style="height: 600px;">
+    <div class="owl-carousel dots-inside dots-horizontal-center dots-light show-dots-hover show-dots-xs nav-inside nav-inside-plus nav-dark nav-md nav-font-size-md show-nav-hover mb-0"
+         data-plugin-options="{'responsive': {'0': {'items': 1}, '479': {'items': 1}, '768': {'items': 1}, '979': {'items': 1}, '1199': {'items': 1}}, 'loop': false, 'autoHeight': false, 'margin': 0, 'dots': true, 'dotsVerticalOffset': '-75px', 'nav': false, 'animateIn': 'fadeIn', 'animateOut': 'fadeOut', 'mouseDrag': false, 'touchDrag': false, 'pullDrag': false, 'autoplay': true, 'autoplayTimeout': 9000, 'autoplayHoverPause': true, 'rewind': true}">
+        <img src="{% static 'img/slides/zoom-ly.jpg' %}"/>
+    </div>
+</div>
+<div class="body">
+    <div role="main" class="main">
+        <div class="container my-5 pt-md-4 pt-xl-0">
+            <div class="row align-items-center justify-content-center pb-4 mb-5">
+                <div class="row pb-1">
+                    <div class="col-lg-6 mb-2 pb-2">
+                        <iframe width="540" height="315" src="https://www.youtube.com/embed/zAebA3dOUBg" frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen></iframe>
+                    </div>
+                    <div class="col-lg-6">
+                        <h1>Can’t find Laughter Club in your area? No Problem!!</h1>
+                        <p>Join Skype Laughter Club & laugh 365 days from your home</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <section class="shop section section-height-2 border-0 m-0">
+            <div class="container">
+                <div class="products row row-gutter-sm mb-2 appear-animation" data-appear-animation="fadeInUpShorter"
+                     data-appear-animation-delay="750">
+                    <div class="col-lg-6">
+                        <h1>What is Skype Laughter Club</h1>
+                        <p>Do you want to add more laughter to your life but can’t find time to join a Laughter Club? No
+                            problem. Now, you can laugh from the comfort of your home or even on your cell phone. Skype
+                            laughter sessions are happening many times in a day suitable for different time zones. Just
+                            choose a convenient time and laugh several times in a day if you wish to.</p>
+                        <p>Skype Laughter Club is an online community of laughter lovers from all over the world who
+                            connect and practice Laughter Yoga on Skype for 15 – 20 minutes every day.</p>
+                        <p>On January 2009, Laughter Yoga professionals Ines Schwarz from Austria and Anu Saari from
+                            Finland created Skype Laughter Club and invited several laughter lovers from all over the
+                            world to join them and since then it has caught up globally.</p>
+                        <p>Please sign up for zoom and click on the following link.</p>
+                    </div>
+                    <div class="col-lg-6 mb-2 pb-2">
+                        <p><img src="{% static 'img/pages/skype-lc.jpg' %}" class="img-fluid" alt="skype-laughter-club">
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="container my-5 pt-md-4 pt-xl-0">
+            <div class="products row row-gutter-sm mb-4 appear-animation" data-appear-animation="fadeInUpShorter"
+                 data-appear-animation-delay="750">
+                <div class="col-lg-6 mb-4 pb-2">
+                    <img src="{% static 'img/pages/skypely.jpg' %}" class="img-fluid"
+                         alt="skype-laughter-club">
+                </div>
+                <div class="col-lg-6">
+                    <h1>Why Skype Laughter Club</h1>
+                    <p>The demand for Laughter Yoga has increased exponentially and we are getting inquiries from all
+                        over the world from people who wish to practice Laughter Yoga and get multiple benefits from it.
+                        At many places there are no Laughter Clubs, no laughter leaders or teachers and no laughter
+                        classes. So how does one practice their laughter exercises? Skype Laughter Club is the answer
+                        where you can do Laughter Yoga every day.</p>
+                    <p>You will get the benefits of laughter exercises only if you laugh every day for at least for 15 –
+                        20 minutes. Laughter Clubs in the West happen only once in a week and that’s not good enough to
+                        reap the benefits. Therefore, Skype is a great way to practice laughter every day, especially
+                        for Laughter Yoga teachers and leaders.</p>
+                </div>
+            </div>
+        </div>
+
+        <section class="section border-0 m-0">
+            <div class="container my-5 pt-md-4 pt-xl-0">
+                <div class="row align-items-center justify-content-center pb-4 mb-5">
+                    <div class="row pb-1">
+                        <div class="col-lg-6">
+                            <p>
+                                <iframe width="540" height="315" src="https://www.youtube.com/embed/AjZ4MZft3zU"
+                                        frameborder="0"
+                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                        allowfullscreen></iframe>
+                            </p>
+                            <p>
+                                <iframe width="540" height="315" src="https://www.youtube.com/embed/Zima1DdronM"
+                                        frameborder="0"
+                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                        allowfullscreen></iframe>
+                            </p>
+                        </div>
+                        <div class="col-lg-6 mb-4 pb-2">
+                            <h1>How To Join Skype Laughter Club</h1>
+                            <p>What you need is a computer with Skype (it is free to download www.skype.com) internet
+                                connection, a headset or a microphone and speakers. Joining Skype Laughter Club is
+                                easy.</p>
+                            <ul>
+                                <li>Step 1 – Add “laughterclub” to your Skype contacts. We will accept your request and
+                                    you are on.
+                                </li>
+                                <li>Step 2 – Choose the convenient time according to your time zone and you will find a
+                                    list of different laughter sessions on our website.
+                                </li>
+                                <li>Step 3 – Before starting a session, the coordinator of Skype Laughter Club sends out
+                                    a message inviting the online contacts to join. If you wish to join the session
+                                    please send a message saying “I am in… ho ho hahaha… Please call” or send a smiley
+                                    sign. At the scheduled time you will get a call and you can join in.
+                                </li>
+                            </ul>
+                            <p><strong>How Long A Session Lasts</strong></p>
+                            <p>Normally, Skype laughter session is for 15 minutes but if there are some latecomers the
+                                session is extended for another 5 minutes.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="container my-5 pt-md-4 pt-xl-0">
+            <div class="products row row-gutter-sm mb-4 appear-animation" data-appear-animation="fadeInUpShorter"
+                 data-appear-animation-delay="750">
+                <div class="col-lg-6 mb-4 pb-2">
+
+                </div>
+                <div class="col-lg-6">
+
+                </div>
+            </div>
+        </div>
+
+        <section class="section border-0 m-0">
+            <div class="container my-5 pt-md-4 pt-xl-0">
+                <div class="row align-items-center justify-content-center pb-4 mb-5">
+                    <div class="row pb-1">
+                        <div class="col-lg-6">
+                            <h1>What Can You Expect From A Skype Laughter Session</h1>
+                            <ul>
+                                <li>It is a conference call where we just laugh for no reason and focus on laughter as a form of
+                                    exercise. You can laugh gently, hear others laughing and wait for your laughter to become
+                                    spontaneous. Even if it does not, just keep laughing in order to prolong your laughter. In
+                                    between, you can take breaks and do deep breathing while you hear other people laugh.
+                                </li>
+                                <li>You can also have a look at the chat box and interact with people from different parts of
+                                    the world and get to know each other. You can even write if there is any problem with the
+                                    Skype call.
+                                </li>
+                                <li>Normally, we hear other people laugh on audio and do not encourage people to show up on
+                                    video chat as it affects the quality of transmission and the Skype calls start breaking.
+                                    However, at the end of the session if there are less than 10 people you can show up on video
+                                    and say hello to each other.
+                                </li>
+                                <li>If your call drops during the session due to a connection error you can call again and join
+                                    the group or send a chat message again saying “please call”.
+                                </li>
+                                <li>Important: During the session make sure that is no disturbance in the form of funny sounds
+                                    and noises in the background. Let the laughter be pure laughter. Nevertheless, you can play
+                                    with fun stuff, gibberish talking, animal sounds and anything playful.
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-lg-6 mb-4 pb-2">
+                            <img src="{% static 'img/pages/skypely.jpg' %}" class="img-fluid" alt="skype-laughter-club">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="container my-5 pt-md-4 pt-xl-0">
+            <div class="text-center">
+                    <h1>Work At home And Laugh</h1>
+                    <p>You can keep doing your household chores and still laugh on Skype by keeping your speaker phone on.
+                    <br>Watch Madhuri Kataria as she cooks and laughs on Skype.</br>
+                </div>
+            <div class="products row row-gutter-sm mb-4 appear-animation" data-appear-animation="fadeInUpShorter"
+                 data-appear-animation-delay="750">
+                <div class="col-lg-6 mb-4 pb-2">
+                    <iframe width="540" height="315" src="https://www.youtube.com/embed/p0TPFYepD3s"
+                            frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen></iframe>
+                </div>
+                <div class="col-lg-6">
+                    <iframe width="540" height="315" src="https://www.youtube.com/embed/9qGDWrUmFg8"
+                                frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}

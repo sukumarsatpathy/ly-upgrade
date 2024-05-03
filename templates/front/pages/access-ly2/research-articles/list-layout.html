@@ -1,0 +1,37 @@
+{% extends 'front/base.html' %}
+{% load i18n %}
+{% block content %}
+<div role="main" class="main">
+    {% include 'front/includes/breadcrumb.html' %}
+    <div class="container py-2">
+        <div class="row">
+            <div class="col-lg-9">
+                <h4>{% trans 'Research Articles' %}</h4>
+                <table class="table table-bordered">
+                    <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>{% trans 'Title' %}</th>
+                        <th>{% trans 'Published Date' %}</th>
+                        <th>{% trans 'Views' %}</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for ra in all_research_articles %}
+                    <tr>
+                        <td>{{forloop.counter}}</td>
+                        <td><a href="{{ra.slug}}">{{ra.title}}</a></td>
+                        <td>{{ra.created_date.date}}</td>
+                        <td>{{ra.views}}</td>
+                    </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-lg-3 order-lg-2">
+                {% include 'front/includes/sidebar/prozone.html' %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

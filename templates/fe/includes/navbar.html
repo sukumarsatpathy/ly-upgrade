@@ -1,0 +1,118 @@
+{% load i18n %}
+<div class="header-container container">
+    <div class="header-row">
+        <div class="header-column w-100">
+            <div class="header-row justify-content-between">
+                <div class="header-logo z-index-2 col-lg-2 px-0">
+                    <a href="{% url 'home' %}">
+                        <img src="{{webSettingsUniversal.logo_dark.url}}" alt="{{webSettingsUniversal.title}}"
+                             style="width: 100%" height="auto" data-sticky-width="82" data-sticky-height="40"
+                             data-sticky-top="84">
+                    </a>
+                </div>
+                {% with url_name=request.resolver_match.url_name %}
+                <div class="header-nav header-nav-links justify-content-end pr-lg-4 mr-lg-3">
+                    <div class="header-nav-main header-nav-main-dropdown-no-borders header-nav-main-effect-3 header-nav-main-sub-effect-1">
+                        <nav class="collapse">
+                            <ul class="nav nav-pills" id="mainNav">
+                                <li class="dropdown line-height-2">
+                                    <a class="dropdown-item dropdown-toggle {% if url_name == 'home' %}active{% endif %}" href="/">{% trans 'Home' %}</a>
+                                </li>
+                                <li class="dropdown line-height-2">
+                                    <a class="dropdown-item dropdown-toggle" href="#">{% trans 'About' %}</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="#">{% trans 'About Laughter Yoga' %}</a></li>
+                                        <li><a class="dropdown-item" href="#">{% trans 'Free Online Laughter Club' %}</a></li>
+                                        <li><a class="dropdown-item" href="#">{% trans 'LY for Yoga Practitioners' %}</a></li>
+                                        <li><a class="dropdown-item" href="#">{% trans 'LY with Senior' %}</a></li>
+                                        <li><a class="dropdown-item" href="#">{% trans 'LY in Business' %}</a></li>
+                                        <li><a class="dropdown-item" href="#">{% trans 'LY in Schools and Colleges' %}</a></li>
+                                        <li><a class="dropdown-item" href="#">{% trans 'Laughter Yoga in Depression' %}</a></li>
+                                        <li><a class="dropdown-item" href="#}">{% trans 'Laughter Yoga in Cancer' %}</a></li>
+                                        <li><a class="dropdown-item" href="#">{% trans 'Laughter Yoga in Special Needs' %}</a></li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown">
+                                    <a class="dropdown-item dropdown-toggle" href="#">
+                                        Trainings
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="#">About Training</a></li>
+                                        <li><a class="dropdown-item" href="#">Find Training Worldwide</a></li>
+                                        <li><a class="dropdown-item" href="#" target="_parent">Online Trainings</a></li>
+                                        <li><a class="dropdown-item" href="#">Dr. K's Calender</a></li>
+                                        <li><a class="dropdown-item" href="#">Teacher Training by Dr. K</a></li>
+                                        <li><a class="dropdown-item" href="#">Spiritual Retreat by Dr. K</a></li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown">
+                                    <a class="dropdown-item dropdown-toggle" href="#">Finder</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="#">Find LY
+                                            Professionals</a></li>
+                                        <li><a class="dropdown-item" href="#">Find Training
+                                            Worldwide</a></li>
+                                        <li><a class="dropdown-item" href="#">Find Events
+                                            Worldwide</a></li>
+                                        <li><a class="dropdown-item" href="#">Find Laughter
+                                            Clubs</a></li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown">
+                                    <a class="dropdown-item dropdown-toggle" href="#">
+                                        Knowledge Center
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li>
+                                            <a class="dropdown-item" href="#">Dr. Kataria’s Diary</a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="#">Laughter Yoga Blogs</a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="#">LY Research Articles</a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="#">Laughter Yoga News</a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="#">Life Changing Experiences</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown">
+                                    <a class="dropdown-item dropdown-toggle {% if url_name == 'prozone' %}active{% endif %}" href="#">Prozone</a>
+                                </li>
+                                <li class="dropdown">
+                                    <a class="dropdown-item dropdown-toggle" href="#">LY 2.0</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="">LY 2.0 English</a></li>
+                                        <li><a class="dropdown-item" href="">LY 2.0 Japanese</a></li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown"><a class="dropdown-item dropdown-toggle" href="https://shop.laughteryoga.org" target="_blank">Shop</a></li>
+                                {% if user.is_authenticated %}
+                                <li class="dropdown">
+                                    <a class="dropdown-item dropdown-toggle" href="#">Account</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="{% url 'dashboard' %}">Dashboard</a></li>
+                                        <li><a class="dropdown-item" href="{% url 'logout' %}">Logout</a></li>
+                                    </ul>
+                                </li>
+                                {% else %}
+                                <li class="dropdown"><a class="dropdown-item" href="{% url 'login' %}">Login</a></li>
+                                {% endif %}
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+                {% endwith %}
+                <button class="btn header-btn-collapse-nav ml-4" data-toggle="collapse"
+                        data-target=".header-nav-main nav" aria-label="Mobile Nav">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+            </div>
+        </div>
+    </div>
+</div>
