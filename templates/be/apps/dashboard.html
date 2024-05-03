@@ -16,9 +16,11 @@
         <div class="app-container container-xxl">
             <div class="card">
                 {% include 'be/includes/alert.html' %}
-                <div class="card-header border-0 pt-6"></div>
+                <div class="card-header border-0 pt-6">
+                    <img src="{% static 'img/slides/access-prozone.png' %}" alt="Access Prozone" class="w-100"/>
+                </div>
                 <div class="card-body py-4">
-                    <ul id="lightgallery" class="list-unstyled mb-0 row row-sm">
+                    <ul class="list-unstyled mb-0 row row-sm">
                         {% if user.user_type != 'General User' %}
                         <li class="col-sm-6 col-lg-4"
                             data-responsive="{% static 'img/downloads/paid/prozone/pro-diary.png' %}"
@@ -26,7 +28,7 @@
                             <a href="{% url 'drk-pro-diary' %}" target="_parent" class="shadow p-3 bg-white rounded">
                                 <img class="img-responsive"
                                      src="{% static 'img/downloads/paid/prozone/pro-diary.png' %}"
-                                     alt="Dr K's Pro Diary">
+                                     alt="Dr K's Pro Diary" style="width:350px;">
                             </a>
                         </li>
                         {% endif %}
@@ -38,7 +40,7 @@
                                class="shadow p-3 bg-white rounded">
                                 <img class="img-responsive"
                                      src="{% static 'img/downloads/paid/prozone/pro-research-article.png' %}"
-                                     alt="Change Password">
+                                     alt="Change Password" style="width:350px;">
                             </a>
                         </li>
                         {% endif %}
@@ -49,7 +51,7 @@
                             <a href="{% url 'watch-pro-videos' %}" target="_parent" class="shadow p-3 bg-white rounded">
                                 <img class="img-responsive"
                                      src="{% static 'img/downloads/paid/prozone/pro-videos.png' %}"
-                                     alt="Access Prozone">
+                                     alt="Access Prozone" style="width:350px;">
                             </a>
                         </li>
                         {% endif %}
@@ -61,7 +63,7 @@
                                class="shadow p-3 bg-white rounded">
                                 <img class="img-responsive"
                                      src="{% static 'img/downloads/paid/prozone/pro-resources.png' %}"
-                                     alt="Access LY 2.0">
+                                     alt="Access LY 2.0" style="width:350px;">
                             </a>
                         </li>
                         {% endif %}
@@ -72,7 +74,7 @@
                             <a href="{% url 'download-photos' %}" target="_parent" class="shadow p-3 bg-white rounded">
                                 <img class="img-responsive"
                                      src="{% static 'img/downloads/paid/prozone/pro-download-photos.png' %}"
-                                     alt="Download Photos">
+                                     alt="Download Photos" style="width:350px;">
                             </a>
                         </li>
                         {% endif %}
@@ -83,7 +85,7 @@
                             <a href="{% url 'download-quotes' %}" target="_parent" class="shadow p-3 bg-white rounded">
                                 <img class="img-responsive"
                                      src="{% static 'img/downloads/paid/prozone/laughter-quotes.png' %}"
-                                     alt="Laughter Quotes">
+                                     alt="Laughter Quotes" style="width:350px;">
                             </a>
                         </li>
                         {% endif %}
